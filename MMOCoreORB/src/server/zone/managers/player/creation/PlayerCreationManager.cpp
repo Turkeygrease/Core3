@@ -323,6 +323,42 @@ void PlayerCreationManager::loadLuaStartingItems(Lua* lua) {
 					commonStartingItemsLuaObject.getStringAt(itemNumber));
 		}
 		commonStartingItemsLuaObject.pop();
+// -------------------------Mindsoft added for racial specific items--------------------------------------
+
+	// Read human starting items.
+		LuaObject humanStartingItemsLuaObject = lua->getGlobalObject(
+				"humanStartingItems");
+		for (int itemNumber = 1;
+				itemNumber <= humanStartingItemsLuaObject.getTableSize();
+				itemNumber++) {
+			humanStartingItems.add(
+					humanStartingItemsLuaObject.getStringAt(itemNumber));
+		}
+		humanStartingItemsLuaObject.pop();
+
+	// Read ithorian starting items.
+		LuaObject ithorianStartingItemsLuaObject = lua->getGlobalObject(
+				"ithorianStartingItems");
+		for (int itemNumber = 1;
+				itemNumber <= ithorianStartingItemsLuaObject.getTableSize();
+				itemNumber++) {
+			ithorianStartingItems.add(
+					ithorianStartingItemsLuaObject.getStringAt(itemNumber));
+		}
+		ithorianStartingItemsLuaObject.pop();
+
+	// Read wookie starting items.
+		LuaObject wookieStartingItemsLuaObject = lua->getGlobalObject(
+				"wookieStartingItems");
+		for (int itemNumber = 1;
+				itemNumber <= wookieStartingItemsLuaObject.getTableSize();
+				itemNumber++) {
+			wookieStartingItems.add(
+					wookieStartingItemsLuaObject.getStringAt(itemNumber));
+		}
+		wookieStartingItemsLuaObject.pop();
+
+// -------------------------------------------------------------------------------------------------------
 	} catch (Exception& e) {
 		error("Failed to load starting items.");
 		error(e.getMessage());
@@ -416,18 +452,6 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
 	client->setPlayer(playerCreature);
 	playerCreature->setClient(client);
 
-	// Set starting cash and starting bank
-	playerCreature->clearCashCredits(false);
-	playerCreature->clearBankCredits(false);
-	{
-		TransactionLog trx(TrxCode::CHARACTERCREATION, playerCreature, startingCash, true);
-		playerCreature->addCashCredits(startingCash, false);
-	}
-	{
-		TransactionLog trx(TrxCode::CHARACTERCREATION, playerCreature, startingBank, false);
-		playerCreature->addBankCredits(startingBank, false);
-	}
-
 	ManagedReference<PlayerObject*> ghost = playerCreature->getPlayerObject();
 
 	if (ghost != nullptr) {
@@ -507,8 +531,8 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
 					if (lastCreatedCharacter.containsKey(accID)) {
 						Time lastCreatedTime = lastCreatedCharacter.get(accID);
 
-						if (lastCreatedTime.miliDifference() < 3600000) {
-							ErrorMessage* errMsg = new ErrorMessage("Create Error", "You are only permitted to create one character per hour. Repeat attempts prior to 1 hour elapsing will reset the timer.", 0x0);
+						if (lastCreatedTime.miliDifference() < 10800000) {
+							ErrorMessage* errMsg = new ErrorMessage("Create Error", "You are only permitted to create one character per 3 hours. Repeat attempts prior to 3 hours elapsing will reset the timer.", 0x0);
 							client->sendMessage(errMsg);
 
 							playerCreature->destroyPlayerCreatureFromDatabase(true);
@@ -528,6 +552,48 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
 			}
 		} else {
 			playerManager->updatePermissionLevel(playerCreature, PermissionLevelList::instance()->getLevelNumber("admin"));
+		}
+
+		// Set starting cash and starting bank
+		playerCreature->clearCashCredits(false);
+		playerCreature->clearBankCredits(false);
+		{
+			TransactionLog trx(TrxCode::CHARACTERCREATION, playerCreature, startingCash, true);
+			playerCreature->addCashCredits(startingCash, false);
+		}
+		{
+			TransactionLog trx(TrxCode::CHARACTERCREATION, playerCreature, startingBank, false);
+			playerCreature->addBankCredits(startingBank, false);
+		}
+
+		String charactersCreatedMsg = "";
+
+		try {
+			StringBuffer query;
+			uint32 galaxyId = zoneServer.get()->getGalaxyID();
+			uint32 accountId = client->getAccountID();
+			query << "SELECT sum(cTotal) total FROM (SELECT count(c.character_oid) cTotal FROM swgemu.characters c WHERE c.galaxy_id = " << galaxyId << " AND c.account_id = " << accountId << " UNION ALL SELECT count(d.character_oid) cTotal FROM swgemu.deleted_characters d WHERE d.galaxy_id = " << galaxyId << " AND d.account_id = " << accountId << ") t";
+			Reference<ResultSet*> res = ServerDatabase::instance()->executeQuery(query);
+
+			if (res != nullptr && res->next()) {
+				uint32 charactersTotal = res->getUnsignedInt(0);
+
+				if (charactersTotal >= 5) {
+					// Has created more than 5 characters, clear and give default credits
+					playerCreature->clearCashCredits(false);
+					playerCreature->clearBankCredits(false);
+					{
+						TransactionLog trx(TrxCode::CHARACTERCREATION, playerCreature, startingCash, true);
+						playerCreature->addCashCredits(1000, false);
+					}
+					{
+						TransactionLog trx(TrxCode::CHARACTERCREATION, playerCreature, startingBank, false);
+						playerCreature->addBankCredits(1000, false);
+					}
+				}
+			}
+		} catch (DatabaseException& e) {
+			error(e.getMessage());
 		}
 
 		if (doTutorial)
@@ -580,14 +646,21 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
 
 	chatManager->sendMail("system", "@newbie_tutorial/newbie_mail:welcome_subject", "@newbie_tutorial/newbie_mail:welcome_body", playerCreature->getFirstName());
 
-	//Join auction chat room
-	ghost->addChatRoom(chatManager->getAuctionRoom()->getRoomID());
+	// Added by Tyclo addition chat menus when creating a new character
+	ghost->addChatRoom(chatManager->getGeneralRoom()->getRoomID()); // Join general (Warfront) chat room
+	ghost->addChatRoom(chatManager->getAuctionRoom()->getRoomID()); // Join auction chat room
+	ghost->addChatRoom(chatManager->getServicesRoom()->getRoomID()); // Join services chat room
+	ghost->addChatRoom(chatManager->getThePitRoom()->getRoomID()); // Join the pit chat room
 
 	ManagedReference<SuiMessageBox*> box = new SuiMessageBox(playerCreature, SuiWindowType::NONE);
 	box->setPromptTitle("PLEASE NOTE");
-	box->setPromptText("You are limited to creating one character per hour. Attempting to create another character or deleting your character before the 1 hour timer expires will reset the timer.");
+	box->setPromptText("You are limited to creating one character per 3 hour period. Attempting to create another character or deleting your character before the 3 hour timer expires will reset the timer.\n\nPlease be aware, only your first 5 characters on Warfront are eligible to recieve 100,000 credits. After that your characters will only recieve 2000 credits.");
 
 	ghost->addSuiBox(box);
+	String playerName = playerCreature->getFirstName();
+	StringBuffer zBroadcast;
+	zBroadcast << " \\#CCFF66[Welcome] \\#ffffffPlayer \\#beeeef" << playerName << " \\#ffffffhas entered the galaxy!";
+	playerCreature->getZoneServer()->getChatManager()->broadcastGalaxy(nullptr, zBroadcast.toString());
 	playerCreature->sendMessage(box->generateMessage());
 
 	return true;
@@ -688,6 +761,29 @@ void PlayerCreationManager::addStartingItems(CreatureObject* creature,
 				itemNumber++) {
 			ManagedReference<SceneObject*> item = zoneServer->createObject(
 					commonStartingItems.get(itemNumber).hashCode(), 1);
+			if (item != nullptr) {
+				if (!inventory->transferObject(item, -1, false)) {
+					item->destroyObjectFromDatabase(true);
+				}
+			}
+		}
+
+		const Vector<String>* creoRaceItems; // -Mindsoft added to create race items
+
+		if (creature->getSpecies() == 4){
+			creoRaceItems = &wookieStartingItems;
+		}else if (creature->getSpecies() == 0x21){
+			creoRaceItems = &ithorianStartingItems;
+		}else{
+			creoRaceItems = &humanStartingItems;
+		}
+
+
+		//Add race starting items. -Mindsoft added for race specific items
+		for (int itemNumber = 0; itemNumber < creoRaceItems->size();
+				itemNumber++) {
+			ManagedReference<SceneObject*> item = zoneServer->createObject(
+					creoRaceItems->get(itemNumber).hashCode(), 1);
 			if (item != nullptr) {
 				if (!inventory->transferObject(item, -1, false)) {
 					item->destroyObjectFromDatabase(true);
@@ -890,6 +986,33 @@ void PlayerCreationManager::addStartingItemsInto(CreatureObject* creature,
 			item->destroyObjectFromDatabase(true);
 		}
 	}
+
+//-----------------------------------------------------------
+const Vector<String>* creoRaceItems; // -Mindsoft added to create race items
+
+		if (creature->getSpecies() == 4){
+			creoRaceItems = &wookieStartingItems;
+		}else if (creature->getSpecies() == 0x21){
+			creoRaceItems = &ithorianStartingItems;
+		}else{
+			creoRaceItems = &humanStartingItems;
+		}
+
+
+		//Add race starting items. -Mindsoft added for race specific items
+		for (int itemNumber = 0; itemNumber < creoRaceItems->size();
+				itemNumber++) {
+			ManagedReference<SceneObject*> item = zoneServer->createObject(
+					creoRaceItems->get(itemNumber).hashCode(), 1);
+			if (item != nullptr && container != nullptr && !item->isWeaponObject()) {
+				if (!container->transferObject(item, -1, false)) {
+					item->destroyObjectFromDatabase(true);
+				}
+			} else if (item != nullptr) {
+				item->destroyObjectFromDatabase(true);
+			}
+		}
+//-----------------------------------------------------------
 
 	//Add profession specific items.
 	PlayerObject* player = creature->getPlayerObject();

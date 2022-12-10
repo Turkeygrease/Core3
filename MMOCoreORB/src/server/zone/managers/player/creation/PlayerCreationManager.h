@@ -68,6 +68,20 @@ class PlayerCreationManager : public Singleton<PlayerCreationManager>, public Lo
 	 */
 	Vector<String> commonStartingItems;
 
+	/** -Mindsoft added
+	 * Vector containing starting items for humanoid models only.
+	 */
+	Vector<String> humanStartingItems;
+
+	/**-Mindsoft added
+	 * Vector containing starting items for ithorian models only.
+	 */
+	Vector<String> ithorianStartingItems;
+
+	/**-Mindsoft added
+	 * Vector containing starting items for wookie models only.
+	 */
+	Vector<String> wookieStartingItems;
 	int startingCash;
 	int startingBank;
 	int skillPoints;

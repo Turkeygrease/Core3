@@ -7,8 +7,19 @@
 
 #include "FactionManager.h"
 #include "FactionMap.h"
+#include "server/zone/objects/creature/CreatureObject.h"
 #include "server/zone/objects/player/PlayerObject.h"
 #include "templates/manager/TemplateManager.h"
+#include "server/ServerCore.h"
+#include "server/db/ServerDatabase.h"
+#include "server/zone/packets/player/PlayMusicMessage.h"
+#include "server/chat/ChatManager.h"
+#include "server/chat/room/ChatRoom.h"
+#include "server/zone/packets/chat/ChatRoomMessage.h"
+#include "server/zone/objects/group/GroupObject.h"
+#include "server/zone/managers/player/PlayerManager.h"
+#include "server/zone/objects/player/FactionStatus.h"
+#include "server/zone/managers/frs/FrsManager.h"
 
 FactionManager::FactionManager() {
 	setLoggingName("FactionManager");
@@ -81,6 +92,32 @@ void FactionManager::loadLuaConfig(String file) {
 
 	delete lua;
 	lua = nullptr;
+}
+
+void FactionManager::createGcwRooms(ChatManager* chatManager) {
+	ManagedReference<ChatRoom*> pvpRoom = chatManager->getPvpRoom();
+
+	// Imperial
+	imperialChat = chatManager->createRoom("Imperial", pvpRoom);
+	imperialChat->setPrivate();
+	imperialChat->setTitle("Imperial Chat");
+	imperialChat->setCanEnter(true);
+	imperialChat->setChatRoomType(ChatRoom::PVP);
+
+	// Rebel
+	rebelChat = chatManager->createRoom("Rebel", pvpRoom);
+	rebelChat->setPrivate();
+	rebelChat->setTitle("Rebel Chat");
+	rebelChat->setCanEnter(true);
+	rebelChat->setChatRoomType(ChatRoom::PVP);
+
+	// Kills
+	pvpNotificationChat = chatManager->createRoom("Notifications", pvpRoom);
+	pvpNotificationChat->setPrivate();
+	pvpNotificationChat->setTitle("Notifications");
+	pvpNotificationChat->setCanEnter(true);
+	pvpNotificationChat->setChatRoomType(ChatRoom::PVP);
+	pvpNotificationChat->setModerated(true);
 }
 
 FactionMap* FactionManager::getFactionMap() {
@@ -156,10 +193,149 @@ void FactionManager::awardFactionStanding(CreatureObject* player, const String& 
 void FactionManager::awardPvpFactionPoints(TangibleObject* killer, CreatureObject* destructedObject) {
 	if (killer->isPlayerCreature() && destructedObject->isPlayerCreature()) {
 		CreatureObject* killerCreature = cast<CreatureObject*>(killer);
+
+		// Mindsoft Added
+		if (killerCreature == destructedObject)
+			return; // If killer is target: Prevent Fight club warning on self/enviroment kills
+
+		ZoneServer* zoneServer = killer->getZoneServer();
 		ManagedReference<PlayerObject*> ghost = killerCreature->getPlayerObject();
-
+		ManagedReference<GroupObject*> group;		
 		ManagedReference<PlayerObject*> killedGhost = destructedObject->getPlayerObject();
+		ManagedReference<PlayerManager*> playerManager = zoneServer->getPlayerManager();
 
+		// Broadcast to Server
+		String playerName = getFactionHex(destructedObject) + destructedObject->getFirstName();
+		
+		String killerNames = getFactionHex(killerCreature) + killerCreature->getFirstName();
+	
+		if (Zone* zone = ghost->getZone()) {
+			// Fight Clubbing
+			const String fightClubMessage = " \\#f0f497[GCW] \\#ff982bFight Clubbing \\#ffffffis not tolerated. You will be penalized.";
+			const bool isFightClubbing = ghost->getAccountID() == killedGhost->getAccountID();
+			if (isFightClubbing) {
+				killerCreature->sendSystemMessage(fightClubMessage);
+				//ghost->addExperience("gcw_skill_xp", -20000,true);//remove target xp
+				//ghost->addExperience("force_rank_xp", -20000,true);//remove target xp
+
+				UnicodeString message = " " + killerNames + " \\#ffffffhas been penalized for \\#ff982bFight Clubbing\\#ffffff.";
+				BaseMessage* msg = new ChatRoomMessage(" \\#f0f497[GCW] ", zoneServer->getGalaxyName(), message, pvpNotificationChat->getRoomID());
+				pvpNotificationChat->broadcastMessage(msg);
+			}
+			//Grouped Fight clubbing
+			// only check members in Xp range of 128m		
+			const float Range = 128.0f;		
+			int groupMembersInRange = 1; // includes the original killer
+
+			// iterate group 
+			if (killerCreature->isGrouped()) {
+				ManagedReference<GroupObject*> group = killerCreature->getGroup();
+				int groupSize = group->getGroupSize();
+
+				// iterate over the group members
+				for (int i = 0; i < groupSize; i++) {
+					ManagedReference<CreatureObject*> groupMember = group->getGroupMember(i);
+
+					// skip the killer passed in
+					if (killerCreature->getObjectID() == groupMember->getObjectID())
+						continue;
+
+					// if the group member is in range...
+					if (killerCreature->isInRange(groupMember, Range)) {
+						CreatureObject* groupMemberCreature = dynamic_cast<CreatureObject*>(groupMember.get());
+
+						if (groupMemberCreature == NULL)
+							continue;
+
+						killerNames += " " + getFactionHex(groupMemberCreature) + groupMemberCreature->getFirstName();
+
+						if (!groupMemberCreature->isPlayerCreature())
+							continue;
+
+						// if the group member is in range...
+						if (killerCreature->isInRange(groupMember, Range)) {
+							groupMembersInRange++; // increment group counter
+
+							ManagedReference<PlayerObject*> groupMemberGhost = groupMemberCreature->getPlayerObject();
+							const bool isFightClubbing = groupMemberGhost->getAccountID() == killedGhost->getAccountID();
+
+							if (isFightClubbing) {
+								killerCreature->sendSystemMessage(fightClubMessage);
+								//killedGhost->addExperience("gcw_skill_xp", -20000,true);//remove target xp
+								//killedGhost->addExperience("force_rank_xp", -20000,true);//remove target xp
+
+								UnicodeString message = " " + getFactionHex(groupMemberCreature) + groupMemberCreature->getFirstName() + "\\#ffffff penalized for \\#ff982bFight Clubbing\\#ffffff.";
+								BaseMessage* msg = new ChatRoomMessage(" \\#f0f497[GCW] ", zoneServer->getGalaxyName(), message, pvpNotificationChat->getRoomID());
+								pvpNotificationChat->broadcastMessage(msg);
+							}
+						}		
+					}
+				}
+			}
+			// all kills
+			// ghost->addExperience("pvp_xp", 2000,true); //award gcw currency xp
+			//killer->playEffect("clienteffect/holoemote_rebel.cef", "head"); // Moved PvP kill effect to death blow command
+			//PlayMusicMessage* pmm = new PlayMusicMessage("sound/music_themequest_victory_imperial.snd");
+			//killer->sendMessage(pmm);
+
+			TransactionLog trx(TrxCode::EXPERIENCE, killer);
+			
+			killedGhost->addExperience(trx, "gcw_skill_xp", -2000, true); // remove target xp
+
+			UnicodeString message;
+			String chatPrefix = " \\#f0f497[GCW] ";
+			
+			FrsManager* frsManager = zoneServer->getFrsManager();
+			
+			if (killer->isPlayerCreature() && destructedObject->isPlayerCreature()) {
+				if (frsManager->isValidFrsBattle(killerCreature, destructedObject))
+					chatPrefix = " \\#9b97f4[FRS] ";
+				message = " " + playerName + " \\#ffffffhas been killed by " + killerNames;
+				BaseMessage* msg = new ChatRoomMessage(chatPrefix, zoneServer->getGalaxyName(), message, pvpNotificationChat->getRoomID());
+				pvpNotificationChat->broadcastMessage(msg);
+			}
+			
+			// Group kill split GCW	
+			group = killerCreature->getGroup();
+			Vector<ManagedReference<CreatureObject*>> players;
+			int playerCount = 1;
+
+			int killerRating = ghost->getPvpRating();
+			int playerRating = killedGhost->getPvpRating();
+			if (group != nullptr) {
+				playerCount = group->getNumberOfPlayerMembers();
+				for (int x=0; x < group->getGroupSize(); x++) {
+					Reference<CreatureObject*> groupMember = group->getGroupMember(x);
+
+					if (groupMember->isPlayerCreature() && groupMember->isInRange(killerCreature, 128.0f) && (groupMember->getPlayerObject()->hasPvpTef() || groupMember->getFactionStatus() == FactionStatus::OVERT))
+						players.add(groupMember);
+				}
+			} else {
+				players.add(killerCreature);
+			}
+
+			if (players.size() == 0)
+				players.add(killerCreature);
+
+			if (playerCount > players.size())
+				killerCreature->sendSystemMessage(" \\#f0f497[GCW] \\#ffffffSome players were too far away from the kill!"); // Mission Alert! Some group members are too far away from the group to receive their reward and and are not eligible for reward.
+
+			int dividedKill = 6000 / players.size(); //award gcw xp for group 
+			if (players.size() == 1)
+				dividedKill = 4000;//award gcw xp for solo
+			if (dividedKill < 1000)
+				dividedKill = 1000;
+
+			for (int i = 0; i < players.size(); i++) {
+				ManagedReference<CreatureObject*> player = players.get(i);
+				ManagedReference<PlayerManager*> groupPlayerManager = player->getZoneServer()->getPlayerManager();
+				groupPlayerManager->awardExperience(player, "gcw_skill_xp", dividedKill);
+				groupPlayerManager->awardExperience(player, "pvp_xp", 2000,true);
+				StringBuffer sysMessage;
+				sysMessage << " \\#f0f497[GCW] \\#ffffffYou have received \\#41f4d9" << dividedKill << " GCW XP \\#fffffffor your kill participation!";
+			}
+		}
+		// Faction gain
 		if (killer->isRebel() && destructedObject->isImperial()) {
 			ghost->increaseFactionStanding("rebel", 30);
 			ghost->decreaseFactionStanding("imperial", 45);
@@ -172,6 +348,24 @@ void FactionManager::awardPvpFactionPoints(TangibleObject* killer, CreatureObjec
 			killedGhost->decreaseFactionStanding("rebel", 45);
 		}
 	}
+}
+
+String FactionManager::getFactionHex(CreatureObject* creature) { // Added by Tyclo -- Get hexidecimal colors based on faction for messages
+	if (creature->isRebel())
+		return "\\#EF5350";
+	else if (creature->isImperial())
+		return "\\#29B6F6";
+	else
+		return "\\#beeeef"; // Neutral
+}
+
+String FactionManager::getFactionColorName(CreatureObject* creature) { // Added by Tyclo -- Get hexidecimal colors based on faction for messages
+	if (creature->isRebel())
+		return "\\#EF5350Rebel";
+	else if (creature->isImperial())
+		return "\\#29B6F6Imperial";
+	else
+		return "\\#beeeefCivilian"; // Neutral
 }
 
 String FactionManager::getRankName(int idx) {

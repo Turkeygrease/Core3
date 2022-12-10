@@ -216,10 +216,6 @@ void TangibleObjectImplementation::setFactionStatus(int status) {
 
 				if (zoneServer != nullptr) {
 					ChatManager* chatManager = zoneServer->getChatManager();
-
-					if (chatManager != nullptr) {
-						ghost->addChatRoom(chatManager->getPvpBroadcastRoom()->getRoomID());
-					}
 				}
 			}
 		} else if (factionStatus == FactionStatus::ONLEAVE) {

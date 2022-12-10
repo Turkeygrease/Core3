@@ -12,6 +12,48 @@
 #include "server/zone/objects/creature/CreatureObject.h"
 #include "templates/faction/FactionRanks.h"
 
+#include "server/chat/room/ChatRoom.h"
+
+namespace server {
+namespace chat {
+
+class ChatManager;
+
+} // namespace chat
+} // namespace server
+
+namespace server {
+namespace zone {
+namespace objects {
+namespace creature {
+
+class CreatureObject;
+
+} // namespace creature
+} // namespace objects
+} // namespace zone
+} // namespace server
+
+namespace server {
+namespace zone {
+namespace objects {
+namespace tangible {
+
+class TangibleObject;
+
+} // namespace tangible
+} // namespace objects
+} // namespace zone
+} // namespace server
+
+using namespace server::chat;
+using namespace server::chat::room;
+
+class FactionMap;
+
+using namespace server::zone::objects::creature;
+using namespace server::zone::objects::tangible;
+
 class FactionManager : public Singleton<FactionManager>, public Logger, public Object {
 	FactionMap factionMap;
 	FactionRanks factionRanks;
@@ -27,6 +69,11 @@ public:
 	 * Sets up faction relationships
 	 */
 	void loadData();
+
+	/**
+	* Creates GCW specific Chat Rooms
+	*/
+	void createGcwRooms(ChatManager* chatManager);
 
 	/**
 	 * Awards points to the player based on the faction they killed.
@@ -54,6 +101,8 @@ public:
 
 	FactionMap* getFactionMap();
 
+	String getFactionHex(CreatureObject* creature);
+	String getFactionColorName(CreatureObject* creature);
 	String getRankName(int idx);
 	int getRankCost(int rank);
 	int getRankDelegateRatioFrom(int rank);
@@ -68,9 +117,16 @@ public:
 	bool isEnemy(const String& faction1, const String& faction2);
 	bool isAlly(const String& faction1, const String& faction2);
 
+	ChatRoom* getImperialChat() const { return imperialChat; }
+	ChatRoom* getRebelChat() const { return rebelChat; }
+	ChatRoom* getPvpNotificationChat() const { return pvpNotificationChat; }
+
 protected:
 	void loadFactionRanks();
 	void loadLuaConfig(String file);
+  ManagedReference<ChatRoom*> imperialChat;
+  ManagedReference<ChatRoom*> rebelChat;
+  ManagedReference<ChatRoom*> pvpNotificationChat;
 };
 
 #endif /* FACTIONMANAGER_H_ */

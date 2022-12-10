@@ -75,8 +75,9 @@ void ChatManagerImplementation::stop() {
 	systemRoom = nullptr;
 	groupRoom = nullptr;
 	guildRoom = nullptr;
+	generalRoom = nullptr;
 	auctionRoom = nullptr;
-	pvpBroadcastRoom = nullptr;
+	pvpRoom = nullptr;
 	gameRooms.removeAll();
 }
 
@@ -311,23 +312,27 @@ void ChatManagerImplementation::initiateRooms() {
 	guildRoom = createRoom("guild", systemRoom);
 	guildRoom->setPrivate();
 
-	Reference<ChatRoom*> generalRoom = createRoom("Chat", galaxyRoom);
+	Reference<ChatRoom*> pvpRoom = createRoom("pvp");
+	pvpRoom->setPrivate();
+	
+	generalRoom = createRoom("Warfront", galaxyRoom);
 	generalRoom->setCanEnter(true);
 	generalRoom->setAllowSubrooms(true);
-	generalRoom->setTitle("public chat for this server, can create rooms here");
+	generalRoom->setTitle("Warfront General Chat");
 
 	auctionRoom = createRoom("Auction", galaxyRoom);
 	auctionRoom->setCanEnter(true);
 	auctionRoom->setChatRoomType(ChatRoom::AUCTION);
 
-	if (ConfigManager::instance()->isPvpBroadcastChannelEnabled()) {
-		pvpBroadcastRoom = createRoom("PvPBroadcasts", galaxyRoom);
-		pvpBroadcastRoom->setCanEnter(true);
-		pvpBroadcastRoom->setAllowSubrooms(false);
-		pvpBroadcastRoom->setModerated(true);
-		pvpBroadcastRoom->setTitle("PvP death broadcasts.");
-		pvpBroadcastRoom->setChatRoomType(ChatRoom::CUSTOM);
-	}
+	servicesRoom = createRoom("Services", galaxyRoom);
+	servicesRoom->setCanEnter(true);
+	servicesRoom->setAllowSubrooms(true);
+	servicesRoom->setTitle("Services Advertising");
+	
+	thePitRoom = createRoom("The Pit", galaxyRoom);
+	thePitRoom->setCanEnter(true);
+	thePitRoom->setAllowSubrooms(true);
+	thePitRoom->setTitle("The Pit - Warning: Unmoderated!");
 }
 
 void ChatManagerImplementation::initiatePlanetRooms() {
@@ -1696,6 +1701,47 @@ void ChatManagerImplementation::handleAuctionChat(CreatureObject* sender, const 
 	if (auctionRoom != nullptr) {
 		BaseMessage* msg = new ChatRoomMessage(fullName, server->getGalaxyName(), formattedMessage, auctionRoom->getRoomID());
 		auctionRoom->broadcastMessageCheckIgnore(msg, name);
+	}
+
+}
+
+// Added by Tyclo - 2020 08-30
+// General chat for Warfront chat
+void ChatManagerImplementation::handleGeneralChat(CreatureObject* sender, const UnicodeString& message) {
+	String name = sender->getFirstName();
+	String fullName = "";
+
+	if (sender->isPlayerCreature()) {
+		ManagedReference<PlayerObject*> senderGhost = sender->getPlayerObject();
+
+		if (senderGhost == nullptr)
+			return;
+
+		if (senderGhost->isMuted()) {
+			String reason = senderGhost->getMutedReason();
+
+			if (reason != "")
+				sender->sendSystemMessage("Your chat abilities are currently disabled by Customer Support for '" + reason + "'.");
+			else
+				sender->sendSystemMessage("Your chat abilities are currently disabled by Customer Support.");
+
+			return;
+		}
+
+		fullName = getTaggedName(senderGhost, name);
+	}
+
+	StringTokenizer args(message.toString());
+	if (!args.hasMoreTokens()) {
+		sender->sendSystemMessage("@ui:im_no_message"); // You need to include a message!
+		return;
+	}
+
+	UnicodeString formattedMessage(formatMessage(message));
+
+	if (generalRoom != nullptr) {
+		BaseMessage* msg = new ChatRoomMessage(fullName, server->getGalaxyName(), formattedMessage, generalRoom->getRoomID());
+		generalRoom->broadcastMessageCheckIgnore(msg, name);
 	}
 
 }

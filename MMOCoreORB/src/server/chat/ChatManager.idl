@@ -42,8 +42,11 @@ class ChatManager extends ManagedService implements Logger {
 	ChatRoom groupRoom;
 	ChatRoom guildRoom;
 	ChatRoom auctionRoom;
-	ChatRoom pvpBroadcastRoom;
 	ChatRoom systemRoom;
+	ChatRoom generalRoom;
+	ChatRoom servicesRoom;
+	ChatRoom thePitRoom;
+	ChatRoom pvpRoom;
 
 	transient ChatRoomMap roomMap;
 
@@ -365,6 +368,7 @@ class ChatManager extends ManagedService implements Logger {
 	public native void handleGuildChat(CreatureObject player, final unicode message);
 	public native void handlePlanetChat(CreatureObject player, final unicode message);
 	public native void handleAuctionChat(CreatureObject player, final unicode message);
+	public native void handleGeneralChat(CreatureObject player, final unicode message); // Added by Tyclo - 2020 08-30
 	public native void handleChatRoomMessage(CreatureObject sender, final unicode message, unsigned int roomID, unsigned int counter);
 	public native void handleSocialInternalMessage(CreatureObject sender, final unicode arguments);
 	@local
@@ -456,17 +460,38 @@ class ChatManager extends ManagedService implements Logger {
 	}
 
 	/*
-	 * Returns the pvp broadcast chat room
-	 */
-	public ChatRoom getPvpBroadcastRoom() {
-		return pvpBroadcastRoom;
-	}
-
-	/*
 	 * Returns the system chat room
 	 */
 	public ChatRoom getSystemRoom() {
 		return systemRoom;
+	}
+
+	/*
+	 * Returns the general (Warfront) chat room
+	 */
+	public ChatRoom getGeneralRoom() {
+		return generalRoom;
+	}
+
+	/*
+	 * Returns the Services chat room
+	 */
+	public ChatRoom getServicesRoom() {
+		return servicesRoom;
+	}
+	
+	/*
+	 * Returns the The Pit chat room
+	 */
+	public ChatRoom getThePitRoom() {
+		return thePitRoom;
+	}
+	
+	/*
+	* Returns the parent room for GCW chat rooms.
+	*/
+	public ChatRoom getPvpRoom() {
+		return pvpRoom;
 	}
 
 	@read
