@@ -889,6 +889,9 @@ bool CreatureObjectImplementation::setState(uint64 state, bool notifyClient) {
 			case CreatureState::INTIMIDATED:
 				playEffect("clienteffect/combat_special_defender_intimidate.cef");
 				break;
+			case CreatureState::SNARED:
+				showFlyText("combat_effects", "go_snare", 0, 0xFF, 0);
+				break;
 			case CreatureState::IMMOBILIZED:
 				showFlyText("combat_effects", "go_snare", 0, 0xFF, 0);
 				break;
@@ -976,6 +979,9 @@ bool CreatureObjectImplementation::clearState(uint64 state, bool notifyClient) {
 			sendSystemMessage("@dot_message:stop_bleeding");
 			break;
 		case CreatureState::INTIMIDATED:
+			break;
+		case CreatureState::SNARED:
+			showFlyText("combat_effects", "no_snare", 0, 0xFF, 0);
 			break;
 		case CreatureState::IMMOBILIZED:
 			showFlyText("combat_effects", "no_snare", 0, 0xFF, 0);
@@ -1549,6 +1555,90 @@ int CreatureObjectImplementation::getSkillMod(const String& skillmod) const {
 	ReadLocker locker(&skillModMutex);
 
 	return skillModList.getSkillMod(skillmod);
+}
+
+float CreatureObjectImplementation::getFrsPower() {
+	Locker locker(&skillModMutex);
+	float fpl = 0.0f;
+	float fpd = 0.0f;
+
+	fpl = (float)skillModList.getSkillMod("force_power_light");
+	fpd = (float)skillModList.getSkillMod("force_power_dark");
+
+	if (fpl > fpd)
+		return fpl;
+	else
+		return fpd;
+}
+
+float CreatureObjectImplementation::getFrsManipulation() {
+	Locker locker(&skillModMutex);
+	float fml = 0.0f;
+	float fmd = 0.0f;
+
+	fml = (float)skillModList.getSkillMod("force_manipulation_light");
+	fmd = (float)skillModList.getSkillMod("force_manipulation_dark");
+
+	if (fml > fmd)
+		return fml;
+	else
+		return fmd;
+}
+
+float CreatureObjectImplementation::getFrsControl() {
+	Locker locker(&skillModMutex);
+	float fcl = 0.0f;
+	float fcd = 0.0f;
+	fcl = (float)skillModList.getSkillMod("force_control_light");
+	fcd = (float)skillModList.getSkillMod("force_control_dark");
+
+	if (fcl > fcd)
+		return fcl;
+	else
+		return fcd;
+}
+
+float CreatureObjectImplementation::getFrsMod(const String& type) {
+	Locker locker(&skillModMutex);
+	float typeStat = 0.0f;
+
+	if (type != "control" && type != "manipulation" && type != "power"){
+		error("Invalid frs mod being referenced in CreatureObjectImplementation::getFrsMod");
+		return 0;
+	}
+
+	if (type == "power")
+		typeStat = getFrsPower();
+	else if (type == "control")
+		typeStat = getFrsControl();
+	else if (type == "manipulation")
+		typeStat = getFrsManipulation();
+
+	float mod = (1 + .25 * (typeStat/120)); //25% bonus at 120 skill rank
+	return mod;
+}
+
+float CreatureObjectImplementation::getFrsMod(const String& type, float multiplier) {
+	Locker locker(&skillModMutex);
+	float typeStat = 0.f;
+
+	if (type != "control" && type != "manipulation" &&type != "power"){
+		error("Invalid frs mod being referenced in CreatureObjectImplementation::getFrsMod");
+		return 0;
+	}
+	
+	if (type == "power")
+		typeStat = getFrsPower();
+	else if (type == "control")
+		typeStat = getFrsControl();
+	else if (type == "manipulation")
+		typeStat = getFrsManipulation();
+
+	typeStat /= multiplier;
+
+	float mod = (1 + .25 * (typeStat/120)); //25% bonus at 120 skill rank
+
+	return mod;
 }
 
 int CreatureObjectImplementation::getSkillModOfType(const String& skillmod, const unsigned int modType) {
@@ -2583,8 +2673,11 @@ void CreatureObjectImplementation::setIntimidatedState(int durationSeconds) {
 }
 
 void CreatureObjectImplementation::setSnaredState(int durationSeconds) {
-	if (!hasState(CreatureState::IMMOBILIZED)) {
-		Reference<StateBuff*> state = new StateBuff(asCreatureObject(), CreatureState::IMMOBILIZED, durationSeconds);
+	//if (!hasState(CreatureState::IMMOBILIZED)) {
+		//Reference<StateBuff*> state = new StateBuff(asCreatureObject(), CreatureState::IMMOBILIZED, durationSeconds);
+
+	if (!hasState(CreatureState::SNARED)) {
+		Reference<StateBuff*> state = new StateBuff(asCreatureObject(), CreatureState::SNARED, durationSeconds);
 
 		Locker locker(state);
 
@@ -2593,6 +2686,20 @@ void CreatureObjectImplementation::setSnaredState(int durationSeconds) {
 
 		addBuff(state);
 	}
+}
+
+// mindsoft added -used to set speedBuff and snare
+void CreatureObjectImplementation::setSpeedState(int durationSeconds, float speedModifier) {
+	uint32 crc = STRING_HASHCODE("speedBuff");
+	if (speedModifier < 100)
+		crc = STRING_HASHCODE("snared");
+
+	ManagedReference<Buff*> buff = new Buff(asCreatureObject(), crc, durationSeconds, BuffType::OTHER);
+	Locker locker(buff);
+	buff->setSpeedMultiplierMod(speedModifier);
+	buff->setAccelerationMultiplierMod(speedModifier);
+
+	addBuff(buff);
 }
 
 void CreatureObjectImplementation::setRootedState(int durationSeconds) {

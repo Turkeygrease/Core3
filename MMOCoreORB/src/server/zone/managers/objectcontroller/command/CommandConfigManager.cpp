@@ -37,6 +37,23 @@
 #include "server/zone/objects/creature/commands/effect/DotEffect.h"
 #include "server/zone/objects/creature/commands/effect/CommandEffect.h"
 
+#include "server/zone/objects/creature/commands/RegrantSkillsCommand.h"
+#include "server/zone/objects/creature/commands/EscapeCommand.h"
+#include "server/zone/objects/creature/commands/BhShieldCommand.h"
+#include "server/zone/objects/creature/commands/OrbitalStrikeCommand.h"
+#include "server/zone/objects/creature/commands/PistolWhipCommand.h"
+#include "server/zone/objects/creature/commands/PoisonGasCloudCommand.h"
+#include "server/zone/objects/creature/commands/VenomDartCommand.h"
+#include "server/zone/objects/creature/commands/DirtyTrickCommand.h"
+#include "server/zone/objects/creature/commands/StandFastCommand.h"
+#include "server/zone/objects/creature/commands/RemoteDetonatorCommand.h"
+#include "server/zone/objects/creature/commands/StasisFieldCommand.h"
+#include "server/zone/objects/creature/commands/SynapticBoostCommand.h"
+#include "server/zone/objects/creature/commands/InspirationCommand.h"
+#include "server/zone/objects/creature/commands/ForceShroudCommand.h"
+#include "server/zone/objects/creature/commands/CripplingVortexCommand.h"
+#include "server/zone/objects/creature/commands/ForceStormCommand.h"
+#include "server/zone/objects/creature/commands/NarrowEscapeCommand.h"
 #include "server/zone/objects/creature/commands/pet/PetAttackCommand.h"
 #include "server/zone/objects/creature/commands/pet/PetEmoteCommand.h"
 #include "server/zone/objects/creature/commands/pet/PetFeedCommand.h"
@@ -863,4 +880,22 @@ void CommandConfigManager::registerCommands() {
 	commandFactory.registerCommand<PetPatrolCommand>(String("petPatrol").toLowerCase());
 	commandFactory.registerCommand<PetClearPatrolPointsCommand>(String("petClearPatrolPoints").toLowerCase());
 	commandFactory.registerCommand<PetGetPatrolPointCommand>(String("petGetPatrolPoint").toLowerCase());
+
+	commandFactory.registerCommand<RegrantSkillsCommand>(String("regrantSkills").toLowerCase());
+	commandFactory.registerCommand<VenomDartCommand>(String("venomDart").toLowerCase());
+	commandFactory.registerCommand<EscapeCommand>(String("escape").toLowerCase());
+	commandFactory.registerCommand<BhShieldCommand>(String("bhshield").toLowerCase());
+	commandFactory.registerCommand<OrbitalStrikeCommand>(String("orbitalStrike").toLowerCase());
+	commandFactory.registerCommand<PistolWhipCommand>(String("pistolwhip").toLowerCase());
+	commandFactory.registerCommand<PoisonGasCloudCommand>(String("poisongascloud").toLowerCase());
+	commandFactory.registerCommand<DirtyTrickCommand>(String("dirtyTrick").toLowerCase());
+	commandFactory.registerCommand<StandFastCommand>(String("standfast").toLowerCase());
+	commandFactory.registerCommand<RemoteDetonatorCommand>(String("remotedetonator").toLowerCase());
+	commandFactory.registerCommand<StasisFieldCommand>(String("stasisField").toLowerCase());
+	commandFactory.registerCommand<SynapticBoostCommand>(String("synapticBoost").toLowerCase());
+	commandFactory.registerCommand<InspirationCommand>(String("inspiration").toLowerCase());
+	commandFactory.registerCommand<ForceShroudCommand>(String("forceShroud").toLowerCase());
+	commandFactory.registerCommand<CripplingVortexCommand>(String("cripplingVortex").toLowerCase());
+	commandFactory.registerCommand<ForceStormCommand>(String("forceStorm").toLowerCase());
+	commandFactory.registerCommand<NarrowEscapeCommand>(String("narrowEscape").toLowerCase());
 }

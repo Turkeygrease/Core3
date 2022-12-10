@@ -172,12 +172,14 @@ protected:
 
 	int doTargetCombatAction(TangibleObject* attacker, WeaponObject* weapon, TangibleObject* tano, SortedVector<DefenderHitList*>* targetDefenders, const CreatureAttackData& data) const;
 	int tanoTargetCombatAction(TangibleObject* attacker, WeaponObject* weapon, CreatureObject* defenderObject, DefenderHitList* hitList, const CreatureAttackData& data) const;
-
+	void doLightsaberBlock(TangibleObject* attacker, WeaponObject* weapon, CreatureObject* defender, int damage) const;
 	float calculateDamage(CreatureObject* attacker, WeaponObject* weapon, CreatureObject* defender, const CreatureAttackData& data) const;
 	float calculateDamage(TangibleObject* attacker, WeaponObject* weapon, CreatureObject* defender, const CreatureAttackData& data) const;
 	float calculateDamage(CreatureObject* attacker, WeaponObject* weapon, TangibleObject* defender, const CreatureAttackData& data) const;
 	int calculateDamageRange(TangibleObject* attacker, CreatureObject* defender, WeaponObject* weapon) const;
 	float applyDamageModifiers(CreatureObject* attacker, WeaponObject* weapon, float damage, const CreatureAttackData& data) const;
+	bool isLightningAttack(const CreatureAttackData& data) const;
+	bool isFlameThrowerAttack(const CreatureAttackData& data) const;
 
 	/**
 	 * returns bitmask with what pools to damage
@@ -229,6 +231,14 @@ protected:
 	bool applySpecialAttackCost(CreatureObject* attacker, WeaponObject* weapon, const CreatureAttackData& data) const;
 
 	void applyStates(CreatureObject* creature, CreatureObject* targetCreature, DefenderHitList* hitList, const CreatureAttackData& data) const;
+
+	/**
+	 * Prevents Creature Objects from getting lower force costs on bugged sabers
+	 * 
+	 * @param creature Creature wielding the lightsaber
+	 * @param weapon The lightsaber the creature is holding
+	 */
+	void checkSaberForceCost(CreatureObject* creature, WeaponObject* weapon) const;
 };
 
 #endif /* COMBATMANAGER_H_ */

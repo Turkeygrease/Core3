@@ -1327,6 +1327,9 @@ class CreatureObject extends TangibleObject {
 	public native void setSnaredState(int durationSeconds = 20);
 
 	@preLocked
+	public native void setSpeedState(int durationSeconds = 20, float SpeedModifier = 0.5f);
+
+	@preLocked
 	public native void setRootedState(int durationSeconds = 20);
 
 	public native boolean setNextAttackDelay(CreatureObject attacker, final string command, unsigned int mod, int del);
@@ -1897,6 +1900,21 @@ class CreatureObject extends TangibleObject {
 
 	@read
 	public native int getSkillMod(final string skillmod);
+
+	@dirty
+	public native float getFrsControl();
+
+	@dirty
+	public native float getFrsPower();
+
+	@dirty
+	public native float getFrsManipulation();
+
+	@dirty
+	public native float getFrsMod(final string type);
+
+	@dirty
+	public native float getFrsMod(final string type, float multiplier);
 
 	@dirty
 	public native int getSkillModOfType(final string skillmod, final unsigned int modType);

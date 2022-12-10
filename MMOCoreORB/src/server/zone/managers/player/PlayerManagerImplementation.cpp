@@ -101,6 +101,7 @@
 #include "server/zone/objects/intangible/PetControlDevice.h"
 #include "server/zone/managers/creature/PetManager.h"
 #include "server/zone/objects/creature/events/BurstRunNotifyAvailableEvent.h"
+#include "server/zone/objects/creature/events/EscapeNotifyAvailableEvent.h"
 #include "server/zone/objects/creature/ai/DroidObject.h"
 #include "server/zone/objects/tangible/components/droid/DroidPlaybackModuleDataComponent.h"
 #include "server/zone/objects/player/badges/Badge.h"
@@ -5972,6 +5973,106 @@ bool PlayerManagerImplementation::shouldDeleteCharacter(uint64 characterID, int 
 		error() << "database error " << err.getMessage();
 		return false;
 	}
+}
+
+bool PlayerManagerImplementation::doEscape(CreatureObject* player, float hamModifier, float cooldownModifier) {
+	if (player == nullptr)
+		return false;
+
+	if (player->isRidingMount()) {
+		player->sendSystemMessage("@cbt_spam:no_burst"); // You cannot Escape while mounted on a creature or vehicle.
+		return false;
+	}
+
+	if (player->hasBuff(STRING_HASHCODE("burstrun")) || player->hasBuff(STRING_HASHCODE("gallop")) ) {
+		player->sendSystemMessage("@combat_effects:burst_run_no"); // You cannot burst run right now.
+		return false;
+	}
+
+	uint32 forceRun1CRC = BuffCRC::JEDI_FORCE_RUN_1;
+	uint32 forceRun2CRC = BuffCRC::JEDI_FORCE_RUN_2;
+	uint32 forceRun3CRC = BuffCRC::JEDI_FORCE_RUN_3;
+
+	if(player->hasBuff(forceRun1CRC) || player->hasBuff(forceRun2CRC) || player->hasBuff(forceRun3CRC)) {
+		player->sendSystemMessage("@combat_effects:burst_run_no"); // You cannot burst run right now.
+		return false;
+	}
+
+	Zone* zone = player->getZone();
+
+	if (zone == nullptr) {
+		return false;
+	}
+
+	if (!player->checkCooldownRecovery("escape")) {
+		player->sendSystemMessage("You are too tired to escape."); //You are too tired to Burst Run.
+		return false;
+	}
+
+	uint32 crc = STRING_HASHCODE("escape");
+	float hamCost = 100.0f;
+	float duration = 15;
+	float cooldown = 60;
+
+	float burstRunMod = (float) player->getSkillMod("burst_run");
+	hamModifier += (burstRunMod / 100.f);
+
+	if (hamModifier > 1.0f) {
+		hamModifier = 1.0f;
+	}
+
+	float hamReduction = 1.f - hamModifier;
+	hamCost *= hamReduction;
+	int newHamCost = (int) hamCost;
+
+	if (cooldownModifier > 1.0f) {
+		cooldownModifier = 1.0f;
+	}
+
+	int newCooldown = (int) cooldown;
+
+	if (player->getHAM(CreatureAttribute::HEALTH) <= newHamCost || player->getHAM(CreatureAttribute::ACTION) <= newHamCost || player->getHAM(CreatureAttribute::MIND) <= newHamCost) {
+		player->sendSystemMessage("You are too weak to burst run."); // You are too tired to Burst Run.
+		return false;
+	}
+
+	player->inflictDamage(player, CreatureAttribute::HEALTH, newHamCost, true);
+	player->inflictDamage(player, CreatureAttribute::ACTION, newHamCost, true);
+	player->inflictDamage(player, CreatureAttribute::MIND, newHamCost, true);
+
+	StringIdChatParameter startStringId("cbt_spam", "burstrun_start_single");
+	StringIdChatParameter modifiedStartStringId("combat_effects", "instant_burst_run");
+	StringIdChatParameter endStringId("cbt_spam", "burstrun_stop_single");
+
+
+	ManagedReference<Buff*> buff = new Buff(player, crc, duration, BuffType::SKILL);
+
+	Locker locker(buff);
+
+	buff->setSpeedMultiplierMod(2.222f);
+	buff->setAccelerationMultiplierMod(2.222f);
+
+	if (cooldownModifier == 0.f)
+		buff->setStartMessage(startStringId);
+	else
+		buff->setStartMessage(modifiedStartStringId);
+
+	buff->setEndMessage(endStringId);
+
+	StringIdChatParameter startSpam("cbt_spam", "narrowEscape_start");
+	StringIdChatParameter endSpam("cbt_spam", "narrowEscape_stop");
+	buff->setStartSpam(startSpam);
+	buff->setEndSpam(endSpam);
+	buff->setBroadcastSpam(true);
+
+	player->addBuff(buff);
+
+	player->updateCooldownTimer("escape", (newCooldown + duration) * 1000);
+
+	Reference<EscapeNotifyAvailableEvent*> task = new EscapeNotifyAvailableEvent(player);
+	player->addPendingTask("escape_notify", task, (newCooldown + duration) * 1000);
+
+	return true;
 }
 
 bool PlayerManagerImplementation::doBurstRun(CreatureObject* player, float hamModifier, float cooldownModifier) {

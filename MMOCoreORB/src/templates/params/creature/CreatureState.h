@@ -52,6 +52,7 @@ public:
 
 	static const uint64 SHIPINTERIOR = 1ull << 32;
 	static const uint64	PILOTINGPOBSHIP = 1ull << 33;
+	static const uint64 SNARED = 1ull << 34;
 
 	void loadStateData() {
 		UniqueReference<IffStream*> iffStream(TemplateManager::instance()->openIffFile("datatables/include/state.iff"));
