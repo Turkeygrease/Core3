@@ -334,8 +334,10 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
 
 	auto client = callback->getClient();
 
-	if (client->getCharacterCount(zoneServer.get()->getGalaxyID()) >= 10) {
-		ErrorMessage* errMsg = new ErrorMessage("Create Error", "You are limited to 10 characters per galaxy.", 0x0);
+	int maxPerGalaxy = ConfigManager::instance()->getInt("Core3.MaxCharactersPerGalaxy", 10);
+
+	if (client->getCharacterCount(zoneServer.get()->getGalaxyID()) >= maxPerGalaxy) {
+		ErrorMessage* errMsg = new ErrorMessage("Create Error", "You are limited to " + std::to_string(maxPerGalaxy) + " characters per galaxy.", 0x0);
 		client->sendMessage(errMsg);
 
 		return false;
@@ -394,7 +396,7 @@ bool PlayerCreationManager::createCharacter(ClientCreateCharacterCallback* callb
 	UnicodeString bio;
 	callback->getBiography(bio);
 
-	bool doTutorial = ConfigManager::instance()->getBool("Core3.PlayerCreationManager.EnableTutorial", callback->getTutorialFlag());
+	bool doTutorial = ConfigManager::instance()->getBool("Core3.EnableTutorial", callback->getTutorialFlag());
 
 	ManagedReference<CreatureObject*> playerCreature =
 			zoneServer.get()->createObject(

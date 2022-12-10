@@ -42,7 +42,7 @@ void GroupManager::inviteToGroup(CreatureObject* leader, CreatureObject* target)
 	// Pre: leader locked
 	// Post: player invited to leader's group, leader locked
 
-	bool galaxyWide = ConfigManager::instance()->getBool("Core3.PlayerManager.GalaxyWideGrouping", false);
+	bool galaxyWide = ConfigManager::instance()->getBool("Core3.GalaxyWideGrouping", false);
 
 	Locker clocker(target, leader);
 
@@ -65,7 +65,7 @@ void GroupManager::inviteToGroup(CreatureObject* leader, CreatureObject* target)
 		}
 
 		// can't invite if the group is full
-		if (group->getGroupSize() >= 20) {
+		if (group->getGroupSize() >= ConfigManager::instance()->getGroupMaxSize()) {
 			leader->sendSystemMessage("@group:full");
 			return;
 		}
@@ -195,6 +195,8 @@ void GroupManager::joinGroup(CreatureObject* player) {
 
 	player->updateGroup(group);
 	group->addMember(player);
+	player->notifyObservers(ObserverEventType::JOINEDGROUP,group,0); //MINDSOFT ADDED
+	group->notifyObservers(ObserverEventType::JOINEDGROUP,player,0); //MINDSOFT ADDED
 
 	if (player->isPlayerCreature()) {
 		player->sendSystemMessage("@group:joined_self");
@@ -259,6 +261,8 @@ GroupObject* GroupManager::createGroup(CreatureObject* leader) {
 	if (leader->getGroupInviterID() != 0)
 		leader->updateGroupInviterID(0);
 
+	leader->notifyObservers(ObserverEventType::JOINEDGROUP,group,0); //MINDSOFT ADDED
+
 	return group;
 }
 
@@ -293,6 +297,8 @@ void GroupManager::leaveGroup(ManagedReference<GroupObject*> group, CreatureObje
 		player->unlock();
 
 		group->removeMember(player);
+		player->notifyObservers(ObserverEventType::LEFTGROUP, group, 0); //MINDSOFT ADDED
+		group->notifyObservers(ObserverEventType::LEFTGROUP, player, 0); //MINDSOFT ADDED
 
 		if (player->isPlayerCreature())
 			group->sendDestroyTo(player);
@@ -300,6 +306,7 @@ void GroupManager::leaveGroup(ManagedReference<GroupObject*> group, CreatureObje
 		player->debug("leaving group");
 
 		if (group->getGroupSize() < 2) {
+			group->notifyObservers(ObserverEventType::GROUPDISBANDED); //MINDSOFT ADDED
 			group->disband();
 		}
 
@@ -337,6 +344,9 @@ void GroupManager::disbandGroup(ManagedReference<GroupObject*> group, CreatureOb
 		for (int i = 0; i < group->getGroupSize(); i++) {
 			Reference<CreatureObject*> play = group->getGroupMember(i);
 
+			play->notifyObservers(ObserverEventType::LEFTGROUP, group, 0); //MINDSOFT ADDED
+			group->notifyObservers(ObserverEventType::LEFTGROUP, play, 0); //MINDSOFT ADDED
+
 			if (play->isPlayerCreature()) {
 				play->sendSystemMessage("@group:disbanded"); //"The group has been disbanded."
 
@@ -349,7 +359,7 @@ void GroupManager::disbandGroup(ManagedReference<GroupObject*> group, CreatureOb
 				}
 			}
 		}
-
+		group->notifyObservers(ObserverEventType::GROUPDISBANDED); //MINDSOFT ADDED
 		group->disband();
 
 	} catch (...) {
@@ -389,12 +399,19 @@ void GroupManager::kickFromGroup(ManagedReference<GroupObject*> group, CreatureO
 			for (int i = 0; i < group->getGroupSize(); i++) {
 				Reference<CreatureObject*> play = group->getGroupMember(i);
 
+				play->notifyObservers(ObserverEventType::LEFTGROUP, group, 0); //MINDSOFT ADDED
+				group->notifyObservers(ObserverEventType::LEFTGROUP, play, 0); //MINDSOFT ADDED
+
 				play->sendSystemMessage("@group:disbanded");
 			}
+			group->notifyObservers(ObserverEventType::GROUPDISBANDED); //MINDSOFT ADDED
 			group->disband();
 			disbanded = true;
 		} else {
 			group->removeMember(memberToKick);
+
+			memberToKick->notifyObservers(ObserverEventType::LEFTGROUP, group, 0); //MINDSOFT ADDED
+			group->notifyObservers(ObserverEventType::LEFTGROUP, memberToKick, 0); //MINDSOFT ADDED
 
 			if (memberToKick->isPlayerCreature())
 				memberToKick->sendSystemMessage("@group:removed");
@@ -472,7 +489,7 @@ void GroupManager::makeLeader(GroupObject* group, CreatureObject* player, Creatu
 				firstNameLeader= playerLeader->getFirstName();
 		}
 
-		bool galaxyWide = ConfigManager::instance()->getBool("Core3.PlayerManager.GalaxyWideGrouping", false);
+		bool galaxyWide = ConfigManager::instance()->getBool("Core3.GalaxyWideGrouping", false);
 
 		StringIdChatParameter message;
 		message.setStringId("group", "new_leader"); // %TU is now the group leader.

@@ -37,6 +37,15 @@
 #include "server/zone/objects/transaction/TransactionLog.h"
 
 void AuctionManagerImplementation::initialize() {
+	maxBazaarPrice = ConfigManager::instance()->getMaxBazaarPrice();
+	maxSales = ConfigManager::instance()->getMaxSales();
+	salesFee = ConfigManager::instance()->getSalesFee();
+	checkEvery = ConfigManager::instance()->getCheckEvery();
+	maxVendorPrice = ConfigManager::instance()->getMaxVendorPrice();
+	itemsPerPage = ConfigManager::instance()->getItemsPerPage();
+	vendorExpirePeriod = ConfigManager::instance()->getVendorExpirePeriod();
+	commodityExpirePeriod = ConfigManager::instance()->getCommodityExpirePeriod();
+
 	Locker locker(_this.getReferenceUnsafeStaticCast());
 
 	auto logLevel = ConfigManager::instance()->getInt("Core3.AuctionManager.LogLevel", (int)-1);
@@ -121,8 +130,8 @@ void AuctionManagerImplementation::initialize() {
 			continue;
 		}
 
-		uint64 vendorExpire = time(0) + AuctionManager::VENDOREXPIREPERIOD;
-		uint64 commodityExpire = time(0) + AuctionManager::COMMODITYEXPIREPERIOD;
+		uint64 vendorExpire = time(0) + vendorExpirePeriod;
+		uint64 commodityExpire = time(0) + commodityExpirePeriod;
 
 		if (auctionItem->getStatus() == AuctionItem::FORSALE && auctionItem->getExpireTime() > vendorExpire) {
 			auto oldExpire = auctionItem->getExpireTime();
@@ -309,7 +318,7 @@ void AuctionManagerImplementation::checkAuctions(bool startupTask) {
 		info("checkAuctions initial startup task", true);
 
 	Reference<CheckAuctionsTask*> task = new CheckAuctionsTask(_this.getReferenceUnsafeStaticCast());
-	task->schedule(CHECKEVERY * 60 * 1000);
+	task->schedule(checkEvery * 60 * 1000);
 
     Timer timer(Time::MONOTONIC_TIME);
 	timer.start();
@@ -388,8 +397,8 @@ void AuctionManagerImplementation::doAuctionMaint(TerminalListVector* items, con
 				continue;
 			}
 
-			uint64 vendorExpire = time(0) + AuctionManager::VENDOREXPIREPERIOD;
-			uint64 commodityExpire = time(0) + AuctionManager::COMMODITYEXPIREPERIOD;
+			uint64 vendorExpire = time(0) + vendorExpirePeriod;
+			uint64 commodityExpire = time(0) + commodityExpirePeriod;
 			bool updatedExpire = false;
 			uint64 oldExpire = 0;
 
@@ -660,14 +669,14 @@ void AuctionManagerImplementation::addSaleItem(CreatureObject* player, uint64 ob
 				costReduction = .60f;
 
 		if (item->isPremiumAuction()) {
-			TransactionLog trx(player, TrxCode::BAZAARSYSTEM, costReduction * (SALESFEE * 5), false);
-			player->subtractBankCredits(costReduction * (SALESFEE * 5));
-			str.setDI(costReduction * (SALESFEE * 5));
+			TransactionLog trx(player, TrxCode::BAZAARSYSTEM, costReduction * (salesFee * 5), false);
+			player->subtractBankCredits(costReduction * (salesFee * 5));
+			str.setDI(costReduction * (salesFee * 5));
 
 		} else {
-			TransactionLog trx(player, TrxCode::BAZAARSYSTEM, costReduction * SALESFEE, false);
-			player->subtractBankCredits(costReduction * SALESFEE);
-			str.setDI(costReduction * SALESFEE);
+			TransactionLog trx(player, TrxCode::BAZAARSYSTEM, costReduction * salesFee, false);
+			player->subtractBankCredits(costReduction * salesFee);
+			str.setDI(costReduction * salesFee);
 		}
 
 		player->sendSystemMessage(str);
@@ -770,25 +779,25 @@ int AuctionManagerImplementation::checkSaleItem(CreatureObject* player, SceneObj
 					return ItemSoldMessage::TOOMANYITEMS;
 			}
 		} else {
-			if (auctionMap->getCommodityCount(player) >= MAXSALES)
+			if (auctionMap->getCommodityCount(player) >= maxSales)
 				return ItemSoldMessage::TOOMANYITEMS;
 		}
 
-		if (price > MAXVENDORPRICE)
+		if (price > maxVendorPrice)
 			return ItemSoldMessage::INVALIDSALEPRICE;
 	}
 
 	if (vendor->isBazaarTerminal()) {
-		if (auctionMap->getCommodityCount(player) >= MAXSALES)
+		if (auctionMap->getCommodityCount(player) >= maxSales)
 			return ItemSoldMessage::TOOMANYITEMS;
 
-		if (price > MAXBAZAARPRICE)
+		if (price > maxBazaarPrice)
 			return ItemSoldMessage::INVALIDSALEPRICE;
 
-		if (player->getBankCredits() < SALESFEE)
+		if (player->getBankCredits() < salesFee)
 			return ItemSoldMessage::NOTENOUGHCREDITS;
 
-		if (premium && player->getBankCredits() < SALESFEE * 5)
+		if (premium && player->getBankCredits() < salesFee * 5)
 			return ItemSoldMessage::NOTENOUGHCREDITS;
 	}
 
@@ -817,8 +826,8 @@ AuctionItem* AuctionManagerImplementation::createVendorItem(CreatureObject* play
 	if (zone == nullptr)
 		return nullptr;
 
-	uint64 vendorExpire = time(0) + AuctionManager::VENDOREXPIREPERIOD;
-	uint64 commodityExpire = time(0) + AuctionManager::COMMODITYEXPIREPERIOD;
+	uint64 vendorExpire = time(0) + vendorExpirePeriod;
+	uint64 commodityExpire = time(0) + commodityExpirePeriod;
 
 	String playername = player->getFirstName().toLowerCase();
 	String descr = description.toString();
@@ -899,7 +908,7 @@ AuctionItem* AuctionManagerImplementation::createVendorItem(CreatureObject* play
 }
 
 int AuctionManagerImplementation::checkBidAuction(CreatureObject* player, AuctionItem* item, int price1, int price2) {
-	if ((price1 > MAXBAZAARPRICE || price2 > MAXBAZAARPRICE) && item->isOnBazaar()) {
+	if ((price1 > maxBazaarPrice || price2 > maxBazaarPrice) && item->isOnBazaar()) {
 		return BidAuctionResponseMessage::PRICEOVERFLOW;
 	}
 
@@ -949,9 +958,9 @@ void AuctionManagerImplementation::doInstantBuy(CreatureObject* player, AuctionI
 	Locker locker(item);
 
 	if(item->isOnBazaar() || item->getStatus() == AuctionItem::OFFERED)
-		availableTime = currentTime + AuctionManager::COMMODITYEXPIREPERIOD;
+		availableTime = currentTime + commodityExpirePeriod;
 	else
-		availableTime = currentTime + AuctionManager::VENDOREXPIREPERIOD;
+		availableTime = currentTime + vendorExpirePeriod;
 
 	updateAuctionOwner(item, player);
 
@@ -1842,9 +1851,9 @@ void AuctionManagerImplementation::cancelItem(CreatureObject* player, uint64 obj
 		}
 
 		if(item->isOnBazaar())
-			availableTime = currentTime + AuctionManager::COMMODITYEXPIREPERIOD;
+			availableTime = currentTime + commodityExpirePeriod;
 		else {
-			availableTime = currentTime + AuctionManager::VENDOREXPIREPERIOD;
+			availableTime = currentTime + vendorExpirePeriod;
 			forSaleOnVendor = true;
 		}
 
@@ -1857,7 +1866,7 @@ void AuctionManagerImplementation::cancelItem(CreatureObject* player, uint64 obj
 			return;
 		}
 		/// 7 Days
-		availableTime = currentTime + AuctionManager::COMMODITYEXPIREPERIOD;
+		availableTime = currentTime + commodityExpirePeriod;
 
 	} else {
 		BaseMessage* msg = new CancelLiveAuctionResponseMessage(objectID, CancelLiveAuctionResponseMessage::ALREADYCOMPLETED);
@@ -1959,9 +1968,9 @@ void AuctionManagerImplementation::expireSale(AuctionItem* item) {
 	uint64 availableTime = 0;
 
 	if(item->isOnBazaar())
-		availableTime = currentTime + AuctionManager::COMMODITYEXPIREPERIOD;
+		availableTime = currentTime + commodityExpirePeriod;
 	else
-		availableTime = currentTime + AuctionManager::VENDOREXPIREPERIOD;
+		availableTime = currentTime + vendorExpirePeriod;
 
 	item->setStatus(AuctionItem::EXPIRED);
 	item->setExpireTime(availableTime);
@@ -2000,9 +2009,9 @@ void AuctionManagerImplementation::expireBidAuction(AuctionItem* item) {
 	uint64 availableTime = 0;
 
 	if(item->isOnBazaar())
-		availableTime = currentTime + AuctionManager::COMMODITYEXPIREPERIOD;
+		availableTime = currentTime + commodityExpirePeriod;
 	else
-		availableTime = currentTime + AuctionManager::VENDOREXPIREPERIOD;
+		availableTime = currentTime + vendorExpirePeriod;
 
 	item->setStatus(AuctionItem::EXPIRED);
 	item->setExpireTime(availableTime);
@@ -2039,7 +2048,7 @@ void AuctionManagerImplementation::expireAuction(AuctionItem* item) {
 
 	Time expireTime;
 	uint64 currentTime = expireTime.getMiliTime() / 1000;
-	uint64 availableTime = currentTime + AuctionManager::COMMODITYEXPIREPERIOD;
+	uint64 availableTime = currentTime + commodityExpirePeriod;
 
 	Locker locker(item);
 	item->setExpireTime(availableTime);

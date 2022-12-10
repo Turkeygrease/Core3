@@ -574,6 +574,65 @@ namespace conf {
 			return getInt("Core3.MaxLogLines", 1000000);
 		}
 
+		inline int getMaxBazaarPrice() {
+			return getInt("Core3.MaxBazaarPrice", 20000); 
+		}
+
+		inline int getMaxSales() {
+			return getInt("Core3.MaxSales", 25); 
+		}
+
+		inline int getSalesFee() {
+			return getInt("Core3.SalesFee", 20); // Percent
+		}
+
+		inline int getCheckEvery() {
+			return getInt("Core3.CheckEvery", 60); // Minutes
+		}
+
+		inline int getMaxVendorPrice() {
+			return getInt("Core3.MaxVendorPrice", 99999999);
+		}
+
+		inline int getItemsPerPage() {
+			return getInt("Core3.ItemsPerPage", 100);
+		}
+
+		inline int getVendorExpirePeriod() {
+			return getInt("Core3.VendorExpirePeriod", 2592000); // Vendor
+		}
+
+		inline int getCommodityExpirePeriod() {
+			return getInt("Core3.CommodityExpirePeriod", 604800); // Bazaar
+		}
+
+		inline int getFactoryCrateMaxCapacity() {
+			return getInt("Core3.FactoryCrateMaxCapacity", 100);
+		}
+
+		inline int getGroupMaxSize() {
+			return getInt("Core3.GroupMaxSize", 20);
+		}
+
+		inline int getDefaultPowerUpUses() {
+			return getInt("Core3.DefaultPowerupUses", 100);
+		}
+
+		inline float getWeaponDecayRate() {
+			return getFloat("Core3.WeaponDecayRate", 1);
+		}
+
+		inline float getCrystalAndPearlDecayRate() {
+			return getFloat("Core3.CrystalAndPearlDecayRate", 1);
+		}
+
+		inline float getArmorDecayRate() {
+			return getFloat("Core3.ArmorDecayRate", 0.05);
+		}
+
+		inline float getPSGDecayRate() {
+			return getFloat("Core3.PSGDecayRate", 0.025);
+		}
 		inline int getSessionStatsSeconds() {
 			static uint32 cachedVersion = 0;
 			static int cachedSessionStatsSeconds;

@@ -129,7 +129,7 @@ class FindTargetTask : public Task, public Logger {
 			player->sendSystemMessage("@mission/mission_generic:target_located_" + objective->getTargetZoneName());
 		} else {
 			if (objective->getTargetZoneName() == zoneName) {
-				if (ConfigManager::instance()->getBool("Core3.MissionManager.AnonymousBountyTerminals", false)) {
+				if (ConfigManager::instance()->getBool("Core3.AnonymousBountyTerminals", false)) {
 					ManagedReference<MissionObject*> mission = objective->getMissionObject().get();
 
 					ZoneServer* zoneServer = player->getZoneServer();

@@ -1970,7 +1970,7 @@ void PlayerObjectImplementation::logout(bool doLock) {
 			if (creature == nullptr)
 				return;
 
-			int isInSafeArea = creature->getSkillMod("private_safe_logout") || ConfigManager::instance()->getBool("Core3.Tweaks.PlayerObject.AlwaysSafeLogout", false);
+			int isInSafeArea = creature->getSkillMod("private_safe_logout") || ConfigManager::instance()->getBool("Core3.AlwaysSafeLogout", false);
 
 			info("creating disconnect event: isInSafeArea=" + String::valueOf(isInSafeArea), true);
 
@@ -2164,7 +2164,7 @@ void PlayerObjectImplementation::setLinkDead(bool isSafeLogout) {
 	logoutTimeStamp.updateToCurrentTime();
 	if(!isSafeLogout) {
 		info("went link dead");
-		logoutTimeStamp.addMiliTime(ConfigManager::instance()->getInt("Core3.Tweaks.PlayerObject.LinkDeadDelay", 3 * 60) * 1000); // 3 minutes if unsafe
+		logoutTimeStamp.addMiliTime(ConfigManager::instance()->getInt("Core3.Tweaks.LinkDeadDelay", 3 * 60) * 1000); // 3 minutes if unsafe
 	}
 
 	setPlayerBit(PlayerBitmasks::LD, true);
@@ -3330,6 +3330,11 @@ void PlayerObjectImplementation::recalculateForcePower() {
 	setForcePowerMax(maxForce, true);
 }
 
+int PlayerObjectImplementation::getPlayerLevel() {
+	ManagedReference<CreatureObject*> creature = cast<CreatureObject*>(parent.get().get());
+	return creature->getZoneServer()->getPlayerManager()->calculatePlayerLevel(creature);
+}
+
 bool PlayerObjectImplementation::isInPvpArea(bool checkTimer) {
 	ManagedReference<CreatureObject*> creature = dynamic_cast<CreatureObject*>(parent.get().get());
 
@@ -3412,6 +3417,16 @@ String PlayerObjectImplementation::getPlayedTimeString(bool verbose) const {
 
 	return buf.toString();
 }
+
+int PlayerObjectImplementation::getGroupLevel() {
+	ManagedReference<CreatureObject*> creature = cast<CreatureObject*>(parent.get().get());
+	if (creature->isGrouped()){
+		return creature->getGroup()->getGroupLevel();
+	}else{
+		return creature->getZoneServer()->getPlayerManager()->calculatePlayerLevel(creature);
+	}
+}
+
 
 void PlayerObjectImplementation::createHelperDroid() {
 	// Only spawn droid if character is less than 1 days old

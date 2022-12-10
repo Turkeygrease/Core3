@@ -1036,7 +1036,7 @@ void MissionManagerImplementation::randomizeGenericBountyMission(CreatureObject*
 			ManagedReference<CreatureObject*> creature = server->getObject(target->getTargetPlayerID()).castTo<CreatureObject*>();
 			String name = "";
 
-			if (creature != nullptr && ConfigManager::instance()->getBool("Core3.MissionManager.AnonymousBountyTerminals", false)) {
+			if (creature != nullptr && ConfigManager::instance()->getBool("Core3.AnonymousBountyTerminals", false)) {
 				if (creature->getFaction() == Factions::FACTIONIMPERIAL)
 					name = "Imperial Jedi";
 				else if (creature->getFaction() == Factions::FACTIONREBEL)
@@ -1997,7 +1997,7 @@ void MissionManagerImplementation::removeBountyHunterFromPlayerBounty(uint64 tar
 
 		playerBounty->removeBountyHunter(bountyHunterId);
 
-		if (ConfigManager::instance()->getBool("Core3.MissionManager.PlayerBountyCooldown", true)) {
+		if (ConfigManager::instance()->getBool("Core3.PlayerBountyCooldown", true)) {
 			Time currentTime;
 			uint64 curTime = currentTime.getMiliTime();
 
@@ -2025,7 +2025,7 @@ bool MissionManagerImplementation::isBountyValidForPlayer(CreatureObject* player
 	if (!bounty->isOnline())
 		return false;
 
-	int maxBountiesPerJedi = ConfigManager::instance()->getInt("Core3.MissionManager.MaxBountiesPerJedi", 5);
+	int maxBountiesPerJedi = ConfigManager::instance()->getInt("Core3.MaxBountiesPerJedi", 5);
 
 	if (bounty->numberOfActiveMissions() >= maxBountiesPerJedi)
 		return false;
@@ -2068,7 +2068,7 @@ bool MissionManagerImplementation::isBountyValidForPlayer(CreatureObject* player
 	if (!enableSameAccountBountyMissions && targetGhost->getAccountID() == accountId)
 		return false;
 
-	if (!ConfigManager::instance()->getBool("Core3.MissionManager.PrivateStructureJediMissions", true)) {
+	if (!ConfigManager::instance()->getBool("Core3.PrivateStructureJediMissions", true)) {
 		ManagedReference<BuildingObject*> building = cast<BuildingObject*>(creature->getRootParent());
 
 		if (building != nullptr && building->isPrivateStructure())
@@ -2088,8 +2088,8 @@ bool MissionManagerImplementation::isBountyValidForPlayer(CreatureObject* player
 		}
 	}
 
-	if (ConfigManager::instance()->getBool("Core3.MissionManager.PlayerBountyCooldown", true)) {
-		int cooldownTime = ConfigManager::instance()->getInt("Core3.MissionManager.PlayerBountyCooldownTime", 86400000); // 24 hour default
+	if (ConfigManager::instance()->getBool("Core3.PlayerBountyCooldown", true)) {
+		int cooldownTime = ConfigManager::instance()->getInt("Core3.PlayerBountyCooldownTime", 86400000); // 24 hour default
 
 		if (!bounty->canTakeMission(player->getObjectID(), cooldownTime)) {
 			return false;
@@ -2109,7 +2109,7 @@ void MissionManagerImplementation::completePlayerBounty(uint64 targetId, uint64 
 
 		uint64 curTime = currentTime.getMiliTime();
 
-		if (ConfigManager::instance()->getBool("Core3.MissionManager.PlayerBountyCooldown", false)) {
+		if (ConfigManager::instance()->getBool("Core3.PlayerBountyCooldown", false)) {
 			target->addMissionCooldown(bountyHunter, curTime);
 		}
 

@@ -96,20 +96,20 @@ Core3 = {
 	--"11",
 	--"character_farm",
 	--"cinco_city_test_m5",
-	--"corellia",
+	"corellia",
 	--"creature_test",
-	--"dantooine",
-	--"dathomir",
-	--"dungeon1",
-	--"endor",
+	"dantooine",
+	"dathomir",
+	"dungeon1",
+	"endor",
 	--"endor_asommers",
 	--"floratest",
 	--"godclient_test",
-	--"lok",
-	--"naboo",
+	"lok",
+	"naboo",
 	--"otoh_gunga",
 	--"rivertest",
-	--"rori",
+	"rori",
 	--"runtimerules",
 	--"simple",
 	--"space_09",
@@ -129,13 +129,13 @@ Core3 = {
 	--"space_tatooine_2",
 	--"space_yavin4",
 	--"taanab",
-	--"talus",
+	"talus",
 	"tatooine",
 	--"test_wearables",
 	"tutorial",
 	--"umbra",
 	--"watertabletest",
-	--"yavin4"
+	"yavin4"
 	},
 
 
@@ -237,6 +237,51 @@ Core3 = {
 
 	PlayerLogLevel = 4, -- -1 NONE, 0 FATAL, 1 ERROR, 2 WARNING, 3 LOG, 4 INFO, 5 DEBUG
 	MaxLogLines = 1000000, -- how often to rotate log (currently only log/player.log rotates)
+
+    -- Bazaar & Vendors
+    MaxBazaarPrice = 99999999,
+    MaxSales = 25, -- Applies only to bazaar
+    SalesFee = 20,
+    CheckEvery = 60, -- minutes
+    MaxVendorPrice = 99999999,
+    ItemsPerPage = 100,
+    VendorExpirePeriod = 2592000, -- Vendor
+    CommodityExpirePeriod = 604800, -- Bazaar
+    -- Crafting
+    FactoryCrateMaxCapacity = 1000,
+	DefaultPowerupUses = 100,
+
+	-- Group
+	GalaxyWideGrouping = "true",
+	GetGroupMaxSize = 20,
+	CombatXpSplit = "true",
+	SquadLeaderBuffRange = 100,
+
+	-- Decay
+	ArmorDecayRate = 0.0, -- Damage * decay rate
+	PSGDecayRate = 0.0, -- Damage * decay rate
+	WeaponDecayRate = 0.0, -- No math, just rate
+	CrystalAndPearlDecayRate = 0.0, -- No math, just rate
+
+	-- Functions
+	EnhancedFurnitureRotate = "true",
+
+	-- Account
+	SameAccountTipsAreFree = "true",
+	MaxCharactersPerGalaxy = 4,
+
+	-- Player
+	LinkDeadDelay = 180,
+	AlwaysSafeLogout = "false",
+	EnableTutorial = "false",
+
+	-- Bounty Hunting
+	BountyExpirationTime = 172800000,
+	AnonymousBountyTerminals = "false",
+	PlayerBountyCooldown = "true",
+	PlayerBountyCooldownTime = 86400000,
+	PrivateStructureJediMissions = "true",
+	MaxBountiesPerJedi = 5,
 }
 
 -- NOTE: conf/config-local.lua is parsed after this file if it exists

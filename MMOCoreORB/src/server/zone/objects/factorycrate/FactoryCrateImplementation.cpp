@@ -17,6 +17,8 @@
 #include "server/zone/objects/transaction/TransactionLog.h"
 
 void FactoryCrateImplementation::initializeTransientMembers() {
+	maxCapacity = ConfigManager::instance()->getFactoryCrateMaxCapacity();
+
 	TangibleObjectImplementation::initializeTransientMembers();
 
 	setLoggingName("FactoryCrate");

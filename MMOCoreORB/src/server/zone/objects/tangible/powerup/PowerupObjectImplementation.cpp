@@ -180,7 +180,7 @@ void PowerupObjectImplementation::updateCraftingValues(CraftingValues* values, b
 		}
 
 		type = pupTemplate->getType().toLowerCase();
-		uses = 100; // Powerups are always 100 uses
+		uses = ConfigManager::instance()->getDefaultPowerUpUses(); // Powerups are always 100 uses
 
 #ifdef DEBUG_POWERUPS
 		info(true) << "Type = " << type << " Uses = " << uses;

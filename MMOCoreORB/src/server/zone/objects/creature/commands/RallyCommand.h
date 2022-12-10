@@ -69,6 +69,9 @@ public:
 			if (member == nullptr)
 				continue;
 
+			if(member->getDistanceTo(leader) > ConfigManager::instance()->getInt("Core3.SquadLeaderBuffRange", 12000))
+				continue;
+
 			if (!isValidGroupAbilityTarget(leader, member, true))
 				continue;
 

@@ -56,7 +56,7 @@ void MissionObjectiveImplementation::activate() {
 		int64 missionDuration = MISSIONDURATION;
 
 		if (mission->getTypeCRC() == MissionTypes::BOUNTY) {
-			missionDuration = ConfigManager::instance()->getInt("Core3.MissionManager.BountyExpirationTime", MISSIONDURATION);
+			missionDuration = ConfigManager::instance()->getInt("Core3.BountyExpirationTime", MISSIONDURATION);
 		}
 
 		int64 timeRemaining = missionDuration - timeElapsed;
@@ -321,7 +321,7 @@ void MissionObjectiveImplementation::awardReward() {
 	int bonusCreds = mission->getBonusCredits();
 	int dividedBonus = 0;
 
-	bool anonymousPlayerBounties = ConfigManager::instance()->getBool("Core3.MissionManager.AnonymousBountyTerminals", false);
+	bool anonymousPlayerBounties = ConfigManager::instance()->getBool("Core3.AnonymousBountyTerminals", false);
 
 	if (anonymousPlayerBounties && bonusCreds > 0) {
 		trx.addState("missionBonusCredits", bonusCreds);

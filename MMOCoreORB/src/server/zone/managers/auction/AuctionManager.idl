@@ -33,16 +33,16 @@ class AuctionManager extends ManagedService implements Logger {
 	@dereferenced
 	protected VectorMap<SceneObject, string> pendingOldUIDUpdates;
 
-	public final static int MAXBAZAARPRICE = 20000;
-	public final static int MAXSALES = 25; // this only apply to bazaars
-	public final static int SALESFEE = 20;
-	public final static int CHECKEVERY = 60; // Minutes
+	public int maxBazaarPrice = 20000;
+	public int maxSales = 25; // this only apply to bazaars
+	public int salesFee = 20;
+	public int checkEvery = 60; // Minutes
 
-	public final static int MAXVENDORPRICE = 99999999;
-	public final static int ITEMSPERPAGE = 100;
+	public int maxVendorPrice = 99999999;
+	public int itemsPerPage = 100;
 
-	public final static int VENDOREXPIREPERIOD = 2592000; // Seconds
-	public final static int COMMODITYEXPIREPERIOD = 604800;
+	public int vendorExpirePeriod = 2592000; // Seconds
+	public int commodityExpirePeriod = 604800;
 
 	// Location Types
 	public final static int LT_GALAXY = 0;

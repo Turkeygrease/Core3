@@ -2052,7 +2052,7 @@ void PlayerManagerImplementation::disseminateExperience(TangibleObject* destruct
 				String xpType = entry->elementAt(j).getKey();
 				float xpAmount = baseXp;
 
-				if (ConfigManager::instance()->getBool("Core3.PlayerManager.CombatXpSplit", true)) {
+				if (ConfigManager::instance()->getBool("Core3.CombatXpSplit", true)) {
 					xpAmount *= (float) damage / totalDamage;
 				} else {
 					float xpMod = Math::max(0.8f, 1.f - (mobTapCount * 0.02f));

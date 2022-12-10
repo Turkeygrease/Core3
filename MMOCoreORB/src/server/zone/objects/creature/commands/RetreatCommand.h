@@ -40,6 +40,12 @@ public:
 			creature->sendSystemMessage("@combat_effects:burst_run_no"); //You cannot burst run right now.
 			return false;
 		}
+		
+		// Return if player is rooted
+		if (creature->isSnared()){
+			creature->sendSystemMessage("@cbt_spam:no_burst_rooted");
+			return false;
+		}
 
 		if (!creature->checkCooldownRecovery("retreat")) {
 			creature->sendSystemMessage("@combat_effects:burst_run_no"); //You cannot burst run right now.
@@ -87,7 +93,10 @@ public:
 		for (int i = 1; i < group->getGroupSize(); ++i) {
 			ManagedReference<CreatureObject*> member = group->getGroupMember(i);
 
-			if (member == nullptr || !member->isPlayerCreature())
+			if (member == nullptr || !member->isPlayerCreature() || member->getZone() != creature->getZone())
+				continue;
+
+			if(member->getDistanceTo(player) > ConfigManager::instance()->getInt("Core3.SquadLeaderBuffRange", 12000))
 				continue;
 
 			if (!isValidGroupAbilityTarget(creature, member, false))
