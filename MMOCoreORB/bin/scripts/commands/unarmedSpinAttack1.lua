@@ -52,7 +52,7 @@ UnarmedSpinAttack1Command = {
 	
 	healthCostMultiplier = 1.5,
 	actionCostMultiplier = 1.5,
-	mindCostMultiplier = 1.5,
+	mindCostMultiplier = 1,
 
 	animation = "combo_3c", 
 	animType = GENERATE_INTENSITY,
@@ -61,7 +61,7 @@ UnarmedSpinAttack1Command = {
 	
 	weaponType = UNARMEDWEAPON,
 
-	range = -1
+	range = 8
 }
 
 AddCommand(UnarmedSpinAttack1Command)

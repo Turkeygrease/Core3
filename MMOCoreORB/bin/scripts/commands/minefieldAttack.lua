@@ -9,6 +9,7 @@ MinefieldAttackCommand = {
 	areaAction = true,
 	range = -1,
 	coneAction = false,
+	accuracyBonus = 150,
 	areaRange = -1, -- default to the weapon range
 	
 }

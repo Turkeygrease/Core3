@@ -50,7 +50,7 @@ UnarmedBlind1Command = {
 	
 	healthCostMultiplier = 1.5,
 	actionCostMultiplier = 1.5,
-	mindCostMultiplier = 1.5,
+	mindCostMultiplier = 1,
 
 	animation = "attack_high_center_light_1",
 
@@ -70,7 +70,7 @@ UnarmedBlind1Command = {
 	
 	weaponType = UNARMEDWEAPON,
 
-	range = -1
+	range = 8
 }
 
 AddCommand(UnarmedBlind1Command)

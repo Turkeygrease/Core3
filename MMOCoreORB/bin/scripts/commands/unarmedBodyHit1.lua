@@ -48,7 +48,7 @@ UnarmedBodyHit1Command = {
 	speedMultiplier = 2.0,
 	healthCostMultiplier = 1.75,
 	actionCostMultiplier = 1.75,
-	mindCostMultiplier = 1.75,
+	mindCostMultiplier = 1,
         accuracyBonus = 15,
 
 	poolsToDamage = HEALTH_ATTRIBUTE,
@@ -60,7 +60,7 @@ UnarmedBodyHit1Command = {
 	
 	weaponType = UNARMEDWEAPON,
 
-	range = -1
+	range = 8
 }
 
 AddCommand(UnarmedBodyHit1Command)

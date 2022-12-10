@@ -45,13 +45,13 @@ FlameCone1Command = {
         name = "flamecone1",
 
 	damageMultiplier = 5,
-	speedMultiplier = 4,
+	speedMultiplier = 3,
 	healthCostMultiplier = 1.5,
 	actionCostMultiplier = 0.5,
 	mindCostMultiplier = 0.5,
 	accuracyBonus = 0,
 
-	coneAngle = 45,
+	coneAngle = 30,
 	coneAction = true,
 
 	poolsToDamage = RANDOM_ATTRIBUTE,
@@ -76,7 +76,7 @@ FlameCone1Command = {
 	
 	weaponType = SPECIALHEAVYWEAPON,
 	
-	range = 16
+	range = 36
 }
 
 AddCommand(FlameCone1Command)

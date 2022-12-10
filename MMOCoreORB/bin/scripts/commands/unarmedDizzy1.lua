@@ -70,7 +70,7 @@ UnarmedDizzy1Command = {
 	
 	weaponType = UNARMEDWEAPON,
 
-	range = -1
+	range = 8
 }
 
 AddCommand(UnarmedDizzy1Command)

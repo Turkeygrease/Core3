@@ -49,6 +49,7 @@ SprayShotCommand = {
 	healthCostMultiplier = 1,
 	actionCostMultiplier = 1,
 	mindCostMultiplier = 1,
+	accuracyBonus = 50,
 
 	stateEffects = {
 	  StateEffect(
@@ -56,7 +57,7 @@ SprayShotCommand = {
 		{},
 		{ "dizzy_defense" },
 		{ "jedi_state_defense", "resistance_states" },
-		60,
+		85,
 		0,
 		30
 	  ),
@@ -84,7 +85,7 @@ SprayShotCommand = {
 	animType = GENERATE_RANGED,
 
 	combatSpam = "sprayshot",
-	weaponType = CARBINEWEAPON,
+	weaponType = PISTOLWEAPON + CARBINEWEAPON,
 
 	range = -1
 }

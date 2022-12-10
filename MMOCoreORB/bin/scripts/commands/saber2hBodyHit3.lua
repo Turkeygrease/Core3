@@ -42,23 +42,34 @@
 --true = 1, false = 0
 
 Saber2hBodyHit3Command = {
-	name = "saber2hbodyhit3",
-
-	damageMultiplier = 2.25,
-	accuracyBonus = 50,
+        name = "saber2hbodyhit3",
+        
+    damageMultiplier = 3.5,
 	speedMultiplier = 2.25,
 	healthCostMultiplier = 0,
 	actionCostMultiplier = 0,
 	mindCostMultiplier = 0,
-	forceCostMultiplier = 1.75,
+	forceCostMultiplier = 2.4,
 	visMod = 25,
-
-	animation = "combo_4a",
+	
+	animation = "combo_4a", 
 	animType = GENERATE_INTENSITY,
 
 	combatSpam = "saber2hbodyhit3",
-
+	
 	poolsToDamage = HEALTH_ATTRIBUTE,
+
+	stateEffects = {
+	  StateEffect( 
+		STUN_EFFECT, 
+		{}, 
+		{ "stun_defense" }, 
+		{ "jedi_state_defense", "resistance_states" },
+		85, 
+		0, 
+		30 
+	  )
+	},
 
 	weaponType = TWOHANDJEDIWEAPON,
 

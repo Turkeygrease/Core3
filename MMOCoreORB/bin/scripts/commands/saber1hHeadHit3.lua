@@ -42,18 +42,17 @@
 --true = 1, false = 0
 
 Saber1hHeadHit3Command = {
-	name = "saber1hheadhit3",
+        name = "saber1hheadhit3",
 
-	damageMultiplier = 2.25,
-	accuracyBonus = 50,
+	damageMultiplier = 2.75,
 	speedMultiplier = 2.25,
 	healthCostMultiplier = 0,
 	actionCostMultiplier = 0,
 	mindCostMultiplier = 0,
-	forceCostMultiplier = 1.75,
+	forceCostMultiplier = 2.3,
 	visMod = 25,
 
-	animation = "combo_5a",
+	animation = "combo_5a", 
 	animType = GENERATE_INTENSITY,
 
 	combatSpam = "saber1hheadhit3",
@@ -61,15 +60,15 @@ Saber1hHeadHit3Command = {
 	poolsToDamage = MIND_ATTRIBUTE,
 
 	stateEffects = {
-		StateEffect(
-			BLIND_EFFECT,
-			{},
-			{ "blind_defense" },
-			{ "jedi_state_defense", "resistance_states" },
-			60,
-			0,
-			60
-		)
+	  StateEffect( 
+		BLIND_EFFECT, 
+		{}, 
+		{ "blind_defense" }, 
+		{ "jedi_state_defense", "resistance_states" },
+		85, 
+		0, 
+		30 
+	  )
 	},
 
 	weaponType = ONEHANDJEDIWEAPON,

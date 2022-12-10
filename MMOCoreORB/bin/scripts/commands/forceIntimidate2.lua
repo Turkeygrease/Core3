@@ -45,8 +45,8 @@ ForceIntimidate2Command = {
 	name = "forceintimidate2",
 
 	damageMultiplier = 0,
-	speed = 4.0,
-	forceCost = 500,
+	speed = 2.0,
+	forceCost = 300,
 	accuracySkillMod = "forceintimidate_accuracy",
 	forceAttack = true,
 	splashDamage = true,
@@ -62,17 +62,17 @@ ForceIntimidate2Command = {
 		{ "jedi_state_defense" },
 		100,
 		0,
-		90
+		60
 	  )
 	},
 
-	animation = "force_intimidate",
+	animation = "force_intimidate_chain",
 
 	combatSpam = "forceintimidate2",
 
 	poolsToDamage = NO_ATTRIBUTE,
 
-	range = 32
+	range = 16
 }
 
 AddCommand(ForceIntimidate2Command)

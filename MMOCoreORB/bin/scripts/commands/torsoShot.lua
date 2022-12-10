@@ -44,7 +44,7 @@
 TorsoShotCommand = {
         name = "torsoshot",
 
-	damageMultiplier = 3.0,
+	damageMultiplier = 3.5,
 	speedMultiplier = 2.3,
 	healthCostMultiplier = 1,
 	actionCostMultiplier = 1,
@@ -63,7 +63,7 @@ TorsoShotCommand = {
 		{ "resistance_fire", "fire_resist" },
 		HEALTH,
 		true,
-		0,
+		30,
 		100,
 		30, 
 		30,
@@ -71,8 +71,8 @@ TorsoShotCommand = {
 		10
 	  )
 	},
-	
-	weaponType = PISTOLWEAPON,
+
+	weaponType = PISTOLWEAPON + CARBINEWEAPON,
 
 	range = -1
 }

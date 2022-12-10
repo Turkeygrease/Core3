@@ -51,7 +51,7 @@ FlurryShot2Command = {
 	mindCostMultiplier = 2.0,
 	accuracyBonus = 5,
 
-	coneAngle = 15,
+	coneAngle = 30,
 	coneAction = true,
 
 	stateEffects = {

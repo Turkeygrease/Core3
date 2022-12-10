@@ -42,18 +42,17 @@
 --true = 1, false = 0
 
 Saber2hHit3Command = {
-	name = "saber2hhit3",
+        name = "saber2hhit3",
 
-	damageMultiplier = 2.5,
-	accuracyBonus = 50,
+	damageMultiplier = 4.5,
 	speedMultiplier = 2.5,
 	healthCostMultiplier = 0,
 	actionCostMultiplier = 0,
 	mindCostMultiplier = 0,
-	forceCostMultiplier = 2.0,
+	forceCostMultiplier = 2.5,
 	visMod = 25,
 
-	animation = "showoff_3",
+	animation = "showoff_3", 
 	animType = GENERATE_INTENSITY,
 
 	combatSpam = "saber2hhit3",

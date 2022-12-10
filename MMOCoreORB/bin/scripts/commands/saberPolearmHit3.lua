@@ -42,30 +42,18 @@
 --true = 1, false = 0
 
 SaberPolearmHit3Command = {
-	name = "saberpolearmhit3",
-
-	damageMultiplier = 2.5,
-	accuracyBonus = 50,
+        name = "saberpolearmhit3",
+  
+	damageMultiplier = 4.50,
 	speedMultiplier = 2.5,
 	healthCostMultiplier = 0,
 	actionCostMultiplier = 0,
 	mindCostMultiplier = 0,
-	forceCostMultiplier = 2.0,
+	forceCostMultiplier = 2.50,
 	visMod = 25,
 
-	stateEffects = {
-		StateEffect(
-			STUN_EFFECT,
-			{},
-			{ "stun_defense" },
-			{ "jedi_state_defense", "resistance_states" },
-			75,
-			0,
-			90
-		)
-	},
 
-	animation = "combo_4b",
+	animation = "combo_4b", 
 	animType = GENERATE_INTENSITY,
 
 	combatSpam = "saberpolearmhit3",

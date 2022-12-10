@@ -44,7 +44,7 @@
 WildShot2Command = {
         name = "wildshot2",
 
-	damageMultiplier = 3.0,
+	damageMultiplier = 4.0,
 	speedMultiplier = 2.0,
 	healthCostMultiplier = 2.0,
 	actionCostMultiplier = 1.25,
@@ -65,7 +65,7 @@ WildShot2Command = {
 		{}, 
 		{ "stun_defense" }, 
 		{ "jedi_state_defense", "resistance_states" },
-		50, 
+		85, 
 		0, 
 		30 
 	  )

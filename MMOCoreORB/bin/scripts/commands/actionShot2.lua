@@ -44,13 +44,13 @@
 ActionShot2Command = {
         name = "actionshot2",
 
-	damageMultiplier = 2.0,
+	damageMultiplier = 2.25,
 	speedMultiplier = 2.0,
 	healthCostMultiplier = 2.0,
 	actionCostMultiplier = 1.25,
 	mindCostMultiplier = 0.5,
 
-	coneAngle = 15,
+	coneAngle = 60,
 	coneAction = true,
 
 	poolsToDamage = ACTION_ATTRIBUTE,

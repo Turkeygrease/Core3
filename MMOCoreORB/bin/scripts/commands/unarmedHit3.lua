@@ -48,7 +48,7 @@ UnarmedHit3Command = {
 	speedMultiplier = 3.0,
 	healthCostMultiplier = 2,
 	actionCostMultiplier = 2,
-	mindCostMultiplier = 2,
+	mindCostMultiplier = 1,
         accuracyBonus = 15,
 
 	animation = "combo_5a", 
@@ -72,7 +72,7 @@ UnarmedHit3Command = {
 	
 	weaponType = UNARMEDWEAPON,	
 
-	range = -1
+	range = 8
 }
 
 AddCommand(UnarmedHit3Command)

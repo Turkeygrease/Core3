@@ -51,7 +51,7 @@ PolearmStun2Command = {
 	mindCostMultiplier = 1.0,
 	accuracyBonus = 10,
 
-	areaRange = 16,
+	areaRange = 8,
 	areaAction = true,
 
 	stateEffects = {
@@ -60,7 +60,7 @@ PolearmStun2Command = {
 		{}, 
 		{ "stun_defense" }, 
 		{ "jedi_state_defense", "resistance_states" },
-		60, 
+		85, 
 		0, 
 		30 
 	  )

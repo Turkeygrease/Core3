@@ -49,18 +49,32 @@ FireLightningCone2Command = {
 	healthCostMultiplier = 1,
 	actionCostMultiplier = 1,
 	mindCostMultiplier = 1,
+	accuracyBonus = 95,
 
 	animation = "fire_lightning_rifle_single_2",
+
+	stateEffects = {
+	  StateEffect( 
+		DIZZY_EFFECT, 
+		{}, 
+		{ "dizzy_defense", "resistance_states" }, 
+		{ "jedi_state_defense" }, 
+		100, 
+		0, 
+		10 
+	  )
+	},
+
 	animType = GENERATE_INTENSITY,
 
 	combatSpam = "firelightningcone2",
 
-	coneAngle = 60,
+	coneAngle = 30,
 	coneAction = true,
 	
 	weaponType = SPECIALHEAVYWEAPON,
 
-	range = 16
+	range = -1
 }
 
 AddCommand(FireLightningCone2Command)

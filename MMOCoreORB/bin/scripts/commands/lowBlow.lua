@@ -45,13 +45,22 @@ LowBlowCommand = {
         name = "lowblow",
 
 	damageMultiplier = 2.0,
-	speedMultiplier = 2.5,
+	speedMultiplier = 1.0,
 	healthCostMultiplier = 0.5,
 	actionCostMultiplier = 1.0,
 	mindCostMultiplier = 0.5,
 	accuracyBonus = 50,
 
 	stateEffects = {
+	  StateEffect( 
+		DIZZY_EFFECT, 
+		{}, 
+		{ "dizzy_defense" }, 
+		{ "jedi_state_defense", "resistance_states" },
+		85, 
+		0, 
+		20 
+	  ),
 	  StateEffect( 
 		KNOCKDOWN_EFFECT, 
 		{ "knockdownRecovery", "lastKnockdown" }, 

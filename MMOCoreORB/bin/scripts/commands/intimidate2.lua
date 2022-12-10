@@ -44,7 +44,7 @@
 Intimidate2Command = {
 	name = "intimidate2",
 
-	damageMultiplier = 0,
+	damageMultiplier = 0.25,
 	speedMultiplier = 1,
 	healthCostMultiplier = 0,
 	actionCostMultiplier = 0,
@@ -56,8 +56,8 @@ Intimidate2Command = {
 	  StateEffect( 
 		INTIMIDATE_EFFECT, 
 		{}, 
-		{}, 
-		{},
+		{"intimidate_defense"}, 
+		{ "jedi_state_defense", "resistance_states" }, 
 		100, 
 		0, 
 		120 

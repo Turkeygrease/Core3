@@ -47,10 +47,10 @@ UnarmedSpinAttack2Command = {
 	damageMultiplier = 3.0,
 	speedMultiplier = 3.0,
 	areaAction = true,
-	areaRange = 16,
+	areaRange = 8,
 	healthCostMultiplier = 2,
 	actionCostMultiplier = 2,
-	mindCostMultiplier = 2,
+	mindCostMultiplier = 1,
         accuracyBonus = 15,
 
 	animation = "combo_3d", 
@@ -60,7 +60,7 @@ UnarmedSpinAttack2Command = {
 	
 	weaponType = UNARMEDWEAPON,
 
-	range = -1
+	range = 8
 }
 
 AddCommand(UnarmedSpinAttack2Command)

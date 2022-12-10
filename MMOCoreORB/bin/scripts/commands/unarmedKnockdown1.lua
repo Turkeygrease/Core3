@@ -69,7 +69,7 @@ UnarmedKnockdown1Command = {
 	
 	weaponType = UNARMEDWEAPON,
 
-	range = -1
+	range = 8
 }
 
 AddCommand(UnarmedKnockdown1Command)

@@ -44,7 +44,7 @@
 ThrowGrenadeCommand = {
         name = "throwgrenade",
 
-	damageMultiplier = 1.0,
+	damageMultiplier = 1.1,
 	speedMultiplier = 1.0,
 	healthCostMultiplier = 1.0,
 	actionCostMultiplier = 1.0,
@@ -52,7 +52,7 @@ ThrowGrenadeCommand = {
 
 	range = 64,
 	areaAction = true,
-	areaRange = 10,
+	areaRange = 15,
 
 	poolsToDamage = RANDOM_ATTRIBUTE,
 

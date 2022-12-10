@@ -55,12 +55,12 @@ FireLightningCone1Command = {
 
 	combatSpam = "firelightningcone1",
 
-	coneAngle = 60,
+	coneAngle = 30,
 	coneAction = true,
 	
 	weaponType = SPECIALHEAVYWEAPON,
 
-	range = 16
+	range = -1
 }
 
 AddCommand(FireLightningCone1Command)

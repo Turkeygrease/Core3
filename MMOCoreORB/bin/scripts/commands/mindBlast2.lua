@@ -45,9 +45,9 @@ MindBlast2Command = {
 	name = "mindblast2",
 
 	minDamage = 250,
-	maxDamage = 500,
-	speed = 4.0,
-	forceCost = 160,
+	maxDamage = 350,
+	speed = 2.0,
+	forceCost = 100,
 	visMod = 25,
 	accuracySkillMod = "mindblast_accuracy";
 	coneAngle = 40,
@@ -69,7 +69,7 @@ MindBlast2Command = {
 			{},
 			{},
 			{ "jedi_state_defense" },
-			55,
+			65,
 			0,
 			10
 		),
@@ -79,7 +79,7 @@ MindBlast2Command = {
 			{},
 			{},
 			{ "jedi_state_defense" },
-			55,
+			65,
 			0,
 			10
 		)
@@ -90,15 +90,15 @@ MindBlast2Command = {
 
 	combatSpam = "mindblast2",
 
-	poolsToDamage = RANDOM_ATTRIBUTE,
+	poolsToDamage = MIND_ATTRIBUTE,
 
 	forceAttack = true,
 	damageType = LIGHTSABER_DAMAGE,
-
-	frsLightMinDamageModifier = 2,
-	frsLightMaxDamageModifier = 3,
-	frsDarkMinDamageModifier = 2,
-	frsDarkMaxDamageModifier = 3,
+	-- Rank 11 +100 min +200max
+	frsLightMinDamageModifier = 1,
+	frsLightMaxDamageModifier = 2,
+	frsDarkMinDamageModifier = 1,
+	frsDarkMaxDamageModifier = 2,
 
 	range = 32
 }

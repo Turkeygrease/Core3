@@ -44,11 +44,11 @@
 UnarmedHeadHit1Command = {
         name = "unarmedheadhit1",
 
-	damageMultiplier = 2.5,
+	damageMultiplier = 2.25,
 	speedMultiplier = 2.0,
 	healthCostMultiplier = 1.75,
 	actionCostMultiplier = 1.75,
-	mindCostMultiplier = 1.75,
+	mindCostMultiplier = 1,
         accuracyBonus = 15,
 
 	poolsToDamage = MIND_ATTRIBUTE,
@@ -59,7 +59,7 @@ UnarmedHeadHit1Command = {
 	
 	weaponType = UNARMEDWEAPON,
 
-	range = -1
+	range = 8
 }
 
 AddCommand(UnarmedHeadHit1Command)

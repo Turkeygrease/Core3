@@ -42,18 +42,17 @@
 --true = 1, false = 0
 
 Saber1hHeadHit2Command = {
-	name = "saber1hheadhit2",
+        name = "saber1hheadhit2",
 
-	damageMultiplier = 1.75,
-	accuracyBonus = 50,
+	damageMultiplier = 2.0,
 	speedMultiplier = 1.75,
 	healthCostMultiplier = 0,
 	actionCostMultiplier = 0,
 	mindCostMultiplier = 0,
-	forceCostMultiplier = 1.5,
+	forceCostMultiplier = 2.20,
 	visMod = 25,
 
-	animation = "combo_4c",
+	animation = "combo_4c", 
 	animType = GENERATE_INTENSITY,
 
 	combatSpam = "saber1hheadhit2",

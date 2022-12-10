@@ -45,7 +45,7 @@ FlameSingle1Command = {
         name = "flamesingle1",
 
 	damageMultiplier = 5,
-	speedMultiplier = 4,
+	speedMultiplier = 3,
 	healthCostMultiplier = 1.5,
 	actionCostMultiplier = 0.5,
 	mindCostMultiplier = 0.5,
@@ -73,7 +73,7 @@ FlameSingle1Command = {
 	
 	weaponType = SPECIALHEAVYWEAPON,
 	
-	range = 16
+	range = 36
 }
 AddCommand(FlameSingle1Command)
 

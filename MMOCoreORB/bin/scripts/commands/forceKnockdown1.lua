@@ -45,7 +45,7 @@ ForceKnockdown1Command = {
 	name = "forceknockdown1",
 
 	damageMultiplier = 0,
-	speed = 4.0,
+	speed = 2.0,
 	forceCost = 75,
 	visMod = 25,
 	accuracySkillMod = "forceknockdown_accuracy",
@@ -55,7 +55,7 @@ ForceKnockdown1Command = {
 		KNOCKDOWN_EFFECT,
 		{ "knockdownRecovery", "lastKnockdown" },
 		{},
-		{},
+		{ "jedi_state_defense" },
 		65,
 		0,
 		0

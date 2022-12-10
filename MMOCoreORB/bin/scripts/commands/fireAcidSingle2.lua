@@ -44,8 +44,8 @@
 FireAcidSingle2Command = {
         name = "fireacidsingle2",
 
-	damageMultiplier = 8,
-	speedMultiplier = 4,
+	damageMultiplier = 7,
+	speedMultiplier = 2,
 	healthCostMultiplier = 2.0,
 	actionCostMultiplier = 0.5,
 	mindCostMultiplier = 0.5,
@@ -57,10 +57,21 @@ FireAcidSingle2Command = {
 	animType = GENERATE_INTENSITY,
 
 	combatSpam = "fireacidsingle2",
+	stateEffects = {
+	  StateEffect( 
+		BLIND_EFFECT, 
+		{}, 
+		{ "blind_defense" }, 
+		{ "jedi_state_defense", "resistance_states" },
+		85, 
+		0, 
+		40 
+	  )
+	},
 	
 	weaponType = SPECIALHEAVYWEAPON,
 	
-	range = 16
+	range = 56
 }
 
 AddCommand(FireAcidSingle2Command)

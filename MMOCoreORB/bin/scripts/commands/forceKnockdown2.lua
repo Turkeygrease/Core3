@@ -45,10 +45,11 @@ ForceKnockdown2Command = {
 	name = "forceknockdown2",
 
     damageMultiplier = 0,
-	speed = 4.0,
+	speed = 2.0,
 	forceCost = 100,
 	visMod = 25,
 	accuracySkillMod = "forceknockdown_accuracy",
+	accuracyBonus = 50,
 	coneAngle = 40,
 	coneAction = true,
 
@@ -57,8 +58,8 @@ ForceKnockdown2Command = {
 		KNOCKDOWN_EFFECT,
 		{ "knockdownRecovery", "lastKnockdown" },
 		{},
-		{},
-		65,
+		{ "jedi_state_defense" },
+		85,
 		0,
 		0
 	  )

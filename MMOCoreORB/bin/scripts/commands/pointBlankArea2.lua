@@ -44,14 +44,14 @@
 PointBlankArea2Command = {
         name = "pointblankarea2",
 
-	damageMultiplier = 4.0,
+	damageMultiplier = 3.0,
 	speedMultiplier = 1.5,
 	healthCostMultiplier = 0.5,
 	actionCostMultiplier = 1.5,
 	mindCostMultiplier = 0.5,
 	accuracyBonus = 50,
 
-	coneAngle = 60,
+	coneAngle = 15,
 	coneAction = true,
 
 	animation = "fire_area_no_trails", 
@@ -61,7 +61,7 @@ PointBlankArea2Command = {
 	
 	weaponType = PISTOLWEAPON,
 
-	range = 12
+	range = 15
 }
 
 AddCommand(PointBlankArea2Command)

@@ -48,8 +48,9 @@ ForceFeedback2Command = {
 	--animationCRC = hashCode()
 	clientEffect = "clienteffect/pl_force_feedback_self.cef",
 	buffClass = SINGLE_USE_BUFF,
-	frsLightBuffModifier = 0.45,
-	frsDarkBuffModifier = 0.45
+	---- based on controlMod
+	frsLightBuffModifier = 0.085, -- 10% additional damage@ rank 11
+	frsDarkBuffModifier = 0.085   -- 10% additional damage @ rank 11
 }
 
 AddCommand(ForceFeedback2Command)
