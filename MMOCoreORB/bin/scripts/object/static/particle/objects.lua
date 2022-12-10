@@ -10333,49 +10333,7 @@ ObjectTemplates:addClientTemplate(object_static_particle_shared_pt_smoke_large, 
 
 object_static_particle_shared_pt_smoke_small = SharedStaticObjectTemplate:new {
 	clientTemplateFileName = "object/static/particle/shared_pt_smoke_small.iff"
-	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
---[[
-	appearanceFilename = "appearance/pt_smoke_small.prt",
-	arrangementDescriptorFilename = "",
 
-	clearFloraRadius = 0,
-	clientDataFile = "",
-	clientGameObjectType = 5,
-	collisionActionBlockFlags = 255,
-	collisionActionFlags = 1,
-	collisionActionPassFlags = 0,
-	collisionMaterialBlockFlags = 1,
-	collisionMaterialFlags = 1,
-	collisionMaterialPassFlags = 0,
-	containerType = 0,
-	containerVolumeLimit = 0,
-
-	detailedDescription = "string_id_table",
-
-	gameObjectType = 5,
-
-	locationReservationRadius = 0,
-	lookAtText = "string_id_table",
-
-	noBuildRadius = 0,
-
-	objectName = "@obj_n:unknown_object",
-	onlyVisibleInTools = 0,
-
-	portalLayoutFilename = "",
-
-	scale = 1,
-	scaleThresholdBeforeExtentTest = 0.5,
-	sendToClient = 1,
-	slotDescriptorFilename = "",
-	snapToTerrain = 0,
-	surfaceType = 0,
-
-	totalCellNumber = 0,
-
-	clientObjectCRC = 4210272156,
-	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/static/base/shared_static_base.iff", "object/static/particle/base/shared_static_particle_base.iff"}
-]]
 }
 
 ObjectTemplates:addClientTemplate(object_static_particle_shared_pt_smoke_small, "object/static/particle/shared_pt_smoke_small.iff")
