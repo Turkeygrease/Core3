@@ -104,6 +104,9 @@ public:
 		COMBATCOMMANDENQUEUED,		// ManagedObject arg1 = player, long arg2 = 0
 		FACTIONCHAT,				// ManagedObject arg1 = AiAgent, long arg2 = playerID
 		NOPLAYERSINRANGE,			// ManagedObject arg1 = null, long arg2 = 0
+		JOINEDGROUP,				// ManagedObject arg1 = player or group, long arg2 = 0
+		LEFTGROUP,					// ManagedObject arg1 = player or group, long arg2 = 0
+		GROUPDISBANDED,				// ManagedObject arg1 = player or group, long arg2 = 0
 	};
 };
 

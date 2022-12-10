@@ -14,6 +14,7 @@
 #include "server/zone/objects/intangible/LuaIntangibleObject.h"
 #include "server/zone/objects/intangible/ControlDevice.h"
 #include "server/zone/objects/intangible/PetControlDevice.h"
+#include "server/zone/objects/group/LuaGroupObject.h"
 #include "server/zone/objects/player/LuaPlayerObject.h"
 #include "server/zone/objects/creature/CreatureObject.h"
 #include "server/zone/objects/tangible/LuaTangibleObject.h"
@@ -596,6 +597,11 @@ void DirectorManager::initializeLuaEngine(Lua* luaEngine) {
 	luaEngine->setGlobalInt("PROTOTYPECREATED", ObserverEventType::PROTOTYPECREATED);
 	luaEngine->setGlobalInt("SLICED", ObserverEventType::SLICED);
 	luaEngine->setGlobalInt("ABILITYUSED", ObserverEventType::ABILITYUSED);
+	luaEngine->setGlobalInt("JOINEDGROUP", ObserverEventType::JOINEDGROUP);
+	luaEngine->setGlobalInt("LEFTGROUP", ObserverEventType::LEFTGROUP);
+	luaEngine->setGlobalInt("GROUPDISBANDED", ObserverEventType::GROUPDISBANDED);
+	luaEngine->setGlobalInt("PLAYERKILLED", ObserverEventType::PLAYERKILLED);
+	luaEngine->setGlobalInt("PLAYERCLONED", ObserverEventType::PLAYERCLONED);
 
 	luaEngine->setGlobalInt("UPRIGHT", CreaturePosture::UPRIGHT);
 	luaEngine->setGlobalInt("PRONE", CreaturePosture::PRONE);
@@ -740,6 +746,7 @@ void DirectorManager::initializeLuaEngine(Lua* luaEngine) {
 	Luna<LuaConversationSession>::Register(luaEngine->getLuaState());
 	Luna<LuaConversationTemplate>::Register(luaEngine->getLuaState());
 	Luna<LuaIntangibleObject>::Register(luaEngine->getLuaState());
+	Luna<LuaGroupObject>::Register(luaEngine->getLuaState());
 	Luna<LuaControlDevice>::Register(luaEngine->getLuaState());
 	Luna<LuaPlayerObject>::Register(luaEngine->getLuaState());
 	Luna<LuaAiAgent>::Register(luaEngine->getLuaState());
@@ -4508,4 +4515,158 @@ int DirectorManager::useCovertOvert(lua_State* L) {
 	lua_pushboolean(L, result);
 
 	return 1;
+}
+
+//applyCommandEffect(attacker,defender,effectType,duration,mod)
+int DirectorManager::applyCommandEffect(lua_State* L){
+	int numberOfArguments = lua_gettop(L);
+	if (numberOfArguments != 4) {
+		String err = "incorrect number of arguments passed to DirectorManager::applyCommandEffect";
+		printTraceError(L, err);
+		ERROR_CODE = INCORRECT_ARGUMENTS;
+		return 0;
+	}
+	CreatureObject* attacker = (CreatureObject*) lua_touserdata(L, -5);
+	CreatureObject* defender = (CreatureObject*) lua_touserdata(L, -4);
+	uint8 effectType = lua_tointeger(L, -3);
+	uint32 duration = lua_tointeger(L, -2);
+	uint32 mod = lua_tointeger(L, -1);
+
+	//CombatManager* combatManager = CombatManager::instance();
+	ManagedReference<Buff*> buff;
+	Locker locker(defender);
+
+	switch (effectType) {
+	case 1: //blind
+		defender->setBlindedState(duration);
+		break;
+	case 2: //dizzy
+		defender->setDizziedState(duration);
+		break;
+	case 3: // intimidate
+		defender->setIntimidatedState(duration);
+		break;
+	case 4: // stun
+		defender->setStunnedState(duration);
+		break;
+	case 5: // snare
+		defender->setSnaredState(duration);
+		defender->setSpeedState(duration, float(mod) * 0.01);
+		break;
+	case 6: // root
+		defender->setPosture(CreaturePosture::CROUCHED, false, false);
+		defender->setRootedState(duration);
+		defender->setSpeedState(duration, 0.01f);
+		break;
+	case 7: // delay
+		defender->setNextAttackDelay(attacker, "", mod, duration);
+		break;
+	case 8: // knock-down
+		if (!defender->checkKnockdownRecovery()) {
+			if (defender->getPosture() != CreaturePosture::UPRIGHT)
+				defender->setPosture(CreaturePosture::UPRIGHT, false, false);
+			break;
+		}
+
+		if (defender->isRidingMount()) {
+			defender->updateCooldownTimer("mount_dismount", 0);
+			defender->dismount();
+		}
+
+		if (!defender->isDead() && !defender->isIncapacitated())
+			defender->setPosture(CreaturePosture::KNOCKEDDOWN, false, false);
+
+		defender->updateKnockdownRecovery();
+		defender->setPostureChangeDelay(4000);
+		defender->removeBuff(STRING_HASHCODE("burstrun"));
+		defender->removeBuff(STRING_HASHCODE("retreat"));
+		defender->sendSystemMessage("@cbt_spam:posture_knocked_down");
+		defender->sendStateCombatSpam("cbt_spam", "posture_knocked_down", 0, 0, false);
+		break;
+	case 9: //CommandEffect::POSTUREUP:
+		if (!defender->checkPostureUpRecovery()) {
+			if (defender->getPosture() != CreaturePosture::UPRIGHT)
+				defender->setPosture(CreaturePosture::UPRIGHT, false, false);
+			break;
+		}
+
+		if (defender->isRidingMount()) {
+			defender->updateCooldownTimer("mount_dismount", 0);
+			defender->dismount();
+		}
+
+		if (defender->getPosture() == CreaturePosture::PRONE) {
+			defender->setPosture(CreaturePosture::CROUCHED, false, false);
+			defender->sendSystemMessage("@cbt_spam:force_posture_change_1");
+			defender->sendStateCombatSpam("cbt_spam", "force_posture_change_1", 0, 0, false);
+		} else if (defender->getPosture() == CreaturePosture::CROUCHED) {
+			defender->setPosture(CreaturePosture::UPRIGHT, false, false);
+			defender->sendSystemMessage("@cbt_spam:force_posture_change_0");
+			defender->sendStateCombatSpam("cbt_spam", "force_posture_change_0", 0, 0, false);
+		}
+
+		defender->updatePostureUpRecovery();
+		defender->setPostureChangeDelay(2500);
+		defender->removeBuff(STRING_HASHCODE("burstrun"));
+		defender->removeBuff(STRING_HASHCODE("retreat"));
+		break;
+	case 10: //CommandEffect::POSTUREDOWN:
+		if (!defender->checkPostureDownRecovery()) {
+			if (defender->getPosture() != CreaturePosture::UPRIGHT)
+				defender->setPosture(CreaturePosture::UPRIGHT, false, false);
+			break;
+		}
+
+		if (defender->isRidingMount()) {
+			defender->updateCooldownTimer("mount_dismount", 0);
+			defender->dismount();
+		}
+
+		if (defender->getPosture() == CreaturePosture::UPRIGHT) {
+			defender->setPosture(CreaturePosture::CROUCHED, false, false);
+			defender->sendSystemMessage("@cbt_spam:force_posture_change_1");
+			defender->sendStateCombatSpam("cbt_spam", "force_posture_change_1", 0, 0, false);
+		} else if (defender->getPosture() == CreaturePosture::CROUCHED) {
+			defender->setPosture(CreaturePosture::PRONE, false, false);
+			defender->sendSystemMessage("@cbt_spam:force_posture_change_2");
+			defender->sendStateCombatSpam("cbt_spam", "force_posture_change_2", 0, 0, false);
+		}
+
+		defender->updatePostureDownRecovery();
+		defender->setPostureChangeDelay(2500);
+		defender->removeBuff(STRING_HASHCODE("burstrun"));
+		defender->removeBuff(STRING_HASHCODE("retreat"));
+		break;
+	case 11:{ // CommandEffect::HEALTHDEGRADE:
+		buff = new Buff(defender, STRING_HASHCODE("healthdegrade"), duration, BuffType::STATE);
+		Locker blocker(buff);
+		buff->setAttributeModifier(CreatureAttribute::CONSTITUTION, -1*mod);
+		buff->setAttributeModifier(CreatureAttribute::STRENGTH, -1*mod);
+		defender->addBuff(buff);
+		break;}
+	case 12:{ //CommandEffect::ACTIONDEGRADE:
+		buff = new Buff(defender, STRING_HASHCODE("actiondegrade"), duration, BuffType::STATE);
+		Locker blocker(buff);
+		buff->setAttributeModifier(CreatureAttribute::QUICKNESS, -1*mod);
+		buff->setAttributeModifier(CreatureAttribute::STAMINA, -1*mod);
+		defender->addBuff(buff);
+		break;}
+	case 13:{ //CommandEffect::MINDDEGRADE:
+		buff = new Buff(defender, STRING_HASHCODE("minddegrade"), duration, BuffType::STATE);
+		Locker blocker(buff);
+		buff->setAttributeModifier(CreatureAttribute::FOCUS, -1*mod);
+		buff->setAttributeModifier(CreatureAttribute::WILLPOWER, -1*mod);
+		defender->addBuff(buff);
+		break;}
+	case 14: //CommandEffect::REMOVECOVER:
+		if (defender->hasState(CreatureState::COVER)) {
+			defender->clearState(CreatureState::COVER);
+			defender->sendSystemMessage("@combat_effects:strafe_system");
+			defender->setNextAttackDelay(attacker, "", mod, duration);
+		}
+		break;
+	default:
+		break;
+	}
+	return 0;
 }

@@ -99,6 +99,8 @@ Luna<LuaPlayerObject>::RegType LuaPlayerObject::Register[] = {
 		{ "getAccountID", &LuaPlayerObject::getAccountID },
 		{ "hasPvpTef", &LuaPlayerObject::hasPvpTef },
 		{ "hasGcwTef", &LuaPlayerObject::hasGcwTef },
+		{ "getLevel", &LuaPlayerObject::getLevel },
+		{ "getGroupLevel", &LuaPlayerObject::getGroupLevel },
 		{ 0, 0 }
 };
 
@@ -889,6 +891,20 @@ int LuaPlayerObject::startSlicingSession(lua_State* L) {
 	session->initalizeSlicingMenu(player, objToSlice);
 
 	return 0;
+}
+
+int LuaPlayerObject::getLevel(lua_State* L) {
+	int playerLevel = realObject->getPlayerLevel();
+	lua_pushinteger(L, playerLevel);
+
+	return 1;
+}
+
+int LuaPlayerObject::getGroupLevel(lua_State* L) {
+	int groupLevel = realObject->getGroupLevel();
+	lua_pushinteger(L, groupLevel);	
+
+	return 1;
 }
 
 int LuaPlayerObject::getPlayedTimeString(lua_State* L) {

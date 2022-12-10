@@ -761,6 +761,9 @@ class PlayerObject extends IntangibleObject {
 	@read
 	public native float getFactionStanding(final string factionName);
 
+	public native int getPlayerLevel();
+	public native int getGroupLevel();
+
 	public void setScreenPlayData(final string screenPlay, final string variable, final string data) {
 		screenPlayData.put(screenPlay + "_" + variable, data);
 	}

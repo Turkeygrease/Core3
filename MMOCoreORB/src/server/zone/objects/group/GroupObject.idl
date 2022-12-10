@@ -27,6 +27,7 @@ class GroupObject extends SceneObject {
 
 	int groupLevel;
 	int factionPetLevel;
+	boolean groupLocked;
 
 	int lootRule;
 
@@ -42,6 +43,7 @@ class GroupObject extends SceneObject {
 
 		lootRule = GroupManager.FREEFORALL;
 		masterLooterID = 0;
+		groupLocked = false;
 	}
 
 	@dirty
@@ -155,6 +157,11 @@ class GroupObject extends SceneObject {
 	}
 
 	@dirty
+	public boolean getGroupLock() {
+		return groupLocked;
+	}
+
+	@dirty
 	public native boolean hasSquadLeader();
 
 	public native void addGroupModifiers();
@@ -172,6 +179,7 @@ class GroupObject extends SceneObject {
 	@dirty
 	public native boolean isOtherMemberPlayingMusic(CreatureObject player);
 
+
 	@read
 	public int getLootRule() {
 		return lootRule;
@@ -180,6 +188,11 @@ class GroupObject extends SceneObject {
 	@preLocked
 	public void setLootRule(int newRule) {
 		lootRule = newRule;
+	}
+	
+	@preLocked
+	public void setGroupLock(boolean newStatus) {
+		groupLocked = newStatus;
 	}
 
 	@read
