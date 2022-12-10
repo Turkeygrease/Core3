@@ -83,12 +83,21 @@ public:
 			String meshFile;
 			iffStream->getString(meshFile);
 
+			// Sudo - Filter out particles from MTG files
+			if (meshFile.contains(".prt")) {
+				iffStream->closeChunk('PART');
+				iffStream->closeForm(version);
+				iffStream->closeForm('CMPA');
+				return;
+			}
+
 			AppearanceTemplate* templ = TemplateManager::instance()->getAppearanceTemplate("appearance/" + meshFile);
 
 			if (templ == nullptr) {
 				System::out << "Template not found appearance/" << meshFile;
 				continue;
 			}
+
 			Matrix4 mat;
 			Matrix4 inverse;
 			for (int x = 0; x < 3; x++) {
