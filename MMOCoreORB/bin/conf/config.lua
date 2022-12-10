@@ -144,6 +144,7 @@ Core3 = {
 
 	-- Each tre file (order is important!)
 	TreFiles = {
+		"wf_patch_01.tre",
 		"mtg_texture_03.tre",
 		"mtg_texture_02.tre",
 		"mtg_texture_01.tre",
