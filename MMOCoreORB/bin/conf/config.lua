@@ -258,10 +258,10 @@ Core3 = {
 	SquadLeaderBuffRange = 100,
 
 	-- Decay
-	ArmorDecayRate = 0.0, -- Damage * decay rate
-	PSGDecayRate = 0.0, -- Damage * decay rate
-	WeaponDecayRate = 0.0, -- No math, just rate
-	CrystalAndPearlDecayRate = 0.0, -- No math, just rate
+	ArmorDecayRate = 0.05, -- Damage * decay rate
+	PSGDecayRate = 0.025, -- Damage * decay rate
+	WeaponDecayRate = 1.0, -- No math, just rate
+	CrystalAndPearlDecayRate = 1.0, -- No math, just rate
 
 	-- Functions
 	EnhancedFurnitureRotate = "true",
