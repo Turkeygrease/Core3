@@ -3,7 +3,7 @@
 nightsister_lance_schematic = {
 	minimumLevel = 0,
 	maximumLevel = -1,
-	customObjectName = "",
+	customObjectName = "Axkva Min's Nightsister Lance Schematic",
 	directObjectTemplate = "object/tangible/loot/quest/lance_nightsister_schematic.iff",
 	craftingValues = {
 	},
