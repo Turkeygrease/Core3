@@ -41,14 +41,14 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_draft_schematic_weapon_lightsaber_lightsaber_two_hand_gen2 = object_draft_schematic_weapon_lightsaber_shared_lightsaber_two_hand_gen2:new {
+object_draft_schematic_weapon_lightsaber_lightsaber_training = object_draft_schematic_weapon_lightsaber_shared_lightsaber_training:new {
 
    templateType = DRAFTSCHEMATIC,
 
-   customObjectName = "Two-Handed Second Generation Lightsaber",
+   customObjectName = "A Training Lightsaber",
 
    craftingToolTab = 2048, -- (See DraftSchematicObjectTemplate.h)
-   complexity = 17, 
+   complexity = 16, 
    size = 1, 
 
    xpType = "jedi_general", 
@@ -63,32 +63,30 @@ object_draft_schematic_weapon_lightsaber_lightsaber_two_hand_gen2 = object_draft
    customizationStringNames = {},
    customizationDefaults = {},
 
-  
-   ingredientTemplateNames = {"craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n"},
+  ingredientTemplateNames = {"craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n"},
    ingredientTitleNames = {"emitter_shroud", "primary_crystal", "activator", "handgrip", "focusing_crystals", "power_field_insulator", "energizers"},
    ingredientSlotType = {0, 1, 0, 0, 1, 0, 0},
-   resourceTypes = {"metal", "object/tangible/component/weapon/lightsaber/shared_lightsaber_refined_crystal_pack.iff", "metal_nonferrous", "petrochem_inert", "object/tangible/component/weapon/lightsaber/shared_lightsaber_refined_crystal_pack.iff", "gas_inert_known", "metal_nonferrous"},
-   resourceQuantities = {25, 1, 18, 20, 1, 22, 20},
+   resourceTypes = {"mineral", "object/tangible/component/weapon/lightsaber/shared_lightsaber_refined_crystal_pack.iff", "metal", "chemical", "object/tangible/component/weapon/lightsaber/shared_lightsaber_refined_crystal_pack.iff", "gas", "metal"},
+   resourceQuantities = {10, 1, 10, 12, 1, 10, 10},
    contribution = {100, 100, 100, 100, 100, 100, 100},
 
 
-   targetTemplate = "object/weapon/melee/2h_sword/crafted_saber/sword_lightsaber_two_handed_gen2.iff",
+
+   targetTemplate = "object/weapon/melee/sword/crafted_saber/sword_lightsaber_training.iff",
 
    additionalTemplates = {
-                "object/weapon/melee/2h_sword/crafted_saber/shared_sword_lightsaber_two_handed_s1_gen1.iff",
-              --"object/weapon/melee/2h_sword/crafted_saber/shared_sword_lightsaber_two_handed_s2_gen1.iff",
-              "object/weapon/melee/2h_sword/crafted_saber/shared_sword_lightsaber_two_handed_s3_gen1.iff",
-              "object/weapon/melee/2h_sword/crafted_saber/shared_sword_lightsaber_two_handed_s4_gen1.iff",
-              --"object/weapon/melee/2h_sword/crafted_saber/shared_sword_lightsaber_two_handed_s5_gen1.iff",
-              "object/weapon/melee/2h_sword/crafted_saber/shared_sword_lightsaber_two_handed_s6_gen1.iff",
-              --"object/weapon/melee/2h_sword/crafted_saber/shared_sword_lightsaber_two_handed_s7_gen1.iff",
-              "object/weapon/melee/2h_sword/crafted_saber/shared_sword_lightsaber_two_handed_s8_gen1.iff",
-              "object/weapon/melee/2h_sword/crafted_saber/shared_sword_lightsaber_two_handed_s9_gen1.iff",
-              "object/weapon/melee/2h_sword/crafted_saber/shared_sword_lightsaber_two_handed_s10_gen1.iff",
-              --"object/weapon/melee/2h_sword/crafted_saber/shared_sword_lightsaber_two_handed_s11_gen1.iff",
-              --"object/weapon/melee/2h_sword/crafted_saber/shared_sword_lightsaber_two_handed_s12_gen1.iff",
-              "object/weapon/melee/2h_sword/crafted_saber/shared_sword_lightsaber_two_handed_s13_gen1.iff",
+              "object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_s1_training.iff",
+              --"object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_s2_training.iff",
+              "object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_s3_training.iff",
+              "object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_s4_training.iff",
+              --"object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_s5_training.iff",
+              "object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_s6_training.iff",
+              --"object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_s7_training.iff",
+              "object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_s8_training.iff",
+              "object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_s9_training.iff",
+              "object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_s10_training.iff",
+              --"object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_s11_training.iff",
              }
 
 }
-ObjectTemplates:addTemplate(object_draft_schematic_weapon_lightsaber_lightsaber_two_hand_gen2, "object/draft_schematic/weapon/lightsaber/lightsaber_two_hand_gen2.iff")
+ObjectTemplates:addTemplate(object_draft_schematic_weapon_lightsaber_lightsaber_training, "object/draft_schematic/weapon/lightsaber/lightsaber_training.iff")

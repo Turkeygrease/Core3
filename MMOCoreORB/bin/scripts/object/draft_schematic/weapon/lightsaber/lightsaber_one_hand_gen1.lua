@@ -50,8 +50,7 @@ object_draft_schematic_weapon_lightsaber_lightsaber_one_hand_gen1 = object_draft
    craftingToolTab = 2048, -- (See DraftSchematicObjectTemplate.h)
    complexity = 16, 
    size = 1, 
-   factoryCrateType = "object/factory/factory_crate_weapon.iff",
-   
+
    xpType = "jedi_general", 
    xp = 0, 
 
@@ -63,7 +62,6 @@ object_draft_schematic_weapon_lightsaber_lightsaber_one_hand_gen1 = object_draft
    customizationOptions = {},
    customizationStringNames = {},
    customizationDefaults = {},
-
    ingredientTemplateNames = {"craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n"},
    ingredientTitleNames = {"emitter_shroud", "primary_crystal", "activator", "handgrip", "focusing_crystals", "power_field_insulator", "energizers"},
    ingredientSlotType = {0, 1, 0, 0, 1, 0, 0},
@@ -76,17 +74,17 @@ object_draft_schematic_weapon_lightsaber_lightsaber_one_hand_gen1 = object_draft
 
    additionalTemplates = {
               "object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_one_handed_s1_gen1.iff",
-              "object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_one_handed_s2_gen1.iff",
+              --"object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_one_handed_s2_gen1.iff",
               "object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_one_handed_s3_gen1.iff",
               "object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_one_handed_s4_gen1.iff",
-              "object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_one_handed_s5_gen1.iff",
+              --"object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_one_handed_s5_gen1.iff",
               "object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_one_handed_s6_gen1.iff",
-              "object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_one_handed_s7_gen1.iff",
+              --"object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_one_handed_s7_gen1.iff",
               "object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_one_handed_s8_gen1.iff",
               "object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_one_handed_s9_gen1.iff",
               "object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_one_handed_s10_gen1.iff",
-              "object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_one_handed_s11_gen1.iff",
-              "object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_one_handed_s12_gen1.iff",
+              --"object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_one_handed_s11_gen1.iff",
+              --"object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_one_handed_s12_gen1.iff",
               "object/weapon/melee/sword/crafted_saber/shared_sword_lightsaber_one_handed_s13_gen1.iff",
              }
 

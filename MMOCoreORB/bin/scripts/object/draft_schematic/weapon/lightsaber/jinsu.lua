@@ -41,14 +41,12 @@
 --this exception also makes it possible to release a modified version 
 
 
-object_draft_schematic_weapon_lightsaber_lightsaber_polearm_gen3 = object_draft_schematic_weapon_lightsaber_shared_lightsaber_polearm_gen3:new {
+object_draft_schematic_weapon_lightsaber_jinsu = object_draft_schematic_weapon_lightsaber_shared_jinsu:new {
 
-   templateType = DRAFTSCHEMATIC,
-
-   customObjectName = "Double-Bladed Third Generation Lightsaber",
+templateType = DRAFTSCHEMATIC,
 
    craftingToolTab = 2048, -- (See DraftSchematicObjectTemplate.h)
-   complexity = 18, 
+   complexity = 19, 
    size = 1, 
 
    xpType = "jedi_general", 
@@ -63,20 +61,17 @@ object_draft_schematic_weapon_lightsaber_lightsaber_polearm_gen3 = object_draft_
    customizationStringNames = {},
    customizationDefaults = {},
 
-  ingredientTemplateNames = {"craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n"},
-   ingredientTitleNames = {"emitter_shroud", "primary_crystal", "activator", "handgrip", "focusing_crystals", "power_field_insulator", "energizers"},
+    ingredientTemplateNames = {"craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n"},
+   ingredientTitleNames = {"emitter_shroud", "crystal_chamber", "activator", "handgrip", "blade_emitter", "power_field_insulator", "energizers"},
    ingredientSlotType = {0, 1, 0, 0, 1, 0, 0},
-   resourceTypes = {"metal_ferrous", "object/tangible/component/weapon/lightsaber/shared_lightsaber_refined_crystal_pack.iff", "aluminum_titanium", "petrochem_inert_polymer", "object/tangible/component/weapon/lightsaber/shared_lightsaber_refined_crystal_pack.iff", "gas_inert_culsion", "copper_polysteel"},
-   resourceQuantities = {35, 1, 28, 44, 1, 45, 45},
+   resourceTypes = {"steel_duralloy", "object/tangible/component/weapon/lightsaber/shared_lightsaber_module_damage.iff", "aluminum_titanium", "petrochem_inert_polymer", "object/tangible/component/weapon/lightsaber/shared_lightsaber_module_woundchance.iff", "gas_inert_culsion", "copper_polysteel"},
+   resourceQuantities = {15, 1, 14, 17, 1, 20, 14},
    contribution = {100, 100, 100, 100, 100, 100, 100},
 
 
-   targetTemplate = "object/weapon/melee/polearm/crafted_saber/sword_lightsaber_polearm_gen3.iff",
+   targetTemplate = "object/weapon/melee/sword/crafted_saber/sword_lightsaber_one_handed_s11.iff",
 
-   additionalTemplates = {
-              --"object/weapon/melee/polearm/crafted_saber/shared_sword_lightsaber_polearm_s1_gen3.iff",
-              --"object/weapon/melee/polearm/crafted_saber/shared_sword_lightsaber_polearm_s2_gen3.iff",
-             }
-
+   additionalTemplates = {}
 }
-ObjectTemplates:addTemplate(object_draft_schematic_weapon_lightsaber_lightsaber_polearm_gen3, "object/draft_schematic/weapon/lightsaber/lightsaber_polearm_gen3.iff")
+
+ObjectTemplates:addTemplate(object_draft_schematic_weapon_lightsaber_jinsu, "object/draft_schematic/weapon/lightsaber/jinsu.iff")
