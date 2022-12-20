@@ -2,9 +2,9 @@ object_draft_schematic_armor_armor_appearance_rebel_snow_bracer_l = object_draft
 
    templateType = DRAFTSCHEMATIC,
 
-   customObjectName = "Armor Left Bracer",
+   customObjectName = "Rebel Snow Trooper Left Bracer",
 
-   craftingToolTab = 2, -- (See DraftSchematicObjectTemplate.h)
+   craftingToolTab = 2, -- (See DraftSchemticImplementation.h)
    complexity = 45, 
    size = 4, 
 
@@ -15,9 +15,9 @@ object_draft_schematic_armor_armor_appearance_rebel_snow_bracer_l = object_draft
    experimentingSkill = "armor_experimentation", 
    customizationSkill = "armor_customization", 
 
-   customizationOptions = {},
-   customizationStringNames = {},
-   customizationDefaults = {},
+   customizationOptions = {2},
+   customizationStringNames = {"/private/index_color_1"},
+   customizationDefaults = {0},
 
    ingredientTemplateNames = {"craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n"},
    ingredientTitleNames = {"auxilary_coverage", "body", "liner", "hardware_and_attachments", "binding_and_reinforcement", "padding", "armor", "load_bearing_harness", "reinforcement"},
@@ -30,7 +30,7 @@ object_draft_schematic_armor_armor_appearance_rebel_snow_bracer_l = object_draft
    targetTemplate = "object/tangible/wearables/armor/rebel_snow/armor_rebel_snow_bracer_l.iff",
 
    additionalTemplates = {
-              }
+             }
 
 }
 

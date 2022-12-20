@@ -2,9 +2,9 @@ object_draft_schematic_armor_armor_appearance_rebel_snow_chest = object_draft_sc
 
    templateType = DRAFTSCHEMATIC,
 
-   customObjectName = "Armor Chest Plate",
+   customObjectName = "Rebel Snow Trooper Chest Plate",
 
-   craftingToolTab = 2, -- (See DraftSchematicObjectTemplate.h)
+   craftingToolTab = 2, -- (See DraftSchemticImplementation.h)
    complexity = 45, 
    size = 4, 
 
@@ -15,9 +15,9 @@ object_draft_schematic_armor_armor_appearance_rebel_snow_chest = object_draft_sc
    experimentingSkill = "armor_experimentation", 
    customizationSkill = "armor_customization", 
 
-   customizationOptions = {},
-   customizationStringNames = {},
-   customizationDefaults = {},
+   customizationOptions = {2},
+   customizationStringNames = {"/private/index_color_1"},
+   customizationDefaults = {0},
 
    ingredientTemplateNames = {"craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n"},
    ingredientTitleNames = {"auxilary_coverage", "body", "liner", "hardware_and_attachments", "binding_and_reinforcement", "padding", "armor", "load_bearing_harness", "reinforcement"},
@@ -30,7 +30,7 @@ object_draft_schematic_armor_armor_appearance_rebel_snow_chest = object_draft_sc
    targetTemplate = "object/tangible/wearables/armor/rebel_snow/armor_rebel_snow_chest_plate.iff",
 
    additionalTemplates = {
-              }
+             }
 
 }
 ObjectTemplates:addTemplate(object_draft_schematic_armor_armor_appearance_rebel_snow_chest, "object/draft_schematic/armor/armor_appearance_rebel_snow_chest.iff")

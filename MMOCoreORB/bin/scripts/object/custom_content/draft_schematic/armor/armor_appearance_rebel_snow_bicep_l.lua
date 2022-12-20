@@ -2,9 +2,9 @@ object_draft_schematic_armor_armor_appearance_rebel_snow_bicep_l = object_draft_
 
    templateType = DRAFTSCHEMATIC,
 
-   customObjectName = "Armor Left Bicep",
+   customObjectName = "Rebel Snow Trooper Left Bicep",
 
-   craftingToolTab = 2, -- (See DraftSchematicObjectTemplate.h)
+   craftingToolTab = 2, -- (See DraftSchemticImplementation.h)
    complexity = 45, 
    size = 4, 
 
@@ -15,9 +15,10 @@ object_draft_schematic_armor_armor_appearance_rebel_snow_bicep_l = object_draft_
    experimentingSkill = "armor_experimentation", 
    customizationSkill = "armor_customization", 
 
-   customizationOptions = {},
-   customizationStringNames = {},
-   customizationDefaults = {},
+   customizationOptions = {2},
+   customizationStringNames = {"/private/index_color_1"},
+   customizationDefaults = {0},
+
    ingredientTemplateNames = {"craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n", "craft_clothing_ingredients_n"},
    ingredientTitleNames = {"auxilary_coverage", "body", "liner", "hardware_and_attachments", "binding_and_reinforcement", "padding", "armor", "load_bearing_harness", "reinforcement"},
    ingredientSlotType = {0, 0, 0, 0, 0, 0, 1, 1, 1},
@@ -29,7 +30,7 @@ object_draft_schematic_armor_armor_appearance_rebel_snow_bicep_l = object_draft_
    targetTemplate = "object/tangible/wearables/armor/rebel_snow/armor_rebel_snow_bicep_l.iff",
 
    additionalTemplates = {
-              }
+             }
 
 }
 

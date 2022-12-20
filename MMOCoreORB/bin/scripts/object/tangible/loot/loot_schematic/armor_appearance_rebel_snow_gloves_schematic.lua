@@ -46,7 +46,7 @@ object_tangible_loot_loot_schematic_armor_appearance_rebel_snow_gloves_schematic
 	objectMenuComponent = "LootSchematicMenuComponent",
 	attributeListComponent = "LootSchematicAttributeListComponent",
 	requiredSkill = "crafting_armorsmith_master",
-	targetDraftSchematic = "object/draft_schematic/armor/armor_appearance_rebel_snow_gloves.iff",
+	targetDraftSchematic = "object/custom_content/draft_schematic/armor/armor_appearance_rebel_snow_gloves.iff",
 	targetUseCount = 1
 }
 
