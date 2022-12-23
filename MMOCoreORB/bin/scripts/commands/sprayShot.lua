@@ -85,7 +85,7 @@ SprayShotCommand = {
 	animType = GENERATE_RANGED,
 
 	combatSpam = "sprayshot",
-	weaponType = PISTOLWEAPON + CARBINEWEAPON,
+	weaponType = RANGEDWEAPON,
 
 	range = -1
 }

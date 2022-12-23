@@ -48,6 +48,7 @@ StandFastCommand = {
     --animationCRC = hashCode()
     --clientEffect = "clienteffect/bh_shields_effect.cef",
     --buffClass = SINGLE_USE_BUFF
+	combatspam = "standfast"
 }
 
 AddCommand(StandFastCommand)
