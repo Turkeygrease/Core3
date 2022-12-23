@@ -41,17 +41,17 @@
 --which carries forward this exception.
 
 --Determines how often exceptional and legendary items can drop.
-yellowChance = 1000 -- 1 in 1,000
-exceptionalChance = 100000 --1 in 100,000
-legendaryChance = 1000000 --1 in 1,000,000
---yellowChance = 50 --1 in 50 for testing
---exceptionalChance = 100 --1 in 100 for testing
---legendaryChance = 1000 --1 in 1000 for testing
+yellowChance = 50 -- 1 in 1,000
+exceptionalChance = 500 --1 in 100,000
+legendaryChance = 1000 --1 in 1,000,000
+-- yellowChance = 1000 -- 1 in 1,000
+-- exceptionalChance = 100000 --1 in 100,000
+-- legendaryChance = 1000000 --1 in 1,000,000
 
 --Determines how much of an increase in the base stats will be applied to the object.
-yellowModifier = 1.5
-exceptionalModifier = 2.5
-legendaryModifier = 5.0
+yellowModifier = 1.1
+exceptionalModifier = 1.2
+legendaryModifier = 1.3
 
 --The chance for random skill mods to be on looted weapons/wearables
 skillModChance = 500 -- 1 in 500
@@ -67,8 +67,8 @@ randomDotUses = {250, 9999}
 junkValueModifier = 5;
 
 lootableArmorAttachmentStatMods = {
-	"aim",
-	"alert",
+--	"aim",
+--	"alert",
 	"berserk",
 	"blind_defense",
 	"block",
@@ -140,8 +140,34 @@ lootableArmorAttachmentStatMods = {
 }
 
 lootableClothingAttachmentStatMods = {
-	"aim",
-	"alert",
+	"camp",
+	"tame_level",
+	"combat_healing_ability",
+	"healing_ability",
+	"jedi_saber_assembly",
+	"bio_engineer_assembly",
+	"bio_engineer_experimentation",
+	"creature_hit_bonus",
+	"creature_knowledge",
+	"dna_harvesting",
+	"jedi_force_power_regen",
+	"jedi_saber_experimentation",
+	"onehandlightsaber_accuracy",
+	"onehandlightsaber_speed",
+	"polearmlightsaber_accuracy",
+	"polearmlightsaber_speed",
+	"twohandlightsaber_accuracy",
+	"twohandlightsaber_speed",
+	"force_assembly",
+	"force_choke",
+	"forcethrow_accuracy",
+	"force_experimentation",
+	"force_failure_reduction",
+	"force_repair_bonus",
+	"forceintimidate_accuracy",
+	"forceknockdown_accuracy",
+	"forcelightning_accuracy",
+	"forceweaken_accuracy",
 	"armor_assembly",
 	"armor_experimentation",
 	"armor_repair",
@@ -367,8 +393,34 @@ lootableArmorStatMods = {
 }
 
 lootableClothingStatMods = {
-	"aim",
-	"alert",
+	"camp",
+	"tame_level",
+	"combat_healing_ability",
+	"healing_ability",
+	"jedi_saber_assembly",
+	"bio_engineer_assembly",
+	"bio_engineer_experimentation",
+	"creature_hit_bonus",
+	"creature_knowledge",
+	"dna_harvesting",
+	"jedi_force_power_regen",
+	"jedi_saber_experimentation",
+	"onehandlightsaber_accuracy",
+	"onehandlightsaber_speed",
+	"polearmlightsaber_accuracy",
+	"polearmlightsaber_speed",
+	"twohandlightsaber_accuracy",
+	"twohandlightsaber_speed",
+	"force_assembly",
+	"force_choke",
+	"forcethrow_accuracy",
+	"force_experimentation",
+	"force_failure_reduction",
+	"force_repair_bonus",
+	"forceintimidate_accuracy",
+	"forceknockdown_accuracy",
+	"forcelightning_accuracy",
+	"forceweaken_accuracy",
 	"armor_assembly",
 	"armor_experimentation",
 	"armor_repair",
@@ -384,6 +436,7 @@ lootableClothingStatMods = {
 	"clothing_experimentation",
 	"clothing_repair",
 	"combat_bleeding_defense",
+	"combat_healing_ability",
 	"combat_medicine_assembly",
 	"combat_medicine_experimentation",
 	"counterattack",
@@ -406,6 +459,7 @@ lootableClothingStatMods = {
 	"grenade_assembly",
 	"grenade_experimentation",
 	"group_slope_move",
+	"healing_ability",
 	"healing_dance_mind",
 	"healing_dance_shock",
 	"healing_dance_wound",
@@ -454,6 +508,7 @@ lootableClothingStatMods = {
 	"rifle_speed",
 	"slope_move",
 	"steadyaim",
+	"stored_pets",
 	"structure_assembly",
 	"structure_complexity",
 	"structure_experimentation",
@@ -817,7 +872,7 @@ jediCrystalStats = {
 		minAttackSpeed = 0,
 		maxAttackSpeed = -0.6,
 		minForceCost = 0,
-		maxForceCost = -9.9,
+		maxForceCost = -9.2,
 		minWoundChance = 0,
 		maxWoundChance = 4,
 	},
@@ -835,7 +890,7 @@ jediCrystalStats = {
 		minAttackSpeed = -0.3,
 		maxAttackSpeed = -0.6,
 		minForceCost = -5.0,
-		maxForceCost = -9.9,
+		maxForceCost = -9.2,
 		minWoundChance = 2,
 		maxWoundChance = 4,
 	}

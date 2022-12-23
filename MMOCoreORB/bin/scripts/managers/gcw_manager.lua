@@ -5,7 +5,7 @@ gcwCheckTimer = 3600
 vulnerabilityDuration = 10800
 
 -- Amount of time in seconds between base vulnerabilities.
-vulnerabilityFrequency = 172800
+vulnerabilityFrequency = 43200
 
 powerSwitchCount = 7
 
@@ -94,28 +94,28 @@ loserBonus = -30
 spawnDefenses = 1
 
 -- Amount of time to delay vulnerability in seconds afer placing base
-initialVulnerabilityDelay = 0
+initialVulnerabilityDelay = 3600
 
 racialPenaltyEnabled = 1
 
 -- assign points to each type of base
 -- s01=Forward Outpost, s02 = Field Hospital , s03 = Tactical Center, s04 = Detach HQ
 HQValues = {
-	{"object/building/faction_perk/hq/hq_s01_imp_pvp.iff", 2},
+	{"object/building/faction_perk/hq/hq_s01_imp_pvp.iff", 4},
 	{"object/building/faction_perk/hq/hq_s01_imp.iff", 1},
-	{"object/building/faction_perk/hq/hq_s02_imp_pvp.iff", 6},
+	{"object/building/faction_perk/hq/hq_s02_imp_pvp.iff", 12},
 	{"object/building/faction_perk/hq/hq_s02_imp.iff" , 3},
-	{"object/building/faction_perk/hq/hq_s03_imp_pvp.iff" , 8},
+	{"object/building/faction_perk/hq/hq_s03_imp_pvp.iff" , 16},
 	{"object/building/faction_perk/hq/hq_s03_imp.iff", 4},
-	{"object/building/faction_perk/hq/hq_s04_imp_pvp.iff", 20},
+	{"object/building/faction_perk/hq/hq_s04_imp_pvp.iff", 40},
 	{"object/building/faction_perk/hq/hq_s04_imp.iff", 10},
-	{"object/building/faction_perk/hq/hq_s01_rebel_pvp.iff", 2},
+	{"object/building/faction_perk/hq/hq_s01_rebel_pvp.iff", 4},
 	{"object/building/faction_perk/hq/hq_s01_rebel.iff", 1},
-	{"object/building/faction_perk/hq/hq_s02_rebel_pvp.iff", 6},
+	{"object/building/faction_perk/hq/hq_s02_rebel_pvp.iff", 12},
 	{"object/building/faction_perk/hq/hq_s02_rebel.iff" , 3},
-	{"object/building/faction_perk/hq/hq_s03_rebel_pvp.iff" , 8},
+	{"object/building/faction_perk/hq/hq_s03_rebel_pvp.iff" , 16},
 	{"object/building/faction_perk/hq/hq_s03_rebel.iff", 4},
-	{"object/building/faction_perk/hq/hq_s04_rebel_pvp.iff", 20},
+	{"object/building/faction_perk/hq/hq_s04_rebel_pvp.iff", 40},
 	{"object/building/faction_perk/hq/hq_s04_rebel.iff", 10},
 	{"object/building/general/rori_hyperdrive_research_facility.iff", 2},
 	{"object/building/general/bunker_imperial_weapons_research_facility_01.iff", 2},
@@ -132,15 +132,15 @@ HQValues = {
 --HUMAN = 0; RODIAN = 1; TRANDOSHAN = 2; MONCAL = 3; WOOKIE = 4; BOTHAN = 5; TWILEK = 6; ZABRAK = 7; ITHORIAN = 0x21; SULLUSTAN = 0x31;
 imperial_racial_penalty = {
 	{0, 1},
-	{1, 3}, --rodian
-	{2, 2}, -- trando
-	{3, 3}, -- moncal
-	{4, 3}, -- wookie
-	{5, 2},  -- bothan
-	{6, 1.5}, -- twilek
-	{7, 2},  -- zabrack
-	{33, 2}, --ithorian
-	{49, 2}, -- sullustan
+	{1, 1.02}, --rodian
+	{2, 1.02}, -- trando
+	{3, 1.02}, -- moncal
+	{4, 1.02}, -- wookie
+	{5, 1.02},  -- bothan
+	{6, 1.02}, -- twilek
+	{7, 1.02},  -- zabrack
+	{33, 1.02}, --ithorian
+	{49, 1.02}, -- sullustan
 
 }
 
