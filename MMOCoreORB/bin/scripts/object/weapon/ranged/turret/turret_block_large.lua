@@ -1,3 +1,6 @@
+
+--				Property of BloodfinEMU (Do Not Distribute) 
+
 --Copyright (C) 2010 <SWGEmu>
 
 
@@ -64,12 +67,15 @@ object_weapon_ranged_turret_turret_block_large = object_weapon_ranged_turret_sha
 	pointBlankAccuracy = 0,
 	idealRange = 40,
 	idealAccuracy = 70,
-	maxRange = 80,
+	maxRange = 75,
 	maxRangeAccuracy = 0,
-	minDamage = 1000,
-	maxDamage = 2700,
+	minDamage = 900,
+	maxDamage = 2600,
 	attackSpeed = 1,
 	woundsRatio = 9,
 }
 
 ObjectTemplates:addTemplate(object_weapon_ranged_turret_turret_block_large, "object/weapon/ranged/turret/turret_block_large.iff")
+
+
+--				Property of BloodfinEMU (Do Not Distribute)

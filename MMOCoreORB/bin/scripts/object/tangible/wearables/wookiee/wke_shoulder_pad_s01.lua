@@ -47,6 +47,9 @@ object_tangible_wearables_wookiee_wke_shoulder_pad_s01 = object_tangible_wearabl
 				"object/mobile/vendor/wookiee_female.iff",
 				"object/mobile/vendor/wookiee_male.iff" },
 
+--Temporary Color Change
+	objectMenuComponent = "ArmorObjectMenuComponent",
+
 	numberExperimentalProperties = {1, 1, 1, 1},
 	experimentalProperties = {"XX", "XX", "XX", "XX"},
 	experimentalWeights = {1, 1, 1, 1},

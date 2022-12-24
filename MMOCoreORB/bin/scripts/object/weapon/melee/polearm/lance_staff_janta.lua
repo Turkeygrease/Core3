@@ -62,7 +62,42 @@ object_weapon_melee_polearm_lance_staff_janta = object_weapon_melee_polearm_shar
 				"object/creature/player/wookiee_male.iff",
 				"object/creature/player/wookiee_female.iff",
 				"object/creature/player/zabrak_male.iff",
-				"object/creature/player/zabrak_female.iff" },
+				"object/creature/player/zabrak_female.iff",
+                "object/creature/player/aqualish_female.iff",
+                "object/creature/player/aqualish_male.iff",
+                "object/creature/player/bith_female.iff",
+                "object/creature/player/bith_male.iff",
+                "object/creature/player/chiss_female.iff",
+                "object/creature/player/chiss_male.iff",
+                "object/creature/player/devaronian_male.iff",
+                "object/creature/player/gran_male.iff",
+				"object/creature/player/hutt_female.iff",
+				"object/creature/player/hutt_male.iff",
+                "object/creature/player/ishi_tib_male.iff",
+                "object/creature/player/gotal_male.iff",
+                "object/creature/player/nautolan_male.iff",
+                "object/creature/player/nikto_male.iff",
+                "object/creature/player/quarren_male.iff",
+                "object/creature/player/nightsister_female.iff",
+                "object/creature/player/smc_female.iff",
+                "object/creature/player/togruta_female.iff",
+                "object/creature/player/weequay_male.iff",
+		"object/creature/player/abyssin_male.iff",
+		"object/creature/player/arcona_male.iff",
+		"object/creature/player/cerean_male.iff",
+		"object/creature/player/duros_male.iff",
+		"object/creature/player/feeorin_male.iff",
+		"object/creature/player/gungan_male.iff",
+		"object/creature/player/iktotchi_male.iff",
+		"object/creature/player/jenet_male.iff",
+		"object/creature/player/kel_dor_male.iff",
+		"object/creature/player/kubaz_male.iff",
+		"object/creature/player/mirialan_female.iff",
+		"object/creature/player/mirialan_male.iff",
+		"object/creature/player/sanyassan_female.iff",
+		"object/creature/player/sanyassan_male.iff",
+		"object/creature/player/zeltron_female.iff",
+		"object/creature/player/zeltron_male.iff"},
 
 	-- RANGEDATTACK, MELEEATTACK, FORCEATTACK, TRAPATTACK, GRENADEATTACK, HEAVYACIDBEAMATTACK, 
 	-- HEAVYLIGHTNINGBEAMATTACK, HEAVYPARTICLEBEAMATTACK, HEAVYROCKETLAUNCHERATTACK, HEAVYLAUNCHERATTACK
@@ -105,17 +140,22 @@ object_weapon_melee_polearm_lance_staff_janta = object_weapon_melee_polearm_shar
 	mindAttackCost = 15,
 	forceCost = 0,
 
-	pointBlankRange = 0,
-	pointBlankAccuracy = 6,
-	idealRange = 3,
-	idealAccuracy = 6,
-	maxRange = 5,
-	maxRangeAccuracy = 6,
+	pointBlankAccuracy = 0,
+	pointBlankRange = 6,
+
+	idealRange = 6,
+	idealAccuracy = 3,
+
+	maxRange = 6,
+	maxRangeAccuracy = 5,
 
 	minDamage = 25,
 	maxDamage = 56,
+
 	attackSpeed = 5.8,
+
 	woundsRatio = 7,
+
 }
 
 ObjectTemplates:addTemplate(object_weapon_melee_polearm_lance_staff_janta, "object/weapon/melee/polearm/lance_staff_janta.iff")

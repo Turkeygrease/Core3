@@ -1,3 +1,6 @@
+
+--				Property of BloodfinEMU (Do Not Distribute) 
+
 --Copyright (C) 2010 <SWGEmu>
 
 
@@ -45,7 +48,7 @@ object_weapon_ranged_turret_turret_dish_large = object_weapon_ranged_turret_shar
 	-- HEAVYLIGHTNINGBEAMATTACK, HEAVYPARTICLEBEAMATTACK, HEAVYROCKETLAUNCHERATTACK, HEAVYLAUNCHERATTACK
 	attackType = RANGEDATTACK,
 	-- ENERGY, KINETIC, ELECTRICITY, STUN, BLAST, HEAT, COLD, ACID, LIGHTSABER
-	damageType = ENERGY,
+	damageType = ELECTRICITY,
 	-- NONE, LIGHT, MEDIUM, HEAVY
 	armorPiercing = HEAVY,
 	-- See http://www.ocdsoft.com/files/accuracy.xls
@@ -64,12 +67,15 @@ object_weapon_ranged_turret_turret_dish_large = object_weapon_ranged_turret_shar
 	pointBlankAccuracy = 0,
 	idealRange = 40,
 	idealAccuracy = 70,
-	maxRange = 80,
+	maxRange = 85,
 	maxRangeAccuracy = 0,
-	minDamage = 1000,
-	maxDamage = 2700,
+	minDamage = 1200,
+	maxDamage = 2900,
 	attackSpeed = 1,
 	woundsRatio = 9,
 }
 
 ObjectTemplates:addTemplate(object_weapon_ranged_turret_turret_dish_large, "object/weapon/ranged/turret/turret_dish_large.iff")
+
+
+--				Property of BloodfinEMU (Do Not Distribute)

@@ -46,6 +46,8 @@ object_tangible_wearables_ithorian_ith_pants_s21 = object_tangible_wearables_ith
 				"object/creature/player/ithorian_female.iff",
 				"object/mobile/vendor/ithorian_female.iff",
 				"object/mobile/vendor/ithorian_male.iff" },
+--Temporary Color Change
+	objectMenuComponent = "ArmorObjectMenuComponent",
 
 	numberExperimentalProperties = {1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1},
 	experimentalProperties = {"XX", "XX", "XX", "XX", "XX", "XX", "XX", "XX", "XX", "XX", "XX", "XX", "XX", "XX", "XX", "XX"},

@@ -46,6 +46,8 @@ object_tangible_wearables_ithorian_ith_belt_s14 = object_tangible_wearables_itho
 				"object/creature/player/ithorian_female.iff",
 				"object/mobile/vendor/ithorian_female.iff",
 				"object/mobile/vendor/ithorian_male.iff" },
+--Temporary Color Change
+	objectMenuComponent = "ArmorObjectMenuComponent",
 }
 
 ObjectTemplates:addTemplate(object_tangible_wearables_ithorian_ith_belt_s14, "object/tangible/wearables/ithorian/ith_belt_s14.iff")

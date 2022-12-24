@@ -62,7 +62,42 @@ object_weapon_melee_sword_sword_curved_nyax = object_weapon_melee_sword_shared_s
 				"object/creature/player/wookiee_male.iff",
 				"object/creature/player/wookiee_female.iff",
 				"object/creature/player/zabrak_male.iff",
-				"object/creature/player/zabrak_female.iff" },
+				"object/creature/player/zabrak_female.iff",
+                "object/creature/player/aqualish_female.iff",
+                "object/creature/player/aqualish_male.iff",
+                "object/creature/player/bith_female.iff",
+                "object/creature/player/bith_male.iff",
+                "object/creature/player/chiss_female.iff",
+                "object/creature/player/chiss_male.iff",
+                "object/creature/player/devaronian_male.iff",
+                "object/creature/player/gran_male.iff",
+				"object/creature/player/hutt_female.iff",
+				"object/creature/player/hutt_male.iff",
+                "object/creature/player/ishi_tib_male.iff",
+                "object/creature/player/gotal_male.iff",
+                "object/creature/player/nautolan_male.iff",
+                "object/creature/player/nikto_male.iff",
+                "object/creature/player/quarren_male.iff",
+                "object/creature/player/nightsister_female.iff",
+                "object/creature/player/smc_female.iff",
+                "object/creature/player/togruta_female.iff",
+                "object/creature/player/weequay_male.iff",
+		"object/creature/player/abyssin_male.iff",
+		"object/creature/player/arcona_male.iff",
+		"object/creature/player/cerean_male.iff",
+		"object/creature/player/duros_male.iff",
+		"object/creature/player/feeorin_male.iff",
+		"object/creature/player/gungan_male.iff",
+		"object/creature/player/iktotchi_male.iff",
+		"object/creature/player/jenet_male.iff",
+		"object/creature/player/kel_dor_male.iff",
+		"object/creature/player/kubaz_male.iff",
+		"object/creature/player/mirialan_female.iff",
+		"object/creature/player/mirialan_male.iff",
+		"object/creature/player/sanyassan_female.iff",
+		"object/creature/player/sanyassan_male.iff",
+		"object/creature/player/zeltron_female.iff",
+		"object/creature/player/zeltron_male.iff"},
 
 	-- RANGEDATTACK, MELEEATTACK, FORCEATTACK, TRAPATTACK, GRENADEATTACK, HEAVYACIDBEAMATTACK, 
 	-- HEAVYLIGHTNINGBEAMATTACK, HEAVYPARTICLEBEAMATTACK, HEAVYROCKETLAUNCHERATTACK, HEAVYLAUNCHERATTACK
@@ -105,17 +140,22 @@ object_weapon_melee_sword_sword_curved_nyax = object_weapon_melee_sword_shared_s
 	mindAttackCost = 32,
 	forceCost = 0,
 
-	pointBlankRange = 0,
-	pointBlankAccuracy = 7,
+	pointBlankAccuracy = 0,
+	pointBlankRange = 3,
+
 	idealRange = 3,
-	idealAccuracy = 7,
-	maxRange = 4,
-	maxRangeAccuracy = 7,
+	idealAccuracy = 3,
+
+	maxRange = 3,
+	maxRangeAccuracy = 4,
 
 	minDamage = 17,
 	maxDamage = 78,
-	attackSpeed = 4,
+
+	attackSpeed = 4.0,
+
 	woundsRatio = 15,
+
 }
 
 ObjectTemplates:addTemplate(object_weapon_melee_sword_sword_curved_nyax, "object/weapon/melee/sword/sword_curved_nyax.iff")

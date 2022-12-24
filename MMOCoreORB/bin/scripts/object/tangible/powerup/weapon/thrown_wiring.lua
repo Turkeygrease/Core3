@@ -50,12 +50,13 @@ object_tangible_powerup_weapon_thrown_wiring = object_tangible_powerup_weapon_sh
 	baseName = "Wiring Powerup",
 
 	primary = {
-		{"attackSpeed", "Short-Fuse", "cat_pup.pup_wpn_attack_speed"},
-		{"maxDamage", "Core-Alignment", "cat_pup.pup_wpn_damage_max"}
+		{"attackSpeed", "Short-Fuse", "cat_pup.pup_wpn_attack_speed"}, 
+  		{"maxDamage", "Core-Alignment", "cat_pup.pup_wpn_damage_max"},
 	},
 
 	secondary = {
-		{"woundsRatio", "Shrapnel", "cat_pup.pup_wpn_wound_chance"}
+		{"woundsRatio", "Shrapnel", "cat_pup.pup_wpn_wound_chance"},
+		{"minDamage", "Ionizing", "cat_pup.pup_wpn_damage_min"}
 	},
 
 	numberExperimentalProperties = {1, 1, 1, 2},

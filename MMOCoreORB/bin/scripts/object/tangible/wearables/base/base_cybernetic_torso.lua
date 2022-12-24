@@ -1,3 +1,6 @@
+
+--				Property of BloodfinEMU (Do Not Distribute) 
+
 --Copyright (C) 2010 <SWGEmu>
 
 
@@ -46,3 +49,6 @@ object_tangible_wearables_base_base_cybernetic_torso = object_tangible_wearables
 }
 
 ObjectTemplates:addTemplate(object_tangible_wearables_base_base_cybernetic_torso, "object/tangible/wearables/base/base_cybernetic_torso.iff")
+
+
+--				Property of BloodfinEMU (Do Not Distribute)

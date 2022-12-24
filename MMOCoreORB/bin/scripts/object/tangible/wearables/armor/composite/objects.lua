@@ -571,3 +571,9 @@ object_tangible_wearables_armor_composite_shared_armor_composite_leggings = Shar
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_wearables_armor_composite_shared_armor_composite_leggings, "object/tangible/wearables/armor/composite/shared_armor_composite_leggings.iff")
+
+object_tangible_wearables_armor_composite_shared_armor_composite_helmet_invis = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/armor/composite/shared_armor_composite_helmet_invis.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_armor_composite_shared_armor_composite_helmet_invis, "object/tangible/wearables/armor/composite/shared_armor_composite_helmet_invis.iff")

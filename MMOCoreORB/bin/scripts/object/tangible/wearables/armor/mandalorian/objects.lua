@@ -630,3 +630,10 @@ object_tangible_wearables_armor_mandalorian_shared_armor_mandalorian_shoes = Sha
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_wearables_armor_mandalorian_shared_armor_mandalorian_shoes, "object/tangible/wearables/armor/mandalorian/shared_armor_mandalorian_shoes.iff")
+
+object_tangible_wearables_armor_mandalorian_shared_armor_mandalorian_helmet_invis = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/armor/mandalorian/shared_armor_mandalorian_helmet_invis.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_armor_mandalorian_shared_armor_mandalorian_helmet_invis, "object/tangible/wearables/armor/mandalorian/shared_armor_mandalorian_helmet_invis.iff")

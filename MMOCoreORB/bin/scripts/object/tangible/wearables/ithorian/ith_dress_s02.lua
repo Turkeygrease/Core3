@@ -46,6 +46,8 @@ object_tangible_wearables_ithorian_ith_dress_s02 = object_tangible_wearables_ith
 				"object/creature/player/ithorian_female.iff",
 				"object/mobile/vendor/ithorian_female.iff",
 				"object/mobile/vendor/ithorian_male.iff" },
+--Temporary Color Change
+	objectMenuComponent = "ArmorObjectMenuComponent",
 }
 
 ObjectTemplates:addTemplate(object_tangible_wearables_ithorian_ith_dress_s02, "object/tangible/wearables/ithorian/ith_dress_s02.iff")

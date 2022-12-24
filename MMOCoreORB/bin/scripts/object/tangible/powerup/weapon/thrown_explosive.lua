@@ -50,11 +50,12 @@ object_tangible_powerup_weapon_thrown_explosive = object_tangible_powerup_weapon
 	baseName = "Explosive Powerup",
 
 	primary = {
-		{"damageRadius", "Compress", "cat_pup.pup_wpn_damage_radius"},
-		{"minDamage", "Ionizing", "cat_pup.pup_wpn_damage_min"}
+		{"damageRadius", "Compress", "cat_pup.pup_wpn_damage_radius"}, 
+  		{"minDamage", "Ionizing", "cat_pup.pup_wpn_damage_min"},
 	},
 
 	secondary = {
+		{"attackSpeed", "Short-Fuse", "cat_pup.pup_wpn_attack_speed"},
 		{"woundsRatio", "Shearing", "cat_pup.pup_wpn_wound_chance"}
 	},
 

@@ -46,6 +46,8 @@ object_tangible_wearables_wookiee_wke_skirt_s04 = object_tangible_wearables_wook
 				"object/creature/player/wookiee_female.iff",
 				"object/mobile/vendor/wookiee_female.iff",
 				"object/mobile/vendor/wookiee_male.iff" },
+--Temporary Color Change
+	objectMenuComponent = "ArmorObjectMenuComponent",
 
 	numberExperimentalProperties = {1, 1, 1, 1},
 	experimentalProperties = {"XX", "XX", "XX", "XX"},
