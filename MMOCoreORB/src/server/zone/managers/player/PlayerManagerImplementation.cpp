@@ -1747,8 +1747,7 @@ void PlayerManagerImplementation::ejectPlayerFromBuilding(CreatureObject* player
 
 
 
-void PlayerManagerImplementation::disseminateExperience(TangibleObject* destructedObject, ThreatMap* threatMap,
-		SynchronizedVector<ManagedReference<CreatureObject*> >* spawnedCreatures,Zone* lairZone) {
+void PlayerManagerImplementation::disseminateExperience(TangibleObject* destructedObject, ThreatMap* threatMap, SynchronizedVector<ManagedReference<CreatureObject*> >* spawnedCreatures,Zone* lairZone) {
 	uint32 totalDamage = threatMap->getTotalDamage();
 
 	if (totalDamage == 0) {
@@ -1760,14 +1759,16 @@ void PlayerManagerImplementation::disseminateExperience(TangibleObject* destruct
 	slExperience.setAllowOverwriteInsertPlan();
 	slExperience.setNullValue(0);
 
-
 	float gcwBonus = 1.0f;
 	uint32 winningFaction = -1;
 	int baseXp = 0;
+
 	Zone* zone = lairZone;
-	if (zone==nullptr) {
+
+	if (zone == nullptr) {
 		zone = destructedObject->getZone();
 	}
+
 	if (zone != nullptr) {
 		GCWManager* gcwMan = zone->getGCWManager();
 
@@ -1837,7 +1838,7 @@ void PlayerManagerImplementation::disseminateExperience(TangibleObject* destruct
 		}
 	}
 
-	int mobTapCount = playerList.size();
+	int playerHitCount = playerList.size();
 
 	for (int i = 0; i < threatMap->size(); ++i) {
 		ThreatMapEntry* entry = &threatMap->elementAt(i).getValue();
@@ -1966,12 +1967,14 @@ void PlayerManagerImplementation::disseminateExperience(TangibleObject* destruct
 				if (ConfigManager::instance()->getBool("Core3.CombatXpSplit", true)) {
 					xpAmount *= (float) damage / totalDamage;
 				} else {
-					float xpMod = Math::max(0.8f, 1.f - (mobTapCount * 0.02f));
+					float xpMod = Math::max(0.8f, 1.f - (playerHitCount * 0.02f));
 					xpAmount *= xpMod;
 				}
 
+				int playerLevel = calculatePlayerLevel(attackerCreo, xpType);
+
 				//Cap xp based on level
-				xpAmount = Math::min(xpAmount, calculatePlayerLevel(attackerCreo, xpType) * 300.f);
+				xpAmount = Math::min(xpAmount, playerLevel * 300.f);
 
 				//Apply group bonus if in group
 				if (group != nullptr)
