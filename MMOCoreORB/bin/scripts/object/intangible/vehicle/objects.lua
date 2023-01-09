@@ -432,3 +432,83 @@ object_intangible_vehicle_shared_vehicle_pcd_base = SharedIntangibleObjectTempla
 }
 
 ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_vehicle_pcd_base, "object/intangible/vehicle/shared_vehicle_pcd_base.iff")
+
+-- Barc Speeder
+
+object_intangible_vehicle_shared_barc_speeder_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_barc_speeder_pcd.iff"
+
+}
+ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_barc_speeder_pcd, "object/intangible/vehicle/shared_barc_speeder_pcd.iff")
+
+-- Imperial barc
+
+object_intangible_vehicle_shared_barc_speeder_imperial_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_barc_speeder_imperial_pcd.iff"
+}
+ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_barc_speeder_imperial_pcd, "object/intangible/vehicle/shared_barc_speeder_imperial_pcd.iff")
+
+-- Rebel Barc
+
+object_intangible_vehicle_shared_barc_speeder_rebel_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_barc_speeder_rebel_pcd.iff"
+}
+ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_barc_speeder_rebel_pcd, "object/intangible/vehicle/shared_barc_speeder_rebel_pcd.iff")
+
+-- Sith Speeder
+
+object_intangible_vehicle_shared_sith_speeder_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_sith_speeder_pcd.iff"
+}
+ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_sith_speeder_pcd, "object/intangible/vehicle/shared_sith_speeder_pcd.iff")
+
+-- Organa Speeder
+
+object_intangible_vehicle_shared_landspeeder_organa_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_landspeeder_organa_pcd.iff"
+}
+ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_landspeeder_organa_pcd, "object/intangible/vehicle/shared_landspeeder_organa_pcd.iff")
+
+-- usv5 skiff
+
+object_intangible_vehicle_shared_landspeeder_usv5_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_landspeeder_usv5_pcd.iff"
+}
+ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_landspeeder_usv5_pcd, "object/intangible/vehicle/shared_landspeeder_usv5_pcd.iff")
+
+-- tantive4 skiff
+
+object_intangible_vehicle_shared_landspeeder_tantive4_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_landspeeder_tantive4_pcd.iff"
+}
+ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_landspeeder_tantive4_pcd, "object/intangible/vehicle/shared_landspeeder_tantive4_pcd.iff")
+
+-- lava skiff
+
+object_intangible_vehicle_shared_landspeeder_lava_skiff_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_landspeeder_lava_skiff_pcd.iff"
+}
+ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_landspeeder_lava_skiff_pcd, "object/intangible/vehicle/shared_landspeeder_lava_skiff_pcd.iff")
+
+
+
+-- desert skiff
+
+object_intangible_vehicle_shared_landspeeder_desert_skiff_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_landspeeder_desert_skiff_pcd.iff"
+}
+ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_landspeeder_desert_skiff_pcd, "object/intangible/vehicle/shared_landspeeder_desert_skiff_pcd.iff")
+
+-- Pod Racer Two
+
+object_intangible_vehicle_shared_pod_racer_two_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_pod_racer_two_pcd.iff"
+}
+ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_pod_racer_two_pcd, "object/intangible/vehicle/shared_pod_racer_two_pcd.iff")
+
+-- Pod Racer One
+
+object_intangible_vehicle_shared_pod_racer_one_pcd = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/vehicle/shared_pod_racer_one_pcd.iff"
+}
+ObjectTemplates:addClientTemplate(object_intangible_vehicle_shared_pod_racer_one_pcd, "object/intangible/vehicle/shared_pod_racer_one_pcd.iff")

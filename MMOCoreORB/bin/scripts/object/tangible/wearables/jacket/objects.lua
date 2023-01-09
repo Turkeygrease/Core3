@@ -1574,3 +1574,96 @@ object_tangible_wearables_jacket_shared_jacket_s36 = SharedTangibleObjectTemplat
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_wearables_jacket_shared_jacket_s36, "object/tangible/wearables/jacket/shared_jacket_s36.iff")
+
+object_tangible_wearables_jacket_shared_jacket_gmf_01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/jacket/shared_jacket_gmf_01.iff"
+	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
+--[[
+	appearanceFilename = "appearance/jacket_gmf_01_f.sat",
+	arrangementDescriptorFilename = "abstract/slot/arrangement/wearables/jacket_longsleeve.iff",
+
+	certificationsRequired = {},
+	clearFloraRadius = 0,
+	clientDataFile = "",
+	clientGameObjectType = 16777227,
+	collisionActionBlockFlags = 0,
+	collisionActionFlags = 51,
+	collisionActionPassFlags = 1,
+	collisionMaterialBlockFlags = 0,
+	collisionMaterialFlags = 1,
+	collisionMaterialPassFlags = 0,
+	containerType = 0,
+	containerVolumeLimit = 1,
+	customizationVariableMapping = {},
+
+	detailedDescription = "@wearables_detail:jacket_gmf_01",
+
+	gameObjectType = 16777227,
+
+	locationReservationRadius = 0,
+	lookAtText = "@wearables_lookat:jacket_gmf_01",
+
+	noBuildRadius = 0,
+
+	objectName = "@wearables_name:jacket_gmf_01",
+	onlyVisibleInTools = 0,
+
+	paletteColorCustomizationVariables = {},
+	portalLayoutFilename = "",
+
+	rangedIntCustomizationVariables = {},
+
+	scale = 1,
+	scaleThresholdBeforeExtentTest = 0.5,
+	sendToClient = 1,
+	slotDescriptorFilename = "abstract/slot/descriptor/tangible.iff",
+	snapToTerrain = 1,
+	socketDestinations = {},
+	structureFootprintFileName = "",
+	surfaceType = 0,
+
+	targetable = 1,
+	totalCellNumber = 0,
+
+	useStructureFootprintOutline = 0,
+
+	clientObjectCRC = 1095424515,
+	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/tangible/base/shared_tangible_base.iff", "object/tangible/base/shared_tangible_craftable.iff", "object/tangible/wearables/base/shared_wearables_base.iff", "object/tangible/wearables/base/shared_base_jacket_longsleeve.iff"}
+]]
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_jacket_shared_jacket_gmf_01, "object/tangible/wearables/jacket/shared_jacket_gmf_01.iff")
+
+-->Lifeday Jacket
+object_tangible_wearables_jacket_shared_jacket_lifeday_09_01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/jacket/shared_jacket_lifeday_09_01.iff"
+	
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_jacket_shared_jacket_lifeday_09_01, "object/tangible/wearables/jacket/shared_jacket_lifeday_09_01.iff")
+
+object_tangible_wearables_jacket_shared_jacket_lifeday_09_02 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/jacket/shared_jacket_lifeday_09_02.iff"
+	
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_jacket_shared_jacket_lifeday_09_02, "object/tangible/wearables/jacket/shared_jacket_lifeday_09_02.iff")
+
+object_tangible_wearables_jacket_shared_jacket_lifeday_figrin_dan = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/jacket/shared_jacket_lifeday_figrin_dan.iff"
+	
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_jacket_shared_jacket_lifeday_figrin_dan, "object/tangible/wearables/jacket/shared_jacket_lifeday_figrin_dan.iff")
+
+object_tangible_wearables_jacket_shared_jacket_gcw_imperial_01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/jacket/shared_jacket_gcw_imperial_01.iff"
+
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_jacket_shared_jacket_gcw_imperial_01, "object/tangible/wearables/jacket/shared_jacket_gcw_imperial_01.iff")
+
+object_tangible_wearables_jacket_shared_jacket_gcw_rebel_01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/jacket/shared_jacket_gcw_rebel_01.iff"
+
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_jacket_shared_jacket_gcw_rebel_01, "object/tangible/wearables/jacket/shared_jacket_gcw_rebel_01.iff")

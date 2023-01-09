@@ -40,65 +40,46 @@
 --this exception also makes it possible to release a modified version
 --which carries forward this exception.
 
+-- Backpack s08
+
+object_tangible_wearables_backpack_shared_backpack_s08 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/backpack/shared_backpack_s08.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_backpack_s08, "object/tangible/wearables/backpack/shared_backpack_s08.iff")
+
+-- backpack rebel snow soldier
+
+object_tangible_wearables_backpack_shared_backpack_rebel_snow_soldier = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/backpack/shared_backpack_rebel_snow_soldier.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_backpack_rebel_snow_soldier, "object/tangible/wearables/backpack/shared_backpack_rebel_snow_soldier.iff")
+
+-- backpack snowtrooper
+
+object_tangible_wearables_backpack_shared_backpack_snowtrooper = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/backpack/shared_backpack_snowtrooper.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_backpack_snowtrooper, "object/tangible/wearables/backpack/shared_backpack_snowtrooper.iff")
+
+-- tauntaun backpack
+
+object_tangible_wearables_backpack_shared_backpack_tauntaun_skull = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/backpack/shared_backpack_tauntaun_skull.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_backpack_tauntaun_skull, "object/tangible/wearables/backpack/shared_backpack_tauntaun_skull.iff")
+
+-- backpack s01
 
 object_tangible_wearables_backpack_shared_backpack_s01 = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/wearables/backpack/shared_backpack_s01.iff"
-	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
---[[
-	appearanceFilename = "appearance/backpack_s01_m.sat",
-	arrangementDescriptorFilename = "abstract/slot/arrangement/wearables/back.iff",
-
-	certificationsRequired = {},
-	clearFloraRadius = 0,
-	clientDataFile = "",
-	clientGameObjectType = 8213,
-	collisionActionBlockFlags = 0,
-	collisionActionFlags = 51,
-	collisionActionPassFlags = 1,
-	collisionMaterialBlockFlags = 0,
-	collisionMaterialFlags = 1,
-	collisionMaterialPassFlags = 0,
-	containerType = 2,
-	containerVolumeLimit = 50,
-	customizationVariableMapping = {},
-
-	detailedDescription = "@wearables_detail:backpack_s01",
-
-	gameObjectType = 8213,
-
-	locationReservationRadius = 0,
-	lookAtText = "@wearables_lookat:backpack_s01",
-
-	noBuildRadius = 0,
-
-	objectName = "@wearables_name:backpack_s01",
-	onlyVisibleInTools = 0,
-
-	paletteColorCustomizationVariables = {},
-	portalLayoutFilename = "",
-
-	rangedIntCustomizationVariables = {},
-
-	scale = 1,
-	scaleThresholdBeforeExtentTest = 0.5,
-	sendToClient = 1,
-	slotDescriptorFilename = "",
-	snapToTerrain = 1,
-	socketDestinations = {},
-	structureFootprintFileName = "",
-	surfaceType = 0,
-
-	targetable = 1,
-	totalCellNumber = 0,
-
-	useStructureFootprintOutline = 0,
-
-	clientObjectCRC = 4059441362,
-	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/tangible/base/shared_tangible_base.iff", "object/tangible/container/base/shared_base_container.iff", "object/tangible/container/base/shared_base_container_volume.iff", "object/tangible/wearables/base/shared_base_backpack.iff"}
-]]
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_backpack_s01, "object/tangible/wearables/backpack/shared_backpack_s01.iff")
+-- Backpack s03
 
 object_tangible_wearables_backpack_shared_backpack_s03 = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/wearables/backpack/shared_backpack_s03.iff"
@@ -512,3 +493,149 @@ object_tangible_wearables_backpack_shared_singing_mountain_clan_backpack = Share
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_singing_mountain_clan_backpack, "object/tangible/wearables/backpack/shared_singing_mountain_clan_backpack.iff")
+
+object_tangible_wearables_backpack_shared_backpack_gmf_01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/backpack/shared_backpack_gmf_01.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_backpack_gmf_01, "object/tangible/wearables/backpack/shared_backpack_gmf_01.iff")
+
+
+object_tangible_wearables_backpack_shared_back_gmf_wings = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/backpack/shared_back_gmf_wings.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_back_gmf_wings, "object/tangible/wearables/backpack/shared_back_gmf_wings.iff")
+
+-- Loveday Wings
+
+object_tangible_wearables_backpack_shared_back_love_day_11_hue_wings = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/backpack/shared_back_love_day_11_hue_wings.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_back_love_day_11_hue_wings, "object/tangible/wearables/backpack/shared_back_love_day_11_hue_wings.iff")
+
+
+object_tangible_wearables_backpack_shared_padawan_pouch = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/backpack/shared_padawan_pouch.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_padawan_pouch, "object/tangible/wearables/backpack/shared_padawan_pouch.iff")
+
+
+
+
+
+
+
+
+
+
+--Made with Skyyyr's Wrench Tool 
+
+object_tangible_wearables_backpack_shared_backpack_krayt_skull = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/backpack/shared_backpack_krayt_skull.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_backpack_krayt_skull, "object/tangible/wearables/backpack/shared_backpack_krayt_skull.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_tangible_wearables_backpack_shared_backpack_s07 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/backpack/shared_backpack_s07.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_backpack_s07, "object/tangible/wearables/backpack/shared_backpack_s07.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_tangible_wearables_backpack_shared_empireday_rebel_endor_backpack = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/backpack/shared_empireday_rebel_endor_backpack.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_empireday_rebel_endor_backpack, "object/tangible/wearables/backpack/shared_empireday_rebel_endor_backpack.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_tangible_wearables_backpack_shared_empireday_sandtrooper_backpack = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/backpack/shared_empireday_sandtrooper_backpack.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_empireday_sandtrooper_backpack, "object/tangible/wearables/backpack/shared_empireday_sandtrooper_backpack.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_tangible_wearables_backpack_shared_ep3_chiss_poacher_backpack = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/backpack/shared_ep3_chiss_poacher_backpack.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_ep3_chiss_poacher_backpack, "object/tangible/wearables/backpack/shared_ep3_chiss_poacher_backpack.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_tangible_wearables_backpack_shared_ep3_chiss_poacher_player_backpack = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/backpack/shared_ep3_chiss_poacher_player_backpack.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_ep3_chiss_poacher_player_backpack, "object/tangible/wearables/backpack/shared_ep3_chiss_poacher_player_backpack.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_tangible_wearables_backpack_shared_fannypack_s01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/backpack/shared_fannypack_s01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_fannypack_s01, "object/tangible/wearables/backpack/shared_fannypack_s01.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_tangible_wearables_backpack_shared_nym_themepark_backpack = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/backpack/shared_nym_themepark_backpack.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_nym_themepark_backpack, "object/tangible/wearables/backpack/shared_nym_themepark_backpack.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_tangible_wearables_backpack_shared_wearable_backpack_armored = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/backpack/shared_wearable_backpack_armored.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_wearable_backpack_armored, "object/tangible/wearables/backpack/shared_wearable_backpack_armored.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_tangible_wearables_backpack_shared_wearable_backpack_yoda = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/backpack/shared_wearable_backpack_yoda.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_wearable_backpack_yoda, "object/tangible/wearables/backpack/shared_wearable_backpack_yoda.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_tangible_wearables_backpack_shared_back_love_day_10_blue_wings = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/backpack/shared_back_love_day_10_blue_wings.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_back_love_day_10_blue_wings, "object/tangible/wearables/backpack/shared_back_love_day_10_blue_wings.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_tangible_wearables_backpack_shared_back_love_day_10_golden_wings = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/backpack/shared_back_love_day_10_golden_wings.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_back_love_day_10_golden_wings, "object/tangible/wearables/backpack/shared_back_love_day_10_golden_wings.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_tangible_wearables_backpack_shared_back_love_day_10_pink_wings = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/backpack/shared_back_love_day_10_pink_wings.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_back_love_day_10_pink_wings, "object/tangible/wearables/backpack/shared_back_love_day_10_pink_wings.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_tangible_wearables_backpack_shared_back_love_day_11_hue_wings = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/backpack/shared_back_love_day_11_hue_wings.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_back_love_day_11_hue_wings, "object/tangible/wearables/backpack/shared_back_love_day_11_hue_wings.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_tangible_wearables_backpack_shared_back_love_day_wings = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/backpack/shared_back_love_day_wings.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_wearables_backpack_shared_back_love_day_wings, "object/tangible/wearables/backpack/shared_back_love_day_wings.iff")
+
+

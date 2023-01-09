@@ -46,7 +46,7 @@
 includeFile("tangible/veteran_reward/one_year_anniversary/serverobjects.lua")
 
 -- Server Objects
-includeFile("tangible/veteran_reward/antidecay.lua")
+--includeFile("tangible/veteran_reward/antidecay.lua")
 includeFile("tangible/veteran_reward/data_terminal_s1.lua")
 includeFile("tangible/veteran_reward/data_terminal_s2.lua")
 includeFile("tangible/veteran_reward/data_terminal_s3.lua")

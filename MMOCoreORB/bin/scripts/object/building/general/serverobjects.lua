@@ -175,3 +175,10 @@ includeFile("building/general/tatooine_beetle_cave.lua")
 includeFile("building/general/tatooine_hutt_cave.lua")
 includeFile("building/general/tatooine_squill_cave.lua")
 includeFile("building/general/tatooine_tusken_bunker.lua")
+includeFile("building/general/sorosuub_space_yacht.lua")
+--includeFile("building/general/space_decimator.lua")
+--includeFile("building/general/ykl37r.lua")
+--includeFile("building/general/yt1300.lua")
+--includeFile("building/general/yt1300_decorated.lua")
+
+

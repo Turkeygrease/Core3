@@ -7684,3 +7684,28 @@ object_intangible_pet_shared_zucca_boar_hue = SharedIntangibleObjectTemplate:new
 }
 
 ObjectTemplates:addClientTemplate(object_intangible_pet_shared_zucca_boar_hue, "object/intangible/pet/shared_zucca_boar_hue.iff")
+
+-- Armored Dewback
+object_intangible_pet_shared_dewback_armor_hue = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_dewback_armor_hue.iff"
+}
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_dewback_armor_hue, "object/intangible/pet/shared_dewback_armor_hue.iff")
+
+-- Krayt Dragon
+object_intangible_pet_shared_krayt_hue = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_krayt_hue.iff"
+}
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_krayt_hue, "object/intangible/pet/shared_krayt_hue.iff")
+
+-- Blackwing Rancor
+object_intangible_pet_shared_blackwing_rancor_hue = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_blackwing_rancor_hue.iff"
+}
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_blackwing_rancor_hue, "object/intangible/pet/shared_blackwing_rancor_hue")
+
+-- Minsty
+object_intangible_pet_shared_minstyngar_hue = SharedIntangibleObjectTemplate:new {
+	clientTemplateFileName = "object/intangible/pet/shared_minstyngar_hue.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_intangible_pet_shared_minstyngar_hue, "object/intangible/pet/shared_minstyngar_hue.iff")

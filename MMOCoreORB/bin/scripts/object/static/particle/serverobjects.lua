@@ -84,6 +84,7 @@ includeFile("static/particle/particle_newbie_wall_mech_lights_red.lua")
 includeFile("static/particle/particle_newbie_wall_mech_lights_yellow.lua")
 includeFile("static/particle/particle_seagulls_flock.lua")
 includeFile("static/particle/particle_sm_explosion.lua")
+includeFile("static/particle/pt_sm_explosion_0_50_scale.lua")
 includeFile("static/particle/particle_smoke.lua")
 includeFile("static/particle/particle_test_1.lua")
 includeFile("static/particle/particle_test_10.lua")
@@ -290,3 +291,18 @@ includeFile("static/particle/pt_waterfall_whitewater_s02_l1.lua")
 includeFile("static/particle/pt_waterfalling_200m.lua")
 includeFile("static/particle/pt_waterfalling_slow.lua")
 includeFile("static/particle/pt_webber.lua")
+includeFile("static/particle/pt_halloween_ghost_fog.lua")
+includeFile("static/particle/pt_halloween_ghost_fog2.lua")
+includeFile("static/particle/pt_axkvamin_lightning.lua")
+includeFile("static/particle/pt_axkvamin_lightning_base.lua") -- NOT WORKING
+includeFile("static/particle/pt_contagion_debuff.lua")
+includeFile("static/particle/pt_contagion_explode.lua") -- NOT WORKING
+includeFile("static/particle/pt_green_fire_base.lua")
+includeFile("static/particle/pt_kimaru_burn_patch.lua")
+includeFile("static/particle/pt_kimaru_burn_patch_base.lua")
+includeFile("static/particle/pt_kimaru_force_storm.lua") -- NOT WORKING
+includeFile("static/particle/pt_kimaru_force_storm_birth.lua") -- missing textures
+includeFile("static/particle/pt_kimaru_force_storm_precursor.lua") -- tested
+includeFile("static/particle/pt_mine_explosion.lua") -- NOT WORKING
+
+

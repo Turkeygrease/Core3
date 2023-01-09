@@ -40,6 +40,23 @@
 --this exception also makes it possible to release a modified version
 --which carries forward this exception.
 
+-- Westar 34 Pistol
+
+object_weapon_ranged_pistol_shared_pistol_westar_34 = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/pistol/shared_pistol_westar_34.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_pistol_westar_34, "object/weapon/ranged/pistol/shared_pistol_westar_34.iff")
+
+-- Intimidator Pistol
+
+object_weapon_ranged_pistol_shared_pistol_intimidator = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/pistol/shared_pistol_intimidator.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_pistol_intimidator, "object/weapon/ranged/pistol/shared_pistol_intimidator.iff")
+
+-- Cdef pistol
 
 object_weapon_ranged_pistol_shared_pistol_cdef = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/ranged/pistol/shared_pistol_cdef.iff"
@@ -103,6 +120,8 @@ object_weapon_ranged_pistol_shared_pistol_cdef = SharedWeaponObjectTemplate:new 
 }
 
 ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_pistol_cdef, "object/weapon/ranged/pistol/shared_pistol_cdef.iff")
+
+-- Corsec Cdef Pistol
 
 object_weapon_ranged_pistol_shared_pistol_cdef_corsec = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/ranged/pistol/shared_pistol_cdef_corsec.iff"
@@ -1552,3 +1571,112 @@ object_weapon_ranged_pistol_shared_pistol_tangle = SharedWeaponObjectTemplate:ne
 }
 
 ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_pistol_tangle, "object/weapon/ranged/pistol/shared_pistol_tangle.iff")
+
+object_weapon_ranged_pistol_shared_ep3_loot_quicktrigger = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/pistol/shared_ep3_loot_quicktrigger.iff"
+	}
+
+ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_ep3_loot_quicktrigger, "object/weapon/ranged/pistol/shared_ep3_loot_quicktrigger.iff")
+
+
+
+object_weapon_ranged_pistol_shared_pistol_pvp = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/pistol/shared_pistol_pvp.iff"
+	}
+
+ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_pistol_pvp, "object/weapon/ranged/pistol/shared_pistol_pvp.iff")
+
+
+
+
+--Made with Skyyyr's Wrench Tool 
+--[[
+object_weapon_ranged_pistol_shared_pistol_alliance_disruptor = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/pistol/shared_pistol_alliance_disruptor.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_pistol_alliance_disruptor, "object/weapon/ranged/pistol/shared_pistol_alliance_disruptor.iff")
+]]
+--Made with Skyyyr's Wrench Tool 
+
+object_weapon_ranged_pistol_shared_pistol_dd6 = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/pistol/shared_pistol_dd6.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_pistol_dd6, "object/weapon/ranged/pistol/shared_pistol_dd6.iff")
+
+--Made with Skyyyr's Wrench Tool 
+--[[
+object_weapon_ranged_pistol_shared_pistol_flare = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/pistol/shared_pistol_flare.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_pistol_flare, "object/weapon/ranged/pistol/shared_pistol_flare.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_weapon_ranged_pistol_shared_pistol_flechette = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/pistol/shared_pistol_flechette.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_pistol_flechette, "object/weapon/ranged/pistol/shared_pistol_flechette.iff")
+]]
+--Made with Skyyyr's Wrench Tool 
+
+object_weapon_ranged_pistol_shared_pistol_heroic_sd = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/pistol/shared_pistol_heroic_sd.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_pistol_heroic_sd, "object/weapon/ranged/pistol/shared_pistol_heroic_sd.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_weapon_ranged_pistol_shared_pistol_kyd21 = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/pistol/shared_pistol_kyd21.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_pistol_kyd21, "object/weapon/ranged/pistol/shared_pistol_kyd21.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_weapon_ranged_pistol_shared_pistol_mandalorian = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/pistol/shared_pistol_mandalorian.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_pistol_mandalorian, "object/weapon/ranged/pistol/shared_pistol_mandalorian.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_weapon_ranged_pistol_shared_pistol_rebel = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/pistol/shared_pistol_rebel.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_pistol_rebel, "object/weapon/ranged/pistol/shared_pistol_rebel.iff")
+
+--Made with Skyyyr's Wrench Tool 
+--[[
+object_weapon_ranged_pistol_shared_pistol_renegade_generic = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/pistol/shared_pistol_renegade_generic.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_pistol_renegade_generic, "object/weapon/ranged/pistol/shared_pistol_renegade_generic.iff")
+]]
+--Made with Skyyyr's Wrench Tool 
+
+object_weapon_ranged_pistol_shared_pistol_trando_suppressor = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/pistol/shared_pistol_trando_suppressor.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_pistol_trando_suppressor, "object/weapon/ranged/pistol/shared_pistol_trando_suppressor.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_weapon_ranged_pistol_shared_pistol_wookiee = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/pistol/shared_pistol_wookiee.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_pistol_wookiee, "object/weapon/ranged/pistol/shared_pistol_wookiee.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_weapon_ranged_pistol_shared_wookiee_bowcaster = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/pistol/shared_wookiee_bowcaster.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_wookiee_bowcaster, "object/weapon/ranged/pistol/shared_wookiee_bowcaster.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_weapon_ranged_pistol_shared_som_disruptor_pistol = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/pistol/shared_som_disruptor_pistol.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_som_disruptor_pistol, "object/weapon/ranged/pistol/shared_som_disruptor_pistol.iff")
+

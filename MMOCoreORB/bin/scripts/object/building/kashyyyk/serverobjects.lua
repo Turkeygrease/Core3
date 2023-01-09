@@ -1,0 +1,6 @@
+includeFile("building/kashyyyk/thm_spc_asteroid_bunker_energy_door.lua")
+includeFile("building/kashyyyk/thm_spc_asteroid_bunker_energy_door_frame.lua")
+includeFile("building/kashyyyk/wall_modular_restraining_wall_4m.lua")
+includeFile("building/kashyyyk/wall_modular_restraining_wall_8m.lua")
+includeFile("building/kashyyyk/wall_modular_restraining_wall_door.lua")
+includeFile("building/kashyyyk/wall_modular_restraining_wall_gate.lua")

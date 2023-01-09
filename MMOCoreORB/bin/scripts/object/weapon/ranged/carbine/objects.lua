@@ -859,3 +859,110 @@ object_weapon_ranged_carbine_shared_carbine_nym_slugthrower = SharedWeaponObject
 }
 
 ObjectTemplates:addClientTemplate(object_weapon_ranged_carbine_shared_carbine_nym_slugthrower, "object/weapon/ranged/carbine/shared_carbine_nym_slugthrower.iff")
+
+object_weapon_ranged_carbine_shared_som_carbine_republic_sfor = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/carbine/shared_som_carbine_republic_sfor.iff"
+	}
+
+ObjectTemplates:addClientTemplate(object_weapon_ranged_carbine_shared_som_carbine_republic_sfor, "object/weapon/ranged/carbine/shared_som_carbine_republic_sfor.iff")
+
+object_weapon_ranged_carbine_shared_som_carbine_republic_sfor_generic = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/carbine/shared_som_carbine_republic_sfor_generic.iff"
+	}
+
+ObjectTemplates:addClientTemplate(object_weapon_ranged_carbine_shared_som_carbine_republic_sfor_generic, "object/weapon/ranged/carbine/shared_som_carbine_republic_sfor_generic.iff")
+
+
+object_weapon_ranged_carbine_shared_carbine_heroic_sd = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/carbine/shared_carbine_heroic_sd.iff"
+	}
+
+ObjectTemplates:addClientTemplate(object_weapon_ranged_carbine_shared_carbine_heroic_sd, "object/weapon/ranged/carbine/shared_carbine_heroic_sd.iff")
+
+
+
+object_weapon_ranged_carbine_shared_ep3_loot_firestar = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/carbine/shared_ep3_loot_firestar.iff"
+	}
+
+ObjectTemplates:addClientTemplate(object_weapon_ranged_carbine_shared_ep3_loot_firestar, "object/weapon/ranged/carbine/shared_ep3_loot_firestar.iff")
+
+
+
+--Made with Skyyyr's Wrench Tool 
+
+object_weapon_ranged_carbine_shared_carbine_alliance_needler = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/carbine/shared_carbine_alliance_needler.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_ranged_carbine_shared_carbine_alliance_needler, "object/weapon/ranged/carbine/shared_carbine_alliance_needler.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_weapon_ranged_carbine_shared_carbine_avatar_trando = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/carbine/shared_carbine_avatar_trando.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_ranged_carbine_shared_carbine_avatar_trando, "object/weapon/ranged/carbine/shared_carbine_avatar_trando.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_weapon_ranged_carbine_shared_carbine_bothan_bola = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/carbine/shared_carbine_bothan_bola.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_ranged_carbine_shared_carbine_bothan_bola, "object/weapon/ranged/carbine/shared_carbine_bothan_bola.iff")
+
+--Made with Skyyyr's Wrench Tool 
+--[[
+object_weapon_ranged_carbine_shared_carbine_bounty_ee3 = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/carbine/shared_carbine_bounty_ee3.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_ranged_carbine_shared_carbine_bounty_ee3, "object/weapon/ranged/carbine/shared_carbine_bounty_ee3.iff")
+]]
+--Made with Skyyyr's Wrench Tool 
+
+object_weapon_ranged_carbine_shared_carbine_charric = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/carbine/shared_carbine_charric.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_ranged_carbine_shared_carbine_charric, "object/weapon/ranged/carbine/shared_carbine_charric.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_weapon_ranged_carbine_shared_carbine_geo = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/carbine/shared_carbine_geo.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_ranged_carbine_shared_carbine_geo, "object/weapon/ranged/carbine/shared_carbine_geo.iff")
+
+--Made with Skyyyr's Wrench Tool 
+--[[
+object_weapon_ranged_carbine_shared_carbine_kun_massass = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/carbine/shared_carbine_kun_massass.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_ranged_carbine_shared_carbine_kun_massass, "object/weapon/ranged/carbine/shared_carbine_kun_massass.iff")
+]]
+--Made with Skyyyr's Wrench Tool 
+
+object_weapon_ranged_carbine_shared_carbine_mandalorian = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/carbine/shared_carbine_mandalorian.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_ranged_carbine_shared_carbine_mandalorian, "object/weapon/ranged/carbine/shared_carbine_mandalorian.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_weapon_ranged_carbine_shared_carbine_proton = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/carbine/shared_carbine_proton.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_ranged_carbine_shared_carbine_proton, "object/weapon/ranged/carbine/shared_carbine_proton.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_weapon_ranged_carbine_shared_carbine_pvp_ngant = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/carbine/shared_carbine_pvp_ngant.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_ranged_carbine_shared_carbine_pvp_ngant, "object/weapon/ranged/carbine/shared_carbine_pvp_ngant.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_weapon_ranged_carbine_shared_carbine_wookiee_bowcaster = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/carbine/shared_carbine_wookiee_bowcaster.iff"
+}
+ObjectTemplates:addClientTemplate(object_weapon_ranged_carbine_shared_carbine_wookiee_bowcaster, "object/weapon/ranged/carbine/shared_carbine_wookiee_bowcaster.iff")
+

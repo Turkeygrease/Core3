@@ -4569,3 +4569,9 @@ object_building_player_city_shared_theater_tatooine = SharedBuildingObjectTempla
 }
 
 ObjectTemplates:addClientTemplate(object_building_player_city_shared_theater_tatooine, "object/building/player/city/shared_theater_tatooine.iff")
+
+--Diner
+object_building_player_city_shared_diner_no_planet_restriction = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/player/city/shared_diner_no_planet_restriction.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_player_city_shared_diner_no_planet_restriction, "object/building/player/city/shared_diner_no_planet_restriction.iff")

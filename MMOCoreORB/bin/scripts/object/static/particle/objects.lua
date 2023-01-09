@@ -10333,7 +10333,49 @@ ObjectTemplates:addClientTemplate(object_static_particle_shared_pt_smoke_large, 
 
 object_static_particle_shared_pt_smoke_small = SharedStaticObjectTemplate:new {
 	clientTemplateFileName = "object/static/particle/shared_pt_smoke_small.iff"
+	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
+--[[
+	appearanceFilename = "appearance/pt_smoke_small.prt",
+	arrangementDescriptorFilename = "",
 
+	clearFloraRadius = 0,
+	clientDataFile = "",
+	clientGameObjectType = 5,
+	collisionActionBlockFlags = 255,
+	collisionActionFlags = 1,
+	collisionActionPassFlags = 0,
+	collisionMaterialBlockFlags = 1,
+	collisionMaterialFlags = 1,
+	collisionMaterialPassFlags = 0,
+	containerType = 0,
+	containerVolumeLimit = 0,
+
+	detailedDescription = "string_id_table",
+
+	gameObjectType = 5,
+
+	locationReservationRadius = 0,
+	lookAtText = "string_id_table",
+
+	noBuildRadius = 0,
+
+	objectName = "@obj_n:unknown_object",
+	onlyVisibleInTools = 0,
+
+	portalLayoutFilename = "",
+
+	scale = 1,
+	scaleThresholdBeforeExtentTest = 0.5,
+	sendToClient = 1,
+	slotDescriptorFilename = "",
+	snapToTerrain = 0,
+	surfaceType = 0,
+
+	totalCellNumber = 0,
+
+	clientObjectCRC = 4210272156,
+	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/static/base/shared_static_base.iff", "object/static/particle/base/shared_static_particle_base.iff"}
+]]
 }
 
 ObjectTemplates:addClientTemplate(object_static_particle_shared_pt_smoke_small, "object/static/particle/shared_pt_smoke_small.iff")
@@ -11954,3 +11996,99 @@ object_static_particle_shared_pt_webber = SharedStaticObjectTemplate:new {
 }
 
 ObjectTemplates:addClientTemplate(object_static_particle_shared_pt_webber, "object/static/particle/shared_pt_webber.iff")
+
+-- Halloween Ghost Fog
+
+object_static_particle_shared_pt_halloween_ghost_fog = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/particle/shared_pt_halloween_ghost_fog.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_static_particle_shared_pt_halloween_ghost_fog, "object/static/particle/shared_pt_halloween_ghost_fog.iff")
+
+-- Halloween Ghost Fog2
+
+object_static_particle_shared_pt_halloween_ghost_fog2 = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/particle/shared_pt_halloween_ghost_fog2.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_static_particle_shared_pt_halloween_ghost_fog2, "object/static/particle/shared_pt_halloween_ghost_fog2.iff")
+
+object_static_particle_shared_pt_axkvamin_lightning = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/particle/shared_pt_axkvamin_lightning.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_particle_shared_pt_axkvamin_lightning, "object/static/particle/shared_pt_axkvamin_lightning.iff")
+
+
+
+object_static_particle_shared_pt_axkvamin_lightning_base = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/particle/shared_pt_axkvamin_lightning_base.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_particle_shared_pt_axkvamin_lightning_base, "object/static/particle/shared_pt_axkvamin_lightning_base.iff")
+
+object_static_particle_shared_pt_contagion_debuff = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/particle/shared_pt_contagion_debuff.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_particle_shared_pt_contagion_debuff, "object/static/particle/shared_pt_contagion_debuff.iff")
+
+
+
+object_static_particle_shared_pt_contagion_explode = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/particle/shared_pt_contagion_explode.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_particle_shared_pt_contagion_explode, "object/static/particle/shared_pt_contagion_explode.iff")
+
+
+
+object_static_particle_shared_pt_green_fire_base = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/particle/shared_pt_green_fire_base.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_particle_shared_pt_green_fire_base, "object/static/particle/shared_pt_green_fire_base.iff")
+
+
+
+object_static_particle_shared_pt_kimaru_burn_patch = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/particle/shared_pt_kimaru_burn_patch.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_particle_shared_pt_kimaru_burn_patch, "object/static/particle/shared_pt_kimaru_burn_patch.iff")
+
+
+
+object_static_particle_shared_pt_kimaru_burn_patch_base = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/particle/shared_pt_kimaru_burn_patch_base.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_particle_shared_pt_kimaru_burn_patch_base, "object/static/particle/shared_pt_kimaru_burn_patch_base.iff")
+
+
+
+object_static_particle_shared_pt_kimaru_force_storm = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/particle/shared_pt_kimaru_force_storm.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_particle_shared_pt_kimaru_force_storm, "object/static/particle/shared_pt_kimaru_force_storm.iff")
+
+
+
+object_static_particle_shared_pt_kimaru_force_storm_birth = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/particle/shared_pt_kimaru_force_storm_birth.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_particle_shared_pt_kimaru_force_storm_birth, "object/static/particle/shared_pt_kimaru_force_storm_birth.iff")
+
+
+
+object_static_particle_shared_pt_kimaru_force_storm_precursor = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/particle/shared_pt_kimaru_force_storm_precursor.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_particle_shared_pt_kimaru_force_storm_precursor, "object/static/particle/shared_pt_kimaru_force_storm_precursor.iff")
+
+
+object_static_particle_shared_pt_mine_explosion = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/particle/shared_particle_mine_explosion.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_particle_shared_pt_mine_explosion, "object/static/particle/shared_pt_mine_explosion.iff")
+
+
+object_static_particle_shared_pt_sm_explosion_0_50_scale = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/static/particle/shared_pt_sm_explosion_0_50_scale.iff"
+}
+ObjectTemplates:addClientTemplate(object_static_particle_shared_pt_sm_explosion_0_50_scale, "object/static/particle/shared_pt_sm_explosion_0_50_scale.iff")
+
+

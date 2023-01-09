@@ -87,3 +87,13 @@ includeFile("tangible/wearables/necklace/necklace_s11.lua")
 includeFile("tangible/wearables/necklace/necklace_s12.lua")
 includeFile("tangible/wearables/necklace/necklace_sparkling_bijou.lua")
 includeFile("tangible/wearables/necklace/necklace_wampum.lua")
+
+-->Boogles Custom Stuff
+----includeFile("tangible/wearables/necklace/boogles/modified_geo_custom_necklace_01.lua")
+--includeFile("tangible/wearables/necklace/boogles/modified_geo_custom_necklace_02.lua")
+--includeFile("tangible/wearables/necklace/boogles/modified_doctor_necklace_non_human.lua")
+-->Boogles Custom Stuff
+
+-->Lifeday Necklace
+includeFile("tangible/wearables/necklace/necklace_lifeday.lua")
+-->Lifeday Necklace

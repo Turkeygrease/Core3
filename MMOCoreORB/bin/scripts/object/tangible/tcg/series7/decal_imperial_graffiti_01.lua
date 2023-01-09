@@ -1,0 +1,1 @@
+object_tangible_tcg_series7_decal_imperial_graffiti_01 = object_tangible_tcg_series7_shared_decal_imperial_graffiti_01:new {customName = "Imperial Graffiti Style 1",}ObjectTemplates:addTemplate(object_tangible_tcg_series7_decal_imperial_graffiti_01, "object/tangible/tcg/series7/decal_imperial_graffiti_01.iff")

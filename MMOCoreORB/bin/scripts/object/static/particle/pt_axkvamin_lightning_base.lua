@@ -1,0 +1,5 @@
+
+object_static_particle_pt_axkvamin_lightning_base = object_static_particle_shared_pt_axkvamin_lightning_base:new {
+
+}
+ObjectTemplates:addTemplate(object_static_particle_pt_axkvamin_lightning_base, "object/static/particle/pt_axkvamin_lightning_base.iff")

@@ -2518,3 +2518,12 @@ object_tangible_wearables_necklace_shared_necklace_wampum = SharedTangibleObject
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_wearables_necklace_shared_necklace_wampum, "object/tangible/wearables/necklace/shared_necklace_wampum.iff")
+
+----Lifeday Necklace
+object_tangible_wearables_necklace_shared_necklace_lifeday = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/necklace/shared_necklace_lifeday.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_necklace_shared_necklace_lifeday, "object/tangible/wearables/necklace/shared_necklace_lifeday.iff")
+----Lifeday Necklace

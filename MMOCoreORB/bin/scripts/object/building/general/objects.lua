@@ -8100,3 +8100,35 @@ object_building_general_shared_tatooine_tusken_bunker = SharedBuildingObjectTemp
 }
 
 ObjectTemplates:addClientTemplate(object_building_general_shared_tatooine_tusken_bunker, "object/building/general/shared_tatooine_tusken_bunker.iff")
+
+-- Sorosuub Yacht
+object_building_general_shared_sorosuub_space_yacht = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_sorosuub_space_yacht.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_sorosuub_space_yacht, "object/building/general/shared_sorosuub_space_yacht.iff")
+
+-- Decimator
+object_building_general_shared_decimator = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_decimator.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_decimator, "object/building/general/shared_decimator.iff")
+
+-- ykl37r
+object_building_general_shared_ykl37r = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_ykl37r.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_ykl37r, "object/building/general/shared_ykl37r.iff")
+
+-- yt1300
+object_building_general_shared_yt1300 = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_yt1300.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_yt1300, "object/building/general/shared_yt1300.iff")
+
+-- yt1300 decorated
+object_building_general_shared_yt1300_decorated = SharedBuildingObjectTemplate:new {
+	clientTemplateFileName = "object/building/general/shared_yt1300_decorated.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_general_shared_yt1300_decorated, "object/building/general/shared_yt1300_decorated.iff")
+
+

@@ -71,3 +71,11 @@ includeFile("tangible/wearables/jacket/jacket_s25.lua")
 includeFile("tangible/wearables/jacket/jacket_s26.lua")
 includeFile("tangible/wearables/jacket/jacket_s35.lua")
 includeFile("tangible/wearables/jacket/jacket_s36.lua")
+includeFile("tangible/wearables/jacket/jacket_gmf_01.lua")
+includeFile("tangible/wearables/jacket/jacket_gcw_imperial.lua") 
+includeFile("tangible/wearables/jacket/jacket_gcw_rebel.lua")   
+
+-->Lifeday Jacket
+includeFile("tangible/wearables/jacket/jacket_lifeday_09_01.lua")
+includeFile("tangible/wearables/jacket/jacket_lifeday_09_02.lua")
+includeFile("tangible/wearables/jacket/jacket_lifeday_figrin_dan.lua")

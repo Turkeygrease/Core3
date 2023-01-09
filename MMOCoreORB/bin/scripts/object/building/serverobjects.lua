@@ -56,5 +56,8 @@ includeFile("building/player/serverobjects.lua")
 includeFile("building/poi/serverobjects.lua")
 includeFile("building/tatooine/serverobjects.lua")
 includeFile("building/yavin/serverobjects.lua")
+includeFile("building/instance/serverobjects.lua")
+includeFile("building/kashyyyk/serverobjects.lua")
+includeFile("building/mustafar/serverobjects.lua")
 
 -- Server Objects

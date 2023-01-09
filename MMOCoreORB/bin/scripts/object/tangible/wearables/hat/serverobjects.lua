@@ -65,3 +65,13 @@ includeFile("tangible/wearables/hat/nightsister_hat_s03.lua")
 includeFile("tangible/wearables/hat/singing_mountain_clan_hat_s01.lua")
 includeFile("tangible/wearables/hat/singing_mountain_clan_hat_s02.lua")
 includeFile("tangible/wearables/hat/singing_mountain_clan_mask_s01.lua")
+
+-- Hat Fedora
+includeFile("tangible/wearables/hat/hat_fedora__s01.lua")
+
+-- Imperial Gunner
+includeFile("tangible/wearables/hat/hat_imperial_gunner_01.lua")
+
+--efol
+includeFile("tangible/wearables/hat/hat_loveday_halo_01.lua")
+includeFile("tangible/wearables/hat/hat_loveday_halo_02.lua")

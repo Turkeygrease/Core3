@@ -1220,3 +1220,39 @@ object_tangible_wearables_hat_shared_singing_mountain_clan_mask_s01 = SharedTang
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_wearables_hat_shared_singing_mountain_clan_mask_s01, "object/tangible/wearables/hat/shared_singing_mountain_clan_mask_s01.iff")
+
+--Hat Fedora
+
+object_tangible_wearables_hat_shared_hat_fedora__s01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/hat/shared_hat_fedora__s01.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_hat_shared_hat_fedora__s01, "object/tangible/wearables/hat/shared_hat_fedora__s01.iff")
+
+-- Imperial FGunner
+
+object_tangible_wearables_hat_shared_hat_imperial_gunner_01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/hat/shared_hat_imperial_gunner_01.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_hat_shared_hat_imperial_gunner_01, "object/tangible/wearables/hat/shared_hat_imperial_gunner_01.iff")
+
+-- Halo 1
+
+object_tangible_wearables_hat_shared_hat_loveday_halo_01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/hat/shared_hat_loveday_halo_01.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_hat_shared_hat_loveday_halo_01, "object/tangible/wearables/hat/shared_hat_loveday_halo_01.iff")
+
+-- Halo 2
+
+object_tangible_wearables_hat_shared_hat_loveday_halo_02 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/hat/shared_hat_loveday_halo_02.iff"
+
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_hat_shared_hat_loveday_halo_02, "object/tangible/wearables/hat/shared_hat_loveday_halo_02.iff")

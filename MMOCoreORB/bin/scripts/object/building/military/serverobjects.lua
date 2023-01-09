@@ -95,3 +95,6 @@ includeFile("building/military/poi_all_mad_bio_mine_s01.lua")
 includeFile("building/military/rebel_hideout_themepark.lua")
 includeFile("building/military/small_imperial_cloning_facility.lua")
 includeFile("building/military/small_imperial_cloning_facility_s02.lua")
+
+includeFile("building/military/bf_event_cloner_imp.lua")
+includeFile("building/military/bf_event_cloner_reb.lua")

@@ -40,65 +40,102 @@
 --this exception also makes it possible to release a modified version
 --which carries forward this exception.
 
+-- Chronicle Master Robe
+
+object_tangible_wearables_robe_shared_robe_chronicle_master = SharedTangibleObjectTemplate:new {
+  clientTemplateFileName = "object/tangible/wearables/robe/shared_robe_chronicle_master.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_robe_chronicle_master, "object/tangible/wearables/robe/shared_robe_chronicle_master.iff")
+
+-- Exar F Hood up
+
+object_tangible_wearables_robe_shared_exar_cultist_hood_up_f = SharedTangibleObjectTemplate:new {
+  clientTemplateFileName = "object/tangible/wearables/robe/shared_exar_cultist_hood_up_f.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_exar_cultist_hood_up_f, "object/tangible/wearables/robe/shared_exar_cultist_hood_up_f.iff")
+-- Exar Cultist Hood Up
+
+object_tangible_wearables_robe_shared_exar_cultist_hood_up = SharedTangibleObjectTemplate:new {
+  clientTemplateFileName = "object/tangible/wearables/robe/shared_exar_cultist_hood_up.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_exar_cultist_hood_up, "object/tangible/wearables/robe/shared_exar_cultist_hood_up.iff")
+
+-- Exar Cultist Hood Down (Female)
+
+object_tangible_wearables_robe_shared_exar_cultist_hood_down_f = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/robe/shared_exar_cultist_hood_down_f.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_exar_cultist_hood_down_f, "object/tangible/wearables/robe/shared_exar_cultist_hood_down_f.iff")
+
+-- Exar Cultist Hood Down
+
+object_tangible_wearables_robe_shared_exar_cultist_hood_down = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/robe/shared_exar_cultist_hood_down.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_exar_cultist_hood_down, "object/tangible/wearables/robe/shared_exar_cultist_hood_down.iff")
+
+-- Exar F Hood up 02
+
+object_tangible_wearables_robe_shared_exar_cultist_hood_up_f_s02 = SharedTangibleObjectTemplate:new {
+  clientTemplateFileName = "object/tangible/wearables/robe/shared_exar_cultist_hood_up_f_s02.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_exar_cultist_hood_up_f_s02, "object/tangible/wearables/robe/shared_exar_cultist_hood_up_f_s02.iff")
+
+-- Exar Cultist Hood Up 02
+
+object_tangible_wearables_robe_shared_exar_cultist_hood_up_s02 = SharedTangibleObjectTemplate:new {
+  clientTemplateFileName = "object/tangible/wearables/robe/shared_exar_cultist_hood_up_s02.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_exar_cultist_hood_up_s02, "object/tangible/wearables/robe/shared_exar_cultist_hood_up_s02.iff")
+
+-- Exar Cultist Hood Down (Female) 02
+
+object_tangible_wearables_robe_shared_exar_cultist_hood_down_f_s02 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/robe/shared_exar_cultist_hood_down_f_s02.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_exar_cultist_hood_down_f_s02, "object/tangible/wearables/robe/shared_exar_cultist_hood_down_f_s02.iff")
+
+-- Exar Cultist Hood Down 02
+
+object_tangible_wearables_robe_shared_exar_cultist_hood_down_s02 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/robe/shared_exar_cultist_hood_down_s02.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_exar_cultist_hood_down_s02, "object/tangible/wearables/robe/shared_exar_cultist_hood_down_s02.iff")
+
+-- Robe S33 H1
+
+object_tangible_wearables_robe_shared_robe_s33_h1 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/robe/shared_robe_s33_h1.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_robe_s33_h1, "object/tangible/wearables/robe/shared_robe_s33_h1.iff")
+
+-- Robe S32 H1
+
+object_tangible_wearables_robe_shared_robe_s32_h1 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/robe/shared_robe_s32_h1.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_robe_s32_h1, "object/tangible/wearables/robe/shared_robe_s32_h1.iff")
+
+-- Aakuan Robe
 
 object_tangible_wearables_robe_shared_aakuan_robe = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/wearables/robe/shared_aakuan_robe.iff"
-	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
---[[
-	appearanceFilename = "appearance/robe_s05_h0_f.sat",
-	arrangementDescriptorFilename = "abstract/slot/arrangement/wearables/cloak.iff",
-
-	certificationsRequired = {},
-	clearFloraRadius = 0,
-	clientDataFile = "",
-	clientGameObjectType = 16777221,
-	collisionActionBlockFlags = 0,
-	collisionActionFlags = 51,
-	collisionActionPassFlags = 1,
-	collisionMaterialBlockFlags = 0,
-	collisionMaterialFlags = 1,
-	collisionMaterialPassFlags = 0,
-	containerType = 0,
-	containerVolumeLimit = 1,
-	customizationVariableMapping = {},
-
-	detailedDescription = "@wearables_detail:aakuan_robe",
-
-	gameObjectType = 16777221,
-
-	locationReservationRadius = 0,
-	lookAtText = "@wearables_lookat:robe_s05",
-
-	noBuildRadius = 0,
-
-	objectName = "@wearables_name:aakuan_robe",
-	onlyVisibleInTools = 0,
-
-	paletteColorCustomizationVariables = {},
-	portalLayoutFilename = "",
-
-	rangedIntCustomizationVariables = {},
-
-	scale = 1,
-	scaleThresholdBeforeExtentTest = 0.5,
-	sendToClient = 1,
-	slotDescriptorFilename = "abstract/slot/descriptor/tangible.iff",
-	snapToTerrain = 1,
-	socketDestinations = {},
-	structureFootprintFileName = "",
-	surfaceType = 0,
-
-	targetable = 1,
-	totalCellNumber = 0,
-
-	useStructureFootprintOutline = 0,
-
-	clientObjectCRC = 518208123,
-	derivedFromTemplates = {"object/object/base/shared_base_object.iff", "object/tangible/base/shared_tangible_base.iff", "object/tangible/base/shared_tangible_craftable.iff", "object/tangible/wearables/base/shared_wearables_base.iff", "object/tangible/wearables/base/shared_base_cloak.iff"}
-]]
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_aakuan_robe, "object/tangible/wearables/robe/shared_aakuan_robe.iff")
+
+-- Inquistor Robe
 
 object_tangible_wearables_robe_shared_robe_inquisitor = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/wearables/robe/shared_robe_inquisitor.iff"
@@ -1103,6 +1140,30 @@ object_tangible_wearables_robe_shared_robe_s05 = SharedTangibleObjectTemplate:ne
 
 ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_robe_s05, "object/tangible/wearables/robe/shared_robe_s05.iff")
 
+--Custom Robe
+object_tangible_wearables_robe_shared_robe_madness = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/robe/shared_robe_s05_h1.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_robe_madness, "object/tangible/wearables/robe/shared_robe_madness.iff")
+
+
+--itho
+object_tangible_wearables_robe_shared_itho_madness = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/ithorian/shared_ith_vest_s02.iff"
+	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_itho_madness, "object/tangible/wearables/robe/shared_itho_madness.iff")
+
+--wke
+object_tangible_wearables_robe_shared_wke_madness = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/wookiee/shared_wke_hood_s03.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_wke_madness, "object/tangible/wearables/robe/shared_wke_madness.iff")
+
+
 object_tangible_wearables_robe_shared_robe_s05_h1 = SharedTangibleObjectTemplate:new {
 	clientTemplateFileName = "object/tangible/wearables/robe/shared_robe_s05_h1.iff"
 	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
@@ -1456,3 +1517,55 @@ object_tangible_wearables_robe_shared_robe_tusken_raider_s02 = SharedTangibleObj
 }
 
 ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_robe_tusken_raider_s02, "object/tangible/wearables/robe/shared_robe_tusken_raider_s02.iff")
+
+
+
+
+
+object_tangible_wearables_robe_shared_robe_s32 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/robe/shared_robe_s32.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_robe_s32, "object/tangible/wearables/robe/shared_robe_s32.iff")
+
+
+
+
+
+object_tangible_wearables_robe_shared_robe_s33 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/robe/shared_robe_s33.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_robe_s33, "object/tangible/wearables/robe/shared_robe_s33.iff")
+
+
+--
+object_tangible_wearables_robe_shared_robe_swtor = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/robe/shared_robe_swtor.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_robe_swtor, "object/tangible/wearables/robe/shared_robe_swtor.iff")
+
+--
+object_tangible_wearables_robe_shared_robe_starforge = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/robe/shared_robe_starforge.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_robe_starforge, "object/tangible/wearables/robe/shared_robe_starforge.iff")
+
+--
+object_tangible_wearables_robe_shared_robe_revan = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/robe/shared_robe_revan.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_robe_revan, "object/tangible/wearables/robe/shared_robe_revan.iff")
+
+--
+object_tangible_wearables_robe_shared_robe_atris = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/wearables/robe/shared_robe_atris.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_tangible_wearables_robe_shared_robe_atris, "object/tangible/wearables/robe/shared_robe_atris.iff")
+
+
+

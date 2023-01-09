@@ -1,0 +1,5 @@
+
+object_static_particle_pt_contagion_explode = object_static_particle_shared_pt_contagion_explode:new {
+
+}
+ObjectTemplates:addTemplate(object_static_particle_pt_contagion_explode, "object/static/particle/pt_contagion_explode.iff")

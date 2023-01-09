@@ -47,3 +47,6 @@
 -- Server Objects
 includeFile("weapon/melee/special/blacksun_razor.lua")
 includeFile("weapon/melee/special/vibroknuckler.lua")
+--includeFile("weapon/melee/special/massassiknuckler.lua")
+includeFile("weapon/melee/special/blasterfist.lua")
+includeFile("weapon/melee/special/blaster_fist.lua")

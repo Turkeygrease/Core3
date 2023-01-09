@@ -44,7 +44,7 @@ object_building_military_military_base_shed_imperial_style_hospital_01 = object_
 	gameObjectType = 517,
 	planetMapCategory = "medicalcenter",
 	skillMods = {
-		{"private_medical_rating", 100},
+		{"private_medical_rating", 115},
 		{"private_med_wound_health", 100},
 		{"private_med_wound_action", 100},
 		{"private_safe_logout", 1}

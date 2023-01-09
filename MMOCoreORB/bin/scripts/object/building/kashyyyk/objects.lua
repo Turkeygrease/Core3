@@ -1,0 +1,34 @@
+object_building_kashyyyk_shared_thm_spc_asteroid_bunker_energy_door = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/building/kashyyyk/shared_thm_spc_asteroid_bunker_energy_door.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_kashyyyk_shared_thm_spc_asteroid_bunker_energy_door, "object/building/kashyyyk/shared_thm_spc_asteroid_bunker_energy_door.iff")
+
+
+object_building_kashyyyk_shared_thm_spc_asteroid_bunker_energy_door_frame = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/building/kashyyyk/shared_thm_spc_asteroid_bunker_energy_door_frame.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_kashyyyk_shared_thm_spc_asteroid_bunker_energy_door_frame, "object/building/kashyyyk/shared_thm_spc_asteroid_bunker_energy_door_frame.iff")
+
+
+object_building_kashyyyk_shared_wall_modular_restraining_wall_4m = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/building/kashyyyk/shared_wall_modular_restraining_wall_4m.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_kashyyyk_shared_wall_modular_restraining_wall_4m, "object/building/kashyyyk/shared_wall_modular_restraining_wall_4m.iff")
+
+
+object_building_kashyyyk_shared_wall_modular_restraining_wall_8m = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/building/kashyyyk/shared_wall_modular_restraining_wall_8m.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_kashyyyk_shared_wall_modular_restraining_wall_8m, "object/building/kashyyyk/shared_wall_modular_restraining_wall_8m.iff")
+
+
+object_building_kashyyyk_shared_wall_modular_restraining_wall_door = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/building/kashyyyk/shared_wall_modular_restraining_wall_door.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_kashyyyk_shared_wall_modular_restraining_wall_door, "object/building/kashyyyk/shared_wall_modular_restraining_wall_door.iff")
+
+
+object_building_kashyyyk_shared_wall_modular_restraining_wall_gate = SharedStaticObjectTemplate:new {
+	clientTemplateFileName = "object/building/kashyyyk/shared_wall_modular_restraining_wall_gate.iff"
+}
+ObjectTemplates:addClientTemplate(object_building_kashyyyk_shared_wall_modular_restraining_wall_gate, "object/building/kashyyyk/shared_wall_modular_restraining_wall_gate.iff")
