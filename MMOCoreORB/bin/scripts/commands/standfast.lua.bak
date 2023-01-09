@@ -1,5 +1,4 @@
---Copyright (C) 2010 <SWGEmu>
-
+--Copyright (C) 2007 <SWGEmu>
 
 --This File is part of Core3.
 
@@ -39,42 +38,18 @@
 --it is their choice whether to do so. The GNU Lesser General Public License
 --gives permission to release a modified version without this exception;
 --this exception also makes it possible to release a modified version
+--which carries forward this exception.
+--true = 1, false = 0
 
-
-object_draft_schematic_weapon_lance_blackstar = object_draft_schematic_weapon_shared_lance_blackstar:new {
-
-   templateType = DRAFTSCHEMATIC,
-
-   customObjectName = "Black Star Lance",
-
-   craftingToolTab = 1, -- (See DraftSchematicObjectTemplate.h)
-   complexity = 30,
-   size = 4,
-
-   xpType = "crafting_weapons_general",
-   xp = 130,
-
-   assemblySkill = "weapon_assembly",
-   experimentingSkill = "weapon_experimentation",
-   customizationSkill = "weapon_customization",
-
-   customizationOptions = {},
-   customizationStringNames = {},
-   customizationDefaults = {},
-
-   ingredientTemplateNames = {"craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n", "craft_weapon_ingredients_n"},
-   ingredientTitleNames = {"lance_shaft", "vibro_unit_and_power_cell_brackets", "grip", "vibration_generator"},
-   ingredientSlotType = {0, 0, 0, 1},
-   resourceTypes = {"steel_ditanium", "copper_polysteel", "metal", "object/tangible/component/weapon/shared_vibro_unit.iff"},
-   resourceQuantities = {38, 17, 6, 2},
-   contribution = {100, 100, 100, 100},
-
-
-   targetTemplate = "object/weapon/melee/polearm/lance_blackstar.iff",
-
-   additionalTemplates = {
-             }
-
+StandFastCommand = {
+    name = "standfast",
+    --actionCost = 150,
+    --duration = 1800,
+    --animationCRC = hashCode()
+    --clientEffect = "clienteffect/bh_shields_effect.cef",
+    --buffClass = SINGLE_USE_BUFF
+	combatspam = "standfast"
 }
-ObjectTemplates:addTemplate(object_draft_schematic_weapon_lance_blackstar, "object/draft_schematic/weapon/lance_blackstar.iff")
+
+AddCommand(StandFastCommand)
 

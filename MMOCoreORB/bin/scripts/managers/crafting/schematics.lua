@@ -2062,7 +2062,6 @@ schematics = {
 	{path="object/draft_schematic/weapon/junti_mace.iff"},
 	{path="object/draft_schematic/weapon/ep3_loot_poisonspike.iff"},
 	{path="object/draft_schematic/weapon/pistol_trando_suppressor.iff"},
-	{path="object/draft_schematic/weapon/lance_blackstar.iff"},
 
 	-- Sabers 
 	{path="object/draft_schematic/weapon/lightsaber/old_republic.iff"},

@@ -1,5 +1,4 @@
---Copyright (C) 2010 <SWGEmu>
-
+--Copyright (C) 2007 <SWGEmu>
 
 --This File is part of Core3.
 
@@ -39,15 +38,12 @@
 --it is their choice whether to do so. The GNU Lesser General Public License
 --gives permission to release a modified version without this exception;
 --this exception also makes it possible to release a modified version
+--which carries forward this exception.
+--true = 1, false = 0
 
-
-object_tangible_loot_loot_schematic_polearm_blackstar = object_tangible_loot_loot_schematic_shared_death_watch_bounty_hunter_helmet_schematic:new {
-	templateType = LOOTSCHEMATIC,
-	objectMenuComponent = "LootSchematicMenuComponent",
-	attributeListComponent = "LootSchematicAttributeListComponent",
-	requiredSkill = "crafting_weaponsmith_master",
-	targetDraftSchematic = "object/draft_schematic/weapon/lance_blackstar.iff",
-	targetUseCount = 1
+SetPvPCommand = {
+        name = "setpvp",
 }
 
-ObjectTemplates:addTemplate(object_tangible_loot_loot_schematic_polearm_blackstar, "object/tangible/loot/loot_schematic/polearm_blackstar.iff")
+AddCommand(SetPvPCommand)
+
