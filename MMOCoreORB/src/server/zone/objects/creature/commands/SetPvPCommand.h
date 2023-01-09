@@ -46,7 +46,7 @@ public:
 
 				ManagedReference<PlayerObject*> player = creature->getPlayerObject();
 		
-				if (player != NULL){
+				if (player != nullptr){
 					if (player->hasPvpTef()){
 						creature->sendSystemMessage("You cannot use this while currently engaged in GCW combat.");
 								return GENERALERROR;
@@ -64,12 +64,12 @@ public:
                         Core::getTaskManager()->scheduleTask([creo]{
                                 ManagedReference<PlayerObject*> playerDelayed = creo->getPlayerObject();
 
-							if (playerDelayed != NULL){
+							if (playerDelayed != nullptr){
 								if (playerDelayed->hasPvpTef()){
 									creo->sendSystemMessage("You have recently engaged in GCW combat, request to leave special forces has been denied.");	
 								}
 								
-                                if(creo != NULL && !playerDelayed->hasPvpTef()) {
+                                if(creo != nullptr && !playerDelayed->hasPvpTef()) {
                                     Locker locker(creo);
                                     creo->setFactionStatus(FactionStatus::COVERT);
                                 }
@@ -79,14 +79,13 @@ public:
                 }
                 else
                 {
-
                         creature->sendSystemMessage("You will be flagged as Special Forces in 30 seconds.");
                         creature->setFutureFactionStatus(FactionStatus::OVERT);
 
                         ManagedReference<CreatureObject*> creo = creature->asCreatureObject();
 
                         Core::getTaskManager()->scheduleTask([creo]{
-                                if(creo != NULL) {
+                                if(creo != nullptr) {
                                         Locker locker(creo);
 
                                         creo->setFactionStatus(FactionStatus::OVERT);

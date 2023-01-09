@@ -25,7 +25,7 @@ public:
 
 		ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
 
-		if (ghost == NULL)
+		if (ghost == nullptr)
 			return GENERALERROR;
 
 		int adminLevelCheck = ghost->getAdminLevel();
@@ -64,7 +64,7 @@ public:
 		ZoneServer* zoneServer = creature->getZoneServer();
 		ManagedReference<SceneObject*> obj = zoneServer->getObject(target);
 
-		if (obj == NULL || !obj->isTangibleObject() || obj->isPlayerCreature() || obj->isPet()) {
+		if (obj == nullptr || !obj->isTangibleObject() || obj->isPlayerCreature() || obj->isPet()) {
 			creature->sendSystemMessage("@player_structure:rotate_what"); //What do you want to rotate?
 			return GENERALERROR;
 		}
@@ -76,7 +76,7 @@ public:
 
 		obj->incrementMovementCounter();
 
-		if (obj->getParent() != NULL)
+		if (obj->getParent() != nullptr)
 			obj->teleport(obj->getPositionX(), obj->getPositionZ(), obj->getPositionY(), obj->getParent().get()->getObjectID());
 		else
 			obj->teleport(obj->getPositionX(), obj->getPositionZ(), obj->getPositionY());
@@ -118,7 +118,7 @@ public:
 			ZoneServer* zoneServer = creature->getZoneServer();
 			ManagedReference<SceneObject*> obj = zoneServer->getObject(target);
 
-			if (obj == NULL || !obj->isTangibleObject() || obj->isPlayerCreature() || obj->isPet()) {
+			if (obj == nullptr || !obj->isTangibleObject() || obj->isPlayerCreature() || obj->isPet()) {
 				creature->sendSystemMessage("@player_structure:rotate_what"); //What do you want to rotate?
 				return GENERALERROR;
 			}
@@ -134,13 +134,13 @@ public:
 				obj->rotate(degrees);
 			}
 			else if (dir == "yaw"){
-			obj->rotate(degrees);
+				obj->rotate(degrees);
 			}
 			else if (dir == "pitch"){
-				obj->rotateYaxis(degrees);
+				obj->rotatePitch(degrees);
 			}
 			else if (dir == "roll"){
-			obj->rotateXaxis(degrees);
+				obj->rotateRoll(degrees);
 			}
 			else if (dir == "reset"){
 				obj->setDirection(1, 0, 0, 0);
@@ -148,7 +148,7 @@ public:
 
 			obj->incrementMovementCounter();
 
-			if (obj->getParent() != NULL)
+			if (obj->getParent() != nullptr)
 				obj->teleport(obj->getPositionX(), obj->getPositionZ(), obj->getPositionY(), obj->getParent().get()->getObjectID());
 			else
 				obj->teleport(obj->getPositionX(), obj->getPositionZ(), obj->getPositionY());
