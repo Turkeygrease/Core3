@@ -1,0 +1,6 @@
+object_tangible_furniture_all_frn_all_statue_sistros = object_tangible_furniture_all_shared_frn_all_statue_sistros:new {
+}
+ObjectTemplates:addTemplate(object_tangible_furniture_all_frn_all_statue_sistros, "object/tangible/furniture/all/frn_all_statue_sistros.iff")
+
+
+

@@ -1,0 +1,3 @@
+object_tangible_furniture_arena_warfront_ground_logo_01 = object_tangible_furniture_shared_arena_warfront_ground_logo_01:new {
+}
+ObjectTemplates:addTemplate(object_tangible_furniture_arena_warfront_ground_logo_01, "object/tangible/furniture/arena_warfront_ground_logo_01.iff")

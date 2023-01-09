@@ -1,0 +1,5 @@
+includeFile("../custom_scripts/object/building/faction/objects.lua")
+includeFile("../custom_scripts/object/building/poi/objects.lua")
+includeFile("../custom_scripts/object/building/general/objects.lua")
+includeFile("../custom_scripts/object/building/instances/objects.lua")
+includeFile("../custom_scripts/object/building/player/objects.lua")

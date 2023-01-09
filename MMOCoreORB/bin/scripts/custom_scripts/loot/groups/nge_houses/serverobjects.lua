@@ -1,0 +1,6 @@
+--includeFile("../custom_scripts/loot/groups/nge_houses/filename.lua")
+includeFile("../custom_scripts/loot/groups/nge_houses/bespin_house_schem.lua")
+includeFile("../custom_scripts/loot/groups/nge_houses/relaxation_house_schem.lua")
+includeFile("../custom_scripts/loot/groups/nge_houses/sandcrawler_house_schem.lua")
+includeFile("../custom_scripts/loot/groups/nge_houses/tree_house_schem.lua")
+includeFile("../custom_scripts/loot/groups/nge_houses/jabbas_house_schem.lua")

@@ -1,0 +1,108 @@
+--object_tangible_furniture_decorative_shared_holo_lamp_off_01
+object_tangible_furniture_decorative_shared_holo_lamp_off_01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/decorative/shared_holo_lamp_off_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_decorative_shared_holo_lamp_off_01, "object/tangible/furniture/decorative/shared_holo_lamp_off_01.iff")
+
+--shared_heart_holo_lamp_01
+object_tangible_furniture_decorative_shared_heart_holo_lamp_01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/decorative/shared_heart_holo_lamp_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_decorative_shared_heart_holo_lamp_01, "object/tangible/furniture/decorative/shared_heart_holo_lamp_01.iff")
+
+--shared_heart_holo_lamp_02_fire
+object_tangible_furniture_decorative_shared_heart_holo_lamp_02_fire = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/decorative/shared_heart_holo_lamp_02_fire.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_decorative_shared_heart_holo_lamp_02_fire, "object/tangible/furniture/decorative/shared_heart_holo_lamp_02_fire.iff")
+
+--shared_heart_holo_lamp_03_energy
+object_tangible_furniture_decorative_shared_heart_holo_lamp_03_energy = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/decorative/shared_heart_holo_lamp_03_energy.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_decorative_shared_heart_holo_lamp_03_energy, "object/tangible/furniture/decorative/shared_heart_holo_lamp_03_energy.iff")
+
+--scoreboard_number_0_01
+object_tangible_furniture_decorative_shared_scoreboard_number_0_01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/decorative/shared_scoreboard_number_0_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_decorative_shared_scoreboard_number_0_01, "object/tangible/furniture/decorative/shared_scoreboard_number_0_01.iff")
+
+--scoreboard_number_1_01
+object_tangible_furniture_decorative_shared_scoreboard_number_1_01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/decorative/shared_scoreboard_number_1_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_decorative_shared_scoreboard_number_1_01, "object/tangible/furniture/decorative/shared_scoreboard_number_1_01.iff")
+
+--scoreboard_number_2_01
+object_tangible_furniture_decorative_shared_scoreboard_number_2_01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/decorative/shared_scoreboard_number_2_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_decorative_shared_scoreboard_number_2_01, "object/tangible/furniture/decorative/shared_scoreboard_number_2_01.iff")
+
+--scoreboard_number_3_01
+object_tangible_furniture_decorative_shared_scoreboard_number_3_01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/decorative/shared_scoreboard_number_3_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_decorative_shared_scoreboard_number_3_01, "object/tangible/furniture/decorative/shared_scoreboard_number_3_01.iff")
+
+--scoreboard_number_4_01
+object_tangible_furniture_decorative_shared_scoreboard_number_4_01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/decorative/shared_scoreboard_number_4_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_decorative_shared_scoreboard_number_4_01, "object/tangible/furniture/decorative/shared_scoreboard_number_4_01.iff")
+
+--scoreboard_number_5_01
+object_tangible_furniture_decorative_shared_scoreboard_number_5_01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/decorative/shared_scoreboard_number_5_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_decorative_shared_scoreboard_number_5_01, "object/tangible/furniture/decorative/shared_scoreboard_number_5_01.iff")
+
+--scoreboard_number_6_01
+object_tangible_furniture_decorative_shared_scoreboard_number_6_01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/decorative/shared_scoreboard_number_6_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_decorative_shared_scoreboard_number_6_01, "object/tangible/furniture/decorative/shared_scoreboard_number_6_01.iff")
+
+--scoreboard_number_7_01
+object_tangible_furniture_decorative_shared_scoreboard_number_7_01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/decorative/shared_scoreboard_number_7_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_decorative_shared_scoreboard_number_7_01, "object/tangible/furniture/decorative/shared_scoreboard_number_7_01.iff")
+
+--scoreboard_number_8_01
+object_tangible_furniture_decorative_shared_scoreboard_number_8_01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/decorative/shared_scoreboard_number_8_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_decorative_shared_scoreboard_number_8_01, "object/tangible/furniture/decorative/shared_scoreboard_number_8_01.iff")
+
+--scoreboard_number_9_01
+object_tangible_furniture_decorative_shared_scoreboard_number_9_01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/decorative/shared_scoreboard_number_9_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_decorative_shared_scoreboard_number_9_01, "object/tangible/furniture/decorative/shared_scoreboard_number_9_01.iff")
+
+--scoreboard colon
+object_tangible_furniture_decorative_shared_scoreboard_number_colon_01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/decorative/shared_scoreboard_number_colon_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_decorative_shared_scoreboard_number_colon_01, "object/tangible/furniture/decorative/shared_scoreboard_number_colon_01.iff")
+
+--scoreboard colon noblink
+object_tangible_furniture_decorative_shared_scoreboard_number_colon_noblink_01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/decorative/shared_scoreboard_number_colon_noblink_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_decorative_shared_scoreboard_number_colon_noblink_01, "object/tangible/furniture/decorative/shared_scoreboard_number_colon_noblink_01.iff")
+
+
+--factions all logo blue 1
+object_tangible_furniture_decorative_shared_factions_all_logo_blue_1 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/decorative/shared_factions_all_logo_blue_1.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_decorative_shared_factions_all_logo_blue_1, "object/tangible/furniture/decorative/shared_factions_all_logo_blue_1.iff")
+
+--factions all logo red 1
+object_tangible_furniture_decorative_shared_factions_all_logo_red_1 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/decorative/shared_factions_all_logo_red_1.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_decorative_shared_factions_all_logo_red_1, "object/tangible/furniture/decorative/shared_factions_all_logo_red_1.iff")

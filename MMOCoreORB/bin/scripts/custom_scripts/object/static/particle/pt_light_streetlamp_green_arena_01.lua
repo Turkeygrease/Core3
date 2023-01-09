@@ -1,0 +1,6 @@
+object_static_particle_pt_light_streetlamp_green_arena_01 = object_static_particle_shared_pt_light_streetlamp_green_arena_01:new {
+
+
+}
+
+ObjectTemplates:addTemplate(object_static_particle_pt_light_streetlamp_green_arena_01, "object/static/particle/pt_light_streetlamp_green_arena_01.iff")

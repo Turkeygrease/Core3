@@ -1,0 +1,3 @@
+object_tangible_furniture_all_shrb_dath_redweed = object_tangible_furniture_all_shared_shrb_dath_redweed:new {
+}
+ObjectTemplates:addTemplate(object_tangible_furniture_all_shrb_dath_redweed, "object/tangible/furniture/all/shrb_dath_redweed.iff")

@@ -1,0 +1,5 @@
+includeFile("../custom_scripts/object/building/objects.lua")
+includeFile("../custom_scripts/object/intangible/objects.lua")
+includeFile("../custom_scripts/object/mobile/objects.lua")
+includeFile("../custom_scripts/object/static/objects.lua")
+includeFile("../custom_scripts/object/tangible/objects.lua")

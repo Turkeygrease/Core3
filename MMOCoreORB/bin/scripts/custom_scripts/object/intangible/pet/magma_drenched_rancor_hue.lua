@@ -1,0 +1,5 @@
+object_intangible_pet_magma_drenched_rancor_hue = object_intangible_pet_shared_magma_drenched_rancor_hue:new {
+
+}
+
+ObjectTemplates:addTemplate(object_intangible_pet_magma_drenched_rancor_hue, "object/intangible/pet/magma_drenched_rancor_hue.iff")

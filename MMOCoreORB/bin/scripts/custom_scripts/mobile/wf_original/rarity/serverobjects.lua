@@ -1,0 +1,11 @@
+--includeFile("../custom_scripts/mobile/wf_original/rarity/file.lua")
+
+includeFile("../custom_scripts/mobile/wf_original/rarity/candy_graul.lua")
+includeFile("../custom_scripts/mobile/wf_original/rarity/candy_graul_hue.lua")
+includeFile("../custom_scripts/mobile/wf_original/rarity/candy_pharple.lua")
+includeFile("../custom_scripts/mobile/wf_original/rarity/magma_drenched_rancor.lua")
+includeFile("../custom_scripts/mobile/wf_original/rarity/undead_grievous.lua")
+includeFile("../custom_scripts/mobile/wf_original/rarity/fluorescent_reptilian_flier.lua")
+includeFile("../custom_scripts/mobile/wf_original/rarity/infected_kkorrwrot.lua")
+includeFile("../custom_scripts/mobile/wf_original/rarity/janta_boss_01.lua")
+includeFile("../custom_scripts/mobile/wf_original/rarity/toxic_spider_monk_droid.lua")

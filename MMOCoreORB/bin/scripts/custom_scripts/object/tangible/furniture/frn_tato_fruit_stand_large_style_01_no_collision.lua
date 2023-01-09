@@ -1,0 +1,6 @@
+object_tangible_furniture_frn_tato_fruit_stand_large_style_01_no_collision = object_tangible_furniture_shared_frn_tato_fruit_stand_large_style_01_no_collision:new {
+	objectName = "",
+	customName = "Large Fruit Stand",
+}
+
+ObjectTemplates:addTemplate(object_tangible_furniture_frn_tato_fruit_stand_large_style_01_no_collision, "object/tangible/furniture/frn_tato_fruit_stand_large_style_01_no_collision.iff")

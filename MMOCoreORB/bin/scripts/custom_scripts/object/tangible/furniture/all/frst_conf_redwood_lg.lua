@@ -1,0 +1,6 @@
+object_tangible_furniture_all_frst_conf_redwood_lg = object_tangible_furniture_all_shared_frst_conf_redwood_lg:new {
+}
+ObjectTemplates:addTemplate(object_tangible_furniture_all_frst_conf_redwood_lg, "object/tangible/furniture/all/frst_conf_redwood_lg.iff")
+
+
+

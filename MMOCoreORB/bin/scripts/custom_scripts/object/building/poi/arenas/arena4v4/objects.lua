@@ -1,0 +1,1 @@
+--includeFile("../custom_scripts/object/building/poi/arenas/arena4v4/filename.lua")

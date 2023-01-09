@@ -1,0 +1,3 @@
+object_tangible_furniture_marker_yellow_01_inside = object_tangible_furniture_shared_marker_yellow_01_inside:new {
+}
+ObjectTemplates:addTemplate(object_tangible_furniture_marker_yellow_01_inside, "object/tangible/furniture/marker_yellow_01_inside.iff")

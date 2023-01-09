@@ -1,0 +1,5 @@
+object_mobile_fluorescent_reptilian_flier = object_mobile_shared_fluorescent_reptilian_flier:new {
+
+}
+
+ObjectTemplates:addTemplate(object_mobile_fluorescent_reptilian_flier, "object/mobile/fluorescent_reptilian_flier.iff")

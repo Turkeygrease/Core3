@@ -1,0 +1,11 @@
+--includeFile("../custom_scripts/object/mobile/file.lua")
+
+includeFile("../custom_scripts/object/mobile/candy_graul.lua")
+includeFile("../custom_scripts/object/mobile/candy_graul_hue.lua")
+includeFile("../custom_scripts/object/mobile/candy_pharple.lua")
+includeFile("../custom_scripts/object/mobile/magma_drenched_rancor.lua")
+includeFile("../custom_scripts/object/mobile/undead_grievous.lua")
+includeFile("../custom_scripts/object/mobile/fluorescent_reptilian_flier.lua")
+includeFile("../custom_scripts/object/mobile/infected_kkorrwrot.lua")
+includeFile("../custom_scripts/object/mobile/dantari_male_boss1.lua")
+includeFile("../custom_scripts/object/mobile/toxic_spider_monk_droid.lua")

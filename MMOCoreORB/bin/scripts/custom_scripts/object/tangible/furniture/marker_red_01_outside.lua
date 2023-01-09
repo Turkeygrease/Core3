@@ -1,0 +1,3 @@
+object_tangible_furniture_marker_red_01_outside = object_tangible_furniture_shared_marker_red_01_outside:new {
+}
+ObjectTemplates:addTemplate(object_tangible_furniture_marker_red_01_outside, "object/tangible/furniture/marker_red_01_outside.iff")

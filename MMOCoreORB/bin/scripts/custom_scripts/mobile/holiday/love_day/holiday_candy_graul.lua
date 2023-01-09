@@ -1,0 +1,35 @@
+holiday_candy_graul = Creature:new {
+	objectName = "",
+	customName = "Candy Graul",	
+	socialGroup = "rancor",
+	pvpFaction = "",
+	faction = "",
+	level = 65,
+	chanceHit = 30,
+	damageMin = 815,
+	damageMax = 1230,
+	baseXp = 1549,
+	baseHAM = 54500,
+	baseHAMmax = 56100,
+	armor = 2,
+	resists = {25,35,15,55,35,15,100,10,0},
+	tamingChance = 0,
+	ferocity = 11,
+	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
+	creatureBitmask = PACK + KILLER,
+	optionsBitmask = 128,
+	diet = CARNIVORE,
+
+	templates = {"object/mobile/candy_graul.iff"},
+	scale = .2,	
+	lootGroups = {
+	},
+	weapons = {},
+	conversationTemplate = "",
+	attacks = {
+		{"creatureareapoison"},
+		{"creatureareaknockdown","knockdownChance=90"}
+	}
+}
+
+CreatureTemplates:addCreatureTemplate(holiday_candy_graul, "holiday_candy_graul")

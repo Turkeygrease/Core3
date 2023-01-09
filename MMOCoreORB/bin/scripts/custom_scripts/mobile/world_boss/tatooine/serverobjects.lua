@@ -1,0 +1,1 @@
+--includeFile("../custom_scripts/mobile/world_boss/tatooine/file.lua")

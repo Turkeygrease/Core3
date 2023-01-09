@@ -1,0 +1,1 @@
+--includeFile("../custom_scripts/object/building/faction/objects.lua")

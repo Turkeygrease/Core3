@@ -1,0 +1,71 @@
+--Effect Control Rock
+object_tangible_furniture_effect_control_shared_effect_control_rock_01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/effect_control/shared_effect_control_rock_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_effect_control_shared_effect_control_rock_01, "object/tangible/furniture/effect_control/shared_effect_control_rock_01.iff")
+
+--Effect Control Screen
+object_tangible_furniture_effect_control_shared_effect_control_screen_01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/effect_control/shared_effect_control_screen_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_effect_control_shared_effect_control_screen_01, "object/tangible/furniture/effect_control/shared_effect_control_screen_01.iff")
+
+
+
+
+--Water Colors
+
+--Blue
+object_tangible_furniture_effect_control_shared_water_wf_01_blue = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/effect_control/shared_water_wf_01_blue.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_effect_control_shared_water_wf_01_blue, "object/tangible/furniture/effect_control/shared_water_wf_01_blue.iff")
+
+--Cyan
+object_tangible_furniture_effect_control_shared_water_wf_01_cyan = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/effect_control/shared_water_wf_01_cyan.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_effect_control_shared_water_wf_01_cyan, "object/tangible/furniture/effect_control/shared_water_wf_01_cyan.iff")
+
+--Gold
+object_tangible_furniture_effect_control_shared_water_wf_01_gold = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/effect_control/shared_water_wf_01_gold.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_effect_control_shared_water_wf_01_gold, "object/tangible/furniture/effect_control/shared_water_wf_01_gold.iff")
+
+--Green
+object_tangible_furniture_effect_control_shared_water_wf_01_green = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/effect_control/shared_water_wf_01_green.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_effect_control_shared_water_wf_01_green, "object/tangible/furniture/effect_control/shared_water_wf_01_green.iff")
+
+--Magenta
+object_tangible_furniture_effect_control_shared_water_wf_01_magenta = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/effect_control/shared_water_wf_01_magenta.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_effect_control_shared_water_wf_01_magenta, "object/tangible/furniture/effect_control/shared_water_wf_01_magenta.iff")
+
+--Rainbow
+object_tangible_furniture_effect_control_shared_water_wf_01_rainbow = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/effect_control/shared_water_wf_01_rainbow.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_effect_control_shared_water_wf_01_rainbow, "object/tangible/furniture/effect_control/shared_water_wf_01_rainbow.iff")
+
+--Red
+object_tangible_furniture_effect_control_shared_water_wf_01_red = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/effect_control/shared_water_wf_01_red.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_effect_control_shared_water_wf_01_red, "object/tangible/furniture/effect_control/shared_water_wf_01_red.iff")
+
+--Purple
+object_tangible_furniture_effect_control_shared_water_wf_01_purple = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/effect_control/shared_water_wf_01_purple.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_effect_control_shared_water_wf_01_purple, "object/tangible/furniture/effect_control/shared_water_wf_01_purple.iff")
+
+
+--Stage Lights
+object_tangible_furniture_effect_control_shared_stage_laser_01 = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/tangible/furniture/effect_control/shared_stage_laser_01.iff"
+}
+ObjectTemplates:addClientTemplate(object_tangible_furniture_effect_control_shared_stage_laser_01, "object/tangible/furniture/effect_control/shared_stage_laser_01.iff")

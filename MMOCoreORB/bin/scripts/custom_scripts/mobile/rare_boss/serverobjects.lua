@@ -1,0 +1,7 @@
+--includeFile("../custom_scripts/mobile/rare_boss/file.lua")
+includeFile("../custom_scripts/mobile/rare_boss/dantooine/serverobjects.lua")
+includeFile("../custom_scripts/mobile/rare_boss/dathomir/serverobjects.lua")
+includeFile("../custom_scripts/mobile/rare_boss/lok/serverobjects.lua")
+includeFile("../custom_scripts/mobile/rare_boss/rare/serverobjects.lua")
+includeFile("../custom_scripts/mobile/rare_boss/rori/serverobjects.lua")
+includeFile("../custom_scripts/mobile/rare_boss/system_rare/serverobjects.lua")

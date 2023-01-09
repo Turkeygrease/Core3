@@ -1,0 +1,4 @@
+object_tangible_furniture_all_decd_oaktreeleaves = object_tangible_furniture_all_shared_decd_oaktreeleaves:new {
+}
+ObjectTemplates:addTemplate(object_tangible_furniture_all_decd_oaktreeleaves, "object/tangible/furniture/all/decd_oaktreeleaves.iff")
+
