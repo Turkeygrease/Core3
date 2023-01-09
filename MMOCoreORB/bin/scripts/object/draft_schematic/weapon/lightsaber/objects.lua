@@ -873,3 +873,97 @@ object_draft_schematic_weapon_lightsaber_shared_lightsaber_two_hand_gen5 = Share
 }
 
 ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_lightsaber_shared_lightsaber_two_hand_gen5, "object/draft_schematic/weapon/lightsaber/shared_lightsaber_two_hand_gen5.iff")
+
+-- Republic
+object_draft_schematic_weapon_lightsaber_shared_old_republic = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/lightsaber/shared_old_republic.iff"
+
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_lightsaber_shared_old_republic, "object/draft_schematic/weapon/lightsaber/shared_old_republic.iff")
+
+-- Republic 2h
+object_draft_schematic_weapon_lightsaber_shared_old_republic_2h = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/lightsaber/shared_old_republic_2h.iff"
+
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_lightsaber_shared_old_republic_2h, "object/draft_schematic/weapon/lightsaber/shared_old_republic_2h.iff")
+
+-- Sith
+object_draft_schematic_weapon_lightsaber_shared_sith = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/lightsaber/shared_sith.iff"
+
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_lightsaber_shared_sith, "object/draft_schematic/weapon/lightsaber/shared_sith.iff")
+
+-- Sith 2h
+object_draft_schematic_weapon_lightsaber_shared_sith_2h = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/lightsaber/shared_sith_2h.iff"
+
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_lightsaber_shared_sith_2h, "object/draft_schematic/weapon/lightsaber/shared_sith_2h.iff")
+
+-- Jinsu
+object_draft_schematic_weapon_lightsaber_shared_jinsu = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/lightsaber/shared_jinsu.iff"
+
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_lightsaber_shared_jinsu, "object/draft_schematic/weapon/lightsaber/shared_jinsu.iff")
+
+-- Jinsu 2h
+object_draft_schematic_weapon_lightsaber_shared_jinsu_2h = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/lightsaber/shared_jinsu_2h.iff"
+
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_lightsaber_shared_jinsu_2h, "object/draft_schematic/weapon/lightsaber/shared_jinsu_2h.iff")
+
+-- Mysterious
+object_draft_schematic_weapon_lightsaber_shared_mysterious = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/lightsaber/shared_mysterious.iff"
+
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_lightsaber_shared_mysterious, "object/draft_schematic/weapon/lightsaber/shared_mysterious.iff")
+
+-- Mysterious 2h
+object_draft_schematic_weapon_lightsaber_shared_mysterious_2h = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/lightsaber/shared_mysterious_2h.iff"
+
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_lightsaber_shared_mysterious_2h, "object/draft_schematic/weapon/lightsaber/shared_mysterious_2h.iff")
+
+-- Sidious
+object_draft_schematic_weapon_lightsaber_shared_sidious = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/lightsaber/shared_sidious.iff"
+
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_lightsaber_shared_sidious, "object/draft_schematic/weapon/lightsaber/shared_sidious.iff")
+
+-- Sidious 2h
+object_draft_schematic_weapon_lightsaber_shared_sidious_2h = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/lightsaber/shared_sidious_2h.iff"
+
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_lightsaber_shared_sidious_2h, "object/draft_schematic/weapon/lightsaber/shared_sidious_2h.iff")
+
+
+-- Lightsaber Damage Module
+
+object_draft_schematic_weapon_lightsaber_shared_lightsaber_damage_module = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/lightsaber/shared_lightsaber_damage_module.iff"
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_lightsaber_shared_lightsaber_damage_module, "object/draft_schematic/weapon/lightsaber/shared_lightsaber_damage_module.iff")
+
+-- Lightsaber Blade Emitter
+
+object_draft_schematic_weapon_lightsaber_shared_lightsaber_woundchance_module = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/lightsaber/shared_lightsaber_woundchance_module.iff"
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_lightsaber_shared_lightsaber_woundchance_module, "object/draft_schematic/weapon/lightsaber/shared_lightsaber_woundchance_module.iff")
+
+-- Juyo Saberstaff
+
+object_draft_schematic_weapon_lightsaber_shared_lightsaber_juyo = SharedTangibleObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/lightsaber/shared_lightsaber_juyo.iff"
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_lightsaber_shared_lightsaber_juyo, "object/draft_schematic/weapon/lightsaber/shared_lightsaber_juyo.iff")
+
+

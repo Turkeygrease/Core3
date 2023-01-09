@@ -4107,3 +4107,231 @@ object_draft_schematic_weapon_shared_turbo_laser = SharedDraftSchematicObjectTem
 }
 
 ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_turbo_laser, "object/draft_schematic/weapon/shared_turbo_laser.iff")
+
+object_draft_schematic_weapon_shared_rifle_trando_hunter_crafted = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/shared_rifle_trando_hunter_crafted.iff"
+	}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_rifle_trando_hunter_crafted, "object/draft_schematic/weapon/shared_rifle_trando_hunter_crafted.iff")
+
+object_draft_schematic_weapon_shared_rifle_trando_hunter = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/shared_rifle_trando_hunter.iff"
+	}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_rifle_trando_hunter, "object/draft_schematic/weapon/shared_rifle_trando_hunter.iff")
+
+object_draft_schematic_weapon_shared_lightsaber_two_handed_pvp_bf_gen5 = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/shared_lightsaber_two_handed_pvp_bf_gen5.iff"
+	}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_lightsaber_two_handed_pvp_bf_gen5, "object/draft_schematic/weapon/shared_lightsaber_two_handed_pvp_bf_gen5.iff")
+
+object_draft_schematic_weapon_shared_lightsaber_polearm_pvp_bf_gen5 = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/shared_lightsaber_polearm_pvp_bf_gen5.iff"
+	}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_lightsaber_polearm_pvp_bf_gen5, "object/draft_schematic/weapon/shared_lightsaber_polearm_pvp_bf_gen5.iff")
+
+object_draft_schematic_weapon_shared_lightsaber_one_handed_pvp_bf_gen5 = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/shared_lightsaber_one_handed_pvp_bf_gen5.iff"
+	}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_lightsaber_one_handed_pvp_bf_gen5, "object/draft_schematic/weapon/shared_lightsaber_one_handed_pvp_bf_gen5.iff")
+
+object_draft_schematic_weapon_shared_pistol_ion_stunner = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/shared_pistol_ion_stunner.iff"
+	}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_pistol_ion_stunner, "object/draft_schematic/weapon/shared_pistol_ion_stunner.iff")
+
+object_draft_schematic_weapon_shared_carbine_republic_sfor = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/shared_carbine_republic_sfor.iff"
+	}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_carbine_republic_sfor, "object/draft_schematic/weapon/shared_carbine_republic_sfor.iff")
+
+object_draft_schematic_weapon_shared_lightsaber_mandalorian = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/shared_lightsaber_mandalorian.iff"
+	}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_lightsaber_mandalorian, "object/draft_schematic/weapon/shared_lightsaber_mandalorian.iff")
+
+
+object_draft_schematic_weapon_shared_pistol_pvp = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/shared_pistol_pvp.iff"
+	}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_pistol_pvp, "object/draft_schematic/weapon/shared_pistol_pvp.iff")
+
+
+
+object_draft_schematic_weapon_shared_jinkins_j1_rifle = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/shared_jinkins_j1_rifle.iff"
+	}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_jinkins_j1_rifle, "object/draft_schematic/weapon/shared_jinkins_j1_rifle.iff")
+
+
+
+object_draft_schematic_weapon_shared_carbine_heroic_sd = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/shared_carbine_heroic_sd.iff"
+	}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_carbine_heroic_sd, "object/draft_schematic/weapon/shared_carbine_heroic_sd.iff")
+
+
+object_draft_schematic_weapon_shared_som_sword_mustafar_bandit = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/shared_som_sword_mustafar_bandit.iff"
+	}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_som_sword_mustafar_bandit, "object/draft_schematic/weapon/shared_som_sword_mustafar_bandit.iff")
+
+
+
+object_draft_schematic_weapon_shared_som_2h_sword_tulrus = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/shared_som_2h_sword_tulrus.iff"
+	}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_som_2h_sword_tulrus, "object/draft_schematic/weapon/shared_som_2h_sword_tulrus.iff")
+
+
+
+object_draft_schematic_weapon_shared_polearm_heroic_sd = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/shared_polearm_heroic_sd.iff"
+	}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_polearm_heroic_sd, "object/draft_schematic/weapon/shared_polearm_heroic_sd.iff")
+
+
+--
+object_draft_schematic_weapon_shared_som_2h_sword_obsidian = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/shared_som_2h_sword_obsidian.iff"
+	}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_som_2h_sword_obsidian, "object/draft_schematic/weapon/shared_som_2h_sword_obsidian.iff")
+
+
+object_draft_schematic_weapon_shared_pvp_bf_knuckler = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/shared_pvp_bf_knuckler.iff"
+	}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_pvp_bf_knuckler, "object/draft_schematic/weapon/shared_pvp_bf_knuckler.iff")
+
+
+object_draft_schematic_weapon_shared_ep3_loot_firestar = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/shared_ep3_loot_firestar.iff"
+	}
+
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_ep3_loot_firestar, "object/draft_schematic/weapon/shared_ep3_loot_firestar.iff")
+
+
+
+
+
+
+--Made with Skyyyr's Wrench Tool 
+
+object_draft_schematic_weapon_shared_carbine_geo = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/shared_carbine_geo.iff"
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_carbine_geo, "object/draft_schematic/weapon/shared_carbine_geo.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_draft_schematic_weapon_shared_rifle_geo_drill = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/shared_rifle_geo_drill.iff"
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_rifle_geo_drill, "object/draft_schematic/weapon/shared_rifle_geo_drill.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_draft_schematic_weapon_shared_som_lance_obsidian = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/shared_som_lance_obsidian.iff"
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_som_lance_obsidian, "object/draft_schematic/weapon/shared_som_lance_obsidian.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_draft_schematic_weapon_shared_som_sword_obsidian = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/shared_som_sword_obsidian.iff"
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_som_sword_obsidian, "object/draft_schematic/weapon/shared_som_sword_obsidian.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_draft_schematic_weapon_shared_sword_wod_scyth = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/shared_sword_wod_scyth.iff"
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_sword_wod_scyth, "object/draft_schematic/weapon/shared_sword_wod_scyth.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_draft_schematic_weapon_shared_pistol_rebel = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/shared_pistol_rebel.iff"
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_pistol_rebel, "object/draft_schematic/weapon/shared_pistol_rebel.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_draft_schematic_weapon_shared_carbine_mandalorian = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/shared_carbine_mandalorian.iff"
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_carbine_mandalorian, "object/draft_schematic/weapon/shared_carbine_mandalorian.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_draft_schematic_weapon_shared_pistol_mandalorian = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/shared_pistol_mandalorian.iff"
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_pistol_mandalorian, "object/draft_schematic/weapon/shared_pistol_mandalorian.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_draft_schematic_weapon_shared_rifle_mandalorian = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/shared_rifle_mandalorian.iff"
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_rifle_mandalorian, "object/draft_schematic/weapon/shared_rifle_mandalorian.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_draft_schematic_weapon_shared_sword_mandalorian = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/shared_sword_mandalorian.iff"
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_sword_mandalorian, "object/draft_schematic/weapon/shared_sword_mandalorian.iff")
+
+
+--Made with Skyyyr's Wrench Tool 
+
+object_draft_schematic_weapon_shared_ep3_loot_retaliation = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/shared_ep3_loot_retaliation.iff"
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_ep3_loot_retaliation, "object/draft_schematic/weapon/shared_ep3_loot_retaliation.iff")
+
+--Made with Skyyyr's Wrench Tool 
+
+object_draft_schematic_weapon_shared_rifle_naktra_crystal = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/shared_rifle_naktra_crystal.iff"
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_rifle_naktra_crystal, "object/draft_schematic/weapon/shared_rifle_naktra_crystal.iff")
+
+
+--Made with Skyyyr's Wrench Tool 
+
+object_draft_schematic_weapon_shared_junti_mace = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/shared_junti_mace.iff"
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_junti_mace, "object/draft_schematic/weapon/shared_junti_mace.iff")
+
+--poison pike
+object_draft_schematic_weapon_shared_ep3_loot_poisonspike = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/shared_ep3_loot_poisonspike.iff"
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_ep3_loot_poisonspike, "object/draft_schematic/weapon/shared_ep3_loot_poisonspike.iff")
+
+--trando pistol
+object_draft_schematic_weapon_shared_pistol_trando_suppressor = SharedDraftSchematicObjectTemplate:new {
+	clientTemplateFileName = "object/draft_schematic/weapon/shared_pistol_trando_suppressor.iff"
+}
+ObjectTemplates:addClientTemplate(object_draft_schematic_weapon_shared_pistol_trando_suppressor, "object/draft_schematic/weapon/shared_pistol_trando_suppressor.iff")
+
+
