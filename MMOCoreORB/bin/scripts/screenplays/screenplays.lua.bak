@@ -714,10 +714,3 @@ includeFile("events/ServerEventAutomation.lua")
 
 -- Custom content - Loads last to allow for overrides
 includeFile("../custom_scripts/screenplays/screenplays.lua")
-
--- Buildout
-includeFile("buildout/tatooine.lua")
-includeFile("buildout/corellia.lua")
-includeFile("buildout/naboo.lua")
-includeFile("buildout/endor.lua")
-includeFile("buildout/lok.lua")

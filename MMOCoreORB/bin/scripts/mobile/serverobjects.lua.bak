@@ -30,7 +30,6 @@ includeFile("yavin4/serverobjects.lua")
 
 includeFile("faction/serverobjects.lua")
 includeFile("dungeon/serverobjects.lua") 
-includeFile("custom_tamable_pet/serverobjects.lua") 
 includeFile("gcw_transitsystem/serverobjects.lua")
 includeFile("gcw/serverobjects.lua")
 
