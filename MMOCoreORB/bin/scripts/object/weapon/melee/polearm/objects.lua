@@ -40,8 +40,6 @@
 --this exception also makes it possible to release a modified version
 --which carries forward this exception.
 
-ObjectTemplates:addClientTemplate(object_weapon_melee_polearm_shared_lance_blackstar, "object/weapon/melee/polearm/shared_lance_blackstar.iff")
-
 object_weapon_melee_polearm_shared_lance_controllerfp = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/melee/polearm/shared_lance_controllerfp.iff"
 	--Data below here is deprecated and loaded from the tres, keeping for easy lookups
