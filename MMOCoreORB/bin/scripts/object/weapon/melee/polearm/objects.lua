@@ -40,6 +40,12 @@
 --this exception also makes it possible to release a modified version
 --which carries forward this exception.
 
+-- Lance blackstar
+object_weapon_melee_polearm_shared_lance_blackstar = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/melee/polearm/shared_lance_blackstar.iff"
+}
+
+ObjectTemplates:addClientTemplate(object_weapon_melee_polearm_shared_lance_blackstar, "object/weapon/melee/polearm/shared_lance_blackstar.iff")
 
 object_weapon_melee_polearm_shared_lance_controllerfp = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/melee/polearm/shared_lance_controllerfp.iff"

@@ -167,5 +167,6 @@ includeFile("draft_schematic/weapon/rifle_naktra_crystal.lua")
 includeFile("draft_schematic/weapon/junti_mace.lua")
 includeFile("draft_schematic/weapon/ep3_loot_poisonspike.lua")
 includeFile("draft_schematic/weapon/pistol_trando_suppressor.lua")
+includeFile("draft_schematic/weapon/lance_blackstar.lua")
 
 

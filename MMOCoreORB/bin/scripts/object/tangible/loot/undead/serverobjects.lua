@@ -1,0 +1,8 @@
+includeFile("tangible/loot/undead/outbreak_undead_brain.lua")
+includeFile("tangible/loot/undead/outbreak_undead_eye.lua")
+includeFile("tangible/loot/undead/outbreak_undead_heart.lua")
+includeFile("tangible/loot/undead/outbreak_undead_jaw.lua")
+includeFile("tangible/loot/undead/outbreak_undead_liver.lua")
+includeFile("tangible/loot/undead/outbreak_undead_lungs.lua")
+includeFile("tangible/loot/undead/outbreak_undead_stomach.lua")
+includeFile("tangible/loot/undead/outbreak_undead_tooth.lua")

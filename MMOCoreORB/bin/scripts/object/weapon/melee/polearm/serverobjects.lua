@@ -59,6 +59,8 @@ includeFile("weapon/melee/polearm/lance_staff_wood_s1.lua")
 includeFile("weapon/melee/polearm/lance_staff_wood_s2.lua")
 includeFile("weapon/melee/polearm/lance_vibrolance.lua")
 includeFile("weapon/melee/polearm/polearm_vibro_axe.lua")
+includeFile("weapon/melee/polearm/lance_blackstar.lua")
+
 
 -- New Items
 --includeFile("weapon/melee/polearm/lance_kaminoan.lua")
