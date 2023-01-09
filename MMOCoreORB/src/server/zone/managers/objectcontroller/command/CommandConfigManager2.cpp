@@ -118,6 +118,7 @@
 #include "server/zone/objects/creature/commands/CreateManfSchematicCommand.h"
 #include "server/zone/objects/creature/commands/CreateMissionElementCommand.h"
 #include "server/zone/objects/creature/commands/CreateNPCCommand.h"
+#include "server/zone/objects/creature/commands/qolCommand.h"
 #include "server/zone/objects/creature/commands/CreatePrototypeCommand.h"
 #include "server/zone/objects/creature/commands/CreateSpawningElementCommand.h"
 #include "server/zone/objects/creature/commands/CreateSpawningElementWithDifficultyCommand.h"
@@ -518,6 +519,7 @@ void CommandConfigManager::registerCommands2() {
 	commandFactory.registerCommand<CreateManfSchematicCommand>(String("createManfSchematic").toLowerCase());
 	commandFactory.registerCommand<CreateMissionElementCommand>(String("createMissionElement").toLowerCase());
 	commandFactory.registerCommand<CreateNPCCommand>(String("createNPC").toLowerCase());
+	commandFactory.registerCommand<QolCommand>(String("qol").toLowerCase());
 	commandFactory.registerCommand<CreatePrototypeCommand>(String("createPrototype").toLowerCase());
 	commandFactory.registerCommand<CreateSpawningElementCommand>(String("createSpawningElement").toLowerCase());
 	commandFactory.registerCommand<CreateSpawningElementWithDifficultyCommand>(String("createSpawningElementWithDifficulty").toLowerCase());
