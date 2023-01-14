@@ -26,6 +26,7 @@ factionList = {
 	{ "cor_swoop", true, "smashball", "", 1.0 },
 	{ "corsec", true, "afarathu,followers_of_lord_nyax,monumenter,rogue_corsec,lost_aqualish", "beldonnas_league", 1.0 },
 	{ "dantari_raiders", true, "kunga_tribe,mokk_tribe,janta_tribe", "", 1.0 },
+	{ "death_watch", true, "", "", 1.0 },
 	{ "desert_demon", true, "swoop", "", 1.0 },
 	{ "donkuwah_tribe", true, "gondula_tribe,panshee_tribe", "", 1.0 },
 	{ "drall", true, "corsec,fed_dub", "", 1.0 },

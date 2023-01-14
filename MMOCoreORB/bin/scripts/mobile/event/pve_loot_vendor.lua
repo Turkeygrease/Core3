@@ -1,13 +1,13 @@
 pve_loot_vendor = Creature:new {
-        objectName = "",
         customName = "PvE Currency Loot Box Exchange",	
         socialGroup = "",
         pvpFaction = "",
         faction = "",
+        mobType = MOB_NPC,
         level = 1,
-        chanceHit = 0,
-        damageMin = 0,
-        damageMax = 0,
+	chanceHit = 1.5,
+	damageMin = 20,
+	damageMax = 100,
         baseXp = 0,
         baseHAM = 500,
         baseHAMmax = 1000,
@@ -32,9 +32,17 @@ pve_loot_vendor = Creature:new {
         scale = 1.0,
         lootGroups = {},
         defaultWeapon = "",
-        weapons = {""},
-        conversationTemplate = "PveCurrencyVendor_convo_template",
-        attacks = merge(lightsabermaster,forcepowermaster)
+
+        -- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "light_jedi_weapons",
+	secondaryWeapon = "none",
+	conversationTemplate = "PveCurrencyVendor_convo_template",
+
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = merge(lightsabermaster,forcepowermaster),
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(pve_loot_vendor, "pve_loot_vendor")

@@ -1,9 +1,9 @@
 holiday_cupid_baby = Creature:new {
-	objectName = "",
 	customName = "Pigmy Cupid",	
 	socialGroup = "rancor",
 	pvpFaction = "",
 	faction = "",
+	mobType = MOB_HERBIVORE,
 	level = 65,
 	chanceHit = 30,
 	damageMin = 1150,
@@ -21,11 +21,17 @@ holiday_cupid_baby = Creature:new {
 	scale = 0.6,
 	templates = {"object/mobile/candy_graul_hue.iff"},
 	lootGroups = {},
-	weapons = {"creature_spit_large_red"},
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "creature_spit_large_red",
+	secondaryWeapon = "none",
 	conversationTemplate = "",
-	attacks = {
-		{"dizzyattack","dizzyChance=50"}
-	}
+	
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = { {"dizzyattack","dizzyChance=50"} },
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(holiday_cupid_baby, "holiday_cupid_baby")

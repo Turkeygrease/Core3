@@ -3,6 +3,7 @@ scalable_boss_a = Creature:new {
 	customName = "Master of the Darkside",
 	socialGroup = "dark_jedi",
 	faction = "",
+	mobType = MOB_NPC,
 	level = 300,
 	chanceHit = 27.25,
 	damageMin = 400,
@@ -48,9 +49,17 @@ scalable_boss_a = Creature:new {
 			}
 		}
 	},
-	weapons = {"dark_jedi_weapons_gen4"},
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "dark_jedi_weapons_gen4",
+	secondaryWeapon = "none",
 	conversationTemplate = "",
-	attacks = merge(lightsabermaster,forcepowermaster)
+	
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = merge(lightsabermaster,forcepowermaster),
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(scalable_boss_a, "scalable_boss_a")

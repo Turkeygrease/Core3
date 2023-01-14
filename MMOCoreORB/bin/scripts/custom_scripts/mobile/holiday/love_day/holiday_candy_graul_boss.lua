@@ -4,6 +4,7 @@ holiday_candy_graul_boss = Creature:new {
 	socialGroup = "rancor",
 	pvpFaction = "",
 	faction = "",
+	mobType = MOB_CARNIVORE,
 	level = 300,
 	chanceHit = 300,
 	damageMin = 345,
@@ -25,12 +26,17 @@ holiday_candy_graul_boss = Creature:new {
 	scale = .6,	
 	lootGroups = {	
 	},
-	weapons = {},
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "unarmed",
+	secondaryWeapon = "none",
 	conversationTemplate = "",
-	attacks = {
-		{"creatureareapoison"},
-		{"creatureareaknockdown","knockdownChance=90"}
-	}
+	
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = { {"creatureareapoison"}, {"creatureareaknockdown","knockdownChance=90"} },
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(holiday_candy_graul_boss, "holiday_candy_graul_boss")

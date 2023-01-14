@@ -1,10 +1,10 @@
 event_scientist_boss = Creature:new {
-	objectName = "",
 	customName = "Outbreak Containment Officer",
 	randomNameTag = true,
 	socialGroup = "nightsister",
 	pvpFaction = "nightsister",
 	faction = "nightsister",
+	mobType = MOB_NPC,
 	level = 500,
 	chanceHit = 0.8,
 	damageMin = 396,
@@ -33,29 +33,25 @@ event_scientist_boss = Creature:new {
 	scale = 1.5,
 	lootGroups = {
 		{
-	        	groups = 
-			{
+	        groups = {
 				{group = "armor_attachments", chance = 10000000},
 			},
 			lootChance = 7500000,
 		},
 		{
-	        	groups = 
-			{
+	        groups = {
 				{group = "armor_attachments", chance = 10000000},
 			},
 			lootChance = 2500000,
 		},
 		{
-	        	groups = 
-			{
+	        groups = {
 				{group = "corvette_boss", chance = 10000000},
 			},
 			lootChance = 9500000,
 		},
 		{
-	        	groups = 
-			{
+	        groups = {
 				{group = "halloween_group", chance = 10000000},
 			},
 			lootChance = 10000000,
@@ -75,9 +71,17 @@ event_scientist_boss = Creature:new {
 			lootChance = 3900000
 		}
 	},
-	weapons = {"dark_trooper_weapons"},
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "dark_trooper_weapons",
+	secondaryWeapon = "none",
 	conversationTemplate = "",
-	attacks = merge(riflemanmaster,marksmanmaster,fencermaster,brawlermaster)
+	
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = merge(riflemanmaster,marksmanmaster,fencermaster,brawlermaster),
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(event_scientist_boss, "event_scientist_boss")

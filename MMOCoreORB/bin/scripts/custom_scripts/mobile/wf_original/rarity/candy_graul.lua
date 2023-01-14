@@ -3,6 +3,7 @@ candy_graul = Creature:new {
 	customName = "Candy Graul",
 	socialGroup = "graul",
 	faction = "",
+	mobType = MOB_CARNIVORE,
 	level = 173,
 	chanceHit = 10.75,
 	damageMin = 1095,
@@ -12,6 +13,12 @@ candy_graul = Creature:new {
 	baseHAMmax = 125000,
 	armor = 2,
 	resists = {175,155,190,190,190,155,155,155,-1},
+	meatType = "meat_carnivore",
+	meatAmount = 150,
+	hideType = "hide_leathery",
+	hideAmount = 150,
+	boneType = "bone_mammal",
+	boneAmount = 150,
 	tamingChance = 0,
 	ferocity = 15,
 	pvpBitmask = AGGRESSIVE + ATTACKABLE + ENEMY,
@@ -22,12 +29,17 @@ candy_graul = Creature:new {
 	templates = {"object/mobile/candy_graul.iff"},
 	scale = .2,
 	lootGroups = {},
-	weapons = {"creature_spit_small_yellow"},
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "creature_spit_small_yellow",
+	secondaryWeapon = "none",
 	conversationTemplate = "",
-	attacks = {
-		{"creatureareableeding",""},
-		{"stunattack",""}
-	}
+
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = { {"creatureareableeding",""}, {"stunattack",""} },
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(candy_graul, "candy_graul")

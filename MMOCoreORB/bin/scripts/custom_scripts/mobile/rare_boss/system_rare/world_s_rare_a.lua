@@ -3,6 +3,7 @@ world_s_rare_a = Creature:new {
 	customName = "Grievous Replica-System Rare",
 	socialGroup = "death_watch",
 	faction = "death_watch",
+	mobType = MOB_NPC,
 	level = 500,
 	chanceHit = 55.5,
 	damageMin = 900,
@@ -28,49 +29,48 @@ world_s_rare_a = Creature:new {
 	optionsBitmask = AIENABLED,
 	diet = HERBIVORE,
 
-	templates = {"object/mobile/ep3/general_grievous.iff"},
+	templates = {
+		"object/mobile/ep3/general_grievous.iff"
+	},
+
 	scale = 1.4,
+
 	lootGroups = {
 		{
-	        	groups =
-			{
+	    	groups = {
 				{group = "clothing_attachments", chance = 10000000},
 			},
-			lootChance = 7500000,
+			lootChance = 1000000,
 		},
 		{
-	        	groups =
-			{
+	    	groups = {
 				{group = "armor_attachments", chance = 10000000},
 			},
-			lootChance = 7500000,
+			lootChance = 1000000,
 		},
 		{
-	        	groups =
-			{
+	    	groups = {
 				{group = "fifth_gen", chance = 10000000},
 			},
-			lootChance = 8500000,
+			lootChance = 1000000,
 		},
 		{
 			groups = {
 				{group = "crovaxloot_group", chance =  10000000}
 			},
-			lootChance = 6000000
+			lootChance = 1000000
 		},
 		{
-	        	groups =
-			{
+	    	groups = {
 				{group = "power_crystals", chance = 10000000},
 			},
-			lootChance = 8500000,
+			lootChance = 1000000,
 		},
 		{
-	        	groups =
-			{
+	    	groups = {
 				{group = "jedi_jewelry", chance = 10000000},
 			},
-			lootChance = 6500000,
+			lootChance = 1000000,
 		},
 		{
 			groups = {
@@ -87,9 +87,17 @@ world_s_rare_a = Creature:new {
 			}
 		}
 	},
-	weapons = {"dark_jedi_weapons_gen4"},
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "dark_jedi_weapons_gen4",
+	secondaryWeapon = "none",
 	conversationTemplate = "",
-	attacks = merge(lightsabermaster,forcepowermaster)
+
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = merge(lightsabermaster,forcepowermaster),
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(world_s_rare_a, "world_s_rare_a")

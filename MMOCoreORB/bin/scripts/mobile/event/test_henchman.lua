@@ -4,6 +4,7 @@ test_henchman = Creature:new {
 	randomNameTag = true,
 	socialGroup = "swoop",
 	faction = "swoop",
+	mobType = MOB_NPC,
 	level = 150,
 	chanceHit = 0.28,
 	damageMin = 90,
@@ -40,10 +41,19 @@ test_henchman = Creature:new {
 			}
 		}
 	},
-	weapons = {"pirate_weapons_medium"},
-	conversationTemplate = "",
+
 	reactionStf = "@npc_reaction/slang",
-	attacks = merge(brawlernovice,marksmannovice)
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "pirate_weapons_medium",
+	secondaryWeapon = "none",
+	conversationTemplate = "",
+
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = merge(brawlernovice,marksmannovice),
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(test_henchman, "test_henchman")

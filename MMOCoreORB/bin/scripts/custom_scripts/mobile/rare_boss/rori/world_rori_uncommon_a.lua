@@ -3,6 +3,7 @@ world_rori_uncommon_a = Creature:new {
 	customName = "Ancient Brogle-Silver",
 	socialGroup = "borgle",
 	faction = "",
+	mobType = MOB_CARNIVORE,
 	level = 500,
 	chanceHit = 75,
 	damageMin = 820,
@@ -15,11 +16,11 @@ world_rori_uncommon_a = Creature:new {
 	armor = 2,
 	resists = {20,20,30,50,30,20,10,40,-1},
 	meatType = "meat_carnivore",
-	meatAmount = 5,
-	hideType = "hide_leathery",
-	hideAmount = 5,
-	boneType = "bone_avian",
-	boneAmount = 5,
+	meatAmount = 1000,
+	hideType = "hide_wooly",
+	hideAmount = 1000,
+	boneType = "bone_mammal",
+	boneAmount = 1000,
 	milk = 0,
 	tamingChance = 0.25,
 	ferocity = 0,
@@ -31,18 +32,16 @@ world_rori_uncommon_a = Creature:new {
 	templates = {"object/mobile/borgle_hue.iff"},
 	controlDeviceTemplate = "object/intangible/pet/borgle_hue.iff",
 	scale = 5.0,
+
 	lootGroups = {
 		{
-	        	groups = 
-			{
+	        groups = {
 				{group = "mando_loot", chance = 10000000},
 			},
 			lootChance = 10000000,
 		},
-
 		{
-	        	groups = 
-			{
+	        groups = {
 				{group = "lootcollectiontierheroics", chance = 3000000},
 				{group = "lootcollectiontierdiamonds", chance = 7000000},
 			},
@@ -54,10 +53,8 @@ world_rori_uncommon_a = Creature:new {
 			},
 			lootChance = 10000000,
 		},
-
 		{
-	        	groups = 
-			{
+	        groups = {
 				{group = "vendor_pvp_ranged_comps", chance = 3300000},
 				{group = "vendor_pvp_melee_comps", chance = 3400000},
 				{group = "vendor_pvp_cm_comps", chance = 3300000},
@@ -65,12 +62,17 @@ world_rori_uncommon_a = Creature:new {
 			lootChance = 7000000,
 		}
 	},
-	weapons = {},
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "unarmed",
+	secondaryWeapon = "none",
 	conversationTemplate = "",
-	attacks = {
-		{"",""},
-		{"posturedownattack",""}
-	}
+	
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = { {"posturedownattack",""} },
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(world_rori_uncommon_a, "world_rori_uncommon_a")
