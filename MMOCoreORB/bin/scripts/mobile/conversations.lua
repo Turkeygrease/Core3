@@ -323,3 +323,15 @@ includeFile("conversations/junk_dealer/junk_dealer_sneg_conv.lua")
 
 -- Custom Conversations
 includeFile("custom_content/conversations.lua")
+
+-- Glowie Quests
+includeFile("conversations/village/glowie/conversations.lua")
+
+--Events
+includeFile("conversations/events/PvpCurrencyVendor_convo.lua")
+includeFile("conversations/events/PveCurrencyVendor_convo.lua")
+includeFile("conversations/events/lifeday_vendor_convo.lua")
+
+-- GCW Transit System
+includeFile("conversations/gcw_transitsystem/transitconvo.lua")
+includeFile("conversations/gcw_transitsystem/reb_transitconvo.lua")
