@@ -82,7 +82,15 @@ public:
 		int idx = treeDir->find(fileName);
 
 		if (idx == -1) {
-			warning() << recordPath << " not found.";
+			if (recordPath != "object/tangible/component/vehicle/base/shared_base_vehicle.iff" && 
+				recordPath != "abstract/slot/descriptor/shipcontrol_pob.iff" && 
+				recordPath != "abstract/slot/descriptor/shipcontrol_pob.iff" && 
+				recordPath != "datatables/clientregion/tutorial.iff" &&
+				recordPath != "snapshot/tutorial.ws") {
+
+				warning() << recordPath << " not found.";
+			}
+
 			return nullptr;
 		}
 

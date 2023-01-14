@@ -215,7 +215,8 @@ bool PlayerManagerImplementation::rescheduleOnlinePlayerLogTask(int logSecs) {
 
 	onlinePlayerLogTask->schedulePeriodic(0, logSecs * 1000);
 
-	info(true) << "Loging online players every " << logSecs << " seconds.";
+	// Unnecessary information
+	// info(true) << "Logging online players every " << logSecs << " seconds.";
 
 	return true;
 }

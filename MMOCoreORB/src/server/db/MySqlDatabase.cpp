@@ -102,7 +102,8 @@ int MySqlDatabase::createDatabaseThread() {
 void MySqlDatabase::connect(const String& dbname, const String& user, const String& passw, int port) {
 	Locker locker(this);
 
-	info(true) << "connecting to " << host << ":" << port << "...";
+	// Unnecessary, we'll get an error if we can't connect.
+	//info(true) << "connecting to " << host << ":" << port << "...";
 
 	static int databaseThread = createDatabaseThread();
 
@@ -120,7 +121,8 @@ void MySqlDatabase::connect(const String& dbname, const String& user, const Stri
 		error();
 	}
 
-	info(true) << "connected to " << host << ":" << port;
+	// Unnecessary, we'll get an error if we can't connect.
+	//info(true) << "connected to " << host << ":" << port;
 
 #ifdef WITH_STM
 	autocommit(false);
