@@ -1763,7 +1763,8 @@ void PlayerManagerImplementation::disseminateExperience(TangibleObject* destruct
 	float gcwBonus = 1.0f;
 	uint32 winningFaction = -1;
 	int baseXp = 0;
-
+	String bonusType = ""; //mindsoft added for bonus xp types
+	int bonusXP = 0; //mindsoft added for bonus xp yield
 	Zone* zone = lairZone;
 
 	if (zone == nullptr) {
@@ -1801,8 +1802,11 @@ void PlayerManagerImplementation::disseminateExperience(TangibleObject* destruct
 	} else {
 		ManagedReference<AiAgent*> ai = cast<AiAgent*>(destructedObject);
 
-		if (ai != nullptr)
+		if (ai != nullptr) {
 			baseXp = ai->getBaseXp();
+			bonusType = ai->getBonusType(); //mindsoft added to get bonus xp type from ai
+			bonusXP = ai->getBonusXP(); //mindsoft added to get bonus xp yeild from ai
+		}
 	}
 
 	Vector<uint64> playerList;
@@ -2000,6 +2004,10 @@ void PlayerManagerImplementation::disseminateExperience(TangibleObject* destruct
 
 			awardExperience(attackerCreo, "combat_general", combatXp, true, 0.1f);
 
+			//Award bonus xp -Mindsoft
+			if ((bonusXP>0)&(bonusType != " ")){
+				awardExperience(attackerCreo, bonusType, bonusXP); //mindsoft added to reward xp of type bonus
+			}
 
 			//Check if the group leader is a squad leader
 			if (group == nullptr)

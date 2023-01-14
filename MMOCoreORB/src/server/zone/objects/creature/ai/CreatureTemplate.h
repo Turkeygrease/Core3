@@ -73,6 +73,8 @@ protected:
 	float scale;
 
 	int baseXp;
+	String bonusType; //mindsoft added for bonus xp type
+	int bonusXP; // mindsoft added for bonus xp yeild
 	int baseHAM;
 	int baseHAMmax;
 
@@ -329,6 +331,14 @@ public:
 
 	inline int getBaseXp() const {
 		return baseXp;
+	}
+
+	inline String getBonusType() { //mindsoft added to return bonus xp type
+		return bonusType;
+	}
+
+	inline int getBonusXP() { // mindsoft added to return bonus xp yeild
+		return bonusXP;
 	}
 
 	inline int getBaseHAM() const {

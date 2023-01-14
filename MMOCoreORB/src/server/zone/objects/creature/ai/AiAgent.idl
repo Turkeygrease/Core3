@@ -1177,6 +1177,16 @@ class AiAgent extends CreatureObject {
 	}
 
 	@dirty
+	public abstract string getBonusType() { //mindsoft added to return bonus xp type	
+		return npcTemplate.get().getBonusType();
+	}
+
+	@dirty
+	public abstract int getBonusXP() { //mindsoft added to return bonus xp yield
+		return npcTemplate.get().getBonusXP();
+	}
+
+	@dirty
 	public unsigned int getDiet() {
 		if (npcTemplate.get() == null)
 			return 0;
