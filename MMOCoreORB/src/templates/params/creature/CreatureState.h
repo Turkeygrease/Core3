@@ -100,6 +100,9 @@ public:
 		case ONFIRE:
 			name = "fire";
 			break;
+		case SNARED:
+			name = "snare";
+			break;
 		}
 
 		if (initialCap)
