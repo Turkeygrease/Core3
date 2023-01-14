@@ -1273,7 +1273,7 @@ object_weapon_ranged_rifle_shared_rifle_victor_tusken = SharedWeaponObjectTempla
 }
 
 ObjectTemplates:addClientTemplate(object_weapon_ranged_rifle_shared_rifle_victor_tusken, "object/weapon/ranged/rifle/shared_rifle_victor_tusken.iff")
---[[
+
 object_weapon_ranged_rifle_shared_rifle_trando_hunter = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/ranged/rifle/shared_rifle_trando_hunter.iff"
 	
@@ -1293,7 +1293,7 @@ object_weapon_ranged_rifle_shared_rifle_bowcaster_heavy = SharedWeaponObjectTemp
 	}
 
 ObjectTemplates:addClientTemplate(object_weapon_ranged_rifle_shared_rifle_bowcaster_heavy, "object/weapon/ranged/rifle/shared_rifle_bowcaster_heavy.iff")
-]]
+
 object_weapon_ranged_rifle_shared_ep3_loot_retaliation = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/ranged/rifle/shared_ep3_loot_retaliation.iff"
 	}
@@ -1311,12 +1311,11 @@ ObjectTemplates:addClientTemplate(object_weapon_ranged_rifle_shared_jinkins_j1_r
 
 
 --Made with Skyyyr's Wrench Tool 
---[[
 object_weapon_ranged_rifle_shared_rifle_alliance_gauss_generic = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/ranged/rifle/shared_rifle_alliance_gauss_generic.iff"
 }
 ObjectTemplates:addClientTemplate(object_weapon_ranged_rifle_shared_rifle_alliance_gauss_generic, "object/weapon/ranged/rifle/shared_rifle_alliance_gauss_generic.iff")
-]]
+
 --Made with Skyyyr's Wrench Tool 
 
 object_weapon_ranged_rifle_shared_rifle_bounty_dc15 = SharedWeaponObjectTemplate:new {
@@ -1388,23 +1387,19 @@ object_weapon_ranged_rifle_shared_rifle_rebel = SharedWeaponObjectTemplate:new {
 ObjectTemplates:addClientTemplate(object_weapon_ranged_rifle_shared_rifle_rebel, "object/weapon/ranged/rifle/shared_rifle_rebel.iff")
 
 --Made with Skyyyr's Wrench Tool 
---[[
 object_weapon_ranged_rifle_shared_rifle_tc22_blaster = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/ranged/rifle/shared_rifle_tc22_blaster.iff"
 }
 ObjectTemplates:addClientTemplate(object_weapon_ranged_rifle_shared_rifle_tc22_blaster, "object/weapon/ranged/rifle/shared_rifle_tc22_blaster.iff")
-]]
---Made with Skyyyr's Wrench Tool 
 
+--Made with Skyyyr's Wrench Tool 
 object_weapon_ranged_rifle_shared_som_rifle_dp23 = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/ranged/rifle/shared_som_rifle_dp23.iff"
 }
 ObjectTemplates:addClientTemplate(object_weapon_ranged_rifle_shared_som_rifle_dp23, "object/weapon/ranged/rifle/shared_som_rifle_dp23.iff")
 
 --Made with Skyyyr's Wrench Tool 
---[[
 object_weapon_ranged_rifle_shared_som_rifle_mustafar_disruptor = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/ranged/rifle/shared_som_rifle_mustafar_disruptor.iff"
 }
 ObjectTemplates:addClientTemplate(object_weapon_ranged_rifle_shared_som_rifle_mustafar_disruptor, "object/weapon/ranged/rifle/shared_som_rifle_mustafar_disruptor.iff")
-]]

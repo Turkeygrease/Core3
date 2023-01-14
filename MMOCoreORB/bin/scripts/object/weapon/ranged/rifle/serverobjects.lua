@@ -75,12 +75,12 @@ includeFile("weapon/ranged/rifle/rifle_trando_hunter_crafted.lua")
 includeFile("weapon/ranged/rifle/rifle_trando_hunter.lua")
 
 includeFile("weapon/ranged/rifle/ep3/serverobjects.lua")
---includeFile("weapon/ranged/rifle/rifle_bowcaster_heavy.lua")
+includeFile("weapon/ranged/rifle/rifle_bowcaster_heavy.lua")
 includeFile("weapon/ranged/rifle/ep3_loot_retaliation.lua")
 includeFile("weapon/ranged/rifle/jinkins_j1_rifle.lua")
 
 
---includeFile("weapon/ranged/rifle/rifle_alliance_gauss_generic.lua")
+includeFile("weapon/ranged/rifle/rifle_alliance_gauss_generic.lua")
 includeFile("weapon/ranged/rifle/rifle_bounty_dc15.lua")
 includeFile("weapon/ranged/rifle/rifle_deathtroopers.lua")
 includeFile("weapon/ranged/rifle/rifle_geo_drill_generic.lua")
@@ -91,9 +91,9 @@ includeFile("weapon/ranged/rifle/rifle_massassi_ink_generic.lua")
 includeFile("weapon/ranged/rifle/rifle_proton.lua")
 includeFile("weapon/ranged/rifle/rifle_pvp.lua")
 includeFile("weapon/ranged/rifle/rifle_rebel.lua")
---includeFile("weapon/ranged/rifle/rifle_tc22_blaster.lua")
+includeFile("weapon/ranged/rifle/rifle_tc22_blaster.lua")
 includeFile("weapon/ranged/rifle/som_rifle_dp23.lua")
---includeFile("weapon/ranged/rifle/som_rifle_mustafar_disruptor.lua")
+includeFile("weapon/ranged/rifle/som_rifle_mustafar_disruptor.lua")
 
 
 

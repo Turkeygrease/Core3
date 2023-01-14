@@ -67,10 +67,10 @@ includeFile("weapon/ranged/carbine/ep3_loot_firestar.lua")
 includeFile("weapon/ranged/carbine/carbine_alliance_needler.lua");
 includeFile("weapon/ranged/carbine/carbine_avatar_trando.lua");
 includeFile("weapon/ranged/carbine/carbine_bothan_bola.lua");
---includeFile("weapon/ranged/carbine/carbine_bounty_ee3.lua");
+includeFile("weapon/ranged/carbine/carbine_bounty_ee3.lua");
 includeFile("weapon/ranged/carbine/carbine_charric.lua");
 includeFile("weapon/ranged/carbine/carbine_geo.lua");
---includeFile("weapon/ranged/carbine/carbine_kun_massass.lua");
+includeFile("weapon/ranged/carbine/carbine_kun_massass.lua");
 includeFile("weapon/ranged/carbine/carbine_mandalorian.lua");
 includeFile("weapon/ranged/carbine/carbine_proton.lua");
 includeFile("weapon/ranged/carbine/carbine_pvp_ngant.lua");

@@ -911,14 +911,12 @@ object_weapon_ranged_carbine_shared_carbine_bothan_bola = SharedWeaponObjectTemp
 ObjectTemplates:addClientTemplate(object_weapon_ranged_carbine_shared_carbine_bothan_bola, "object/weapon/ranged/carbine/shared_carbine_bothan_bola.iff")
 
 --Made with Skyyyr's Wrench Tool 
---[[
 object_weapon_ranged_carbine_shared_carbine_bounty_ee3 = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/ranged/carbine/shared_carbine_bounty_ee3.iff"
 }
 ObjectTemplates:addClientTemplate(object_weapon_ranged_carbine_shared_carbine_bounty_ee3, "object/weapon/ranged/carbine/shared_carbine_bounty_ee3.iff")
-]]
---Made with Skyyyr's Wrench Tool 
 
+--Made with Skyyyr's Wrench Tool 
 object_weapon_ranged_carbine_shared_carbine_charric = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/ranged/carbine/shared_carbine_charric.iff"
 }
@@ -932,14 +930,12 @@ object_weapon_ranged_carbine_shared_carbine_geo = SharedWeaponObjectTemplate:new
 ObjectTemplates:addClientTemplate(object_weapon_ranged_carbine_shared_carbine_geo, "object/weapon/ranged/carbine/shared_carbine_geo.iff")
 
 --Made with Skyyyr's Wrench Tool 
---[[
-object_weapon_ranged_carbine_shared_carbine_kun_massass = SharedWeaponObjectTemplate:new {
-	clientTemplateFileName = "object/weapon/ranged/carbine/shared_carbine_kun_massass.iff"
+object_weapon_ranged_carbine_shared_carbine_kun_massassi = SharedWeaponObjectTemplate:new {
+	clientTemplateFileName = "object/weapon/ranged/carbine/shared_carbine_kun_massassi.iff"
 }
-ObjectTemplates:addClientTemplate(object_weapon_ranged_carbine_shared_carbine_kun_massass, "object/weapon/ranged/carbine/shared_carbine_kun_massass.iff")
-]]
---Made with Skyyyr's Wrench Tool 
+ObjectTemplates:addClientTemplate(object_weapon_ranged_carbine_shared_carbine_kun_massassi, "object/weapon/ranged/carbine/shared_carbine_kun_massassi.iff")
 
+--Made with Skyyyr's Wrench Tool 
 object_weapon_ranged_carbine_shared_carbine_mandalorian = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/ranged/carbine/shared_carbine_mandalorian.iff"
 }

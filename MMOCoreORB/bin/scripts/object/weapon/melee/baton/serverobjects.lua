@@ -50,5 +50,5 @@ includeFile("weapon/melee/baton/baton_gaderiffi.lua")
 includeFile("weapon/melee/baton/baton_stun.lua")
 includeFile("weapon/melee/baton/victor_baton_gaderiffi.lua")
 
---includeFile("weapon/melee/baton/mandoviol_smasher.lua")
+includeFile("weapon/melee/baton/mandoviol_smasher.lua")
 includeFile("weapon/melee/baton/xantha_smasher.lua")

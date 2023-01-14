@@ -1590,21 +1590,18 @@ ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_pistol_pvp,
 
 
 --Made with Skyyyr's Wrench Tool 
---[[
 object_weapon_ranged_pistol_shared_pistol_alliance_disruptor = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/ranged/pistol/shared_pistol_alliance_disruptor.iff"
 }
 ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_pistol_alliance_disruptor, "object/weapon/ranged/pistol/shared_pistol_alliance_disruptor.iff")
-]]
---Made with Skyyyr's Wrench Tool 
 
+--Made with Skyyyr's Wrench Tool 
 object_weapon_ranged_pistol_shared_pistol_dd6 = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/ranged/pistol/shared_pistol_dd6.iff"
 }
 ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_pistol_dd6, "object/weapon/ranged/pistol/shared_pistol_dd6.iff")
 
 --Made with Skyyyr's Wrench Tool 
---[[
 object_weapon_ranged_pistol_shared_pistol_flare = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/ranged/pistol/shared_pistol_flare.iff"
 }
@@ -1616,9 +1613,8 @@ object_weapon_ranged_pistol_shared_pistol_flechette = SharedWeaponObjectTemplate
 	clientTemplateFileName = "object/weapon/ranged/pistol/shared_pistol_flechette.iff"
 }
 ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_pistol_flechette, "object/weapon/ranged/pistol/shared_pistol_flechette.iff")
-]]
---Made with Skyyyr's Wrench Tool 
 
+--Made with Skyyyr's Wrench Tool 
 object_weapon_ranged_pistol_shared_pistol_heroic_sd = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/ranged/pistol/shared_pistol_heroic_sd.iff"
 }
@@ -1646,14 +1642,12 @@ object_weapon_ranged_pistol_shared_pistol_rebel = SharedWeaponObjectTemplate:new
 ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_pistol_rebel, "object/weapon/ranged/pistol/shared_pistol_rebel.iff")
 
 --Made with Skyyyr's Wrench Tool 
---[[
 object_weapon_ranged_pistol_shared_pistol_renegade_generic = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/ranged/pistol/shared_pistol_renegade_generic.iff"
 }
 ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_pistol_renegade_generic, "object/weapon/ranged/pistol/shared_pistol_renegade_generic.iff")
-]]
---Made with Skyyyr's Wrench Tool 
 
+--Made with Skyyyr's Wrench Tool 
 object_weapon_ranged_pistol_shared_pistol_trando_suppressor = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/ranged/pistol/shared_pistol_trando_suppressor.iff"
 }
@@ -1669,9 +1663,9 @@ ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_pistol_wook
 --Made with Skyyyr's Wrench Tool 
 
 object_weapon_ranged_pistol_shared_wookiee_bowcaster = SharedWeaponObjectTemplate:new {
-	clientTemplateFileName = "object/weapon/ranged/pistol/shared_wookiee_bowcaster.iff"
+	clientTemplateFileName = "object/weapon/ranged/pistol/shared_pistol_wookiee_bowcaster.iff"
 }
-ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_wookiee_bowcaster, "object/weapon/ranged/pistol/shared_wookiee_bowcaster.iff")
+ObjectTemplates:addClientTemplate(object_weapon_ranged_pistol_shared_wookiee_bowcaster, "object/weapon/ranged/pistol/shared_pistol_wookiee_bowcaster.iff")
 
 --Made with Skyyyr's Wrench Tool 
 
