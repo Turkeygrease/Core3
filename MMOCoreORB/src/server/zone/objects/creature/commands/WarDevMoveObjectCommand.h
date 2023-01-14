@@ -36,7 +36,7 @@ public:
 
 		ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
 
-		if (ghost == NULL)
+		if (ghost == nullptr)
 			return GENERALERROR;
 
 		int adminLevelCheck = ghost->getAdminLevel();
@@ -48,7 +48,7 @@ public:
 
 		ManagedReference<SceneObject*> obj = server->getZoneServer()->getObject(target);
 
-		if (obj == NULL || !obj->isTangibleObject() || obj->isPlayerCreature() || obj->isPet()) {
+		if (obj == nullptr || !obj->isTangibleObject() || obj->isPlayerCreature() || obj->isPet()) {
 			creature->sendSystemMessage("@player_structure:move_what"); //What do you want to move?
 			return GENERALERROR;
 		}
@@ -125,7 +125,7 @@ public:
 		obj->incrementMovementCounter();
 
 		ManagedReference<SceneObject*> objParent = obj->getParent().get();
-		if (objParent != NULL)
+		if (objParent != nullptr)
 			obj->teleport(x, z, y, objParent->getObjectID());
 		else
 			obj->teleport(x, z, y);

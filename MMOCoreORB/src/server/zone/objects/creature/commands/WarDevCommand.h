@@ -32,7 +32,7 @@ public:
 
 		ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
 
-		if (ghost == NULL)
+		if (ghost == nullptr)
 			return GENERALERROR;
 
 		int adminLevelCheck = ghost->getAdminLevel();
@@ -170,7 +170,7 @@ public:
 		String planetName = "";
 		String templateFile = "";
 
-		if (object == NULL){
+		if (object == nullptr){
 			planetName = creature->getZone()->getZoneName();
 		} else {
 			planetName = object->getZone()->getZoneName();
@@ -183,12 +183,12 @@ public:
 			int angle = object->getDirectionAngle();
 
 			AiAgent* mob = object.castTo<AiAgent*> ();
-			CreatureTemplate* creatureTemplate = mob->getCreatureTemplate();
+			const CreatureTemplate* creatureTemplate = mob->getCreatureTemplate();
 			String mobileName = creatureTemplate->getTemplateName();
 
 			text << "spawnMobile(\"" << planetName << "\", " <<  "\"" << mobileName << "\", 1, ";
 
-			if (object->getParent() != NULL && object->getParent().get()->isCellObject()) {
+			if (object->getParent() != nullptr && object->getParent().get()->isCellObject()) {
 				// Inside
 				ManagedReference<CellObject*> cell = cast<CellObject*>( object->getParent().get().get());
 				Vector3 cellPosition = object->getPosition();
@@ -204,7 +204,7 @@ public:
 		} else if (textType == 2){
 			text << "spawnSceneObject(\"" << planetName << "\", \"" << templateFile << "\", ";
 
-			if (object->getParent() != NULL && object->getParent().get()->isCellObject()) {
+			if (object->getParent() != nullptr && object->getParent().get()->isCellObject()) {
 				// Inside
 				ManagedReference<CellObject*> cell = cast<CellObject*>( object->getParent().get().get());
 				Vector3 cellPosition = object->getPosition();
@@ -216,7 +216,7 @@ public:
 				text << worldPosition.getX() << ", " << worldPosition.getZ() << ", " << worldPosition.getY() << ", " << "0" << ", ";
 			}
 
-			Quaternion* dir = object->getDirection();
+			const Quaternion* dir = object->getDirection();
 			text << dir->getW() << ", " << dir->getX() << ", " << dir->getY() << ", " << dir->getZ() << ")";
 			// Returning: spawnSceneObject("planet", "objectTemplateFilePathAndName", x, z, y, cellNumber, dw, dx, dy, dz>
 		} else if (textType == 3){
@@ -240,7 +240,7 @@ public:
 
 			text << "spawnSceneObject(\"" << planetName << "\", \"" << templateFile << "\", ";
 
-			if (object->getParent() != NULL && object->getParent().get()->isCellObject()) {
+			if (object->getParent() != nullptr && object->getParent().get()->isCellObject()) {
 				// Inside
 				ManagedReference<CellObject*> cell = cast<CellObject*>( object->getParent().get().get());
 				Vector3 cellPosition = object->getPosition();
@@ -252,7 +252,7 @@ public:
 				text << worldPosition.getX() << ", " << worldPosition.getZ() << ", " << worldPosition.getY() << ", " << "0" << ", ";
 			}
 
-			Quaternion* dir = object->getDirection();
+			const Quaternion* dir = object->getDirection();
 
 			text << dir->getW() << ", " << dir->getX() << ", " << dir->getY() << ", " << dir->getZ() << ")";
 
@@ -262,7 +262,7 @@ public:
 
 			text << "spawnMobile(\"" << planetName << "\", " <<  "\"commoner" << "\", 1, ";
 
-			if (creature->getParent() != NULL && creature->getParent().get()->isCellObject()) {
+			if (creature->getParent() != nullptr && creature->getParent().get()->isCellObject()) {
 				// Inside
 				ManagedReference<CellObject*> cell = cast<CellObject*>( creature->getParent().get().get());
 				Vector3 cellPosition = creature->getPosition();
@@ -282,14 +282,14 @@ public:
 
 	// Format screenplay text for all items in a room or the whole building
 	String formatSpoutTextMulti(CreatureObject* creature, int roomOnly) const {
-		if (creature->getParent() == NULL){
+		if (creature->getParent() == nullptr){
 			creature->sendSystemMessage("You need to be inside a building to output info about the decorations in it.");
 			throw Exception();
 		}
 
 		ManagedReference<SceneObject*> parent = creature->getParent();
 
-		if (parent == NULL)
+		if (parent == nullptr)
 			throw Exception();
 
 		String planetName = creature->getZone()->getZoneName();
@@ -308,7 +308,7 @@ public:
 		if (roomOnly == 1)
 			numOfCells = 1;
 
-		CellObject* cell = NULL;
+		CellObject* cell = nullptr;
 
 		for (uint32 i = 1; i <= numOfCells; ++i) {
 			if (roomOnly == 1){
@@ -334,7 +334,7 @@ public:
 				if (!childObject->isCreatureObject() && !childObject->isVendor() && !templateFile.contains("terminal_player_structure")) {
 					if (creature->getParent().get()->getParent().get() == childObject->getParent().get()->getParent().get()) {
 						Vector3 cellPosition = childObject->getPosition();
-						Quaternion* dir = childObject->getDirection();
+						const Quaternion* dir = childObject->getDirection();
 
 						text << "spawnSceneObject(\"" << planetName << "\", \"" << templateFile << "\", ";
 						text << cellPosition.getX() << ", " << cellPosition.getZ() << ", " << cellPosition.getY() << ", " << cell->getObjectID() << ", ";
@@ -349,7 +349,7 @@ public:
 
 	// Ouput screenplay formated code to a file on the server
 	void spout(CreatureObject* creature, StringTokenizer* args, String outputText) const {
-		if(creature->getZoneServer() == NULL)
+		if(creature->getZoneServer() == nullptr)
 			return;
 
 		String fileName = "";
@@ -381,7 +381,7 @@ public:
 	}
 
 	void wardevPlaceStructure(CreatureObject* creature) const {
-		if (creature->getParent() != NULL){
+		if (creature->getParent() != nullptr){
 			creature->sendSystemMessage("You must be outside to place a structure.");
 			throw Exception();
 		}

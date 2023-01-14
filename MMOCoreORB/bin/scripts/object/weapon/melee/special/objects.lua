@@ -172,10 +172,9 @@ object_weapon_melee_special_shared_blasterfist = SharedWeaponObjectTemplate:new 
 	}
 
 ObjectTemplates:addClientTemplate(object_weapon_melee_special_shared_blasterfist, "object/weapon/melee/special/shared_blasterfist.iff")
---[[
+
 object_weapon_melee_special_shared_massassiknuckler = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/melee/special/shared_massassiknuckler.iff"
 	}
 
 ObjectTemplates:addClientTemplate(object_weapon_melee_special_shared_massassiknuckler, "object/weapon/melee/special/shared_massassiknuckler.iff")
-]]

@@ -94,8 +94,8 @@ int LootGroupMap::addLootItemTemplate(lua_State* L) {
 
 	instance()->putLootItemTemplate(name, item);
 
-	if (currentFilename != name)
-		instance()->warning("Loot item template name: " + name + " does not match file name: " + currentFilename);
+	// if (currentFilename != name)
+	// 	instance()->warning("Loot item template name: " + name + " does not match file name: " + currentFilename);
 
 	return 0;
 }

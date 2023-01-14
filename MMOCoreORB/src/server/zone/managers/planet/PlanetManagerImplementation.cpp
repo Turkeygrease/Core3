@@ -555,10 +555,15 @@ Reference<SceneObject*> PlanetManagerImplementation::loadSnapshotObject(WorldSna
 void PlanetManagerImplementation::loadSnapshotObjects() {
 	TemplateManager* templateManager = TemplateManager::instance();
 
-	IffStream* iffStream = templateManager->openIffFile("snapshot/" + zone->getZoneName() + ".ws");
+	String zoneName = zone->getZoneName();
+
+	IffStream* iffStream = templateManager->openIffFile("snapshot/" + zoneName + ".ws");
 
 	if (iffStream == nullptr) {
-		info("Snapshot wasn't found.", true);
+		if (zoneName != "tutorial") {
+			info(zoneName + ".ws snapshot wasn't found.", true);
+		}
+
 		return;
 	}
 

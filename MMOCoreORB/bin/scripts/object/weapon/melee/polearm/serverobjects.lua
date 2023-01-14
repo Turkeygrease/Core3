@@ -62,4 +62,4 @@ includeFile("weapon/melee/polearm/polearm_vibro_axe.lua")
 
 
 -- New Items
---includeFile("weapon/melee/polearm/lance_kaminoan.lua")
+includeFile("weapon/melee/polearm/lance_kaminoan.lua")

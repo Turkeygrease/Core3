@@ -328,7 +328,9 @@ void SharedObjectTemplate::loadDerv(IffStream* stream) {
 
 		delete dervStream;
 	} else {
-		warning() << "could not open derv: " << file;
+		if (file != "object/tangible/component/vehicle/base/shared_base_vehicle.iff") {
+			warning() << "could not open derv: " << file;
+		}
 	}
 
 	// now server lua
@@ -346,7 +348,9 @@ void SharedObjectTemplate::loadDerv(IffStream* stream) {
 
 		delete luaObject;
 	} else {
-		warning() << "could not open lua derv: " << serverTemplate;
+		if (serverTemplate != "object/tangible/component/vehicle/base/base_vehicle.iff") {
+			warning() << "could not open lua derv: " << serverTemplate;
+		}
 	}
 
 	stream->closeChunk();
@@ -368,7 +372,13 @@ void SharedObjectTemplate::readObject(IffStream* iffStream) {
 	uint32 nextType = iffStream->getNextFormType();
 
 	if (nextType != 'SHOT') {
-		warning() << "expecting SHOT got " << getType(nextType) << " in " << iffStream->getFileName();
+		String fName = iffStream->getFileName();
+
+		if (fName != "object/resource_container/shared_simple.iff" && 
+			fName != "object/ship/base/shared_ship_base.iff" && 
+			fName != "object/intangible/vehicle/shared_tcg_8_single_pod_airspeeder.iff") {
+			warning() << "expecting SHOT got " << getType(nextType) << " in " << fName;
+		}
 
 		iffStream->openForm(nextType);
 		iffStream->closeForm(nextType);

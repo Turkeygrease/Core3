@@ -235,10 +235,9 @@ object_weapon_melee_baton_shared_xantha_smasher = SharedWeaponObjectTemplate:new
 	}
 
 ObjectTemplates:addClientTemplate(object_weapon_melee_baton_shared_xantha_smasher, "object/weapon/melee/baton/shared_xantha_smasher.iff")
---[[
+
 object_weapon_melee_baton_shared_mandoviol_smasher = SharedWeaponObjectTemplate:new {
 	clientTemplateFileName = "object/weapon/melee/baton/shared_mandoviol_smasher.iff"
 	}
 
 ObjectTemplates:addClientTemplate(object_weapon_melee_baton_shared_mandoviol_smasher, "object/weapon/melee/baton/shared_mandoviol_smasher.iff")
-]]

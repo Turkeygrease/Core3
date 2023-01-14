@@ -48,7 +48,7 @@ public:
 	int sendLots(CreatureObject* creature) const {
 		ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
 
-		if (ghost == NULL)
+		if (ghost == nullptr)
 			return GENERALERROR;
 
 		int lotsRemaining = ghost->getLotsRemaining();
@@ -65,8 +65,8 @@ public:
 			int num = i + 1;
 			body << endl << String::valueOf(num) << ". ";
 
-			if (structure == NULL) {
-				body << "NULL Structure" << endl << endl;
+			if (structure == nullptr) {
+				body << "nullptr Structure" << endl << endl;
 				continue;
 			}
 
@@ -77,8 +77,8 @@ public:
 
 			body << "    Zone:\t";
 			Zone* zone = structure->getZone();
-			if (zone == NULL) {
-				body << "NULL" << endl;
+			if (zone == nullptr) {
+				body << "nullptr" << endl;
 			} else {
 				body << zone->getZoneName() << endl;
 				body << "    World Position:\t" << structure->getWorldPositionX() << ", " << structure->getWorldPositionY() << endl;
@@ -102,7 +102,7 @@ public:
 		ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
 		PlayerManager* playerManager = server->getZoneServer()->getPlayerManager();
 
-		if (ghost == NULL || playerManager == NULL)
+		if (ghost == nullptr || playerManager == nullptr)
 			return GENERALERROR;
 
 		StringBuffer body;

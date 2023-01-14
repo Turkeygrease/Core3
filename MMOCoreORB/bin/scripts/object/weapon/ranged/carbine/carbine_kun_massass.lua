@@ -1,5 +1,5 @@
 
-object_weapon_ranged_carbine_carbine_kun_massass = object_weapon_ranged_carbine_shared_carbine_kun_massass:new {
+object_weapon_ranged_carbine_carbine_kun_massassi = object_weapon_ranged_carbine_shared_carbine_kun_massassi:new {
 
 }
-ObjectTemplates:addTemplate(object_weapon_ranged_carbine_carbine_kun_massass, "object/weapon/ranged/carbine/carbine_kun_massass.iff")
+ObjectTemplates:addTemplate(object_weapon_ranged_carbine_carbine_kun_massassi, "object/weapon/ranged/carbine/carbine_kun_massassi.iff")
