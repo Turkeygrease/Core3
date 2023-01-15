@@ -4,6 +4,7 @@ ig88_npc_boss = Creature:new {
 	socialGroup = "death_watch",
 	pvpFaction = "death_watch",
 	faction = "",
+	mobType = MOB_NPC,
 	level = 500,
 	chanceHit = 200,
 	damageMin = 800,
@@ -33,18 +34,14 @@ ig88_npc_boss = Creature:new {
 
 	templates = {"object/mobile/ig_assassin_droid.iff"},
 	lootGroups = {
-		
-
 		{
-	        	groups = 
-			{
+	        groups = {
 				{group = "armor_attachments", chance = 10000000},
 			},
 			lootChance = 9500000,
 		},
 		{
-	        	groups = 
-			{
+	        groups = {
 				{group = "clothing_attachments", chance = 10000000},
 			},
 			lootChance = 9500000,
@@ -56,15 +53,13 @@ ig88_npc_boss = Creature:new {
 			lootChance = 8000000
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "krayt_pearls", chance = 10000000},
 			},
 			lootChance = 9500000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "krayt_pearls", chance = 10000000},
 			},
 			lootChance = 4500000,
@@ -83,9 +78,20 @@ ig88_npc_boss = Creature:new {
 		},
 				
 	},
-	conversationTemplate = "",
+
 	defaultWeapon = "object/weapon/ranged/droid/droid_droideka_ranged.iff",
-	defaultAttack = "attack"
+	defaultAttack = "attack",
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "unarmed",
+	secondaryWeapon = "none",
+	conversationTemplate = "",
+	
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = { },
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(ig88_npc_boss, "ig88_npc_boss")

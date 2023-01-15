@@ -5,11 +5,11 @@ vendor_pvp_ls_schem = {
 	minimumLevel = 0,
 	maximumLevel = 0,
 	lootItems = {
-		{itemTemplate = "fifth_gen_one_handed_schematic", weight = 2000000},
-		{itemTemplate = "fifth_gen_two_handed_schematic", weight = 2000000},		
-		{itemTemplate = "fifth_gen_polearm_schematic", weight = 2000000},
-		{itemTemplate = "musty_ancient_saber_schematic", weight = 2000000},
-		{itemTemplate = "jakku_saber", weight = 2000000}
+		{itemTemplate = "fifth_gen_one_handed_schematic", weight = 3333333},
+		{itemTemplate = "fifth_gen_two_handed_schematic", weight = 3333333},		
+		{itemTemplate = "fifth_gen_polearm_schematic", weight = 3333334},
+		-- {itemTemplate = "musty_ancient_saber_schematic", weight = 2000000},
+		-- {itemTemplate = "jakku_saber", weight = 2000000}
 	}
 }
 

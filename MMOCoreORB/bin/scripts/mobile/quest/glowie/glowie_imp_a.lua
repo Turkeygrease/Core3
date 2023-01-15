@@ -4,6 +4,7 @@ glowie_imp_a = Creature:new {
 	socialGroup = "imperial",
 	faction = "imperial",
 	level = 400,
+	mobType = MOB_NPC,
 	chanceHit = 8.5,
 	damageMin = 320,
 	damageMax = 850,
@@ -47,11 +48,20 @@ glowie_imp_a = Creature:new {
 			}
 		}
 	},
-	weapons = {"sandtrooper_weapons"},
-	conversationTemplate = "",
+
 	reactionStf = "@npc_reaction/stormtrooper",
 	personalityStf = "@hireling/hireling_stormtrooper",
-	attacks = merge(riflemanmaster,marksmanmaster,brawlermaster)
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "sandtrooper_weapons",
+	secondaryWeapon = "none",
+	conversationTemplate = "",
+	
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = merge(riflemanmaster,marksmanmaster,brawlermaster),
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(glowie_imp_a, "glowie_imp_a")

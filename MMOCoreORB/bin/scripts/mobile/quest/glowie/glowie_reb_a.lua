@@ -4,6 +4,7 @@ glowie_reb_a = Creature:new {
 	socialGroup = "rebel",
 	faction = "rebel",
 	level = 400,
+	mobType = MOB_NPC,
 	chanceHit = 8.5,
 	damageMin = 320,
 	damageMax = 850,
@@ -45,9 +46,17 @@ glowie_reb_a = Creature:new {
 			lootChance = 3000000
 		}
 	},
-	weapons = {"rebel_weapons_heavy"},
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "rebel_weapons_heavy",
+	secondaryWeapon = "none",
 	conversationTemplate = "",
-	attacks = merge(riflemanmaster,pistoleermaster,carbineermaster,brawlermaster)
+	
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = merge(riflemanmaster,pistoleermaster,carbineermaster,brawlermaster),
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(glowie_reb_a, "glowie_reb_a")

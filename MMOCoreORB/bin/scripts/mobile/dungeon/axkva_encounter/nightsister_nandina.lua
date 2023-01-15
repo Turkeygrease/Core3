@@ -4,6 +4,7 @@ nightsister_nandina = Creature:new {
 	socialGroup = "nightsister",
 	faction = "nightsister",
 	level = 378,
+	mobType = MOB_NPC,
 	chanceHit = 27.25,
 	damageMin = 1020,
 	damageMax = 1850,
@@ -36,24 +37,30 @@ nightsister_nandina = Creature:new {
 			lootChance = 9000000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "holocron_light", chance = 10000000},
 			},
 			lootChance = 3500000,
 		},
 		{
-	        	groups = 
-			{
+	        groups =  {
 				{group = "armor_attachments", chance = 4000000},
 				{group = "clothing_attachments", chance = 6000000},
 			},
 			lootChance = 3000000,
 		}
 	},
-	weapons = {"kirana_ti_weapons"},
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "kirana_ti_weapons",
+	secondaryWeapon = "none",
 	conversationTemplate = "",
-	attacks = merge(swordsmanmaster,pikemanmaster)
+	
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = merge(swordsmanmaster,pikemanmaster),
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(nightsister_nandina, "nightsister_nandina")

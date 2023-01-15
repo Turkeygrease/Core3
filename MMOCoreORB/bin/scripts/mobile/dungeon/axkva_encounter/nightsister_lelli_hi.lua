@@ -4,6 +4,7 @@ nightsister_lelli_hi = Creature:new {
 	socialGroup = "nightsister",
 	faction = "nightsister",
 	level = 400,
+	mobType = MOB_NPC,
 	chanceHit = 27.25,
 	damageMin = 820,
 	damageMax = 1550,
@@ -52,9 +53,17 @@ nightsister_lelli_hi = Creature:new {
 			lootChance = 5000000,
 		}
 	},
-	weapons = {"ubar_weapons"},
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "ubar_weapons",
+	secondaryWeapon = "none",
 	conversationTemplate = "",
-	attacks = merge(swordsmanmaster,forcewielder)
+	
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = merge(swordsmanmaster,forcewielder),
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(nightsister_lelli_hi, "nightsister_lelli_hi")

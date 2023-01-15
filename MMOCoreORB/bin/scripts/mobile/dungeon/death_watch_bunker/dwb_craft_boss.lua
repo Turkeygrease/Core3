@@ -1,9 +1,9 @@
 dwb_craft_boss = Creature:new {
-	objectName = "",
 	customName = "Death Watch Asset Protector",
 	socialGroup = "death_watch",
 	pvpFaction = "death_watch",
 	faction = "",
+	mobType = MOB_NPC,
 	level = 420,
 	chanceHit = 23.5,
 	damageMin = 1395,
@@ -46,20 +46,28 @@ dwb_craft_boss = Creature:new {
 		},
 		{
 			groups = {
-				{group = "armor_attachment", chance =  10000000}
+				{group = "armor_attachments", chance =  10000000}
 			},
 			lootChance = 10000000
 		},
 		{
 			groups = {
-				{group = "power_crystals", chance  = 9500000}
+				{group = "power_crystals", chance  = 10000000}
 			},
 			lootChance = 6000000
 		}
 	},
-	weapons = {"dark_trooper_weapons"},
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "dark_trooper_weapons",
+	secondaryWeapon = "none",
 	conversationTemplate = "",
-	attacks = merge(riflemanmaster,fencermaster,marksmanmaster,brawlermaster)
+	
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = merge(riflemanmaster,fencermaster,marksmanmaster,brawlermaster),
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(dwb_craft_boss, "dwb_craft_boss")

@@ -4,6 +4,7 @@ dwb_jedi = Creature:new {
 	socialGroup = "death_watch",
 	faction = "death_watch",
 	level = 500,
+	mobType = MOB_NPC,
 	chanceHit = 55.5,
 	damageMin = 900,
 	damageMax = 1600,
@@ -32,22 +33,19 @@ dwb_jedi = Creature:new {
 	scale = 1.4,
 	lootGroups = {
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "clothing_attachments", chance = 10000000},
 			},
 			lootChance = 7500000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "armor_attachments", chance = 10000000},
 			},
 			lootChance = 7500000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "fifth_gen", chance = 10000000},
 			},
 			lootChance = 8500000,
@@ -59,15 +57,13 @@ dwb_jedi = Creature:new {
 			lootChance = 6000000
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "power_crystals", chance = 10000000},
 			},
 			lootChance = 8500000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "jedi_jewelry", chance = 10000000},
 			},
 			lootChance = 6500000,
@@ -87,9 +83,17 @@ dwb_jedi = Creature:new {
 			}
 		}
 	},
-	weapons = {"dark_jedi_weapons_gen4"},
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "dark_jedi_weapons_gen4",
+	secondaryWeapon = "none",
 	conversationTemplate = "",
-	attacks = merge(lightsabermaster,forcepowermaster)
+	
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = merge(lightsabermaster,forcepowermaster),
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(dwb_jedi, "dwb_jedi")

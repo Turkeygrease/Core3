@@ -5,11 +5,10 @@ ig_boss_loot = {
 	minimumLevel = 0,
 	maximumLevel = 0,
 	lootItems = {
-		{itemTemplate = "trando_hunter_rifle_schematic", weight = 2500000},
-		{itemTemplate = "acid_lance_schematic", weight = 2500000},
-		{itemTemplate = "podracer_deed", weight = 2500000},
-		{itemTemplate = "rebel_pistol_schem", weight = 2500000}
-
+		{itemTemplate = "trando_hunter_rifle_schematic", weight = 3300000},
+		--{itemTemplate = "acid_lance_schematic", weight = 2500000},
+		{itemTemplate = "podracer_deed", weight = 3300000},
+		{itemTemplate = "rebel_pistol_schem", weight = 3400000}
 	}
 }
 

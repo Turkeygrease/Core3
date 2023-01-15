@@ -4,6 +4,7 @@ ig_tao_ni = Creature:new {
 	socialGroup = "death_watch",
 	pvpFaction = "death_watch",
 	faction = "",
+	mobType = MOB_NPC,
 	level = 240,
 	chanceHit = 200,
 	damageMin = 270,
@@ -45,9 +46,17 @@ ig_tao_ni = Creature:new {
 			lootChance = 4000000,
 		},
 	},
-	weapons = {"st_bombardier_weapons"},
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "st_bombardier_weapons",
+	secondaryWeapon = "none",
 	conversationTemplate = "",
-	attacks = merge(riflemanmaster,swordsmanmaster,brawlermaster,marksmanmaster)
+	
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = merge(riflemanmaster,swordsmanmaster,brawlermaster,marksmanmaster),
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(ig_tao_ni, "ig_tao_ni")

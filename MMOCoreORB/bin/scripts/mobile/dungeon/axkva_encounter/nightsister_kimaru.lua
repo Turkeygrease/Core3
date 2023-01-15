@@ -4,6 +4,7 @@ nightsister_kimaru = Creature:new {
 	socialGroup = "nightsister",
 	faction = "nightsister",
 	level = 278,
+	mobType = MOB_NPC,
 	chanceHit = 27.25,
 	damageMin = 920,
 	damageMax = 1650,
@@ -37,29 +38,30 @@ nightsister_kimaru = Creature:new {
 			lootChance = 7500000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "holocron_light", chance = 10000000},
 			},
 			lootChance = 4500000,
 		},
 		{
-	        	groups = 
-			{
+	        groups =  {
 				{group = "armor_attachments", chance = 4000000},
 				{group = "clothing_attachments", chance = 6000000},
 			},
 			lootChance = 5000000,
 		}
 	},
-	weapons = {"warden_banhammer_weapons"},
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "warden_banhammer_weapons",
+	secondaryWeapon = "none",
 	conversationTemplate = "",
-	attacks = {
-		{"swordsmanmaster"},
-		{"intimidationattack","intimidationChance=100"},
-		{"creatureareadisease","stateAccuracyBonus=100"},
-		{"creatureareapoison","stateAccuracyBonus=100"}
-	}
+	
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = { {"swordsmanmaster"}, {"intimidationattack","intimidationChance=100"}, {"creatureareadisease","stateAccuracyBonus=100"}, {"creatureareapoison","stateAccuracyBonus=100"} },
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(nightsister_kimaru, "nightsister_kimaru")

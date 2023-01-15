@@ -1,9 +1,9 @@
 dwb_rancor = Creature:new {
-	objectName = "@mob/creature_names:enhanced_rancor",
 	customName = "Death Watch Rancor",
 	socialGroup = "death_watch",
 	faction = "death_watch",
 	level = 500,
+	mobType = MOB_CARNIVORE,
 	chanceHit = 55.5,
 	damageMin = 900,
 	damageMax = 1600,
@@ -33,48 +33,47 @@ dwb_rancor = Creature:new {
 	lootGroups = {
 
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "clothing_attachments", chance = 10000000},
 			},
 			lootChance = 7500000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "armor_attachments", chance = 10000000},
 			},
 			lootChance = 7500000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "elite_mastery_jewelry", chance = 10000000},
 			},
 			lootChance = 7500000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "bw_tooth", chance = 10000000},
 			},
 			lootChance = 9900000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "bw_tooth", chance = 10000000},
 			},
 			lootChance = 6900000,
 		},
 	},
-	weapons = {},
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "unarmed",
+	secondaryWeapon = "none",
 	conversationTemplate = "",
-	attacks = {
-		{"creatureareattack",""},
-		{"stunattack","stunChance=70"},
-		{"creatureareableeding",""}
-	}
+	
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = { {"creatureareattack",""}, {"stunattack","stunChance=70"}, {"creatureareableeding",""} },
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(dwb_rancor, "dwb_rancor")
