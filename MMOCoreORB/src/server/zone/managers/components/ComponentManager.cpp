@@ -155,9 +155,9 @@
 #include "server/zone/objects/tangible/components/droid/DroidPersonalityModuleDataComponent.h"
 
 //mindsoft added for currency bracelets
-#include "server/zone/objects/tangible/components/CurrencyBuffMenuComponent.h"
-#include "server/zone/objects/tangible/components/currencyBuffAttributeListComponent.h"
-#include "server/zone/objects/tangible/components/currencyBuffDataComponent.h"
+// #include "server/zone/objects/tangible/components/CurrencyBuffMenuComponent.h"
+// #include "server/zone/objects/tangible/components/currencyBuffAttributeListComponent.h"
+// #include "server/zone/objects/tangible/components/currencyBuffDataComponent.h"
 
 ComponentManager::ComponentManager() {
 	components.put("ContainerComponent", new ContainerComponent());
@@ -338,9 +338,9 @@ ComponentManager::ComponentManager() {
 	dataObjectFactory.registerObject<FlagGameDataComponent>("FlagGameDataComponent");
 
 	//Mindsoft added for currency bracelets
-	components.put("CurrencyBuffMenuComponent", new CurrencyBuffMenuComponent());
-	components.put("CurrencyBuffAttributeListComponent", new CurrencyBuffAttributeListComponent());
-	dataObjectFactory.registerObject<CurrencyBuffDataComponent>("CurrencyBuffDataComponent");
+	// components.put("CurrencyBuffMenuComponent", new CurrencyBuffMenuComponent());
+	// components.put("CurrencyBuffAttributeListComponent", new CurrencyBuffAttributeListComponent());
+	// dataObjectFactory.registerObject<CurrencyBuffDataComponent>("CurrencyBuffDataComponent");
 
 	// Droid components
 	dataObjectFactory.registerObject<DroidMaintenanceModuleDataComponent>("DroidMaintenanceModuleDataComponent");

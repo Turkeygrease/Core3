@@ -81,7 +81,7 @@ function worldBossSpawner:spawnMobiles()
 				createEvent(wp[7]*1000, "worldBossSpawner", "despawnTrigger", pMob, cityIndex)
 				writeData(SceneObject(pMob):getObjectID()..":cityIndex", cityIndex)
 				createObserver(OBJECTDESTRUCTION, "worldBossSpawner", "triggerDead",pMob)
-				AiAgent(pMob):setAiTemplate("")
+				AiAgent(pMob):setAITemplate("")
 				i = i + 1
 			until (i >wp[5])
 			print("# of Triggers spawned: "..tostring(i-1).."\n")
@@ -129,7 +129,7 @@ function worldBossSpawner:respawnTrigger(pNav, cityIndex)
 	createEvent((wp[7]+math.random(5))*1000, "worldBossSpawner", "despawnTrigger", pMob, cityIndex)
 	writeData(SceneObject(pMob):getObjectID()..":cityIndex", cityIndex)
 	createObserver(OBJECTDESTRUCTION, "worldBossSpawner", "triggerDead",pMob)
-	AiAgent(pMob):setAiTemplate("")
+	AiAgent(pMob):setAITemplate("")
 	return true
 end
 
@@ -161,7 +161,7 @@ end
 --spawn city boss
 function worldBossSpawner:spawnBoss(cityName, cityBossString, cityIndex)
 	local pBoss = spawnBossMobile(cityBossString)
-	AiAgent(pBoss):setAiTemplate("")
+	AiAgent(pBoss):setAITemplate("")
 	createObserver(OBJECTDESTRUCTION, "worldBossSpawner", "bossDead",pBoss)
 	writeData(SceneObject(pBoss):getObjectID()..":cityIndex", cityIndex)
 end
@@ -208,7 +208,7 @@ end
 function worldBossSpawner:spawnWorldBoss(bossString)
 	local pMob = spawnBossMobile(bossString)
 	createObserver(OBJECTDESTRUCTION, "worldBossSpawner", "worldBossDead",pMob)
-	AiAgent(pMob):setAiTemplate("")
+	AiAgent(pMob):setAITemplate("")
 end
 
 --despawn world boss clean-up and reset

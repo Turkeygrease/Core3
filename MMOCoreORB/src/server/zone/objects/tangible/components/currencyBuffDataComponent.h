@@ -41,8 +41,8 @@ public:
 
 private:
 	void addSerializableVariables() {
-		addSerializableVariable("charges", &charges);
-		addSerializableVariable("buffType", &buffType);
+		addSerializableVariable("charges", &charges, 0);
+		addSerializableVariable("buffType", &charges, 0);
 	}
 };
 

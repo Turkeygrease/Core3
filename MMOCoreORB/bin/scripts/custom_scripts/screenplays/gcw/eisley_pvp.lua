@@ -35,7 +35,7 @@ function eisley_pvp:spawnInitalTroops()
 		template = impList[math.random(#impList)]
 		--spawn imp mobile
 		local pMob = spawnMobile("tatooine", template, 0, x, z, y, math.random(360), 0)
-		AiAgent(pMob):setAiTemplate("") --set to wander
+		AiAgent(pMob):setAITemplate("") --set to wander
 		i = i + 1
 	until i > 20
 
@@ -47,7 +47,7 @@ function eisley_pvp:spawnInitalTroops()
 		template = rebList[math.random(#rebList)]
 		--spawn reb mobile
 		local pMob = spawnMobile("tatooine", template, 0, x, z, y, math.random(360), 0)
-		AiAgent(pMob):setAiTemplate("") --set to wander
+		AiAgent(pMob):setAITemplate("") --set to wander
 		i = i + 1
 	until i > 20
 end
@@ -66,7 +66,7 @@ function eisley_pvp:callBosses(empty, count)
 	CreatureObject(pLuke):setPvpStatusBitmask(0) --set to non-attackable
 	createEvent(10000, "Ihelp", "chatEventMood", pLuke, "You Will not stop our advance Father!/168/80/beckon")
 	createEvent(17000, "eisley_pvp", "setCreatureAttackable", pLuke, "")
-	AiAgent(pLuke):setAiTemplate("")
+	AiAgent(pLuke):setAITemplate("")
 	createObserver(OBJECTDESTRUCTION, "eisley_pvp", "bossDeadRebel",pLuke)
 
 	--print("spawn vader")
@@ -77,7 +77,7 @@ function eisley_pvp:callBosses(empty, count)
 	CreatureObject(pVader):setPvpStatusBitmask(0) --set to non-attackable
 	createEvent(12000, "Ihelp", "chatEventMood", pVader, "Your precious Rebellion will fall before the might of the Empire./168/80/beckon")
 	createEvent(17000, "eisley_pvp", "setCreatureAttackable", pVader, "")
-	AiAgent(pVader):setAiTemplate("")
+	AiAgent(pVader):setAITemplate("")
 	createObserver(OBJECTDESTRUCTION, "eisley_pvp", "bossDeadImperial",pVader)
 end
 

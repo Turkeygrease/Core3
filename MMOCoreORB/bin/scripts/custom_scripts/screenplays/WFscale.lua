@@ -255,8 +255,8 @@ function spawnScaledMobile(p,t,r,x,z,y,f,c,scaleType,scaleFactor,scale)
 		--print("**spawnScaledMobile: ScaleType TABLE found, found ScaleType: "..tostring(scaleType))
 		if (control.aiTemplate) then
 			--print("AI Template found: "..control.aiTemplate)
-			AiAgent(pMob):setAiTemplate("")
-			--AiAgent(pMob):setAiTemplate(control.aiTemplate)
+			AiAgent(pMob):setAITemplate("")
+			--AiAgent(pMob):setAITemplate(control.aiTemplate)
 		end
 	end
 
@@ -283,7 +283,7 @@ function spawnScaledMobile(p,t,r,x,z,y,f,c,scaleType,scaleFactor,scale)
 				p=way[1]; x=way[2]; z=way[3]; y=way[4]; f=way[5]; c=way[6]
 			end
 			if (control.aiTemplate) then
-				--TODO AiAgent(pMob):setAiTemplate(control.aiTemplate)
+				--TODO AiAgent(pMob):setAITemplate(control.aiTemplate)
 			end
 		end
 	end

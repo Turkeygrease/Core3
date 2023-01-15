@@ -17,12 +17,12 @@ void CurrencyBuffMenuComponent::fillObjectMenuResponse(SceneObject* sceneObject,
 	TangibleObjectMenuComponent::fillObjectMenuResponse(sceneObject, menuResponse, player);
 	TangibleObject* bracelet = cast<TangibleObject*>(sceneObject);
 
-	if (bracelet == NULL)
+	if (bracelet == nullptr)
 		return;
 
 	CurrencyBuffDataComponent* data = cast<CurrencyBuffDataComponent*>(bracelet->getDataObjectComponent()->get());
 
-	if (data == NULL || !data->isCurrencyBuffData())
+	if (data == nullptr || !data->isCurrencyBuffData())
 		return;
 
 	String buffType = data->getBuffType();
@@ -83,7 +83,7 @@ int CurrencyBuffMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 
 	WearableObject* wearable = cast<WearableObject*>(sceneObject);
 
-	if (wearable == NULL)
+	if (wearable == nullptr)
 		return 0;
 
 	if (!wearable->isEquipped()) {
@@ -99,7 +99,7 @@ int CurrencyBuffMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 
 //check cooldown
 	if (!player->checkCooldownRecovery("Currency_Buff")) {
-		Time* timeRemaining = player->getCooldownTime("Currency_Buff");
+		const Time* timeRemaining = player->getCooldownTime("Currency_Buff");
 		StringIdChatParameter cooldown("quest/hero_of_tatooine/system_messages", "restore_not_yet");
 		cooldown.setTO(getCooldownString(timeRemaining->miliDifference() * -1));
 		player->sendSystemMessage(cooldown);
@@ -110,7 +110,7 @@ int CurrencyBuffMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 
 	CurrencyBuffDataComponent* data = cast<CurrencyBuffDataComponent*>(wearable->getDataObjectComponent()->get());
 
-	if (data == NULL || !data->isCurrencyBuffData())
+	if (data == nullptr || !data->isCurrencyBuffData())
 		return 0;
 
 //re-check player faction and charges for back end (anti-hook code)
@@ -144,7 +144,7 @@ int CurrencyBuffMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 		buffType[4] = '2';
 		cost += 2;
 
-	//invalid or NULL option selected
+	//invalid or nullptr option selected
 	} else {
 		return TangibleObjectMenuComponent::handleObjectMenuSelect(sceneObject, player, selectedID);
 	}
@@ -217,23 +217,16 @@ int CurrencyBuffMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 	if (cost == 1){
 		ManagedReference<CreatureObject*> target = player->getZoneServer()->getObject(player->getTargetID()).castTo<CreatureObject*>();
 
-		if (target == NULL || !target->isPlayerCreature()){
+		if (target == nullptr || !target->isPlayerCreature()){
 			target = player;
 		}
 
 
 		if (target == player){
 			if (buffType[1] == '0'){
-				message = message && pm->doEnhanceCharacter(0x98321369, player, power, duration, BuffType::MEDICAL, 0,0); // medical_enhance_health
-				message = message && pm->doEnhanceCharacter(0x815D85C5, player, power, duration, BuffType::MEDICAL, 1,0); // medical_enhance_strength
-				message = message && pm->doEnhanceCharacter(0x7F86D2C6, player, power, duration, BuffType::MEDICAL, 2,0); // medical_enhance_constitution
-				message = message && pm->doEnhanceCharacter(0x4BF616E2, player, power, duration, BuffType::MEDICAL, 3,0); // medical_enhance_action
-				message = message && pm->doEnhanceCharacter(0x71B5C842, player, power, duration, BuffType::MEDICAL, 4,0); // medical_enhance_quickness
-				message = message && pm->doEnhanceCharacter(0xED0040D9, player, power, duration, BuffType::MEDICAL, 5,0); // medical_enhance_stamina
+				pm->enhanceCharacter(player);
 			}else if (buffType[1] == '1'){
-				message = message && pm->doEnhanceCharacter(0x11C1772E, player, power, duration, BuffType::PERFORMANCE, 6,0); // performance_enhance_dance_mind
-				message = message && pm->doEnhanceCharacter(0x2E77F586, player, power, duration, BuffType::PERFORMANCE, 7,0); // performance_enhance_music_focus
-				message = message && pm->doEnhanceCharacter(0x3EC6FCB6, player, power, duration, BuffType::PERFORMANCE, 8,0); // performance_enhance_music_willpower
+				pm->enhanceCharacter(player);
 			}else
 				return 0;
 		}else if (target->isInRange(player, 10.f)){
@@ -249,16 +242,9 @@ int CurrencyBuffMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 
 			Locker clocker(target, player);//lock target
 			if (buffType[1] == '0'){
-				message = message && pm->doEnhanceCharacter(0x98321369, target, power, duration, BuffType::MEDICAL, 0,0); // medical_enhance_health
-				message = message && pm->doEnhanceCharacter(0x815D85C5, target, power, duration, BuffType::MEDICAL, 1,0); // medical_enhance_strength
-				message = message && pm->doEnhanceCharacter(0x7F86D2C6, target, power, duration, BuffType::MEDICAL, 2,0); // medical_enhance_constitution
-				message = message && pm->doEnhanceCharacter(0x4BF616E2, target, power, duration, BuffType::MEDICAL, 3,0); // medical_enhance_action
-				message = message && pm->doEnhanceCharacter(0x71B5C842, target, power, duration, BuffType::MEDICAL, 4,0); // medical_enhance_quickness
-				message = message && pm->doEnhanceCharacter(0xED0040D9, target, power, duration, BuffType::MEDICAL, 5,0); // medical_enhance_stamina
+				pm->enhanceCharacter(player);
 			}else if (buffType[1] == '1'){
-				message = message && pm->doEnhanceCharacter(0x11C1772E, target, power, duration, BuffType::PERFORMANCE, 6,0); // performance_enhance_dance_mind
-				message = message && pm->doEnhanceCharacter(0x2E77F586, target, power, duration, BuffType::PERFORMANCE, 7,0); // performance_enhance_music_focus
-				message = message && pm->doEnhanceCharacter(0x3EC6FCB6, target, power, duration, BuffType::PERFORMANCE, 8,0); // performance_enhance_music_willpower
+				pm->enhanceCharacter(player);
 			}else
 				return 0;
 		}else{
@@ -282,14 +268,14 @@ int CurrencyBuffMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 	//is group buff?
 	}else if (cost == 2){
 		ManagedReference<GroupObject*> group = player->getGroup();
-		if (group == NULL) {
+		if (group == nullptr) {
 			player->sendSystemMessage("@error_message:not_grouped");
 			return 0;
 		}
 
 		for (int i = 0; i < group->getGroupSize(); ++i) {
 			ManagedReference<CreatureObject*> target = group->getGroupMember(i);
-			if (target == NULL || !target->isPlayerCreature())
+			if (target == nullptr || !target->isPlayerCreature())
 				continue;
 
 			if (!target->isInRange(player, 35.f))
@@ -305,16 +291,9 @@ int CurrencyBuffMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 
 			message = true;
 			if (buffType[1] == '0'){
-				message = message && pm->doEnhanceCharacter(0x98321369, target, power, duration, BuffType::MEDICAL, 0,0); // medical_enhance_health
-				message = message && pm->doEnhanceCharacter(0x815D85C5, target, power, duration, BuffType::MEDICAL, 1,0); // medical_enhance_strength
-				message = message && pm->doEnhanceCharacter(0x7F86D2C6, target, power, duration, BuffType::MEDICAL, 2,0); // medical_enhance_constitution
-				message = message && pm->doEnhanceCharacter(0x4BF616E2, target, power, duration, BuffType::MEDICAL, 3,0); // medical_enhance_action
-				message = message && pm->doEnhanceCharacter(0x71B5C842, target, power, duration, BuffType::MEDICAL, 4,0); // medical_enhance_quickness
-				message = message && pm->doEnhanceCharacter(0xED0040D9, target, power, duration, BuffType::MEDICAL, 5,0); // medical_enhance_stamina
+				pm->enhanceCharacter(player);
 			}else if (buffType[1] == '1'){
-				message = message && pm->doEnhanceCharacter(0x11C1772E, target, power, duration, BuffType::PERFORMANCE, 6,0); // performance_enhance_dance_mind
-				message = message && pm->doEnhanceCharacter(0x2E77F586, target, power, duration, BuffType::PERFORMANCE, 7,0); // performance_enhance_music_focus
-				message = message && pm->doEnhanceCharacter(0x3EC6FCB6, target, power, duration, BuffType::PERFORMANCE, 8,0); // performance_enhance_music_willpower
+				pm->enhanceCharacter(player);
 			}else
 				return 0;
 			
@@ -339,7 +318,7 @@ int CurrencyBuffMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 
 		Zone* thisZone = player->getZone();
 
-		if (thisZone == NULL) {
+		if (thisZone == nullptr) {
 			return 0;
 		}
 
@@ -350,7 +329,7 @@ int CurrencyBuffMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 		for (int i = 0; i < closeObjects->size(); ++i) {
 			SceneObject* object = cast<SceneObject*>(closeObjects->get(i).get());
 
-			if (object == NULL || !object->isPlayerCreature())
+			if (object == nullptr || !object->isPlayerCreature())
 				continue;
 
 			CreatureObject* pCob = object->asCreatureObject();
@@ -358,7 +337,7 @@ int CurrencyBuffMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 			if (!object->isInRange(player, 35.f))
 				continue;
 
-			if (pCob == NULL || pCob->isInvisible())
+			if (pCob == nullptr || pCob->isInvisible())
 				continue;
 
 			Locker clocker(pCob, player);
@@ -371,17 +350,10 @@ int CurrencyBuffMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, 
 
 			message = true;
 			if (buffType[1] == '0'){
-				message = message && pm->doEnhanceCharacter(0x98321369, pCob, power, duration, BuffType::MEDICAL, 0,0); // medical_enhance_health
-				message = message && pm->doEnhanceCharacter(0x815D85C5, pCob, power, duration, BuffType::MEDICAL, 1,0); // medical_enhance_strength
-				message = message && pm->doEnhanceCharacter(0x7F86D2C6, pCob, power, duration, BuffType::MEDICAL, 2,0); // medical_enhance_constitution
-				message = message && pm->doEnhanceCharacter(0x4BF616E2, pCob, power, duration, BuffType::MEDICAL, 3,0); // medical_enhance_action
-				message = message && pm->doEnhanceCharacter(0x71B5C842, pCob, power, duration, BuffType::MEDICAL, 4,0); // medical_enhance_quickness
-				message = message && pm->doEnhanceCharacter(0xED0040D9, pCob, power, duration, BuffType::MEDICAL, 5,0); // medical_enhance_stamina
-			}else if (buffType[1] == '1'){
-				message = message && pm->doEnhanceCharacter(0x11C1772E, pCob, power, duration, BuffType::PERFORMANCE, 6,0); // performance_enhance_dance_mind
-				message = message && pm->doEnhanceCharacter(0x2E77F586, pCob, power, duration, BuffType::PERFORMANCE, 7,0); // performance_enhance_music_focus
-				message = message && pm->doEnhanceCharacter(0x3EC6FCB6, pCob, power, duration, BuffType::PERFORMANCE, 8,0); // performance_enhance_music_willpower
-			}else
+				pm->enhanceCharacter(player);
+			}else if (buffType[1] == '1') {
+				pm->enhanceCharacter(player);
+			} else
 				return 0;
 
  			if (player == pCob)

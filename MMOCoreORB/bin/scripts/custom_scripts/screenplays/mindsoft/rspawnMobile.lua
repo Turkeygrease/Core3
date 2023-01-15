@@ -30,7 +30,7 @@ rspawnMobile = function(zone, mobile, respawn, x, z, y, heading, parentID, spawn
 	local pMobile = spawnMobile(zone, mobile, respawn, newx, z, newy, heading, parentID)
 	if ai ~= nil then
 		if (pMobile ~= nil and CreatureObject(pMobile):isAiAgent()) then
-			AiAgent(pMobile):setAiTemplate(ai)
+			AiAgent(pMobile):setAITemplate(ai)
 		end
 	end
 	--print("rspawnMobile ended")

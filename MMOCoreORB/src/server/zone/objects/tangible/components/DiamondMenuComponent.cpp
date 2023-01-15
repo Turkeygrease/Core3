@@ -35,11 +35,17 @@ int DiamondMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, Creat
 
  	ManagedReference<SceneObject*> inventory = creature->getSlottedObject("inventory");
  	ManagedReference<LootManager*> lootManager = creature->getZoneServer()->getLootManager();
-	lootManager->createLoot(inventory, "lootcollectiontierdiamond", 300);
-	lootManager->createLoot(inventory, "lootcollectiontierdiamond", 300);
-	lootManager->createLoot(inventory, "lootcollectiontierdiamond", 300);
-	lootManager->createLoot(inventory, "lootcollectiontierdiamond", 300);
-	lootManager->createLoot(inventory, "lootcollectiontierdiamond", 300);
+	
+	TransactionLog trx(TrxCode::NPCLOOTCLAIM, creature);
+
+	for (int i = 0; i < System::random(5); i++) {
+		lootManager->createLoot(trx, inventory, "lootcollectiontierdiamond", 300);
+		lootManager->createLoot(trx, inventory, "lootcollectiontierdiamond", 300);
+		lootManager->createLoot(trx, inventory, "lootcollectiontierdiamond", 300);
+		lootManager->createLoot(trx, inventory, "lootcollectiontierdiamond", 300);
+		lootManager->createLoot(trx, inventory, "lootcollectiontierdiamond", 300);
+	}
+
 	creature->playEffect("clienteffect/trap_electric_01.cef", "");
 	sceneObject->destroyObjectFromWorld(true);
 	return 0;

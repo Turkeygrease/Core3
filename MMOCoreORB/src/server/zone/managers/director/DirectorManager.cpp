@@ -2466,6 +2466,9 @@ int DirectorManager::spawnMobile(lua_State* L) {
 
 	if (creature == nullptr) {
 		String err = "could not spawn mobile " + mobile;
+
+		printf("%s\n", err.toCharArray());
+
 		printTraceError(L, err);
 
 		lua_pushnil(L);

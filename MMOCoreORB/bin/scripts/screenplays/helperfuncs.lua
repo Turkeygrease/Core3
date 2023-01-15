@@ -40,7 +40,7 @@ function HelperFuncs:setMobileTemplate(pMobile, template)
 end
 
 function HelperFuncs:setMobileTemplateEvent(pMobile, template)
-	AiAgent(pMobile):setAiTemplate(template)
+	AiAgent(pMobile):setAITemplate(template)
 end
 
 function HelperFuncs:tableContainsValue(table, value)
