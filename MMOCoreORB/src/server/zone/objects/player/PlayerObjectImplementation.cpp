@@ -2442,6 +2442,42 @@ void PlayerObjectImplementation::updateLastJediAttackableTimestamp() {
 	lastJediAttackableTimestamp.addMiliTime(50000);
 }
 
+void PlayerObjectImplementation::updateLastPvpCombatActionTimestamp(bool updateGcwAction, bool updateBhAction, bool updateJediAction) {
+	ManagedReference<CreatureObject*> parent = getParent().get().castTo<CreatureObject*>();
+
+	if (parent == nullptr)
+		return;
+
+	bool alreadyHasTef = hasPvpTef();
+
+	if (updateBhAction) {
+		bool alreadyHasBhTef = hasBhTef();
+		lastBhPvpCombatActionTimestamp.updateToCurrentTime();
+		lastBhPvpCombatActionTimestamp.addMiliTime(FactionManager::TEFTIMER);
+
+		if (!alreadyHasBhTef)
+			parent->notifyObservers(ObserverEventType::BHTEFCHANGED);
+	}
+
+	if (updateGcwAction) {
+		lastGcwPvpCombatActionTimestamp.updateToCurrentTime();
+		lastGcwPvpCombatActionTimestamp.addMiliTime(FactionManager::TEFTIMER);
+	}
+
+	if (updateJediAction){
+		lastJediPvpCombatActionTimestamp.updateToCurrentTime();
+		lastJediPvpCombatActionTimestamp.addMiliTime(FactionManager::TEFTIMER);
+		info("Updating Jedi TEF");
+	}
+
+	schedulePvpTefRemovalTask();
+
+	if (!alreadyHasTef) {
+		updateInRangeBuildingPermissions();
+		parent->setPvpStatusBit(CreatureFlag::TEF);
+	}
+}
+
 Time PlayerObjectImplementation::getLastPvpAreaCombatActionTimestamp() const {
 	return lastPvpAreaCombatActionTimestamp;
 }
