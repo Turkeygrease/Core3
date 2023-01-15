@@ -353,6 +353,9 @@ public:
 	const static int SHIPTRANSPORT = 0x20000004;
 	//*******************************
 
+	const static int CYBERNETICLEGS = 0x20000102;
+	const static int CYBERNETICTORSO = 0x20000103;
+
 	const static int SHIPATTACHMENT = 0x40000000;
 	const static int SHIPREACTOR = 0x40000001;
 	const static int SHIPENGINE = 0x40000002;
