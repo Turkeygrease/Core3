@@ -96,6 +96,7 @@ namespace player {
 		int setFrsRank(lua_State* L);
 		int getFrsRank(lua_State* L);
 		int getFrsCouncil(lua_State* L);
+		int hasTef(lua_State* L);
 		int showCouncilRank(lua_State* L);
 		int startSlicingSession(lua_State* L);
 		int setVisibility(lua_State* L);
@@ -105,6 +106,7 @@ namespace player {
 		int hasGcwTef(lua_State* L);
 		int getLevel(lua_State* L);
 		int getGroupLevel(lua_State* L);
+		int jediTef(lua_State* L);
 
 	private:
 		// The pointer to the 'real object' defined in object.cc

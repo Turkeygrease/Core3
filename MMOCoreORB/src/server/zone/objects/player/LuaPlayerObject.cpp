@@ -92,6 +92,7 @@ Luna<LuaPlayerObject>::RegType LuaPlayerObject::Register[] = {
 		{ "setFrsRank", &LuaPlayerObject::setFrsRank },
 		{ "getFrsRank", &LuaPlayerObject::getFrsRank },
 		{ "getFrsCouncil", &LuaPlayerObject::getFrsCouncil },
+		{ "hasTef", &LuaPlayerObject::hasTef },
 		{ "showCouncilRank", &LuaPlayerObject::showCouncilRank },
 		{ "startSlicingSession", &LuaPlayerObject::startSlicingSession },
 		{ "setVisibility", &LuaPlayerObject::setVisibility },
@@ -101,6 +102,7 @@ Luna<LuaPlayerObject>::RegType LuaPlayerObject::Register[] = {
 		{ "hasGcwTef", &LuaPlayerObject::hasGcwTef },
 		{ "getLevel", &LuaPlayerObject::getLevel },
 		{ "getGroupLevel", &LuaPlayerObject::getGroupLevel },
+		{ "jediTef", &LuaPlayerObject::jediTef },
 		{ 0, 0 }
 };
 
@@ -832,6 +834,13 @@ int LuaPlayerObject::getFrsCouncil(lua_State* L) {
 	return 1;
 }
 
+int LuaPlayerObject::hasTef(lua_State* L) {
+	bool result = (realObject->hasPvpTef() || realObject->hasBhTef() || realObject->hasJediTef());
+	lua_pushboolean(L, result);
+
+	return 1;
+}
+
 int LuaPlayerObject::showCouncilRank(lua_State* L) {
 	int council = lua_tointeger(L, -1);
 
@@ -905,6 +914,11 @@ int LuaPlayerObject::getGroupLevel(lua_State* L) {
 	lua_pushinteger(L, groupLevel);	
 
 	return 1;
+}
+
+int LuaPlayerObject::jediTef(lua_State* L) {
+	realObject->updateLastJediPvpCombatActionTimestamp();
+	return 0;
 }
 
 int LuaPlayerObject::getPlayedTimeString(lua_State* L) {
