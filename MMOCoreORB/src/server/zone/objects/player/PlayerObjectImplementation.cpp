@@ -2425,8 +2425,21 @@ Time PlayerObjectImplementation::getLastGcwPvpCombatActionTimestamp() const {
 	return lastGcwPvpCombatActionTimestamp;
 }
 
+Time PlayerObjectImplementation::getLastJediPvpCombatActionTimestamp() {
+	return lastJediPvpCombatActionTimestamp;
+}
+
 Time PlayerObjectImplementation::getLastGcwCrackdownCombatActionTimestamp() const {
 	return lastCrackdownGcwCombatActionTimestamp;
+}
+
+Time PlayerObjectImplementation::getLastJediAttackableTimestamp() {
+	return lastJediAttackableTimestamp;
+}
+
+void PlayerObjectImplementation::updateLastJediAttackableTimestamp() {
+	lastJediAttackableTimestamp.updateToCurrentTime();
+	lastJediAttackableTimestamp.addMiliTime(50000);
 }
 
 Time PlayerObjectImplementation::getLastPvpAreaCombatActionTimestamp() const {
@@ -2498,6 +2511,10 @@ bool PlayerObjectImplementation::hasTef() const {
 	return hasCrackdownTef() || hasPvpTef();
 }
 
+void PlayerObjectImplementation::updateLastJediPvpCombatActionTimestamp() {
+	updateLastPvpCombatActionTimestamp(false, false, true);
+}
+
 bool PlayerObjectImplementation::hasPvpTef() const {
 	return !lastGcwPvpCombatActionTimestamp.isPast() || hasBhTef() || !lastPvpAreaCombatActionTimestamp.isPast();
 }
@@ -2508,6 +2525,14 @@ bool PlayerObjectImplementation::hasGcwTef() const {
 
 bool PlayerObjectImplementation::hasBhTef() const {
 	return !lastBhPvpCombatActionTimestamp.isPast();
+}
+
+bool PlayerObjectImplementation::hasJediTef() {
+	return !lastJediPvpCombatActionTimestamp.isPast();
+}
+
+bool PlayerObjectImplementation::isJediAttackable() {
+	return !lastJediAttackableTimestamp.isPast();
 }
 
 void PlayerObjectImplementation::setCrackdownTefTowards(unsigned int factionCrc, bool scheduleTefRemovalTask) {
