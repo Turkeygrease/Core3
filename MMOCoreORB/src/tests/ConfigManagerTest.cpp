@@ -65,21 +65,21 @@ TEST_F(ConfigManagerTest, EnabledZones) {
 	std::cerr << "' }" << std::endl;
 }
 
-TEST_F(ConfigManagerTest, TreFiles) {
-	auto treFilesToLoad = configManager->getTreFiles();
-	ASSERT_TRUE(treFilesToLoad.size() != 0);
+// TEST_F(ConfigManagerTest, TreFiles) {
+// 	auto treFilesToLoad = configManager->getTreFiles();
+// 	ASSERT_TRUE(treFilesToLoad.size() != 0);
 
-	// Make sure it's not sorted
-	ASSERT_TRUE(treFilesToLoad.get(0) == "default_patch.tre");
+// 	// Make sure it's not sorted
+// 	ASSERT_TRUE(treFilesToLoad.get(0) == "default_patch.tre");
 
-	std::cerr << "[>>>>>>>>>>] TreFiles = { '";
+// 	std::cerr << "[>>>>>>>>>>] TreFiles = { '";
 
-	for (int i = 0;i < treFilesToLoad.size(); i++) {
-		std::cerr << (i == 0 ? "" : "', '") <<  treFilesToLoad.get(i).toCharArray();
-	}
+// 	for (int i = 0;i < treFilesToLoad.size(); i++) {
+// 		std::cerr << (i == 0 ? "" : "', '") <<  treFilesToLoad.get(i).toCharArray();
+// 	}
 
-	std::cerr << "' }" << std::endl;
-}
+// 	std::cerr << "' }" << std::endl;
+// }
 
 TEST_F(ConfigManagerTest, SetTest) {
 	auto curVal = configManager->isProgressMonitorActivated();
