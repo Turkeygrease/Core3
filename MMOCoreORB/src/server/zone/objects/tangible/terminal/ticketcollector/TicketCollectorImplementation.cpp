@@ -78,12 +78,12 @@ int TicketCollectorImplementation::handleObjectMenuSelect(CreatureObject* player
 
 			// Deduct cost
 			if( player->getCashCredits() >= 500 ){
-				player->setCashCredits(player->getCashCredits() - 500, true);
+				player->subtractCashCredits(500);
 			}
 			else{
 				int fromBank = 500 - player->getCashCredits();
-				player->setCashCredits(0, true);
-				player->setBankCredits(player->getBankCredits() - fromBank, true);
+				player->subtractCashCredits(player->getCashCredits());
+				player->subtractBankCredits(fromBank);
 			}
 		}
 		uint64 nova = DirectorManager::instance()->readSharedMemory("WF_Instance_Handler:openInstance:nova");

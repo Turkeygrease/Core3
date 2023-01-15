@@ -250,7 +250,7 @@ function rare_boss_handler:spawnRare()
 	rare_boss_handler:generatePainting(pSob, self.rarePaintings[bossIndex])
 	createObserver(OBJECTREMOVEDFROMZONE, "rare_boss_handler", "rareDead",pSob)
 	local msg = "A Rare disturbance in the force has been felt on "..planet
-	broadcastGalaxy(msg)
+	broadcastToGalaxy(msg)
 	return 0
 end
 
@@ -273,7 +273,7 @@ function rare_boss_handler:respawnRare()
 	rare_boss_handler:generatePainting(pSob, self.rarePaintings[bossIndex])
 	createObserver(OBJECTREMOVEDFROMZONE, "rare_boss_handler", "rareDead",pSob)
 	local msg = "A Rare disturbance in the force has been felt on "..planet
-	broadcastGalaxy(msg)
+	broadcastToGalaxy(msg)
 end
 
 function rare_boss_handler:rareDead(pSob)
@@ -311,7 +311,7 @@ function rare_boss_handler:spawnSystemRare()
 	rare_boss_handler:generatePainting(pSob, self.systemRarePaintings[bossIndex])
 	createObserver(OBJECTREMOVEDFROMZONE, "rare_boss_handler", "systemRareDead",pSob)
 	local msg = "A Powerful disturbance in the force has been felt on "..planet
-	broadcastGalaxy(msg)
+	broadcastToGalaxy(msg)
 	return 0
 end
 
@@ -336,7 +336,7 @@ function rare_boss_handler:respawnSystemRare()
 	rare_boss_handler:generatePainting(pSob, self.systemRarePaintings[bossIndex])
 	createObserver(OBJECTREMOVEDFROMZONE, "rare_boss_handler", "systemRareDead",pSob)
 	local msg = "A Powerful disturbance in the force has been felt on "..planet
-	broadcastGalaxy(msg)
+	broadcastToGalaxy(msg)
 end
 
 function rare_boss_handler:systemRareDead(pSob)

@@ -129,7 +129,6 @@ public:
 		if (arrivalShuttle == nullptr)
 			return GENERALERROR;
 
-
 		ManagedReference<CityRegion*> destCity = arrivalShuttle->getCityRegion().get();
 
 		if (destCity != nullptr){
@@ -258,7 +257,6 @@ public:
 			creature->subtractBankCredits(fare); //Take all of the fare from the bank.
 			trx.commit();
 		}
-
 
 		StringIdChatParameter params("@base_player:prose_pay_acct_success"); //You successfully make a payment of %DI credits to %TO.
 		params.setDI(baseFare + (roundTrip * baseFare));
