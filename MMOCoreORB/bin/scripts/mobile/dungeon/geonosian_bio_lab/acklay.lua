@@ -4,13 +4,15 @@ acklay = Creature:new {
 	socialGroup = "geonosian_creature",
 	mobType = MOB_CARNIVORE,
 	faction = "",
-	level = 157,
+	level = 330,
 	chanceHit = 92.5,
-	damageMin = 935,
-	damageMax = 1580,
+	damageMin = 700,
+	damageMax = 1400,
 	baseXp = 14884,
-	baseHAM = 96000,
-	baseHAMmax = 118000,
+	bonusType = "pve_xp",
+	bonusXP = 1000,
+	baseHAM = 911000,
+	baseHAMmax = 1058000,
 	armor = 2,
 	resists = {130,145,155,155,145,30,30,30,-1},
 	meatType = "",
@@ -31,10 +33,28 @@ acklay = Creature:new {
 	templates = {"object/mobile/acklay_hue.iff"},
 	lootGroups = {
 		{
+	        groups = {
+				{group = "armor_attachments", chance = 10000000},
+			},
+			lootChance = 3500000,
+		},
+		{
+	        groups = {
+				{group = "clothing_attachments", chance = 10000000},
+			},
+			lootChance = 6500000,
+		},
+		{
+	        groups = {
+				{group = "clothing_attachments", chance = 10000000},
+			},
+			lootChance = 9500000,
+		},
+		{
 			groups = {
-				{group = "acklay", chance = 10000000}
-			}
-		}
+				{group = "acklay", chance = 10000000},
+			},
+			lootChance = 10000000,		}
 	},
 
 	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)

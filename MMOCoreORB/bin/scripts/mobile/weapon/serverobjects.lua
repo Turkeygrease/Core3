@@ -135,3 +135,8 @@ includeFile("weapon/groups/tusken_weapons.lua")
 
 -- tutorial
 includeFile("weapon/groups/tutorial_bandit.lua")
+
+--Nex
+includeFile("weapon/groups/kirana_ti_weapons.lua")
+includeFile("weapon/groups/ubar_weapons.lua")
+includeFile("weapon/groups/warden_banhammer_weapons.lua")

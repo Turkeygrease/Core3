@@ -32,3 +32,8 @@ includeFile("dungeon/death_watch_bunker/mand_bunker_technician.lua")
 includeFile("dungeon/death_watch_bunker/mand_bunker_vent_droid.lua")
 includeFile("dungeon/death_watch_bunker/rageon_vart.lua")
 includeFile("dungeon/death_watch_bunker/technician.lua")
+
+--Added
+includeFile("dungeon/death_watch_bunker/dwb_rancor.lua")
+includeFile("dungeon/death_watch_bunker/dwb_jedi.lua")
+includeFile("dungeon/death_watch_bunker/dwb_craft_boss.lua")

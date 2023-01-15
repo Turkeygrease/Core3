@@ -61,3 +61,8 @@ includeFile("dungeon/corellian_corvette/rebel/novatrooper_ensign.lua")
 includeFile("dungeon/corellian_corvette/rebel/novatrooper.lua")
 includeFile("dungeon/corellian_corvette/rebel/novatrooper_medic.lua")
 includeFile("dungeon/corellian_corvette/rebel/novatrooper_squad_leader.lua")
+
+--BOSS
+includeFile("dungeon/corellian_corvette/vette_droid_boss.lua")
+includeFile("dungeon/corellian_corvette/vette_rescue_boss.lua")
+includeFile("dungeon/corellian_corvette/vette_destroy_boss.lua")
