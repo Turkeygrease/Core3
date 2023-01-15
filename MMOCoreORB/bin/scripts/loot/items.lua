@@ -1309,28 +1309,28 @@ includeFile("items/collectiondiamond.lua")
 
 	--mindsoft Currency Buff Bracelets
 --pvp imp buff bracelets
-includeFile("items/T1_PVP_Doctor_Band_IMP.lua")
-includeFile("items/T2_PVP_Doctor_Band_IMP.lua")
-includeFile("items/T3_PVP_Doctor_Band_IMP.lua")
-includeFile("items/T1_PVP_Entertainer_Band_IMP.lua")
-includeFile("items/T2_PVP_Entertainer_Band_IMP.lua")
-includeFile("items/T3_PVP_Entertainer_Band_IMP.lua")
+-- includeFile("items/T1_PVP_Doctor_Band_IMP.lua")
+-- includeFile("items/T2_PVP_Doctor_Band_IMP.lua")
+-- includeFile("items/T3_PVP_Doctor_Band_IMP.lua")
+-- includeFile("items/T1_PVP_Entertainer_Band_IMP.lua")
+-- includeFile("items/T2_PVP_Entertainer_Band_IMP.lua")
+-- includeFile("items/T3_PVP_Entertainer_Band_IMP.lua")
 
 --pvp reb buff bracelets
-includeFile("items/T1_PVP_Doctor_Band_REB.lua")
-includeFile("items/T2_PVP_Doctor_Band_REB.lua")
-includeFile("items/T3_PVP_Doctor_Band_REB.lua")
-includeFile("items/T1_PVP_Entertainer_Band_REB.lua")
-includeFile("items/T2_PVP_Entertainer_Band_REB.lua")
-includeFile("items/T3_PVP_Entertainer_Band_REB.lua")
+-- includeFile("items/T1_PVP_Doctor_Band_REB.lua")
+-- includeFile("items/T2_PVP_Doctor_Band_REB.lua")
+-- includeFile("items/T3_PVP_Doctor_Band_REB.lua")
+-- includeFile("items/T1_PVP_Entertainer_Band_REB.lua")
+-- includeFile("items/T2_PVP_Entertainer_Band_REB.lua")
+-- includeFile("items/T3_PVP_Entertainer_Band_REB.lua")
 
 --pve buff bracelets
-includeFile("items/T1_PVE_Doctor_Band.lua")
-includeFile("items/T2_PVE_Doctor_Band.lua")
-includeFile("items/T3_PVE_Doctor_Band.lua")
-includeFile("items/T1_PVE_Entertainer_Band.lua")
-includeFile("items/T2_PVE_Entertainer_Band.lua")
-includeFile("items/T3_PVE_Entertainer_Band.lua")
+-- includeFile("items/T1_PVE_Doctor_Band.lua")
+-- includeFile("items/T2_PVE_Doctor_Band.lua")
+-- includeFile("items/T3_PVE_Doctor_Band.lua")
+-- includeFile("items/T1_PVE_Entertainer_Band.lua")
+-- includeFile("items/T2_PVE_Entertainer_Band.lua")
+-- includeFile("items/T3_PVE_Entertainer_Band.lua")
 
 
 --custom merge
@@ -1392,12 +1392,6 @@ includeFile("items/tantive4_speeder_deed.lua")
 includeFile("items/usv5_speeder_deed.lua")
 includeFile("items/podracer_deed.lua")
 includeFile("items/podracer_two_deed.lua")
-
-
-
-
-
-
 
 --weapon schems
 includeFile("items/crimson_pistol_schematic.lua")
