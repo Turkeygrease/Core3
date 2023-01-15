@@ -4,6 +4,7 @@ fluorescent_reptilian_flier = Creature:new {
 	socialGroup = "geonosian_creature",
 	pvpFaction = "",
 	faction = "",
+	mobType = MOB_CARNIVORE,
 	level = 500,
 	chanceHit = 45.5,
 	damageMin = 1500,
@@ -33,22 +34,19 @@ fluorescent_reptilian_flier = Creature:new {
 	scale = 1.5,
 	lootGroups = {
 		{
-	        	groups =
-			{
-				{group = "elite_mastery_jewelry", chance = 5000000},
+	        groups = {
+				{group = "elite_mastery_jewelry", chance = 10000000},
 			},
-			lootChance = 6500000,
+			lootChance = 5000000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "armor_attachments", chance = 10000000},
 			},
 			lootChance = 7500000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "clothing_attachments", chance = 10000000},
 			},
 			lootChance = 7500000,
@@ -60,18 +58,16 @@ fluorescent_reptilian_flier = Creature:new {
 			lootChance = 8000000
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "dw_tissue", chance = 10000000},
 			},
 			lootChance = 9500000,
 		},
 		{
-			groups =
-			{
-				{group = "kkorrwrot_boss", chance = 2500000},
+			groups = {
+				{group = "kkorrwrot_boss", chance = 10000000},
 			},
-			lootChance = 95000000,
+			lootChance = 2500000,
 		},
 		{
 			groups = {
@@ -81,13 +77,17 @@ fluorescent_reptilian_flier = Creature:new {
 			lootChance = 7500000,
 		},
 	},
-	weapons = {},
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "unarmed",
+	secondaryWeapon = "none",
 	conversationTemplate = "",
-	attacks = {
-		{"creatureareattack",""},
-		{"stunattack","stunChance=70"},
-		{"creatureareableeding",""}
-	}
+	
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = { {"creatureareattack",""}, {"stunattack","stunChance=70"}, {"creatureareableeding",""} },
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(fluorescent_reptilian_flier, "fluorescent_reptilian_flier")

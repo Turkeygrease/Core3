@@ -3,6 +3,7 @@ ig_test_droid = Creature:new {
 	socialGroup = "swoop",
 	faction = "swoop",
 	level = 500,
+	mobType = MOB_ANDROID,
 	chanceHit = 300,
 	damageMin = 395,
 	damageMax = 1300,
@@ -31,16 +32,13 @@ ig_test_droid = Creature:new {
 	scale = 1.2,
 	lootGroups = {
 		{
-	        	groups = 
-			{
+			groups = {
 				{group = "mando_loot", chance = 10000000},
 			},
 			lootChance = 10000000,
 		},
-
 		{
-	        	groups = 
-			{
+	        groups = {
 				{group = "lootcollectiontierheroics", chance = 3000000},
 				{group = "lootcollectiontierdiamonds", chance = 7000000},
 			},
@@ -52,10 +50,8 @@ ig_test_droid = Creature:new {
 			},
 			lootChance = 10000000,
 		},
-
 		{
-	        	groups = 
-			{
+	        groups = {
 				{group = "vendor_pvp_ranged_comps", chance = 3300000},
 				{group = "vendor_pvp_melee_comps", chance = 3400000},
 				{group = "vendor_pvp_cm_comps", chance = 3300000},
@@ -63,9 +59,20 @@ ig_test_droid = Creature:new {
 			lootChance = 7000000,
 		}
 	},
-	conversationTemplate = "",
+	
 	defaultWeapon = "object/weapon/ranged/droid/droid_droideka_ranged.iff",
-	defaultAttack = "attack"
+	defaultAttack = "attack",
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "unarmed",
+	secondaryWeapon = "none",
+	conversationTemplate = "",
+
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = {},
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(ig_test_droid, "ig_test_droid")

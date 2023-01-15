@@ -1,9 +1,9 @@
 undead_rancor = Creature:new {
-	objectName = "@mob/creature_names:enhanced_rancor",
 	customName = "Undead Mutant Rancor",
 	socialGroup = "nightsister",
 	pvpFaction = "nightsister",
 	faction = "nightsister",
+	mobType = MOB_CARNIVORE,
 	level = 500,
 	chanceHit = 55.5,
 	damageMin = 900,
@@ -32,57 +32,54 @@ undead_rancor = Creature:new {
 	templates = {"object/mobile/outbreak_afflicted_blackwing_rancor_boss.iff"},
 	scale = 0.4,
 	lootGroups = {
-
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "clothing_attachments", chance = 10000000},
 			},
 			lootChance = 7500000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "armor_attachments", chance = 10000000},
 			},
 			lootChance = 7500000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "halloween_group", chance = 10000000},
 			},
 			lootChance = 9500000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "halloween_group", chance = 10000000},
 			},
 			lootChance = 9500000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "bw_tooth", chance = 10000000},
 			},
 			lootChance = 9900000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "undead_armor_b", chance = 10000000},
 			},
 			lootChance = 9900000,
 		},
 	},
-	weapons = {},
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "unarmed",
+	secondaryWeapon = "none",
 	conversationTemplate = "",
-	attacks = {
-		{"creatureareattack",""},
-		{"stunattack","stunChance=70"},
-		{"creatureareableeding",""}
-	}
+	
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = { {"creatureareattack",""}, {"stunattack","stunChance=70"}, {"creatureareableeding",""} },
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(undead_rancor, "undead_rancor")

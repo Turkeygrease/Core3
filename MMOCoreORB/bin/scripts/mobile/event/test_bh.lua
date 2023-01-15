@@ -4,6 +4,7 @@ test_bh = Creature:new {
 	randomNameTag = true,
 	socialGroup = "swoop",
 	faction = "swoop",
+	mobType = MOB_NPC,
 	level = 500,
 	chanceHit = 300,
 	damageMin = 395,
@@ -33,16 +34,14 @@ test_bh = Creature:new {
 	scale = 1.2,
 	lootGroups = {
 		{
-	        	groups = 
-			{
+	        groups = {
 				{group = "mando_loot", chance = 10000000},
 			},
 			lootChance = 10000000,
 		},
 
 		{
-	        	groups = 
-			{
+	        groups = {
 				{group = "lootcollectiontierheroics", chance = 3000000},
 				{group = "lootcollectiontierdiamonds", chance = 7000000},
 			},
@@ -56,8 +55,7 @@ test_bh = Creature:new {
 		},
 
 		{
-	        	groups = 
-			{
+	        groups = {
 				{group = "vendor_pvp_ranged_comps", chance = 3300000},
 				{group = "vendor_pvp_melee_comps", chance = 3400000},
 				{group = "vendor_pvp_cm_comps", chance = 3300000},
@@ -65,9 +63,17 @@ test_bh = Creature:new {
 			lootChance = 7000000,
 		}
 	},
-	weapons = {"pirate_weapons_heavy"},
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "pirate_weapons_heavy",
+	secondaryWeapon = "none",
 	conversationTemplate = "",
-	attacks = merge(bountyhuntermaster,marksmanmaster,brawlermaster,pikemanmaster,fencermaster,swordsmanmaster)
+
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = merge(bountyhuntermaster,marksmanmaster,brawlermaster,pikemanmaster,fencermaster,swordsmanmaster),
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(test_bh, "test_bh")

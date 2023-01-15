@@ -1,9 +1,9 @@
 ba_forcemaster = Creature:new {
-	objectName = "",
 	customName = "Dark Adept of the Force",
 	socialGroup = "Dark Jedi",
 	pvpFaction = "",
 	faction = "",
+	mobType = MOB_NPC,
 	level = 325,
 	chanceHit = 40,
 	damageMin = 700,
@@ -30,10 +30,16 @@ ba_forcemaster = Creature:new {
 	templates = {"object/mobile/dressed_fightmaster_jorak.iff"},
 --	outfit = "exar_outfit",
 
-	lootGroups = {},
-	weapons = {"light_jedi_weapons"},
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "light_jedi_weapons",
+	secondaryWeapon = "none",
 	conversationTemplate = "",
-	attacks = merge(lightsabermaster,forcepowermaster)
-	}
+	
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = merge(lightsabermaster,forcepowermaster),
+	secondaryAttacks = { }
+}
 
 CreatureTemplates:addCreatureTemplate(ba_forcemaster, "ba_forcemaster")

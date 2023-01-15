@@ -2,6 +2,7 @@ gmf_broodling = Creature:new {
 	customName = "Spider Broodling",
 	socialGroup = "nightsister",
 	level = 44,
+	mobType = MOB_CARNIVORE,
 	chanceHit = 0.46,
 	damageMin = 390,
 	damageMax = 490,
@@ -15,19 +16,26 @@ gmf_broodling = Creature:new {
 	creatureBitmask = PACK + KILLER + STALKER,
 	optionsBitmask = AIENABLED,
 	diet = CARNIVORE,
+	
 	templates = {
 		"object/mobile/gaping_spider.iff",
 		"object/mobile/hermit_spider.iff",
 		"object/mobile/nightspider.iff"
 	},
-	scale = .2,
+
+	scale = 0.2,
 	lootGroups = {},
-	weapons = {"creature_spit_small_toxicgreen"},
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "creature_spit_small_toxicgreen",
+	secondaryWeapon = "none",
 	conversationTemplate = "",
-	attacks = {
-		{"creatureareapoison",""},
-		{"strongpoison",""}
-	}
+	
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = { {"creatureareapoison",""}, {"strongpoison",""} },
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(gmf_broodling, "gmf_broodling")

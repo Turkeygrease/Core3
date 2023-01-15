@@ -3,6 +3,7 @@ endor_stormtrooper = Creature:new {
 	randomNameType = NAME_STORMTROOPER,
 	socialGroup = "imperial",
 	faction = "imperial",
+	mobType = MOB_NPC,
 	level = 25,
 	chanceHit = 0.36,
 	damageMin = 5,
@@ -35,6 +36,7 @@ endor_stormtrooper = Creature:new {
 		"object/mobile/dressed_scout_trooper_white_white.iff",
 		"object/mobile/dressed_dark_jedi_human_female_01.iff"
 	},
+
 	lootGroups = {
 		{
 			groups = {
@@ -51,11 +53,20 @@ endor_stormtrooper = Creature:new {
 			}
 		}
 	},
-	weapons = {"stormtrooper_weapons"},
-	conversationTemplate = "",
+
 	reactionStf = "@npc_reaction/stormtrooper",
-	personalityStf = "@hireling/hireling_stormtrooper",		
-	attacks = merge(riflemanmaster,carbineermaster,brawlermaster,marksmanmaster)
+	personalityStf = "@hireling/hireling_stormtrooper",
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "stormtrooper_weapons",
+	secondaryWeapon = "none",
+	conversationTemplate = "",
+	
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = merge(riflemanmaster,carbineermaster,brawlermaster,marksmanmaster),
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(endor_stormtrooper, "endor_stormtrooper")

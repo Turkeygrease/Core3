@@ -4,6 +4,7 @@ krayt_disciple_c = Creature:new {
 	socialGroup = "tusken_raider",
 	faction = "tusken_raider",
 	level = 500,
+	mobType = MOB_NPC,
 	chanceHit = 300,
 	damageMin = 495,
 	damageMax = 1500,
@@ -28,55 +29,51 @@ krayt_disciple_c = Creature:new {
 	optionsBitmask = 128,
 	diet = HERBIVORE,
 
-	templates = {"object/mobile/tatooine_npc/hedon_istee.iff"},
+	templates = {
+		"object/mobile/tatooine_npc/hedon_istee.iff"
+	},
+	
 	outfit = "tusken_disciple_outfit",	
 	scale = 1.2,	
 	lootGroups = {
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "holocron_light", chance = 10000000},
 			},
 			lootChance = 9500000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "clothing_attachments", chance = 10000000},
 			},
 			lootChance = 9500000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "clothing_attachments", chance = 10000000},
 			},
 			lootChance = 9500000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "vendor_pvp_cm_comps", chance = 10000000},
 			},
 			lootChance = 9500000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "grenades_looted", chance = 10000000},
 			},
 			lootChance = 9500000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "krayt_pearls", chance = 10000000},
 			},
 			lootChance = 9500000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "krayt_pearls", chance = 10000000},
 			},
 			lootChance = 7500000,
@@ -112,9 +109,17 @@ krayt_disciple_c = Creature:new {
 			lootChance = 4000000
 		}
 	},
-	weapons = {"light_jedi_weapons"},
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "light_jedi_weapons",
+	secondaryWeapon = "none",
 	conversationTemplate = "",
-	attacks = merge(lightsabermaster,forcepowermaster)
+
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = merge(lightsabermaster,forcepowermaster),
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(krayt_disciple_c, "krayt_disciple_c")

@@ -1,9 +1,9 @@
 holiday_wampa_boss = Creature:new {
-	objectName = "@mob/creature_names:unkajo",
 	customName = "The Abominabital Snowman",
 	socialGroup = "rancor",
 	pvpFaction = "",
 	faction = "",
+	mobType = MOB_HERBIVORE,
 	level = 500,
 	chanceHit = 300,
 	damageMin = 345,
@@ -32,39 +32,33 @@ holiday_wampa_boss = Creature:new {
 	templates = {"object/mobile/wampa.iff"},
 	scale = 1.0,	
 	lootGroups = {
-
 		{
-	        	groups = 
-			{
+	        groups = {
 				{group = "tusken_dot_group", chance = 10000000},
 			},
 			lootChance = 7500000,
 		},
 		{
-	        	groups = 
-			{
+	        groups = {
 				{group = "armor_attachments", chance = 10000000},
 			},
 			lootChance = 7500000,
 		},
 		{
-	        	groups = 
-			{
+	        groups = {
 				{group = "lootcollectiontierheroics", chance = 3000000},
 				{group = "lootcollectiontierdiamonds", chance = 7000000},
 			},
 			lootChance = 5000000,
 		},
 		{
-	        	groups =
-			{
+			groups = {
 				{group = "bw_tooth", chance = 10000000},
 			},
 			lootChance = 9900000,
 		},
 		{
-	        	groups = 
-			{
+	        groups = {
 				{group = "vendor_pvp_ranged_comps", chance = 4000000},
 				{group = "vendor_pvp_cm_comps", chance = 6000000},
 			},
@@ -72,12 +66,17 @@ holiday_wampa_boss = Creature:new {
 		}
 				
 	},
-	weapons = {},
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "unarmed",
+	secondaryWeapon = "none",
 	conversationTemplate = "",
-	attacks = {
-		{"creatureareapoison"},
-		{"creatureareaknockdown","knockdownChance=90"}
-	}
+	
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = { {"creatureareapoison"}, {"creatureareaknockdown","knockdownChance=90"} },
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(holiday_wampa_boss, "holiday_wampa_boss")

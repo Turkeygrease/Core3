@@ -1,7 +1,7 @@
 holiday_baby_wampa = Creature:new {
-	objectName = "@mob/creature_names:unkajo",
 	customName = "a baby Wampa",
 	socialGroup = "rancor",
+	mobType = MOB_HERBIVORE,
 	pvpFaction = "",
 	faction = "",
 	level = 300,
@@ -13,12 +13,12 @@ holiday_baby_wampa = Creature:new {
 	baseHAMmax = 57000,
 	armor = 0,
 	resists = {0,0,0,0,0,0,0,0,-1},
-	meatType = "",
-	meatAmount = 0,
-	hideType = "",
-	hideAmount = 0,
-	boneType = "",
-	boneAmount = 0,
+	meatType = "meat_herbivore",
+	meatAmount = 15,
+	hideType = "hide_wooly",
+	hideAmount = 13,
+	boneType = "bone_mammal",
+	boneAmount = 12,
 	milk = 0,
 	tamingChance = 0,
 	ferocity = 0,
@@ -30,12 +30,16 @@ holiday_baby_wampa = Creature:new {
 	templates = {"object/mobile/wampa.iff"},
 	scale = .20,	
 	lootGroups = {},
-	weapons = {},
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "unarmed",
+	secondaryWeapon = "none",
 	conversationTemplate = "",
-	attacks = {
-		{"stunattack","stunChance=100"},
-		{"creatureareaknockdown","knockdownChance=100"}
-	}
+	
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = { {"blindattack",""} },
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(holiday_baby_wampa, "holiday_baby_wampa")

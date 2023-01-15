@@ -1,9 +1,9 @@
 darth_krayt = Creature:new {
-	objectName = "",
 	customName = "A'Sharad Hett",
 	socialGroup = "tusken_raider",
 	faction = "tusken_raider",
 	level = 500,
+	mobType = MOB_NPC,
 	chanceHit = 300,
 	damageMin = 495,
 	damageMax = 1500,
@@ -33,50 +33,43 @@ darth_krayt = Creature:new {
 	scale = 1.4,	
 	lootGroups = {
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "holocron_light", chance = 10000000},
 			},
 			lootChance = 9500000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "clothing_attachments", chance = 10000000},
 			},
 			lootChance = 9500000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "clothing_attachments", chance = 10000000},
 			},
 			lootChance = 9500000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "tusken_dot_group", chance = 10000000},
 			},
 			lootChance = 9900000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "darth_krayt_group", chance = 10000000},
 			},
 			lootChance = 9900000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "knight_saber_group", chance = 10000000},
 			},
 			lootChance = 9900000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "krayt_pearls", chance = 10000000},
 			},
 			lootChance = 7500000,
@@ -112,9 +105,17 @@ darth_krayt = Creature:new {
 			lootChance = 8000000
 		}
 	},
-	weapons = {"light_jedi_weapons"},
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "light_jedi_weapons",
+	secondaryWeapon = "none",
 	conversationTemplate = "",
-	attacks = merge(lightsabermaster,forcepowermaster)
+
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = merge(lightsabermaster,forcepowermaster),
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(darth_krayt, "darth_krayt")

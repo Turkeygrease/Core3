@@ -3,6 +3,7 @@ janta_boss_01 = Creature:new {
 	customName = "Deven Rarmark",
 	socialGroup = "janta_tribe",
 	faction = "janta_tribe",
+	mobType = MOB_NPC,
 	level = 60,
 	chanceHit = 0.65,
 	damageMin = 470,
@@ -27,7 +28,9 @@ janta_boss_01 = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {
-		"object/mobile/dantari_male_boss1.iff"},
+		"object/mobile/dantari_male_boss1.iff"
+	},
+
 	lootGroups = {
 		{
 			groups = {
@@ -38,16 +41,23 @@ janta_boss_01 = Creature:new {
 			lootChance = 8000000
 		},
 		{
-	        	groups = 
-			{
+			groups = {
 				{group = "janta_common", chance = 10000000},
 			},
 			lootChance = 4500000,
 		}
 	},
-	weapons = {"primitive_weapons"},
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "primitive_weapons",
+	secondaryWeapon = "none",
 	conversationTemplate = "",
-	attacks = merge(pikemanmaster,fencermaster,brawlermaster)
+	
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = merge(pikemanmaster,fencermaster,brawlermaster),
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(janta_boss_01, "janta_boss_01")

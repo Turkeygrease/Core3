@@ -3,6 +3,7 @@ endor_b4 = Creature:new {
 	customName = "Death Watch Leader",
 	socialGroup = "death_watch",
 	faction = "",
+	mobType = MOB_NPC,
 	level = 500,
 	chanceHit = 12.25,
 	damageMin = 10,
@@ -42,9 +43,17 @@ endor_b4 = Creature:new {
 			lootChance = 10000000,
 		} 
 	},
-	weapons = {"death_watch_commander_weapons"},
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "death_watch_commander_weapons",
+	secondaryWeapon = "none",
 	conversationTemplate = "",
-	attacks = merge(carbineermaster,marksmanmaster,brawlermaster,pistoleermaster)
+	
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = merge(carbineermaster,marksmanmaster,brawlermaster,pistoleermaster),
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(endor_b4, "endor_b4")

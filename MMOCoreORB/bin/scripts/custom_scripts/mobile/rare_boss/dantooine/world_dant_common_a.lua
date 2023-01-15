@@ -3,6 +3,7 @@ world_dant_common_a = Creature:new {
 	customName = "Crystal Hunter-Bronze",
 	socialGroup = "kun",
 	faction = "",
+	mobType = MOB_NPC,
 	level = 500,
 	chanceHit = 75,
 	damageMin = 820,
@@ -31,16 +32,14 @@ world_dant_common_a = Creature:new {
 	templates = {"object/mobile/dressed_dark_force_crystal_hunter.iff"},
 	lootGroups = {
 		{
-	        	groups = 
-			{
+	        groups = {
 				{group = "mando_loot", chance = 10000000},
 			},
 			lootChance = 10000000,
 		},
 
 		{
-	        	groups = 
-			{
+	        groups = {
 				{group = "lootcollectiontierheroics", chance = 3000000},
 				{group = "lootcollectiontierdiamonds", chance = 7000000},
 			},
@@ -54,8 +53,7 @@ world_dant_common_a = Creature:new {
 		},
 
 		{
-	        	groups = 
-			{
+	        groups = {
 				{group = "vendor_pvp_ranged_comps", chance = 3300000},
 				{group = "vendor_pvp_melee_comps", chance = 3400000},
 				{group = "vendor_pvp_cm_comps", chance = 3300000},
@@ -63,9 +61,17 @@ world_dant_common_a = Creature:new {
 			lootChance = 7000000,
 		}
 	},
-	weapons = {"mixed_force_weapons"},
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "mixed_force_weapons",
+	secondaryWeapon = "none",
 	conversationTemplate = "",
-	attacks = merge(pikemanmaster,brawlermaster,fencermaster,swordsmanmaster,forcewielder)
+	
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = merge(pikemanmaster,brawlermaster,fencermaster,swordsmanmaster,forcewielder),
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(world_dant_common_a, "world_dant_common_a")

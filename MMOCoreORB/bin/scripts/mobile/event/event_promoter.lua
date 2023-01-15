@@ -1,5 +1,4 @@
 event_promoter = Creature:new {
-	objectName = "",
 	randomNameType = NAME_GENERIC,
 	randomNameTag = true,
 	customName = "an Event Promoter",
@@ -29,7 +28,7 @@ event_promoter = Creature:new {
 	optionsBitmask = CONVERSABLE,
 	diet = HERBIVORE,
 
-	templates = {	"commoner" },
+	templates = { "commoner" },
 
 	lootGroups = {},
 
