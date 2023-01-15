@@ -52,6 +52,8 @@
 #include "server/zone/objects/tangible/components/HolocronMenuComponent.h"
 #include "server/zone/objects/tangible/components/WaypointDatapadMenuComponent.h"
 #include "server/zone/objects/tangible/components/ForceCrystalMenuComponent.h"
+#include "server/zone/objects/tangible/components/DiamondMenuComponent.h"
+#include "server/zone/objects/tangible/components/HeroicMenuComponent.h"
 #include "server/zone/objects/tangible/components/RobeObjectMenuComponent.h"
 #include "server/zone/objects/tangible/components/generic/ArtCrateMenuComponent.h"
 #include "server/zone/objects/tangible/components/WeaponObjectMenuComponent.h"
@@ -152,6 +154,11 @@
 #include "server/zone/objects/tangible/components/droid/DroidHarvestModuleDataComponent.h"
 #include "server/zone/objects/tangible/components/droid/DroidPersonalityModuleDataComponent.h"
 
+//mindsoft added for currency bracelets
+#include "server/zone/objects/tangible/components/CurrencyBuffMenuComponent.h"
+#include "server/zone/objects/tangible/components/currencyBuffAttributeListComponent.h"
+#include "server/zone/objects/tangible/components/currencyBuffDataComponent.h"
+
 ComponentManager::ComponentManager() {
 	components.put("ContainerComponent", new ContainerComponent());
 	components.put("PlayerContainerComponent", new PlayerContainerComponent());
@@ -197,6 +204,9 @@ ComponentManager::ComponentManager() {
 	components.put("LootSchematicAttributeListComponent", new LootSchematicAttributeListComponent());
 	components.put("XpPurchaseAttributeListComponent", new XpPurchaseAttributeListComponent());
 	components.put("XpPurchaseMenuComponent", new XpPurchaseMenuComponent());
+
+	components.put("DiamondMenuComponent", new DiamondMenuComponent());
+	components.put("HeroicMenuComponent", new HeroicMenuComponent());
 
 	components.put("RingObjectMenuComponent", new RingObjectMenuComponent());
 
@@ -326,6 +336,11 @@ ComponentManager::ComponentManager() {
 
 	components.put("FlagGameMenuComponent", new FlagGameMenuComponent() );
 	dataObjectFactory.registerObject<FlagGameDataComponent>("FlagGameDataComponent");
+
+	//Mindsoft added for currency bracelets
+	components.put("CurrencyBuffMenuComponent", new CurrencyBuffMenuComponent());
+	components.put("CurrencyBuffAttributeListComponent", new CurrencyBuffAttributeListComponent());
+	dataObjectFactory.registerObject<CurrencyBuffDataComponent>("CurrencyBuffDataComponent");
 
 	// Droid components
 	dataObjectFactory.registerObject<DroidMaintenanceModuleDataComponent>("DroidMaintenanceModuleDataComponent");
