@@ -48,7 +48,7 @@ childObjects = {
 	--Dog Fight 1
 	{templateFile = "object/static/particle/particle_blackhole_01.iff", x = 20, z = 6, y = 0, ox = 0, oy = 0, oz = 0, ow = 1, cellid = -1, containmentType = -1},
 	--Dog Fight 1
-	{templateFile = "object/static/worldbuilding/sign/star_port_sign_01_fixed.iff", x = -15, z = 3, y = 0, ox = 0, oy = 0, oz = 0, ow = 1, cellid = -1, containmentType = -1},
+	--{templateFile = "object/static/worldbuilding/sign/star_port_sign_01_fixed.iff", x = -15, z = 3, y = 0, ox = 0, oy = 0, oz = 0, ow = 1, cellid = -1, containmentType = -1},
 	},
 
 
