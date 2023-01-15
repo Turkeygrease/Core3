@@ -16,7 +16,7 @@ modern_furniture_group = {
 		{itemTemplate = "loot_modern_end_table_large_01", weight = 1000000}, -- common 10%
 		{itemTemplate = "loot_modern_end_table_small_01", weight = 300000},-- rare 3%
 		{itemTemplate = "loot_modern_love_seat_01", weight = 300000}, -- rare 3%
-		{itemTemplate = "loot_modern_sofa_chair_01", weight = 800000}, -- uncommon 8%
+		{itemTemplate = "loot_modern_sofa_chair_01", weight = 700000}, -- uncommon 7%
 		{itemTemplate = "loot_modern_table_01", weight = 200000}, -- very rare 2%
 	}
 }

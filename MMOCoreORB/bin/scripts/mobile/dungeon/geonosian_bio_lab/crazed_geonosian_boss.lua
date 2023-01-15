@@ -4,6 +4,7 @@ crazed_geonosian_boss = Creature:new {
 	randomNameTag = true,
 	socialGroup = "self",
 	faction = "",
+	mobType = MOB_HERBIVORE,
 	level = 400,
 	chanceHit = 45.5,
 	damageMin = 396,
@@ -32,19 +33,20 @@ crazed_geonosian_boss = Creature:new {
 	templates = {
 		"object/mobile/dressed_geonosian_warrior_01.iff",
 		"object/mobile/dressed_geonosian_warrior_02.iff",
-		"object/mobile/dressed_geonosian_warrior_03.iff"},
+		"object/mobile/dressed_geonosian_warrior_03.iff"
+	},
+	
 	scale = 1.5,
+
 	lootGroups = {
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "armor_attachments", chance = 10000000},
 			},
 			lootChance = 7500000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "holocron_light", chance = 10000000},
 			},
 			lootChance = 10000000,
@@ -56,24 +58,29 @@ crazed_geonosian_boss = Creature:new {
 			lootChance = 6000000
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "power_crystals", chance = 10000000},
 			},
 			lootChance = 8500000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "geo_weapon_schems", chance = 10000000},
 			},
 			lootChance = 8500000,
 		},
-		
 	},
-	weapons = {"geonosian_weapons"},
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "geonosian_weapons",
+	secondaryWeapon = "none",
 	conversationTemplate = "",
-	attacks = merge(brawlermaster,marksmanmaster,pistoleermaster,riflemanmaster)
+	
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = merge(brawlermaster,marksmanmaster,pistoleermaster,riflemanmaster),
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(crazed_geonosian_boss, "crazed_geonosian_boss")

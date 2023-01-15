@@ -1,10 +1,10 @@
 quest_glowie_trigger_imp = Creature:new {
-	objectName = "",
 	customName = "Officer Pin",
 	socialGroup = "imperial",
 	pvpFaction = "imperial",
 	faction = "imperial",
 	level = 25,
+	mobType = MOB_NPC,
 	chanceHit = 40,
 	damageMin = 240,
 	damageMax = 250,
@@ -28,12 +28,18 @@ quest_glowie_trigger_imp = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/dressed_imperial_officer_m.iff"},
---	outfit = "cyssc_outfit",
 	lootGroups = {},
-	weapons = {"dark_jedi_weapons"},
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "dark_jedi_weapons_gen4",
+	secondaryWeapon = "none",
 	conversationTemplate = "glowie_expansion_quest_imp_template",
-	attacks = {
-	}
+	
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = { },
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(quest_glowie_trigger_imp, "quest_glowie_trigger_imp")

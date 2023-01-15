@@ -850,8 +850,8 @@ function WFspawnMobile(stringData, returnType) --returnType: 1 = spawn, 2 = trig
 
 		pMob = spawnMobile(way[1],t,0,x,z,y,way[5],way[6])
 		if (data.aiTemplate) then
-			AiAgent(pMob):setAiTemplate("")
-			--AiAgent(pMob):setAiTemplate(data.aiTemplate)
+			AiAgent(pMob):setAITemplate("")
+			--AiAgent(pMob):setAITemplate(data.aiTemplate)
 		end
 	end
 

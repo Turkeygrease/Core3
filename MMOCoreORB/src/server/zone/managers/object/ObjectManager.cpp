@@ -121,6 +121,8 @@ void ObjectManager::registerObjectTypes() {
 	objectFactory.registerObject<ArmorObject>(SceneObjectType::HANDARMOR);
 	objectFactory.registerObject<ArmorObject>(SceneObjectType::FOOTARMOR);
 	objectFactory.registerObject<ArmorObject>(SceneObjectType::SHIELDGENERATOR);
+	objectFactory.registerObject<CyberneticObject>(SceneObjectType::CYBERNETICLEGS);
+	objectFactory.registerObject<CyberneticObject>(SceneObjectType::CYBERNETICTORSO);
 	objectFactory.registerObject<ToolTangibleObject>(SceneObjectType::TOOL);
 	objectFactory.registerObject<RepairTool>(SceneObjectType::REPAIRTOOL);
 	objectFactory.registerObject<CraftingTool>(SceneObjectType::CRAFTINGTOOL);

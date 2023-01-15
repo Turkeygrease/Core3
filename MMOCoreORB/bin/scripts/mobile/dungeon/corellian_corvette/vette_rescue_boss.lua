@@ -4,6 +4,7 @@ vette_rescue_boss = Creature:new {
 	socialGroup = "self",
 	pvpFaction = "",
 	faction = "",
+	mobType = MOB_NPC,
 	level = 500,
 	chanceHit = 8.5,
 	damageMin = 320,
@@ -30,73 +31,70 @@ vette_rescue_boss = Creature:new {
 	diet = HERBIVORE,
 
 	templates = {"object/mobile/dressed_marauder.iff"},
-	scale = 1.3,		
+	scale = 1.3,
 	lootGroups = {
-		
-
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "armor_attachments", chance = 10000000},
 			},
 			lootChance = 9500000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "clothing_attachments", chance = 10000000},
 			},
 			lootChance = 9500000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "holocron_light", chance = 10000000},
 			},
 			lootChance = 9500000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "crovaxloot_group", chance = 10000000},
 			},
 			lootChance = 6500000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "corvette_boss", chance = 10000000},
 			},
 			lootChance = 9500000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "elite_melee_schems_01", chance = 10000000},
 			},
 			lootChance = 9500000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "infiltrator_armor_loot", chance = 5000000},
 				{group = "spec_force_armor_loot", chance = 5000000},
 			},
 			lootChance = 9500000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "infiltrator_armor_loot", chance = 5000000},
 				{group = "spec_force_armor_loot", chance = 5000000},
 			},
 			lootChance = 6500000,
 		},
-				
 	},
-	weapons = {"mixed_force_weapons"},
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "mixed_force_weapons",
+	secondaryWeapon = "none",
 	conversationTemplate = "",
-	attacks = merge(pikemanmaster)
+	
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = merge(pikemanmaster),
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(vette_rescue_boss, "vette_rescue_boss")

@@ -25,32 +25,37 @@
 void HeroicMenuComponent::fillObjectMenuResponse(SceneObject* sceneObject, ObjectMenuResponse* menuResponse, CreatureObject* player) const {
 
 	TangibleObjectMenuComponent::fillObjectMenuResponse(sceneObject, menuResponse, player);
-		ManagedReference<BuildingObject*> building = cast<BuildingObject*>(player->getRootParent());
+	ManagedReference<BuildingObject*> building = cast<BuildingObject*>(player->getRootParent());
 
 	// If outside dispaly menu options, if inside a building show nothing.
-	if (building == NULL) {
-	menuResponse->addRadialMenuItem(20, 3, "Open Gold Crate");
+	if (building == nullptr) {
+		menuResponse->addRadialMenuItem(20, 3, "Open Gold Crate");
 	}
 
 }
 
 int HeroicMenuComponent::handleObjectMenuSelect(SceneObject* sceneObject, CreatureObject* creature, byte selectedID) const {
-		ManagedReference<BuildingObject*> building = cast<BuildingObject*>(creature->getRootParent());
+	ManagedReference<BuildingObject*> building = cast<BuildingObject*>(creature->getRootParent());
 
 	// If outside dispaly menu options, if inside a building show nothing.
-	if (building == NULL) {
-	if (selectedID != 20)
-		return 0;
+	if (building == nullptr) {
+		if (selectedID != 20)
+			return 0;
 
-	if (!sceneObject->isASubChildOf(creature))
-		return 0;
+		if (!sceneObject->isASubChildOf(creature))
+			return 0;
 
-	ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
- 	ManagedReference<SceneObject*> inventory = creature->getSlottedObject("inventory");
- 	ManagedReference<LootManager*> lootManager = creature->getZoneServer()->getLootManager();
-	lootManager->createLoot(inventory, "lootcollectiontierheroic", 300);
-	creature->playEffect("clienteffect/trap_electric_01.cef", "");
-	sceneObject->destroyObjectFromWorld(true);
+		ManagedReference<PlayerObject*> ghost = creature->getPlayerObject();
+		ManagedReference<SceneObject*> inventory = creature->getSlottedObject("inventory");
+		ManagedReference<LootManager*> lootManager = creature->getZoneServer()->getLootManager();
+
+		TransactionLog trx(TrxCode::NPCLOOTCLAIM, creature);
+
+		lootManager->createLoot(trx, inventory, "lootcollectiontierheroic", 300);
+
+		creature->playEffect("clienteffect/trap_electric_01.cef", "");
+		sceneObject->destroyObjectFromWorld(true);
 	}
+
 	return 0;
 }

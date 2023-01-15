@@ -200,7 +200,11 @@ void SharedCreatureObjectTemplate::readObject(IffStream* iffStream) {
 		parseFileData(iffStream);
 	} catch (Exception& e) {
 		String msg;
-		msg += "exception caught parsing file data ->";
+
+		String fName = iffStream->getFileName();
+
+		msg += "exception in " + fName + ": caught parsing file data ->";
+
 		msg += e.getMessage();
 
 		Logger::console.error(msg);

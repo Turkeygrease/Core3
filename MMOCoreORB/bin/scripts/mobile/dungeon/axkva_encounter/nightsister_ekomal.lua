@@ -4,6 +4,7 @@ nightsister_ekomal = Creature:new {
 	socialGroup = "nightsister",
 	faction = "nightsister",
 	level = 200,
+	mobType = MOB_NPC,
 	chanceHit = 200,
 	damageMin = 1555,
 	damageMax = 2820,
@@ -29,9 +30,17 @@ nightsister_ekomal = Creature:new {
 
 	templates = {"object/mobile/dressed_dathomir_nightsister_ranger.iff"},
 	lootGroups = {},
-	weapons = {"mixed_force_weapons"},
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "mixed_force_weapons",
+	secondaryWeapon = "none",
 	conversationTemplate = "",
-	attacks = merge(fencermid,swordsmanmid,tkamid,pikemanmid,brawlermaster,forcewielder)
+	
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = merge(fencermid,swordsmanmid,tkamid,pikemanmid,brawlermaster,forcewielder),
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(nightsister_ekomal, "nightsister_ekomal")

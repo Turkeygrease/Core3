@@ -5,7 +5,7 @@ function screenplayHelper.spawnMobileAndIdle(planet, mobile, spawntimer, x, z, y
 	local pMobile = spawnMobile(planet, mobile, spawntimer, x, z, y, rot, cell)
     local aiAgentSquad = LuaAiAgent(pMobile)
 	if (aiAgentSquad ~= nil) then
-	 	aiAgentSquad:setAiTemplate("idlewander")
+	 	aiAgentSquad:setAITemplate("idlewander")
 	end
 	return pMobile
 end
@@ -128,7 +128,7 @@ function screenplayHelper.setBehavior(squadid, behavior, count)
 		local aiAgent_Squad = LuaAiAgent(pSquad)
 
 		if (aiAgent_Squad ~= nil) then
-			aiAgent_Squad:setAiTemplate(behavior)
+			aiAgent_Squad:setAITemplate(behavior)
 		end
 	end
 end

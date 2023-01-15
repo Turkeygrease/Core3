@@ -41,7 +41,7 @@ function tatWorldBossSp:spawnMobiles()
 		local sp = self.spawns[i]
 		pMob = spawnMobile(self.planet,sp[1],0,sp[2],sp[3],sp[4],math.random(360),0)
 		if (pMob ~= nil) then
-			AiAgent(pMob):setAiTemplate("")
+			AiAgent(pMob):setAITemplate("")
 			createEvent(3600000, "tatWorldBossSp", "despawnMobile", pMob, 5) --1hr despawns timer
 		end
 		i = i + 1

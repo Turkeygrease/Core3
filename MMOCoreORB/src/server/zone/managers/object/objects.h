@@ -82,6 +82,7 @@
 #include "server/zone/objects/tangible/deed/eventperk/EventPerkDeed.h"
 #include "server/zone/objects/tangible/deed/vetharvester/VetHarvesterDeed.h"
 #include "server/zone/objects/tangible/wearables/ArmorObject.h"
+#include "server/zone/objects/tangible/wearables/CyberneticObject.h"
 #include "server/zone/objects/tangible/wearables/PsgArmorObject.h"
 #include "server/zone/objects/tangible/wearables/ClothingObject.h"
 #include "server/zone/objects/tangible/wearables/RobeObject.h"

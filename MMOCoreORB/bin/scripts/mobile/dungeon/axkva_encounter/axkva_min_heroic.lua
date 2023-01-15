@@ -3,6 +3,7 @@ axkva_min_heroic = Creature:new {
 	socialGroup = "nightsister",
 	faction = "nightsister",
 	level = 500,
+	mobType = MOB_NPC,
 	chanceHit = 300,
 	damageMin = 1100,
 	damageMax = 2075,
@@ -32,22 +33,19 @@ axkva_min_heroic = Creature:new {
 	scale = 1.6,
 	lootGroups = {
 		{
-	        	groups =
-			{
+			groups = {
 				{group = "power_crystals", chance = 10000000},
 			},
 			lootChance = 9900000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "axkva_motor", chance = 10000000},
 			},
 			lootChance = 9900000,
 		},
 		{
-	        	groups =
-			{
+	        groups = {
 				{group = "axkva_deco", chance = 10000000},
 			},
 			lootChance = 9900000,
@@ -59,9 +57,17 @@ axkva_min_heroic = Creature:new {
 			lootChance = 9900000
 		}
 	},
-	weapons = {"mixed_force_weapons"},
+
+	-- Primary and secondary weapon should be different types (rifle/carbine, carbine/pistol, rifle/unarmed, etc)
+	-- Unarmed should be put on secondary unless the mobile doesn't use weapons, in which case "unarmed" should be put primary and "none" as secondary
+	primaryWeapon = "mixed_force_weapons",
+	secondaryWeapon = "none",
 	conversationTemplate = "",
-	attacks = merge(fencermaster,swordsmanmaster,tkamaster,pikemanmaster,brawlermaster,forcepowermaster)
+	
+	-- primaryAttacks and secondaryAttacks should be separate skill groups specific to the weapon type listed in primaryWeapon and secondaryWeapon
+	-- Use merge() to merge groups in creatureskills.lua together. If a weapon is set to "none", set the attacks variable to empty brackets
+	primaryAttacks = merge(fencermaster,swordsmanmaster,tkamaster,pikemanmaster,brawlermaster,forcepowermaster),
+	secondaryAttacks = { }
 }
 
 CreatureTemplates:addCreatureTemplate(axkva_min_heroic, "axkva_min_heroic")
