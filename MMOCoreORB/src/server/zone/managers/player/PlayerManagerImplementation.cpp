@@ -1534,6 +1534,9 @@ void PlayerManagerImplementation::sendActivateCloneRequest(CreatureObject* playe
 		}
 	}
 
+	uint64 novaID = DirectorManager::instance()->readSharedMemory("WF_Instance_Handler:openInstance:nova");
+	cloneMenu->addMenuItem("Nova Orion", novaID);
+
 	ghost->addSuiBox(cloneMenu);
 	player->sendMessage(cloneMenu->generateMessage());
 }
