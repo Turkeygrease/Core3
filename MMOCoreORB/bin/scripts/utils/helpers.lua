@@ -48,3 +48,11 @@ function first(theTable, theMatchFunction)
 	return filter(theTable, theMatchFunction)[1]
 end
 
+--input table of strings, return new table in number format
+function tableToNum(origTable)
+	local newTable = {}
+	foreach(origTable, function(strVal)
+		table.insert(newTable,tonumber(strVal))
+	end)
+	return newTable
+end
