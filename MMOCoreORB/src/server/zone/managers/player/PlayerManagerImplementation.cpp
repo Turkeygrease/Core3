@@ -6108,18 +6108,44 @@ bool PlayerManagerImplementation::doBurstRun(CreatureObject* player, float hamMo
 	return true;
 }
 
-bool PlayerManagerImplementation::doEnhanceCharacter(uint32 crc, CreatureObject* player, int amount, int duration, int buffType, uint8 attribute) {
+bool PlayerManagerImplementation::doEnhanceCharacter(uint32 crc, CreatureObject* player, int amount, int duration, int buffType, uint8 attribute, int absorption=0) {
 	if (player == nullptr)
 		return false;
 
-	if (player->hasBuff(crc))
-		return false;
+	if (player->hasBuff(crc)){ //mindsoft added for overwriting prev buffs, and added absorption for protection buffs
+		Buff* buff = player->getBuff(crc);
+
+		if (buff != nullptr){
+			int value = 0;
+			if (buffType == 3) { /* ent buffs */
+				value = buff->getAttributeModifierValue(attribute);
+			}else if(buffType == 2){ /* doc buffs */
+				if( BuffAttribute::isProtection(attribute)){
+					value = buff->getSkillModifierValue(BuffAttribute::getProtectionString(attribute));
+				}else{
+					value = buff->getAttributeModifierValue(attribute);
+				}
+			}
+			if (value >= amount)
+				return false;
+		}else
+			return false;
+	}
 
 	ManagedReference<Buff*> buff = new Buff(player, crc, duration, buffType);
 
 	Locker locker(buff);
 
-	buff->setAttributeModifier(attribute, amount);
+	if(BuffAttribute::isProtection(attribute)) {
+		buff->setSkillModifier(BuffAttribute::getProtectionString(attribute), amount);
+
+		if (absorption > 0)
+			buff->setSkillModifier(BuffAttribute::getAbsorptionString(attribute), absorption);
+	} else {
+		buff->setAttributeModifier(attribute, amount);
+		buff->setFillAttributesOnBuff(true);
+	}
+
 	player->addBuff(buff);
 
 	return true;

@@ -30,6 +30,7 @@ namespace creature {
 
 		int _setObject(lua_State* L);
 		// Methods we will need to use
+		int setBankCredits(lua_State* L);
 		int setHAM(lua_State* L);
 		int setBaseHAM(lua_State* L);
 		int setMaxHAM(lua_State* L);
@@ -38,6 +39,8 @@ namespace creature {
 		int sendSystemMessageWithTO(lua_State* L);
 		int sendSystemMessageWithTT(lua_State* L);
 		int sendGroupMessage(lua_State* L);
+		int getGroupLock(lua_State* L);
+		int setGroupLock(lua_State* L);
 		int playMusicMessage(lua_State *L);
 		int sendNewbieTutorialRequest(lua_State *L);
 		int hasScreenPlayState(lua_State *L);
@@ -93,6 +96,7 @@ namespace creature {
 		int getGroupMember(lua_State* L);
 		int setOptionsBitmask(lua_State* L);
 		int addDotState(lua_State* L);
+		int clearDots(lua_State* L);
 		int checkCooldownRecovery(lua_State* L);
 		int addCooldown(lua_State* L);
 		int isIncapacitated(lua_State* L);
@@ -115,6 +119,8 @@ namespace creature {
 		int healDamage(lua_State* L);
 		int getGroupID(lua_State* L);
 		int enhanceCharacter(lua_State* L);
+		int buffCharacter(lua_State* L);
+		int removeBuff(lua_State* L);
 		int setWounds(lua_State* L);
 		int setShockWounds(lua_State* L);
 		int getForceSensitiveSkillCount(lua_State* L);
@@ -123,12 +129,21 @@ namespace creature {
 		int getHealingThreatList(lua_State* L);
 		int getAllThreatsList(lua_State* L);
 		int dropFromThreatMap(lua_State* L);
+		int getActiveThreatList(lua_State* L); //mindsoft added
+		int getThreatMap(lua_State* L); // mindsoft added
+		int clearTargetAggro(lua_State* L);
 		int getSkillMod(lua_State* L);
 		int getGender(lua_State* L);
 		int isRidingMount(lua_State* L);
 		int dismount(lua_State* L);
 		int setAppearance(lua_State* L);
 		int getWeaponType(lua_State* L);
+		int setHeight(lua_State* L);
+		int getCooldownTime(lua_State* L);
+		int getCooldownString(lua_State* L);
+		int formGroupWithCreature(lua_State* L);
+		int ungroupTargetCreature(lua_State* L);
+		int sendCommand(lua_State* L);
 	private:
 		// The pointer to the 'real object' defined in object.cc
 		CreatureObject* realObject;

@@ -135,6 +135,8 @@ Luna<LuaCreatureObject>::RegType LuaCreatureObject::Register[] = {
 		{ "healDamage", &LuaCreatureObject::healDamage },
 		{ "getGroupID", &LuaCreatureObject::getGroupID },
 		{ "enhanceCharacter", &LuaCreatureObject::enhanceCharacter },
+		{ "buffCharacter", &LuaCreatureObject::buffCharacter },
+		{ "removeBuff", &LuaCreatureObject::removeBuff },
 		{ "setWounds", &LuaCreatureObject::setWounds },
 		{ "setShockWounds", &LuaCreatureObject::setShockWounds },
 		{ "getForceSensitiveSkillCount", &LuaCreatureObject::getForceSensitiveSkillCount },
@@ -147,6 +149,9 @@ Luna<LuaCreatureObject>::RegType LuaCreatureObject::Register[] = {
 		{ "getHealingThreatList", &LuaCreatureObject::getHealingThreatList },
 		{ "getAllThreatsList", &LuaCreatureObject::getAllThreatsList },
 		{ "dropFromThreatMap", &LuaCreatureObject::dropFromThreatMap },
+		{ "getActiveThreatList", &LuaCreatureObject::getActiveThreatList },
+		{ "getThreatMap", &LuaCreatureObject::getThreatMap },
+		{ "clearTargetAggro", &LuaCreatureObject::clearTargetAggro },
 		{ "getSkillMod", &LuaCreatureObject::getSkillMod },
 		{ "getGender", &LuaCreatureObject::getGender },
 		{ "isRidingMount", &LuaCreatureObject::isRidingMount },
@@ -154,6 +159,12 @@ Luna<LuaCreatureObject>::RegType LuaCreatureObject::Register[] = {
 		{ "setAppearance", &LuaCreatureObject::setAppearance },
 		{ "getMainDefender", &LuaTangibleObject::getMainDefender },
 		{ "getWeaponType", &LuaCreatureObject::getWeaponType },
+		{ "setHeight", &LuaCreatureObject::setHeight },
+		{ "getCooldownTime", &LuaCreatureObject::getCooldownTime },
+		{ "getCooldownString", &LuaCreatureObject::getCooldownString },
+		{ "formGroupWithCreature", &LuaCreatureObject::formGroupWithCreature },
+		{ "ungroupTargetCreature", &LuaCreatureObject::ungroupTargetCreature },
+		{ "sendCommand", &LuaCreatureObject::sendCommand },
 		{ 0, 0 }
 };
 
@@ -245,6 +256,12 @@ int LuaCreatureObject::addDotState(lua_State* L) {
 
 	realObject->addDotState(attacker, dotType, objectID, strength, type, duration, potency, defense);
 
+	return 0;
+}
+
+int LuaCreatureObject::clearDots(lua_State* L) {
+	Locker locker(realObject);
+	realObject->clearDots();
 	return 0;
 }
 
@@ -376,6 +393,62 @@ int LuaCreatureObject::sendGroupMessage(lua_State* L) {
 	return 0;
 }
 
+int LuaCreatureObject::getGroupLock(lua_State* L) { //Mindsoft added for controling groups
+	if (realObject == nullptr)
+		return 0;
+
+	if (!realObject->isGrouped()) {
+		lua_pushboolean(L, false);
+	} else {
+		GroupObject* group = realObject->getGroup();
+		lua_pushboolean(L, group->getGroupLock());
+	}
+
+	return 1;
+}
+
+int LuaCreatureObject::setGroupLock(lua_State* L) { //Mindsoft added for controling groups
+	bool newState = lua_tonumber(L, -1);
+
+	if (realObject == nullptr)
+		return 0;
+
+	if (realObject->isGrouped()) {
+		GroupObject* group = realObject->getGroup();
+		Locker clock(realObject);
+		Locker lock(group, realObject);
+		group->setGroupLock(newState);
+	}
+
+	return 0;
+}
+
+int LuaCreatureObject::formGroupWithCreature(lua_State* L) {
+	CreatureObject* target = (CreatureObject*) lua_touserdata(L, -1);
+	if (not target->isGrouped()) {
+		GroupManager* groupManager = GroupManager::instance();
+		Locker locker(target);
+		target->updateGroupInviterID(realObject->getObjectID());
+		groupManager->joinGroup(target);
+	}else{
+		return 0;
+	}
+
+	lua_pushnumber(L, realObject->getGroupID());
+	return 1;
+}
+
+int LuaCreatureObject::ungroupTargetCreature(lua_State* L) {
+	CreatureObject* target = (CreatureObject*) lua_touserdata(L, -1);
+	if (target->isGrouped()) {
+		GroupManager* groupManager = GroupManager::instance();
+		GroupObject* group = realObject->getGroup();
+		Locker lock(target);
+		groupManager->leaveGroup(group, target);
+	}
+	return 0;
+}
+
 int LuaCreatureObject::setHAM(lua_State* L) {
 	uint32 type = (uint32) lua_tonumber(L, -2);
 	uint32 value = (uint32) lua_tonumber(L, -1);
@@ -412,6 +485,14 @@ int LuaCreatureObject::setMaxHAM(lua_State* L) {
 int LuaCreatureObject::playMusicMessage(lua_State *L) {
 	String value = lua_tostring(L, -1);
 	realObject->playMusicMessage(value);
+
+	return 0;
+}
+
+int LuaCreatureObject::setBankCredits(lua_State *L) {
+	uint32 credits = (uint32) lua_tonumber(L, -1);
+
+	realObject->setBankCredits(credits);
 
 	return 0;
 }
@@ -1049,6 +1130,31 @@ int LuaCreatureObject::enhanceCharacter(lua_State* L) {
 	return 0;
 }
 
+// to use: creo:buffCharacter(crc,amount,duration,buff-type,attribute,absorption)
+int LuaCreatureObject::buffCharacter(lua_State* L) {
+	uint32 crc = lua_tointeger(L, -6);
+	int amount = lua_tointeger(L, -5);
+	int duration = lua_tointeger(L, -4);
+	int buffType = lua_tointeger(L, -3);
+	uint8 attribute = lua_tointeger(L, -2);
+	int absorption = lua_tointeger(L, -1);
+
+	PlayerManager* playerManager = realObject->getZoneServer()->getPlayerManager();
+	playerManager->doEnhanceCharacter(crc, realObject, amount, duration, buffType, attribute, absorption);
+
+	return 0;
+}
+
+int LuaCreatureObject::removeBuff(lua_State* L) {
+	String buffToDrop = lua_tostring(L, -1);
+	uint32 buffCRC = buffToDrop.hashCode();
+
+	if (realObject->hasBuff(buffCRC)) {
+		realObject->removeBuff(buffCRC);
+	}
+	return 0;
+}
+
 int LuaCreatureObject::setWounds(lua_State* L) {
 	int amount = lua_tointeger(L, -1);
 	int pool = lua_tointeger(L, -2);
@@ -1142,6 +1248,36 @@ int LuaCreatureObject::getHealingThreatList(lua_State* L) {
 	return 1;
 }
 
+//returns healers & attackers in healer threat map --mindsoft added
+int LuaCreatureObject::getActiveThreatList(lua_State* L) {
+	Locker locker(realObject);
+	ThreatMap* threatMap = realObject->getThreatMap();
+	ThreatMap copyThreatMap(*threatMap);
+
+	lua_newtable(L);
+
+	int count = 0;
+	for (int i = 0; i < copyThreatMap.size(); ++i) {
+		ThreatMapEntry* entry = &copyThreatMap.elementAt(i).getValue();
+
+		if ((entry->getTotalDamage() > 0) || (entry->getHeal() > 0)) {
+			TangibleObject* tano = copyThreatMap.elementAt(i).getKey();
+
+			if (tano == nullptr || !tano->isCreatureObject()) {
+				continue;
+			} 
+
+			CreatureObject* creo = tano->asCreatureObject();
+
+			count++;
+			lua_pushlightuserdata(L, creo);
+			lua_rawseti(L, -2, count);
+		}
+	}
+
+	return 1;
+}
+
 int LuaCreatureObject::getAllThreatsList(lua_State* L) {
 	ThreatMap* threatMap = realObject->getThreatMap();
 	ThreatMap copyThreatMap(*threatMap);
@@ -1160,6 +1296,32 @@ int LuaCreatureObject::getAllThreatsList(lua_State* L) {
 
 		count++;
 		lua_pushlightuserdata(L, creoAttacker);
+		lua_rawseti(L, -2, count);
+	}
+
+	return 1;
+}
+
+//returns creature threat map --mindsoft added
+int LuaCreatureObject::getThreatMap(lua_State* L) {
+	Locker locker(realObject);
+	ThreatMap* threatMap = realObject->getThreatMap();
+	ThreatMap copyThreatMap(*threatMap);
+
+	lua_newtable(L);
+
+	int count = 0;
+	for (int i = 0; i < copyThreatMap.size(); ++i) {
+		TangibleObject* tano = copyThreatMap.elementAt(i).getKey();
+
+		if (tano == nullptr || !tano->isCreatureObject()) {
+			continue;
+		} 
+
+		CreatureObject* creo = tano->asCreatureObject();
+
+		count++;
+		lua_pushlightuserdata(L, creo);
 		lua_rawseti(L, -2, count);
 	}
 
@@ -1194,6 +1356,13 @@ int LuaCreatureObject::dropFromThreatMap(lua_State* L) {
 	return 0;
 }
 
+int LuaCreatureObject::clearTargetAggro(lua_State* L) {
+	CreatureObject* target = (CreatureObject*) lua_touserdata(L, -1);
+	ThreatMap* tMap = realObject->getThreatMap();
+	tMap->clearAggro(target);
+	return 0;
+}
+
 int LuaCreatureObject::getSkillMod(lua_State* L) {
 	String skillMod = lua_tostring(L, -1);
 
@@ -1211,6 +1380,16 @@ int LuaCreatureObject::getGender(lua_State* L) {
 	return 1;
 }
 
+int LuaCreatureObject::setHeight(lua_State* L) {
+	bool notifyClient = lua_toboolean(L, -1);
+	float amount = lua_tonumber(L, -2);
+
+	Locker locker(realObject);
+	realObject->setHeight(amount, notifyClient);
+
+	return 1;
+}
+
 int LuaCreatureObject::isRidingMount(lua_State* L) {
 	bool isMounted = realObject->isRidingMount();
 
@@ -1219,9 +1398,46 @@ int LuaCreatureObject::isRidingMount(lua_State* L) {
 	return 1;
 }
 
+int LuaCreatureObject::getCooldownTime(lua_State* L) {
+	String cdString = lua_tostring(L, -1);
+	const Time* timeRemaining = realObject->getCooldownTime(cdString);
+	uint32 result = (timeRemaining->miliDifference() * -1);
+	lua_pushnumber(L, result);
+	return 1;
+}
+
 int LuaCreatureObject::dismount(lua_State* L) {
 	realObject->dismount();
 	return 0;
+}
+
+int LuaCreatureObject::getCooldownString(lua_State* L) {
+	String cdString = lua_tostring(L, -1);
+	const Time* timeRemaining = realObject->getCooldownTime(cdString);
+	uint32 delta = (timeRemaining->miliDifference() * -1);
+
+	int seconds = delta / 1000;
+
+	int hours = seconds / 3600;
+	seconds -= hours * 3600;
+
+	int minutes = seconds / 60;
+	seconds -= minutes * 60;
+
+	StringBuffer buffer;
+
+	if (hours > 0)
+		buffer << hours << "h ";
+
+	if (minutes > 0)
+		buffer << minutes << "m ";
+
+	if (seconds > 0)
+		buffer << seconds << "s";
+
+	String retString = buffer.toString();
+	lua_pushstring(L, retString.toCharArray());
+	return 1;
 }
 
 int LuaCreatureObject::setAppearance(lua_State* L){
@@ -1279,4 +1495,14 @@ int LuaCreatureObject::getWeaponType(lua_State* L) {
 
 	lua_pushinteger(L, weaponType);
 	return 1;
+}
+
+int LuaCreatureObject::sendCommand(lua_State* L) {
+	CreatureObject* target = (CreatureObject*) lua_touserdata(L, -1);
+	UnicodeString args = lua_tostring(L, -2);
+	String cmd = lua_tostring(L, -3);
+
+	realObject->sendCommand(cmd, args, target->getObjectID());
+
+	return 0;
 }
