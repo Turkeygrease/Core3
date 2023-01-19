@@ -14,6 +14,8 @@
 #include "server/zone/managers/director/ScreenPlayTask.h"
 #include "engine/lua/LuaPanicException.h"
 #include "server/zone/objects/tangible/Container.h"
+#include "server/zone/managers/collision/CollisionManager.h"
+#include "server/zone/objects/cell/CellObject.h"
 
 const char LuaSceneObject::className[] = "LuaSceneObject";
 
@@ -92,6 +94,10 @@ Luna<LuaSceneObject>::RegType LuaSceneObject::Register[] = {
 		{ "info", &LuaSceneObject::info },
 		{ "getPlayersInRange", &LuaSceneObject::getPlayersInRange },
 		{ "isInNavMesh", &LuaSceneObject::isInNavMesh },
+		{ "checkLineOfSight", &LuaSceneObject::checkLineOfSight },
+		{ "getCellFloorCollision", &LuaSceneObject::getCellFloorCollision },
+		{ "isInside", &LuaSceneObject::isInside },
+		{ "isGroupObject", &LuaSceneObject::isGroupObject },
 		{ 0, 0 }
 
 };
@@ -593,6 +599,14 @@ int LuaSceneObject::isActiveArea(lua_State* L) {
 	return 1;
 }
 
+int LuaSceneObject::isGroupObject(lua_State* L) {
+	bool val = realObject->isGroupObject();
+
+	lua_pushboolean(L, val);
+
+	return 1;
+}
+
 int LuaSceneObject::wlock(lua_State* L) {
 	return 0;
 }
@@ -883,5 +897,59 @@ int LuaSceneObject::isInNavMesh(lua_State* L) {
 
 	lua_pushboolean(L, val);
 
+	return 1;
+}
+
+int LuaSceneObject::checkLineOfSight(lua_State* L) {
+	SceneObject* obj = (SceneObject*) lua_touserdata(L, -1);
+	bool retVal = CollisionManager::checkLineOfSight(realObject, obj);
+
+	lua_pushboolean(L, retVal);
+
+	return 1;
+}
+
+int LuaSceneObject::getCellFloorCollision(lua_State* L) {
+	float y = lua_tonumber(L, -1);
+	float x = lua_tonumber(L, -2);
+	float z = 0;
+	ManagedReference<SceneObject*> parent = realObject->getParent().get();
+	if (parent == nullptr || !parent->isCellObject() || parent != realObject->getParent().get())
+		return 0;
+	CellObject* cell = parent.castTo<CellObject*>();
+	Vector<float>* floors = CollisionManager::getCellFloorCollision(x, y, cell);
+	if (floors != nullptr){
+		int floorCount = floors->size();
+		int i = 0;
+		if (floorCount == 1)
+			i = 0;
+		else{
+			for (; i < floorCount; ++i) {
+				float f = floors->get(i);
+				if (fabs(z - f) < 4.f || fabs(f - z) < 4.f)
+					break;
+			}
+		}
+		if (i > floorCount-1){
+			z = floors->get(0);
+			lua_pushnumber(L, z);
+		}else{
+			z = floors->get(i);
+			lua_pushnumber(L, z);
+		}
+	}else
+		lua_pushnil(L);
+	
+	delete floors;
+	floors = nullptr;
+	return 1;
+}
+
+int LuaSceneObject::isInside(lua_State* L) {
+	ManagedReference<SceneObject*> parent = realObject->getParent().get();
+	if (parent != nullptr && parent->isCellObject())
+		lua_pushboolean(L, true);
+	else
+		lua_pushboolean(L, false);
 	return 1;
 }

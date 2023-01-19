@@ -105,6 +105,10 @@ namespace scene {
 		int info(lua_State* L);
 		int getPlayersInRange(lua_State* L);
 		int isInNavMesh(lua_State* L);
+		int checkLineOfSight(lua_State* L);
+		int getCellFloorCollision(lua_State* L);
+		int isInside(lua_State* L);
+		int isGroupObject(lua_State* L);
 
 	protected:
 		SceneObject* _getRealSceneObject() {
