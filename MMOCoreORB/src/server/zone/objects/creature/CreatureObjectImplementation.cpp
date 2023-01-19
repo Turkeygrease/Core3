@@ -12,6 +12,7 @@
 #include "server/zone/managers/objectcontroller/ObjectController.h"
 #include "server/zone/managers/skill/SkillManager.h"
 #include "server/zone/managers/player/PlayerManager.h"
+#include "server/zone/managers/faction/FactionManager.h"
 #include "server/zone/managers/combat/CombatManager.h"
 #include "server/zone/managers/mission/MissionManager.h"
 #include "server/zone/managers/creature/PetManager.h"
@@ -81,6 +82,7 @@
 
 #include "server/zone/objects/tangible/threat/ThreatMap.h"
 
+#include "server/chat/room/ChatRoom.h"
 #include "engine/core/TaskManager.h"
 #include "server/zone/objects/creature/credits/CreditObject.h"
 
@@ -3832,6 +3834,7 @@ WeaponObject* CreatureObjectImplementation::getDefaultWeapon() {
 }
 
 void CreatureObjectImplementation::setFaction(unsigned int crc) {
+	const int previousFaction = getFaction();
 	faction = crc;
 
 	if (isPlayerCreature()) {
@@ -3885,6 +3888,69 @@ void CreatureObjectImplementation::setFaction(unsigned int crc) {
 			pet->setFaction(crc);
 		}
 
+		// Chat rooms
+ 		{
+			using namespace server::chat::room;
+
+ 			Locker _lock(player);
+ 			FactionManager* factionManager = FactionManager::instance();
+			ManagedReference<ChatManager*> chatManager = ServerCore::getZoneServer()->getChatManager();
+
+			switch (previousFaction) {
+				case Factions::FACTIONIMPERIAL:
+					{
+						ManagedReference<ChatRoom*> chat = factionManager->getImperialChat();
+						Locker cLocker(chat, player);
+						chat->removePlayer(player);
+						chat->sendDestroyTo(player);
+					}
+					break;
+				case Factions::FACTIONREBEL:
+					{
+						ManagedReference<ChatRoom*> chat = factionManager->getRebelChat();
+						Locker cLocker(chat, player);
+						chat->removePlayer(player);
+						chat->sendDestroyTo(player);
+					}
+					break;
+				default:
+					break;
+			}
+
+ 			switch (faction) {
+ 				case Factions::FACTIONIMPERIAL:
+					{
+						ManagedReference<ChatRoom*> chat = factionManager->getImperialChat();
+						chat->sendTo(player);
+						chatManager->handleChatEnterRoomById(player, chat->getRoomID(), -1, true);
+
+						chat = factionManager->getPvpNotificationChat();
+						chat->sendTo(player);
+						chatManager->handleChatEnterRoomById(player, chat->getRoomID(), -1, true);
+					}
+					break;
+ 				case Factions::FACTIONREBEL:
+ 					{
+						ManagedReference<ChatRoom*> chat = factionManager->getRebelChat();
+						chat->sendTo(player);
+						chatManager->handleChatEnterRoomById(player, chat->getRoomID(), -1, true);
+
+						chat = factionManager->getPvpNotificationChat();
+						chat->sendTo(player);
+						chatManager->handleChatEnterRoomById(player, chat->getRoomID(), -1, true);
+ 					}
+ 					break;
+ 				default:
+					{
+						ManagedReference<ChatRoom*> chat = factionManager->getPvpNotificationChat();
+						Locker cLocker(chat, player);
+						chat->removePlayer(player);
+						chat->sendDestroyTo(player);
+					}
+					break;
+ 			}
+ 		}
+		
 		StoreSpawnedChildrenTask* task = new StoreSpawnedChildrenTask(player, std::move(petsToStore));
 		task->execute();
 	}
