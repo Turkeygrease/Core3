@@ -101,6 +101,7 @@ Core3 = {
 	"dantooine",
 	"dathomir",
 	"dungeon1",
+	"dungeon2",
 	"endor",
 	--"endor_asommers",
 	--"floratest",
