@@ -2051,7 +2051,8 @@ object_tangible_terminal_terminal_character_builder = object_tangible_terminal_s
 							"Large Tatooine House Deed", "object/tangible/deed/player_house_deed/tatooine_house_large_deed.iff",
 							"Medium Tatooine House Deed", "object/tangible/deed/player_house_deed/tatooine_house_medium_deed.iff",
 							"Small Tatooine House Deed", "object/tangible/deed/player_house_deed/tatooine_house_small_deed.iff",
-							"Small Tatooine House Deed (Style 2)", "object/tangible/deed/player_house_deed/tatooine_house_small_style_02_deed.iff"
+							"Small Tatooine House Deed (Style 2)", "object/tangible/deed/player_house_deed/tatooine_house_small_style_02_deed.iff",
+							"Small Tatooine Canopy House Deed (Style 1)", "object/tangible/deed/player_house_deed/tatooine_house_canopy_small_style_01_deed.iff"
 						},
 						"City Deeds",
 						{

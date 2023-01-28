@@ -26,3 +26,4 @@ includeFile("custom_content/tangible/deed/player_house_deed/gen_small_win_s01_de
 includeFile("custom_content/tangible/deed/player_house_deed/gen_small_win_s02_deed.lua")
 includeFile("custom_content/tangible/deed/player_house_deed/nab_small_win_s01_deed.lua")
 includeFile("custom_content/tangible/deed/player_house_deed/tat_small_win_s01_deed.lua")
+includeFile("custom_content/tangible/deed/player_house_deed/tatooine_house_canopy_small_style_01_deed.lua")
