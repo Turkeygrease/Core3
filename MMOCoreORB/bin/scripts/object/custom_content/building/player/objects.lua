@@ -361,3 +361,10 @@ object_building_player_shared_player_pgc_merchant_tent_s01 = SharedBuildingObjec
 	clientTemplateFileName = "object/building/player/shared_player_pgc_merchant_tent_s01.iff"
 }
 ObjectTemplates:addClientTemplate(object_building_player_shared_player_pgc_merchant_tent_s01, "object/building/player/shared_player_pgc_merchant_tent_s01.iff")
+
+-- shared_player_house_canopy_tatooine_small_style_01
+object_building_player_shared_player_house_canopy_tatooine_small_style_01 = SharedBuildingObjectTemplate:new {
+     clientTemplateFileName = "object/building/player/shared_player_house_canopy_tatooine_small_style_01.iff"
+
+}
+ObjectTemplates:addClientTemplate(object_building_player_shared_player_house_canopy_tatooine_small_style_01, "object/building/player/shared_player_house_canopy_tatooine_small_style_01.iff")
