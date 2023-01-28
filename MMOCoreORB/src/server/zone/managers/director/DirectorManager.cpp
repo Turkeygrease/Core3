@@ -517,6 +517,9 @@ void DirectorManager::initializeLuaEngine(Lua* luaEngine) {
 	luaEngine->registerFunction("logLua", logLua);
 	luaEngine->registerFunction("logLuaEvent", logLuaEvent);
 	luaEngine->registerFunction("getPlayerByName", getPlayerByName);
+	luaEngine->registerFunction("broadcastGalaxy", broadcastGalaxy);
+	luaEngine->registerFunction("applyCommandEffect", applyCommandEffect);
+	luaEngine->registerFunction("getConnectionCount", getConnectionCount);
 	luaEngine->registerFunction("sendMail", sendMail);
 	luaEngine->registerFunction("sendMailToOnlinePlayers", sendMailToOnlinePlayers);
 	luaEngine->registerFunction("spawnTheaterObject", spawnTheaterObject);
@@ -548,6 +551,7 @@ void DirectorManager::initializeLuaEngine(Lua* luaEngine) {
 	luaEngine->setGlobalInt("EXITEDAREA", ObserverEventType::EXITEDAREA);
 	luaEngine->setGlobalInt("DESTINATIONREACHED", ObserverEventType::DESTINATIONREACHED);
 	luaEngine->setGlobalInt("SPECIALATTACK", ObserverEventType::SPECIALATTACK);
+	luaEngine->setGlobalInt("CALLFORHELP", ObserverEventType::CALLFORHELP);
 	luaEngine->setGlobalInt("NEWBIETUTORIALZOOMCAMERA", ObserverEventType::NEWBIETUTORIALZOOMCAMERA);
 	luaEngine->setGlobalInt("CHAT", ObserverEventType::CHAT);
 	luaEngine->setGlobalInt("NEWBIETUTORIALHOLOCRON", ObserverEventType::NEWBIETUTORIALHOLOCRON);
@@ -4415,6 +4419,21 @@ int DirectorManager::getBadgeListByType(lua_State* L) {
 	return 1;
 }
 
+int DirectorManager::broadcastGalaxy(lua_State* L){
+	ZoneServer* zoneServer = ServerCore::getZoneServer();
+	ChatManager* chatManager = zoneServer->getChatManager();
+
+	/*if (lua_islightuserdata(L, -1)) {
+		StringIdChatParameter* message = (StringIdChatParameter*)lua_touserdata(L, -1);
+		chatManager->broadcastGalaxy(message);
+	} else { */
+		String value = lua_tostring(L, -1);
+		chatManager->broadcastGalaxy(NULL, value);
+
+	//}
+	return 0;
+}
+
 int DirectorManager::getGalaxyName(lua_State* L) {
 	ZoneServer* zoneServer = ServerCore::getZoneServer();
 
@@ -4526,7 +4545,7 @@ int DirectorManager::useCovertOvert(lua_State* L) {
 //applyCommandEffect(attacker,defender,effectType,duration,mod)
 int DirectorManager::applyCommandEffect(lua_State* L){
 	int numberOfArguments = lua_gettop(L);
-	if (numberOfArguments != 4) {
+	if (numberOfArguments != 5) {
 		String err = "incorrect number of arguments passed to DirectorManager::applyCommandEffect";
 		printTraceError(L, err);
 		ERROR_CODE = INCORRECT_ARGUMENTS;
@@ -4675,4 +4694,11 @@ int DirectorManager::applyCommandEffect(lua_State* L){
 		break;
 	}
 	return 0;
+}
+
+int DirectorManager::getConnectionCount(lua_State* L){
+	ZoneServer* zoneServer = ServerCore::getZoneServer();
+	int count = zoneServer->getConnectionCount();
+	lua_pushinteger(L, count);
+	return 1;
 }

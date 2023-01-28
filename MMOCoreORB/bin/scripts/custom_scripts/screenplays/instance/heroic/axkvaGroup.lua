@@ -475,7 +475,7 @@ function axkvaGroup:mineExplode(pMine, parentID)
 						snareStrength = 25
 					end
 				end
-				applyCommandEffect(pPlayer, 5, snareDuration, snareStrength) --snare target
+				applyCommandEffect(nil, pPlayer, 5, snareDuration, snareStrength) --snare target
 				local dType = ((math.random(3)-1)*3)
 				CreatureObject(targetList[i]):inflictDamage(pLelli, dType, damage + math.random(199), true);
 				SceneObject(pMine):playEffect("clienteffect/combat_grenade_proton.cef", "")
@@ -881,7 +881,7 @@ function axkvaGroup:axkvaScheduleSpecial(pAxkva)
 			createEvent(8000, "Ihelp", "destroy", pPart, "")
 			createEvent(4000, "axkvaGroup", "axkvaStormEvent", pPart, "")
 			foreach(playersInRange,function(player)
-				applyCommandEffect(player, 5, 5, 50) --snare target
+				applyCommandEffect(nil, player, 5, 5, 50) --snare target
 			end)
 		end
 
@@ -895,7 +895,7 @@ function axkvaGroup:axkvaScheduleSpecial(pAxkva)
 					axkvaGroup:axkvaPoisonEvent(pTarget)
 				else
 					CreatureObject(pTarget):setPosture(KNOCKEDDOWN)
-					applyCommandEffect(pTarget, 5, 5, 1)--root
+					applyCommandEffect(nil, pTarget, 5, 5, 1)--root
 					createEvent(1000, "axkvaGroup", "crystalPlaced", pTarget, "")
 					CreatureObject(pTarget):addCooldown("AxkvaEncase", 60000)
 				end
@@ -980,7 +980,7 @@ end
 function axkvaGroup:crystalPlaced(pPlayer)
 	local zone = SceneObject(pPlayer):getZoneName()
 	if ((pPlayer == nil) or (zone == "")) then return 0 end
-	applyCommandEffect(pPlayer, 5, 60, 30) --snare target
+	applyCommandEffect(nil, pPlayer, 5, 60, 30) --snare target
 	local player = SceneObject(pPlayer)
 	local parentID = player:getParentID()
 	local x = player:getPositionX()
@@ -1005,7 +1005,7 @@ function axkvaGroup:crystalPulse(pCrystal, targetID)
 		return 0
 	end
 
-	applyCommandEffect(pTarget, 5, 2, 1) --snare target
+	applyCommandEffect(nil, pTarget, 5, 2, 1) --snare target
 
 	local pBuilding = Ihelp:getBuilding(pCrystal)
 	local bID = SceneObject(pBuilding):getObjectID()
