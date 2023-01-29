@@ -367,7 +367,16 @@ TatooineMosEisleyScreenPlay = CityScreenPlay:new {
 		{"trainer_pistol",0,3358.6,5,-4841.3,36,0, "npc_sitting_chair"},
 		{"trainer_rifleman",0,3426,5,-4917,0,0, ""},
 		{"trainer_scout",0,3519.76,5,-4786.9,77,0, ""},
-		{"trainer_smuggler",0,3401,5,-4879,340,0, "worried"}
+		{"trainer_smuggler",0,3401,5,-4879,340,0, "worried"},
+	--GCW TRAINER
+		{"trainer_gcwbh",0,3464,5,-4918,5,0, ""},
+		{"trainer_gcwcommando",0,3462,5,-4918,5,0, ""},
+		{"trainer_gcwbrawler",0,3460,5,-4918,5,0, ""},
+		{"trainer_gcwmedic",0,3458,5,-4918,5,0, ""},
+		{"trainer_gcwsmuggler",0,3456,5,-4918,5,0, ""}, 
+		{"trainer_gcwsl",0,3454,5,-4918,5,0, ""},
+		{"trainer_gcwranger",0,3452,5,-4918,5,0, ""},
+
 	}
 }
 

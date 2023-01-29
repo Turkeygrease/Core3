@@ -148,3 +148,12 @@ createTrainerConversationTemplate("weaponsmithTrainerConvoTemplate", "trainer_we
 
 createTrainerConversationTemplate("fsTrainerConvoTemplate", "trainer_fs")
 createTrainerConversationTemplate("jediTrainerConvoTemplate", "trainer_jedi")
+
+--GCW
+createTrainerConversationTemplate("gcwsmugglerTrainerConvoTemplate", "trainer_gcwsmuggler")
+createTrainerConversationTemplate("gcwbhTrainerConvoTemplate", "trainer_gcwbh")
+createTrainerConversationTemplate("gcwbrawlerTrainerConvoTemplate", "trainer_gcwbrawler")
+createTrainerConversationTemplate("gcwcommandoTrainerConvoTemplate", "trainer_gcwcommando")
+createTrainerConversationTemplate("gcwmedicTrainerConvoTemplate", "trainer_gcwmedic")
+createTrainerConversationTemplate("gcwrangerTrainerConvoTemplate", "trainer_gcwranger")
+createTrainerConversationTemplate("gcwslTrainerConvoTemplate", "trainer_gcwsl")
