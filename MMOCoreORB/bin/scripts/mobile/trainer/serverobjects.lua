@@ -35,3 +35,12 @@ includeFile("trainer/trainer_squadleader.lua")
 includeFile("trainer/trainer_tailor.lua")
 includeFile("trainer/trainer_unarmed.lua")
 includeFile("trainer/trainer_weaponsmith.lua")
+
+--gcw
+includeFile("trainer/trainer_gcwcommando.lua")
+includeFile("trainer/trainer_gcwsmuggler.lua")
+includeFile("trainer/trainer_gcwbh.lua")
+includeFile("trainer/trainer_gcwbrawler.lua")
+includeFile("trainer/trainer_gcwmedic.lua")
+includeFile("trainer/trainer_gcwranger.lua")
+includeFile("trainer/trainer_gcwsl.lua")

@@ -716,6 +716,111 @@ trainerSkills = {
 		"crafting_weaponsmith_techniques_04"
 	},
 
+	trainer_gcwsmuggler = {
+		"gcw_smuggler_novice",
+		"gcw_smuggler_master",
+		"gcw_smuggler_01",
+		"gcw_smuggler_02",
+		"gcw_smuggler_03",
+		"gcw_smuggler_04",
+		"gcw_smuggler_05",
+		"gcw_smuggler_06",
+		"gcw_smuggler_07",
+		"gcw_smuggler_08",
+		"gcw_smuggler_09",
+		"gcw_smuggler_10"
+	},
+
+	trainer_gcwbh = {
+		"gcw_bh_novice",
+		"gcw_bh_master",
+		"gcw_bh_01",
+		"gcw_bh_02",
+		"gcw_bh_03",
+		"gcw_bh_04",
+		"gcw_bh_05",
+		"gcw_bh_06",
+		"gcw_bh_07",
+		"gcw_bh_08",
+		"gcw_bh_09",
+		"gcw_bh_10"
+	},
+
+	trainer_gcwbrawler = {
+		"gcw_brawler_novice",
+		"gcw_brawler_master",
+		"gcw_brawler_01",
+		"gcw_brawler_02",
+		"gcw_brawler_03",
+		"gcw_brawler_04",
+		"gcw_brawler_05",
+		"gcw_brawler_06",
+		"gcw_brawler_07",
+		"gcw_brawler_08",
+		"gcw_brawler_09",
+		"gcw_brawler_10"
+	},
+
+	trainer_gcwcommando = {
+		"gcw_commando_novice",
+		"gcw_commando_master",
+		"gcw_commando_01",
+		"gcw_commando_02",
+		"gcw_commando_03",
+		"gcw_commando_04",
+		"gcw_commando_05",
+		"gcw_commando_06",
+		"gcw_commando_07",
+		"gcw_commando_08",
+		"gcw_commando_09",
+		"gcw_commando_10"
+	},
+
+	trainer_gcwmedic = {
+		"gcw_medic_novice",
+		"gcw_medic_master",
+		"gcw_medic_01",
+		"gcw_medic_02",
+		"gcw_medic_03",
+		"gcw_medic_04",
+		"gcw_medic_05",
+		"gcw_medic_06",
+		"gcw_medic_07",
+		"gcw_medic_08",
+		"gcw_medic_09",
+		"gcw_medic_10"
+	},
+
+	trainer_gcwranger = {
+		"gcw_ranger_novice",
+		"gcw_ranger_master",
+		"gcw_ranger_01",
+		"gcw_ranger_02",
+		"gcw_ranger_03",
+		"gcw_ranger_04",
+		"gcw_ranger_05",
+		"gcw_ranger_06",
+		"gcw_ranger_07",
+		"gcw_ranger_08",
+		"gcw_ranger_09",
+		"gcw_ranger_10"
+	},
+
+	trainer_gcwsl = {
+		"gcw_sl_novice",
+		"gcw_sl_master",
+		"gcw_sl_01",
+		"gcw_sl_02",
+		"gcw_sl_03",
+		"gcw_sl_04",
+		"gcw_sl_05",
+		"gcw_sl_06",
+		"gcw_sl_07",
+		"gcw_sl_08",
+		"gcw_sl_09",
+		"gcw_sl_10"
+	},
+
 	-- Jedi trainers
 
 	trainer_fs = {
